@@ -45,3 +45,9 @@ footer {
     bottom: 0;
     width: 100%;
 }
+
+.citation {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
