@@ -29,6 +29,23 @@ nav ul li a {
     text-decoration: none;
 }
 
+.profile-container {
+    display: flex;
+    align-items: flex-start;
+    margin-top: 20px;
+}
+
+.profile-picture {
+    width: 150px; /* Adjust the size as needed */
+    height: auto;
+    border-radius: 50%; /* Makes the picture circular */
+    margin-right: 20px; /* Adds space between the image and the text */
+}
+
+.about-text {
+    max-width: 600px;
+}
+
 section {
     margin: 20px;
 }
