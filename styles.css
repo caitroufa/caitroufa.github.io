@@ -56,7 +56,7 @@ section {
 footer {
     background-image: url('/images/auroraheader.jpg');
     background-size: cover;
-    background-position: bottom;
+    background-position: 50% 15%;
     color: white;
     text-align: center;
     padding: 10px;
