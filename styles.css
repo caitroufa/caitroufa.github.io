@@ -2,10 +2,14 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    padding-bottom: 60px;
 }
 
 header {
-    background-color: #333;
+    background-image: url('images/auroraheader.jpg');
+    background-size: cover;
+    background-position: center;
+    <!-- background-color: #333; -->
     color: white;
     padding: 10px;
     text-align: center;
@@ -31,7 +35,9 @@ section {
 }
 
 footer {
-    background-color: #333;
+    background-image: url('/images/auroraheader.jpg');
+    background-size: cover;
+    background-position: center;
     color: white;
     text-align: center;
     padding: 10px;
