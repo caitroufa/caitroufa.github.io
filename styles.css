@@ -76,6 +76,11 @@ section {
     height: auto; /* Keeps aspect ratio */
 }
 
+.medium-image {
+    width: 500px;
+    height: auto;
+}
+
 footer {
     background-image: url('/images/auroraheader.jpg');
     background-size: cover;
