@@ -59,16 +59,12 @@
                 <p><b>Data</b>: ERA5 surface and pressure level<br>3-31, 0Z to 4-1, 21Z<br>3 hourly data</p>
                 <p><b>Domain</b>: centered on IL<br>548 pts x 563 pts<br>3 km grid</p>
                 <p><b>Model Simulation</b>: WRF version 4.3.3 with default physics parameters, 1 hour output files<br><b>Control run</b>: unmodified ERA5 input data<br><b>"Minus" scenario</b>: subtract 2&deg;C from control run metgrid files<br><b>"Plus" scenario</b>: add 2&deg;C to control run metgrid files</p>
+                <p><b>Computations</b>: WRF CAPE variable output - Plus condition CAPE minus Control CAPE to get a delta, repeat for Minus condition, repeat with Plus condition minus the Minus condition</p>
             </div>
             <div class="case-image">
                 <img src="images/domain.png" alt="study domain">
             </div>
         </div>
-    </section>
-
-    <section>
-        <h2>Simulation Methods</h2>
-        <p>Control run - unmodified ERA5 input data<br>"Minus" scenario - subtract 2&deg;C from control run metgrid files<br>"Plus" scenario - add 2&deg;C to control run metgrid files</p>
     </section>
 
     <section>
@@ -80,15 +76,12 @@
             <li>Severe activity for the Minus condition in the southern portion of the domain terminates by 0Z, with an increase in widespread activity in the northern region of the domain</li>
             <li>More analysis of CIN and 0-6km shear </li>
         </ul>
-        <img src="" alt="">
-        <img src="" alt="">
-        <img src="" alt="">
-        <img src="" alt="">
-        <img src="" alt="">
-        <img src="" alt="">
-        <img src="" alt="">
-        <img src="" alt="">
-
+        <img src="images/reflectivity18z.png" alt="reflectivity at 18z">
+        <img src="images/reflectivity21z.png" alt="reflectivity at 21z">
+        <img src="images/reflectivity0z.png" alt="reflectivity at 0z">
+        <img src="images/capecontrol.png" alt="CAPE control vs actual">
+        <img src="images/capedelta.png" alt="CAPE deltas">
+        <img src="images/capedeltatotal.png" alt="CAPE deltas">
     </section>
 
     <footer>
