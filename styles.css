@@ -81,6 +81,11 @@ section {
     height: auto;
 }
 
+.large-image {
+    width: 800px;
+    height:auto;
+}
+
 footer {
     background-image: url('/images/auroraheader.jpg');
     background-size: cover;
