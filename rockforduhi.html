@@ -47,9 +47,43 @@
             </ul>
             <li><b>SUHI</b> - surface UHI uses land surface temps (LSTs) rather than atmospheric temps</li>
             <li>Exposure to UHI affects human health with over 1300 fatalities per year in the US attributed to extreme heat.</li>
+            <li><b>NDVI</b> - Normalized Difference Vegetation Index ranges from -1 to 1 and is calculated from IR and near IR satellite bands and measures the health and density of vegetation with low values representing low density/health and high values representing high density/health.</li>
             <li><b>SVI</b> - Social Vulnerability Index is a CDC metric used to communicate vulnerability of a community to manmade and natural disasters.</li>
             <li><b>HVI</b> - Heat Vulnerability Index is a submetric of SVI that specifically communicates heat related vulnerability.</li>
+            <ul>
+                <li><b>Redlining</b> is a contributing factor to both SVI and HVI, with ongoing social, economic, and health impacts.</li>
+            </ul>
+            <li><b>Rockford, IL</b> is a large city in Northern Illinois characterized by historical segregation and redlining practices and large income and demographic differences between neighborhoods.</li>
         </ul>
+    </section>
+
+    <section>
+        <h2>Methods</h2>
+        <p><b>Data</b>: Demographics, SVI, and HVI via US Census Bureau and CDC; Redlining boundaries from HOLC 1940's Map; Land use zoning maps from WinGIS; Collection 2, Tier 1, Level 2 dataset from Landsat-8</p>
+        <ul>
+            <li>ST Band 10 - Thermal IR</li>
+            <li>QA Pixel - mask out cloud shadows</li>
+            <li>Band 4 - Red</li>
+            <li>Band 5 - NIR</li>
+        </ul>
+        <p><b>Computations and GIS</b>:</p>
+        <ul>
+            <li>Map neighborhoods by zipcode, HVI, and HOLC redlining rating</li>
+            <li>Calculate neighborhood level and citywide SUHI using javascript in Google Earth Engine (GEE) $$ SUHI = meanLST_{urban} - meanLST{rural} $$</li>
+            <li>Calculate NDVI in GEE $$ NDVI = \frac{NIR - Red}{NIR + Red} $$ </li>
+            <li>Compare SUHI with NDVI, HVI, and land use to determine vulnerable neighborhoods and potential mitigation strategies.</li>
+        </ul>
+        <p><a href="https://code.earthengine.google.com/d9090664c83e72782d0dd6e27ead6f30">GEE Code Access</a></p>
+    </section>
+
+    <section>
+        <h2>Results</h2>
+        <h4>HVI and Redlining</h4>
+        <img src="images/holc-scan.jpg" alt="HOLC ratings rockford" class="medium-image">
+        <img src="images/hviholctable.png" alt="HOLC and HVI per neighborhood" class="small-image">
+        <h4></h4>
+        <img src="" alt="" class="">
+
     </section>
 
     <footer>
