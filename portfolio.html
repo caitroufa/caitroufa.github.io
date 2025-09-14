@@ -13,37 +13,82 @@
             <ul>
                 <li><a href="index.html">About Me</a></li>
                 <li><a href="cv.html">Experience</a></li>
-                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="portfolio.html" class="active">Portfolio</a></li>
                 <li><a href="dissertation.html">Dissertation</a></li>
                 <li><a href="publications.html">Publications</a></li>
-<!--                 <li><a href="teachingphilosophy.html">Teaching Philosophy</a></li> -->
                 <li><a href="contact.html">Contact</a></li>
             </ul>
         </nav>
     </header>
     
-    <section>
-        <h2>Portfolio</h2>
-        <p><b>Research projects in Atmospheric Science and GIS:</b></p>
-        <ul>
-            <li><a href="syntheticsevere.html">Future of Hazardous Convective Weather</a> Coming soon</li>
-            <li><a href="spatialsevere.html">Spatial Climatology of Severe Convective Weather and Housing Exposure</a> Coming soon</li>
-            <li><a href="snowil.html">Changes in Snow Coverage Area in Northern Illinois</a> Coming soon</li>
-            <li><a href="ppgw.html">"Pseudo" Pseudo Global Warming Case Study</a></li>
-            <li><a href="rockforduhi.html">Urban Heat Island Case Study Rockford, IL</a></li>
-        </ul>
+    <main>
+        <section>
+            <h2>Research Projects in Atmospheric Science & GIS</h2>
+            <div class="portfolio-grid">
+                
+                <div class="portfolio-item">
+                    <a href="syntheticsevere.html">
+                        <img src="images/placeholder.png" alt="Map of severe weather projections" class="thumb">
+                        <h3>Future of Hazardous Convective Weather</h3>
+                    </a>
+                    <p>Analyzing mid- and end-century shifts in tornado, hail, and wind risk using WRF-BCC climate simulations. <i>(Coming soon)</i></p>
+                </div>
 
-        <p><b>Education projects:</b></p>
-        <ul>
-            <li><a href="https://github.com/caitroufa/dynamicslabs">Atmospheric Dynamics Python Labs</a></li>
-            <li><a href="https://sites.google.com/view/steamcareers/home">STEAM Careers Curriculum</a></li>
-        </ul>
+                <div class="portfolio-item">
+                    <a href="spatialsevere.html">
+                        <img src="images/placeholder.png" alt="Map overlay of severe weather and housing exposure" class="thumb">
+                        <h3>Spatial Climatology & Housing Exposure</h3>
+                    </a>
+                    <p>Mapping severe convective weather exposure to housing across climatological periods. <i>(Coming soon)</i></p>
+                </div>
 
-<!--         <p><b>Other projects:</b></p>
-        <ul>
-            <li><a href="vomitcomet.html">Microgravity Research</a> Coming soon</li>
-        </ul> -->
-    </section>
+                <div class="portfolio-item">
+                    <a href="snowil.html">
+                        <img src="images/placeholder.png" alt="Snow cover satellite view" class="thumb">
+                        <h3>Snow Coverage in Northern Illinois</h3>
+                    </a>
+                    <p>Tracking annual changes in snow-covered area using Landsat-8 and NDSI-based detection. <i>(Coming soon)</i></p>
+                </div>
+
+                <div class="portfolio-item">
+                    <a href="ppgw.html">
+                        <img src="images/domain.png" alt="WRF model domain visualization" class="thumb">
+                        <h3>"Pseudo" Pseudo Global Warming Case Study</h3>
+                    </a>
+                    <p>Sensitivity analysis of the March 31, 2023 tornado outbreak environment under ±2°C perturbations.</p>
+                </div>
+
+                <div class="portfolio-item">
+                    <a href="rockforduhi.html">
+                        <img src="images/suhi.png" alt="Urban heat island map of Rockford, IL" class="thumb">
+                        <h3>Urban Heat Island in Rockford, IL</h3>
+                    </a>
+                    <p>Identifying vulnerable neighborhoods through NDVI, SUHI, and redlining analysis in Rockford, Illinois.</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Education Projects</h2>
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <a href="https://github.com/caitroufa/dynamicslabs" target="_blank">
+                        <img src="images/placeholder.png" alt="Python lab screenshot" class="thumb">
+                        <h3>Atmospheric Dynamics Python Labs</h3>
+                    </a>
+                    <p>Interactive labs for teaching gradient calculations, advection, and meteorological analysis in Python.</p>
+                </div>
+
+                <div class="portfolio-item">
+                    <a href="https://sites.google.com/view/steamcareers/home" target="_blank">
+                        <img src="images/placeholder.png" alt="STEAM careers curriculum graphic" class="thumb">
+                        <h3>STEAM Careers Curriculum</h3>
+                    </a>
+                    <p>Curriculum design connecting high school physics and earth science students with careers in STEM fields.</p>
+                </div>
+            </div>
+        </section>
+    </main>
 
     <footer>
         <p>&copy; 2025 Caitlin Roufa</p>
