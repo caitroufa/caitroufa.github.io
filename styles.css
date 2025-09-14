@@ -285,3 +285,40 @@ main section h2 {
 .intro-right {
     flex: 1;
 }
+
+/* --- Intro Layout --- */
+.intro-container {
+    display: flex;
+    align-items: center; /* vertically centers photo + text */
+    gap: 1.5rem;
+    flex-wrap: wrap;     /* stacks nicely on small screens */
+    margin-top: 1rem;
+}
+
+.intro-left img.profile-picture {
+    max-width: 180px;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.intro-right {
+    flex: 1;
+}
+
+.intro-right h2 {
+    margin: 0 0 0.5rem 0; /* keeps tight spacing above paragraph */
+}
+
+/* --- Fix Footer Cut-Off --- */
+body {
+    padding-bottom: 100px; /* space for footer */
+}
+
+footer {
+    height: 60px;          /* fixed footer height */
+}
+
+main, section, .bio-photo {
+    margin-bottom: 2rem;   /* ensures breathing room above footer */
+}
