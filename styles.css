@@ -204,10 +204,12 @@ main section h2 {
 }
 
 .bio-photo img {
-    max-width: 100%;
-    height: auto;
+    width: 100%;
+    max-width: 340px;  /* sets consistent size */
+    height: auto;      /* preserves proportions */
     border-radius: 8px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    display: block;
 }
 
 .bio-photo figcaption {
@@ -222,13 +224,11 @@ main section h2 {
 @media (min-width: 768px) {
     .bio-photo.left {
         float: left;
-        width: 40%;
         margin: 0 1.5rem 1rem 0;
     }
 
     .bio-photo.right {
         float: right;
-        width: 40%;
         margin: 0 0 1rem 1.5rem;
     }
 }
