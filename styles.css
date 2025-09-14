@@ -199,23 +199,14 @@ main section h2 {
     padding-bottom: 0.25rem;
 }
 
-/* --- Bio Photos --- */
 .bio-photo {
-    margin: 1.5rem 0;
-    max-width: 100%;
-    overflow: hidden;   /* ensures caption doesn’t get cut off */
-    padding-bottom: 1rem; /* buffer below photo + caption */
-    clear: both;         /* clears float stacking issues */
-}
-
-.bio-photo,
-section:last-of-type {
-    margin-bottom: 2rem; /* ensures breathing room above footer */
+    margin: 2rem auto;         /* centers block with space above/below */
+    max-width: 340px;          /* keeps consistent photo size */
+    text-align: center;        /* centers figcaption text */
 }
 
 .bio-photo img {
     width: 100%;
-    max-width: 340px;  /* consistent size */
     height: auto;
     border-radius: 8px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -228,20 +219,6 @@ section:last-of-type {
     color: #555;
     margin-top: 0.4rem;
     font-style: italic;
-    text-align: center;
-}
-
-/* Float photos on larger screens */
-@media (min-width: 768px) {
-    .bio-photo.left {
-        float: left;
-        margin: 0 1.5rem 1rem 0;
-    }
-
-    .bio-photo.right {
-        float: right;
-        margin: 0 0 1rem 1.5rem;
-    }
 }
 
 /* --- Hi I'm Cait section --- */
@@ -317,11 +294,4 @@ section:last-of-type {
 
 main, section, .bio-photo {
     margin-bottom: 2rem;   /* ensures breathing room above footer */
-}
-
-/* Fix bio photos getting cut off by footer */
-.bio-photo {
-    margin-bottom: 100px;  /* ensures extra buffer above footer */
-    overflow: auto;        /* forces container to expand around floated content */
-    clear: both;           /* pushes it below any floated siblings */
 }
