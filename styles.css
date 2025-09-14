@@ -208,6 +208,11 @@ main section h2 {
     clear: both;         /* clears float stacking issues */
 }
 
+.bio-photo,
+section:last-of-type {
+    margin-bottom: 2rem; /* ensures breathing room above footer */
+}
+
 .bio-photo img {
     width: 100%;
     max-width: 340px;  /* consistent size */
