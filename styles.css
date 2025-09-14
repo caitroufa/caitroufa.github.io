@@ -2,7 +2,7 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    padding-bottom: 80px;
+    padding-bottom: 100px;
     box-sizing: border-box;
 }
 
@@ -308,15 +308,6 @@ main section h2 {
 
 .intro-right h2 {
     margin: 0 0 0.5rem 0; /* keeps tight spacing above paragraph */
-}
-
-/* --- Fix Footer Cut-Off --- */
-body {
-    padding-bottom: 100px; /* space for footer */
-}
-
-footer {
-    height: 60px;          /* fixed footer height */
 }
 
 main, section, .bio-photo {
