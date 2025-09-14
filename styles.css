@@ -197,3 +197,38 @@ main section h2 {
     padding-bottom: 0.25rem;
 }
 
+/* --- Bio Photos --- */
+.bio-photo {
+    margin: 1.5rem 0;
+    max-width: 100%;
+}
+
+.bio-photo img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.bio-photo figcaption {
+    font-size: 0.85rem;
+    color: #555;
+    margin-top: 0.4rem;
+    font-style: italic;
+    text-align: center;
+}
+
+/* Float photos on larger screens */
+@media (min-width: 768px) {
+    .bio-photo.left {
+        float: left;
+        width: 40%;
+        margin: 0 1.5rem 1rem 0;
+    }
+
+    .bio-photo.right {
+        float: right;
+        width: 40%;
+        margin: 0 0 1rem 1.5rem;
+    }
+}
