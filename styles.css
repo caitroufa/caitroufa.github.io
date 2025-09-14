@@ -201,15 +201,19 @@ main section h2 {
 .bio-photo {
     margin: 1.5rem 0;
     max-width: 100%;
+    overflow: hidden;   /* ensures caption doesn’t get cut off */
+    padding-bottom: 1rem; /* buffer below photo + caption */
+    clear: both;         /* clears float stacking issues */
 }
 
 .bio-photo img {
     width: 100%;
-    max-width: 340px;  /* sets consistent size */
-    height: auto;      /* preserves proportions */
+    max-width: 340px;  /* consistent size */
+    height: auto;
     border-radius: 8px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     display: block;
+    margin: 0 auto;
 }
 
 .bio-photo figcaption {
@@ -231,4 +235,29 @@ main section h2 {
         float: right;
         margin: 0 0 1rem 1.5rem;
     }
+}
+
+/* --- Hi I'm Cait section --- */
+.profile-container {
+    display: flex;
+    align-items: flex-start; /* aligns top edges of pic + text */
+    gap: 1.5rem;
+    margin-top: 1rem;
+    flex-wrap: wrap; /* stacks on smaller screens */
+}
+
+.profile-picture {
+    max-width: 180px; /* keeps profile image tidy */
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.about-text {
+    flex: 1; /* takes remaining space */
+    display: flex;
+    align-items: center; /* vertically centers text with image/title */
+}
+.about-text p {
+    margin: 0;
 }
