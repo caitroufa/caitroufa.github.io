@@ -130,3 +130,70 @@ footer {
         max-width: 400px;
     }
 }
+
+/* --- Portfolio Grid Layout --- */
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 1.5rem;
+}
+
+/* --- Individual Project Card --- */
+.portfolio-item {
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.portfolio-item:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+}
+
+/* --- Thumbnails --- */
+.portfolio-item img.thumb {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    display: block;
+}
+
+/* --- Titles --- */
+.portfolio-item h3 {
+    font-size: 1.25rem;
+    margin: 0.75rem 0 0.5rem;
+    color: #003366; /* dark blue, adjust to match your palette */
+}
+
+/* --- Description Text --- */
+.portfolio-item p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    padding: 0 1rem 1.25rem;
+    color: #444;
+}
+
+/* --- Links --- */
+.portfolio-item a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.portfolio-item a:hover h3 {
+    color: #0077cc; /* highlight on hover */
+}
+
+/* --- Section Headings --- */
+main section h2 {
+    font-size: 1.5rem;
+    margin-top: 2rem;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 0.25rem;
+}
+
