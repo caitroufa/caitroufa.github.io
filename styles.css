@@ -292,6 +292,6 @@ main section h2 {
     margin: 0 0 0.5rem 0; /* keeps tight spacing above paragraph */
 }
 
-main, section, .bio-photo {
+/* main, section, .bio-photo {
     margin-bottom: 2rem;   /* ensures breathing room above footer */
-}
+} */
