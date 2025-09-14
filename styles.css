@@ -318,3 +318,10 @@ section:last-of-type {
 main, section, .bio-photo {
     margin-bottom: 2rem;   /* ensures breathing room above footer */
 }
+
+/* Fix bio photos getting cut off by footer */
+.bio-photo {
+    margin-bottom: 100px;  /* ensures extra buffer above footer */
+    overflow: auto;        /* forces container to expand around floated content */
+    clear: both;           /* pushes it below any floated siblings */
+}
