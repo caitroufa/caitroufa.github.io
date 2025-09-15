@@ -356,3 +356,34 @@ body {
     clear: both;            /* clears the floats */
     height: 100px;          /* match or slightly exceed footer height */
 }
+
+/* --- Bibliography Styling --- */
+.csl-bib-body {
+    line-height: 1.5;
+    margin: 1.5rem 2rem;
+    font-size: 0.95rem;
+    color: #222;
+}
+
+.csl-entry {
+    margin-bottom: 1rem;
+    text-indent: -1.5em;   /* hanging indent */
+    margin-left: 1.5em;    /* aligns properly after indent */
+}
+
+.csl-entry i {
+    font-style: italic;
+    color: #333;
+}
+
+.csl-entry a {
+    color: #0066cc;
+    text-decoration: none;
+    margin-left: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.csl-entry a:hover {
+    text-decoration: underline;
+    color: #004999;
+}
