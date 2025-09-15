@@ -327,6 +327,11 @@ body {
     .bio-photo.second {
         float: none;
     }
+    .contact-photo {
+        float: none;
+        margin: 1.5rem auto;
+        display: block;
+    }
 }
 
 .footer-spacer {
