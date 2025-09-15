@@ -72,17 +72,18 @@
 
     <!-- Methods -->
     <section>
-      <h2>Methods & Data</h2>
-      <p><b>Data Sources:</b> WRF-BCC simulations driven by CESM bias-corrected output
-      (Gensini et al. 2023), using proxies validated against SPC Storm Reports.</p>
-      <ul>
-        <li><b>Peril proxies:</b> Upward Vertical Velocity (UVV ≥ 25 m/s) and Reflectivity (≥ 40 dBZ).</li>
-        <li><b>Epochs:</b> HIST (1990–2005) vs END8.5 (2085–2100, RCP8.5).</li>
-        <li><b>Seasons:</b> Spring (MAM), Summer (JJA), Fall (SON), Winter (DJF).
-          <br>For this project: focus on MAM.</li>
-        <li>Hotspot analysis performed in <b>ArcGIS Pro</b> using Space-Time Cube and
-        Emerging Hotspot Analysis.</li>
-      </ul>
+      <h2>Methods</h2>
+      <p>
+        This project used <b>WRF-BCC model output</b> to quantify changes in hazardous convective
+        weather (HCW) environments across historical and future epochs. Daily event identification 
+        was based on thresholded updraft velocity and reflectivity fields, aggregated into 
+        seasonal counts. Space-time cube and hotspot analyses were performed to identify shifts 
+        in spatial and temporal risk under RCP4.5 and RCP8.5 scenarios.
+      </p>
+      <figure>
+        <img src="images/scw_bcc_workflow.png" alt="Workflow diagram of SCW project analysis" class="large-image">
+        <figcaption>Workflow for SCW hotspot and delta analysis using WRF-BCC output.</figcaption>
+      </figure>
     </section>
 
     <!-- Results -->
