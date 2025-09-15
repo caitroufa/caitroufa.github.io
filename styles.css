@@ -120,19 +120,6 @@ footer {
     object-fit: cover;
 }
 
-/* Stack vertically on smaller screens and mobile */
-@media (max-width: 768px) {
-    .photo-row {
-        flex-direction: column;
-        align-items: center;   /* center the stacked images */
-    }
-
-    .photo-row img {
-        width: 80%;            /* make them bigger when stacked */
-        max-width: 400px;
-    }
-}
-
 /* --- Portfolio Grid Layout --- */
 .portfolio-grid {
     display: grid;
@@ -198,13 +185,6 @@ main section h2 {
     border-bottom: 2px solid #ddd;
     padding-bottom: 0.25rem;
 }
-
-/* Default: photos centered (for mobile-first design) */
-/* .bio-photo {
-    margin: 1.5rem auto;
-    max-width: 340px;
-    text-align: center;
-} */
 
 .bio-photo img {
     width: 100%;
@@ -344,6 +324,18 @@ body {
     display: block;
 }
 
+/* Stack vertically on smaller screens and mobile */
+@media (max-width: 768px) {
+    .photo-row {
+        flex-direction: column;
+        align-items: center;   /* center the stacked images */
+    }
+
+    .photo-row img {
+        width: 80%;            /* make them bigger when stacked */
+        max-width: 400px;
+    }
+}
 /* Mobile/smaller screens: center images with spacing */
 @media (max-width: 768px) {
     .bio-photo {
