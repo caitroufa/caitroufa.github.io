@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Cait Roufa | About Me</title>
+    <title>Cait Roufa | Portfolio – Snow Coverage in Illinois</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <body>
     <header>
@@ -14,18 +15,121 @@
             <ul>
                 <li><a href="index.html">About Me</a></li>
                 <li><a href="cv.html">Experience</a></li>
-                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="portfolio.html" class="active">Portfolio</a></li>
                 <li><a href="dissertation.html">Dissertation</a></li>
                 <li><a href="publications.html">Publications</a></li>
-<!--                 <li><a href="teachingphilosophy.html">Teaching Philosophy</a></li> -->
                 <li><a href="contact.html">Contact</a></li>
             </ul>
         </nav>
     </header>
 
-    <section>
-        <p>Coming soon!</p>
-    </section>
+    <main>
+
+      <!-- Project Header -->
+      <section class="project-header">
+          <h1>Changes in Snow Coverage Area in Illinois</h1>
+          <p><i>Remote Sensing of the Environment • EAE 560 • Spring 2025</i></p>
+          <hr/>
+      </section>
+
+      <!-- Project Summary -->
+      <section class="project-summary">
+          <h2>Project Summary</h2>
+          <p>
+            This study examined <b>snow coverage trends in Illinois</b> using Landsat-8 imagery 
+            (2014–2025). I calculated <b>Normalized Difference Snow Index (NDSI)</b> to detect 
+            snow cover in January (midwinter) and March (spring shoulder season). The results 
+            show increasing snow coverage in January but decreasing coverage in March, 
+            reflecting broader patterns of snow drought in the Midwest. Findings highlight the 
+            importance of regional snow monitoring for <b>agriculture, water resources, and 
+            climate feedbacks</b>.
+          </p>
+      </section>
+
+      <!-- Research Questions -->
+      <section>
+          <h2>Research Questions</h2>
+          <ul>
+              <li>How has snow coverage area in Illinois changed between 2014–2025?</li>
+              <li>Are midwinter and spring trends consistent with broader North American studies?</li>
+              <li>How variable is snow coverage year to year?</li>
+          </ul>
+      </section>
+
+      <!-- Background -->
+      <section>
+          <h2>Background</h2>
+          <p>
+            Snow cover affects <b>water resources, agriculture, climate feedbacks, transportation, 
+            and ecosystems</b>. While North American snow extent has remained stable in midwinter, 
+            <b>spring snow cover has decreased</b>, shortening the snow season by two weeks. 
+            Studies show declining snow depth and snowpack mass across the Great Lakes and 
+            Midwest, contributing to <b>soil moisture deficits and drought risk</b>.
+          </p>
+          <p>
+            Climate projections suggest continued <b>reductions in snowpack mass and snowfall 
+            events</b>, particularly at lower latitudes, raising concerns for Midwest water and 
+            agricultural systems.
+          </p>
+      </section>
+
+      <!-- Methods -->
+      <section>
+          <h2>Methods & Data</h2>
+          <p><b>Data Sources:</b> Landsat-8 (2014–2025), QA Pixel for cloud masking, U.S. Census shapefiles for AOI (Illinois).</p>
+          <ul>
+              <li><b>NDSI:</b> Calculated with Bands 3 (green) and 6 (SWIR):  
+                  <span class="math">\( NDSI = \frac{Band_3 - Band_6}{Band_3 + Band_6} \)</span>
+              </li>
+              <li>Threshold of NDSI &gt; 0.4 applied to create binary snow masks.</li>
+              <li>Calculated statewide snow area (km² and % of Illinois area) for January and March.</li>
+              <li>Generated time series and percentile statistics to assess trends and extremes.</li>
+              <li>Attempted hotspot analysis using ArcGIS Pro (multidimensional rasters), though time formatting prevented completion.</li>
+          </ul>
+          <p>
+            GitHub repository with code:  
+            <a href="https://github.com/caitroufa/snow_extent" target="_blank">Snow Extent Project Repository</a>
+          </p>
+      </section>
+
+      <!-- Results -->
+      <section>
+          <h2>Results</h2>
+          <p><b>January:</b> Increasing trend in snow coverage, with several extreme years (2021, 2025).  
+             <b>March:</b> Decreasing trend, fewer extreme snowfall years.</p>
+          <p>Both months show <b>high year-to-year variability</b>, with northern Illinois typically holding 
+             the greatest snow coverage, though 2025 showed an unusual central shift.</p>
+
+          <div class="results-gallery">
+              <figure>
+                  <img src="images/snow_area_timeseries_january_trend_stddev.jpg" 
+                       alt="Time series of January snow area" class="medium-image">
+                  <figcaption>January Snow Area Trends (2014–2025)</figcaption>
+              </figure>
+              <figure>
+                  <img src="images/snow_area_timeseries_march_trend_stddev.jpg" 
+                       alt="Time series of March snow area" class="medium-image">
+                  <figcaption>March Snow Area Trends (2014–2025)</figcaption>
+              </figure>
+              <figure>
+                  <img src="images/ndsi_image_january.png" 
+                       alt="Sample NDSI January 2025 mosaic" class="medium-image">
+                  <figcaption>Sample NDSI Map – January 2025</figcaption>
+              </figure>
+          </div>
+      </section>
+
+      <!-- Conclusions -->
+      <section>
+          <h2>Conclusions</h2>
+          <ul>
+              <li><b>January snow area increased</b> during the study period, including more extreme events.</li>
+              <li><b>March snow area decreased</b>, aligning with larger-scale North American trends.</li>
+              <li>High variability limits significance given the short 11-year record.</li>
+              <li>Future work: add hotspot analysis, extend record with older Landsat products, and expand to regional comparisons.</li>
+          </ul>
+      </section>
+    </main>
 
     <footer>
         <p>&copy; 2025 Caitlin Roufa</p>
