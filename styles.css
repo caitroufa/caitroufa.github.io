@@ -199,8 +199,9 @@ main section h2 {
     padding-bottom: 0.25rem;
 }
 
+/* Default: photos centered (for mobile-first design) */
 .bio-photo {
-    margin: 2rem auto;
+    margin: 1.5rem auto;
     max-width: 340px;
     text-align: center;
 }
@@ -209,16 +210,23 @@ main section h2 {
     width: 100%;
     height: auto;
     border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     display: block;
     margin: 0 auto;
 }
 
-.bio-photo figcaption {
-    font-size: 0.85rem;
-    color: #555;
-    margin-top: 0.4rem;
-    font-style: italic;
+/* On larger screens, float photos left with text wrapping */
+@media (min-width: 768px) {
+    .bio-photo {
+        float: left;
+        margin: 0 1.5rem 1rem 0; /* space on right + below */
+        max-width: 280px;       /* keeps photo narrow enough for wrap */
+        text-align: left;
+    }
+
+    .bio-photo img {
+        margin: 0; /* reset auto-centering */
+    }
 }
 
 /* --- Hi I'm Cait section --- */
