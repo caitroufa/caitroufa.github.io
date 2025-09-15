@@ -323,3 +323,8 @@ main section h2 {
         text-align: left;
     }
 }
+
+/* Force the second bio photo to start on its own line */
+.bio-photo.second {
+    clear: left; /* pushes it below the first floated element */
+}
