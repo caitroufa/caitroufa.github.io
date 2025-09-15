@@ -200,9 +200,9 @@ main section h2 {
 }
 
 .bio-photo {
-    margin: 2rem auto;         /* centers block with space above/below */
-    max-width: 340px;          /* keeps consistent photo size */
-    text-align: center;        /* centers figcaption text */
+    margin: 2rem auto;
+    max-width: 340px;
+    text-align: center;
 }
 
 .bio-photo img {
@@ -291,7 +291,3 @@ main section h2 {
 .intro-right h2 {
     margin: 0 0 0.5rem 0; /* keeps tight spacing above paragraph */
 }
-
-/* main, section, .bio-photo {
-    margin-bottom: 2rem;   /* ensures breathing room above footer */
-} */
