@@ -311,6 +311,9 @@ body {
         margin: 1.5rem auto;  /* centers image with vertical buffer */
         display: block;
     }
+    .bio-photo.second {
+        float: none;
+    }
 }
 
 .footer-spacer {
