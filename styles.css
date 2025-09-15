@@ -308,11 +308,11 @@ main section h2 {
 }
 
 /* Default mobile (photos centered) */
-.bio-photo {
+/* .bio-photo {
     margin: 1.5rem auto;
     max-width: 340px;
     text-align: center;
-}
+} */
 
 /* Photos floated left on larger screens */
 /* @media (min-width: 900px) {
