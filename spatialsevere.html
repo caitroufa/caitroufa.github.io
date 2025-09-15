@@ -1,33 +1,145 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Cait Roufa | About Me</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cait Roufa | Portfolio – Historical SCW Impacts</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <h1>Cait Roufa</h1>
-        <nav>
-            <ul>
-                <li><a href="index.html">About Me</a></li>
-                <li><a href="cv.html">Experience</a></li>
-                <li><a href="portfolio.html">Portfolio</a></li>
-                <li><a href="dissertation.html">Dissertation</a></li>
-                <li><a href="publications.html">Publications</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+  <header>
+    <h1>Cait Roufa</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">About Me</a></li>
+        <li><a href="cv.html">Experience</a></li>
+        <li><a href="portfolio.html" class="active">Portfolio</a></li>
+        <li><a href="dissertation.html">Dissertation</a></li>
+        <li><a href="publications.html">Publications</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
 
-    <section>
-        <p>Coming soon!</p>
+  <main>
+    <!-- Project Header -->
+    <section class="project-header">
+      <h1>Historical Impacts of Severe Convective Weather (SCW)</h1>
+      <p><i>GIS Project • EAE 557 • December 2024</i></p>
+      <hr/>
     </section>
 
-    <footer>
-        <p>&copy; 2025 Caitlin Roufa</p>
-    </footer>
+    <!-- Summary -->
+    <section class="project-summary">
+      <h2>Project Summary</h2>
+      <p>
+        This project examined historical <b>severe convective weather perils</b> (tornadoes, hail, and damaging wind) 
+        and their impacts on communities across the U.S. Using county-level counts, percent changes, and hotspot 
+        analysis in ArcGIS Pro, I connected changes in peril occurrence to housing exposure, population, and 
+        social vulnerability. The analysis highlights how hazard risk intersects with demographic and housing 
+        characteristics, informing resilience and planning decisions.
+      </p>
+    </section>
+
+    <!-- Research Questions -->
+    <section>
+      <h2>Research Questions</h2>
+      <ul>
+        <li>How have historical SCW perils changed between two climatological periods?</li>
+        <li>Where are the statistically significant hotspots of change located?</li>
+        <li>How do these changes overlap with housing unit distribution, population, and social vulnerability?</li>
+      </ul>
+    </section>
+
+    <!-- Methods -->
+    <section>
+      <h2>Methods & Data</h2>
+      <p><b>Data:</b> County-level counts of tornado, hail, and wind perils; U.S. Census housing and population data; CDC Social Vulnerability Index (SVI).</p>
+      <ul>
+        <li>Created county-level peril counts for two climatological periods (P1 and P2)</li>
+        <li>Calculated <b>deltas</b> (count and percent change) between periods</li>
+        <li>Performed <b>hotspot analysis</b> in ArcGIS Pro to identify statistically significant clusters</li>
+        <li>Compared peril changes with <b>housing units, population distribution, and SVI</b></li>
+      </ul>
+      <figure>
+        <img src="images/EAE557_GIS_FlowDiagram2.pdf" alt="Workflow diagram of historical SCW GIS analysis" class="large-image">
+        <figcaption>Workflow diagram for SCW historical impact analysis in ArcGIS Pro.</figcaption>
+      </figure>
+    </section>
+
+    <!-- Results -->
+    <section>
+      <h2>Results</h2>
+      <div class="results-gallery">
+        <figure>
+          <img src="images/P1Count.jpg" alt="Period 1 peril counts" class="medium-image">
+          <figcaption>SCW peril counts – Period 1.</figcaption>
+        </figure>
+        <figure>
+          <img src="images/P2Count.jpg" alt="Period 2 peril counts" class="medium-image">
+          <figcaption>SCW peril counts – Period 2.</figcaption>
+        </figure>
+        <figure>
+          <img src="images/CountDelta.jpg" alt="Count deltas between periods" class="medium-image">
+          <figcaption>Change in peril counts (P2 – P1).</figcaption>
+        </figure>
+        <figure>
+          <img src="images/DeltaHotspots.jpg" alt="Hotspot analysis" class="medium-image">
+          <figcaption>Hotspot analysis of peril changes.</figcaption>
+        </figure>
+        <figure>
+          <img src="images/HousingUnits.jpg" alt="Housing units distribution" class="medium-image">
+          <figcaption>Housing unit distribution across counties.</figcaption>
+        </figure>
+        <figure>
+          <img src="images/Population.jpg" alt="Population distribution" class="medium-image">
+          <figcaption>Population distribution.</figcaption>
+        </figure>
+        <figure>
+          <img src="images/SVI.jpg" alt="Social Vulnerability Index" class="medium-image">
+          <figcaption>CDC Social Vulnerability Index (SVI).</figcaption>
+        </figure>
+        <figure>
+          <img src="images/PercentMH.jpg" alt="Percent manufactured housing" class="medium-image">
+          <figcaption>Percent manufactured housing.</figcaption>
+        </figure>
+        <figure>
+          <img src="images/HotHU.jpg" alt="Hotspot overlay with housing units" class="medium-image">
+          <figcaption>Hotspots overlaid with housing units.</figcaption>
+        </figure>
+        <figure>
+          <img src="images/HotMH.jpg" alt="Hotspot overlay with manufactured housing" class="medium-image">
+          <figcaption>Hotspots and manufactured housing.</figcaption>
+        </figure>
+        <figure>
+          <img src="images/HotSVI.jpg" alt="Hotspot overlay with SVI" class="medium-image">
+          <figcaption>Hotspots and Social Vulnerability Index (SVI).</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- Reflection -->
+    <section>
+      <h2>Reflection & Learning Outcomes</h2>
+      <p>
+        Through this project, I became much more confident using <b>ArcGIS Pro</b> to analyze and solve spatial problems, 
+        particularly hotspot analysis. I also learned to critically evaluate remote sensing and gridded datasets, 
+        verifying that data is usable before committing to an approach. One key lesson was identifying potential 
+        data early in the brainstorming phase and testing it in ArcGIS before finalizing a project idea:contentReference[oaicite:0]{index=0}.
+      </p>
+      <p>
+        Challenges included <b>data quality issues</b>, such as unavailable or misaligned datasets. Overcoming these 
+        challenges reinforced the importance of flexibility and backup planning:contentReference[oaicite:1]{index=1}. 
+      </p>
+      <p>
+        For future projects, I would advise others to identify and test data early, communicate challenges with 
+        instructors, and remain adaptable when setbacks occur:contentReference[oaicite:2]{index=2}.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Caitlin Roufa</p>
+  </footer>
 </body>
 </html>
