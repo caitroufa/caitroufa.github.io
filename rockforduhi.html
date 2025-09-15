@@ -3,10 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cait Roufa | Portfolio</title>
+    <title>Cait Roufa | Portfolio – Rockford UHI Case Study</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <body>
     <header>
@@ -15,7 +13,7 @@
             <ul>
                 <li><a href="index.html">About Me</a></li>
                 <li><a href="cv.html">Experience</a></li>
-                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="portfolio.html" class="active">Portfolio</a></li>
                 <li><a href="dissertation.html">Dissertation</a></li>
                 <li><a href="publications.html">Publications</a></li>
                 <li><a href="contact.html">Contact</a></li>
@@ -23,123 +21,124 @@
         </nav>
     </header>
 
-    <section>
-        <h1>Case Study: Urban Heat Island Vulnerability in Rockford, IL</h1>
-        <p><i>Project developed for Remote Sensing Course – December 2023</i></p>
-        <hr/>
+    <main>
+      <!-- Project Header -->
+      <section class="project-header">
+          <h1>Urban Heat Island Vulnerability in Rockford, IL</h1>
+          <p><i>Remote Sensing Case Study • EAE 554 • December 2023</i></p>
+          <p>
+            <a href="pubs/Roufa_RockfordUHI_TermProject.pdf" target="_blank">[Download Full Report PDF]</a>
+          </p>
+          <hr/>
+      </section>
 
-        <div class="project-summary">
-            <h2>Project Summary</h2>
-            <p>This case study examines the severity and distribution of the urban heat island (UHI) effect in Rockford, Illinois, with a focus on neighborhood-level vulnerability. Using Landsat-8 data, vegetation indices, and social vulnerability metrics, I identified areas where high surface temperatures overlap with social and environmental risk factors. The analysis highlights how historic redlining and land use patterns contribute to present-day disparities and offers strategies to mitigate heat-related health impacts.</p>
-        </div>
+      <!-- Summary -->
+      <section class="project-summary">
+          <h2>Project Summary</h2>
+          <p>
+            This case study investigates how the urban heat island (UHI) effect interacts with 
+            social and environmental vulnerabilities in Rockford, Illinois. Using 
+            <b>Landsat-8 remote sensing data, vegetation indices (NDVI), and 
+            CDC/US Census vulnerability metrics</b>, I quantified neighborhood-level
+            UHI intensity and its overlap with social vulnerability (SVI/HVI) and 
+            historic redlining. The results show stark disparities in exposure, with 
+            certain neighborhoods facing higher heat burdens due to both 
+            environmental and socioeconomic factors.
+          </p>
+      </section>
 
-        <h2>Research Questions</h2>
-        <ul>
-            <li>What is the severity of the urban heat island (UHI) in Rockford, IL?</li>
-            <li>Which neighborhoods are most impacted by UHI?</li>
-            <li>What mitigation strategies could reduce UHI and heat-related risks for vulnerable communities?</li>
-        </ul>
-    </section>
+      <!-- Research Questions -->
+      <section>
+          <h2>Research Questions</h2>
+          <ul>
+              <li>How severe is the UHI effect in Rockford, IL?</li>
+              <li>Which neighborhoods are most impacted by elevated surface temperatures?</li>
+              <li>How do vegetation cover, land use, and historic redlining contribute?</li>
+              <li>What mitigation strategies could reduce heat risks for vulnerable communities?</li>
+          </ul>
+      </section>
 
-    <!-- Background -->
-    <section>
-        <h2>Background</h2>
-        <ul>
-            <li><b>Urban Heat Island (UHI):</b> when urban areas are warmer than surrounding rural areas due to:
-                <ul>
-                    <li>Built environment</li>
-                    <li>Reduced vegetation</li>
-                    <li>Anthropogenic waste heat (e.g., vehicle exhaust, AC units, industry)</li>
-                    <li>Weather and geography</li>
-                </ul>
-            </li>
-            <li><b>SUHI:</b> surface UHI, based on land surface temperatures (LSTs) rather than air temperatures.</li>
-            <li><b>Public health:</b> Extreme heat causes over 1,300 fatalities annually in the U.S.</li>
-            <li><b>NDVI:</b> Normalized Difference Vegetation Index (–1 to 1), derived from red and near-infrared satellite bands; higher values = denser/healthier vegetation.</li>
-            <li><b>SVI:</b> Social Vulnerability Index, a CDC metric for community vulnerability to natural/manmade hazards.</li>
-            <li><b>HVI:</b> Heat Vulnerability Index, a sub-metric of SVI specific to heat vulnerability.
-            <li><b>Redlining:</b> historic practice of rating neighborhoods for lenders by race/class, contributing to present-day SVI/HVI disparities.</li>
-            </li>
-            <li><b>Rockford, IL:</b> a large northern Illinois city with a legacy of segregation, redlining, and income disparities across neighborhoods.</li>
-        </ul>
-    </section>
+      <!-- Background -->
+      <section>
+          <h2>Background</h2>
+          <p>
+            Urban heat islands form when built environments store solar heat more 
+            efficiently than vegetated or rural areas. Factors include 
+            <b>impervious surfaces, reduced vegetation, anthropogenic waste heat, 
+            and local weather/geography</b>:contentReference[oaicite:1]{index=1}. Exposure to extreme heat is 
+            a leading weather-related cause of mortality in the U.S., responsible for 
+            over 1,300 deaths annually:contentReference[oaicite:2]{index=2}. 
+          </p>
+          <p>
+            Vulnerability is not evenly distributed. <b>Social Vulnerability Index (SVI)</b> 
+            and its heat-focused sub-index (<b>HVI</b>) reveal inequities tied to race, income, 
+            housing, and historic practices such as <b>redlining</b>. Rockford’s legacy of 
+            redlined neighborhoods makes it an important case for assessing UHI and 
+            equity:contentReference[oaicite:3]{index=3}.
+          </p>
+      </section>
 
-    <!-- Methods -->
-    <section>
-        <h2>Methods</h2>
-        <p><b>Data:</b> U.S. Census Bureau and CDC (demographics, SVI, HVI); HOLC 1940s redlining maps; WinGIS zoning maps; Landsat-8 Collection 2, Tier 1, Level 2 data.</p>
-        <ul>
-            <li>Band 10 – Thermal IR</li>
-            <li>QA Pixel – cloud/shadow masking</li>
-            <li>Band 4 – Red</li>
-            <li>Band 5 – NIR</li>
-        </ul>
-        <p><b>Analysis:</b></p>
-        <ul>
-            <li>Mapped neighborhoods by ZIP code, HVI, and HOLC redlining rating</li>
-            <li>Calculated SUHI in Google Earth Engine (GEE):  
-                $$ SUHI = \overline{LST}_{urban} - \overline{LST}_{rural} $$
-            </li>
-            <li>Calculated NDVI in GEE:  
-                $$ NDVI = \frac{NIR - Red}{NIR + Red} $$
-            </li>
-            <li>Compared SUHI with NDVI, HVI, and land use to identify vulnerable neighborhoods and potential mitigation strategies.</li>
-        </ul>
-        <p><a href="https://code.earthengine.google.com/d9090664c83e72782d0dd6e27ead6f30">View GEE Code</a></p>
-    </section>
+      <!-- Methods -->
+      <section>
+          <h2>Methods & Data</h2>
+          <p><b>Data Sources:</b> Landsat-8 Collection 2 (Bands 4, 5, 10, QA Pixel), CDC SVI/HVI datasets, HOLC 1940s redlining maps, WinGIS zoning data, U.S. Census Bureau demographics:contentReference[oaicite:4]{index=4}.</p>
+          <ul>
+              <li><b>SUHI:</b> Calculated as mean LST<sub>urban</sub> – mean LST<sub>rural</sub> (°C).</li>
+              <li><b>NDVI:</b> $$NDVI = \frac{NIR - Red}{NIR + Red}$$</li>
+              <li>Neighborhood boundaries defined by ZIP codes for consistent socio-demographic analysis.</li>
+              <li>Analysis performed in <b>Google Earth Engine (JavaScript)</b> and GIS tools.</li>
+          </ul>
+          <p>
+            <a href="https://code.earthengine.google.com/d9090664c83e72782d0dd6e27ead6f30" target="_blank">View NDVI Code</a> |
+            <a href="https://code.earthengine.google.com/b9695217326c1a33306686d02c8c14eb" target="_blank">View SUHI Code</a>
+          </p>
+      </section>
 
-    <!-- Results -->
-    <section>
-        <h2>Results</h2>
-        <p><b>Most vulnerable neighborhood: ZIP 61104</b></p>
-        <ul>
-            <li>Highest SUHI: 9.4&nbsp;&deg;C</li>
-            <li>On an 84&nbsp;&deg;F day, local temps reach 95–100&nbsp;&deg;F</li>
-            <li>High HVI (24/26)</li>
-            <li>Lowest NDVI (0.267)</li>
-            <li>Land use: industrial/commercial corridors with limited green space</li>
-        </ul>
+      <!-- Results -->
+      <section>
+          <h2>Results</h2>
+          <p>
+            Rockford’s average summer SUHI was <b>6.7&nbsp;°C</b> above rural surroundings. 
+            The most impacted neighborhood was <b>ZIP 61104</b>, a historically redlined 
+            area, with:
+          </p>
+          <ul>
+              <li>SUHI of <b>9.4&nbsp;°C</b></li>
+              <li>HVI score of <b>24/26</b></li>
+              <li>Lowest NDVI (0.267)</li>
+              <li>Land use dominated by industrial/commercial corridors</li>
+          </ul>
 
-        <h3>HVI and Redlining</h3>
-        <img src="images/hvidata.png" alt="Map of HOLC redlining ratings compared to neighborhood HVI" class="medium-image">
+          <div class="results-gallery">
+              <figure>
+                  <img src="images/hvidata.png" alt="HVI and redlining by neighborhood" class="medium-image">
+                  <figcaption>Heat Vulnerability Index (HVI) vs. Redlining</figcaption>
+              </figure>
+              <figure>
+                  <img src="images/suhi.png" alt="SUHI intensity map" class="medium-image">
+                  <figcaption>Surface Urban Heat Island Intensity (°C)</figcaption>
+              </figure>
+              <figure>
+                  <img src="images/ndvi.png" alt="NDVI vegetation density" class="medium-image">
+                  <figcaption>Normalized Difference Vegetation Index (NDVI)</figcaption>
+              </figure>
+              <figure>
+                  <img src="images/landuse.png" alt="Land use zoning" class="medium-image">
+                  <figcaption>Land Use Zoning – Industrial & Commercial Hotspots</figcaption>
+              </figure>
+          </div>
+      </section>
 
-        <h3>SUHI</h3>
-        <img src="images/suhi.png" alt="Map of surface urban heat island intensity in Rockford" class="medium-image">
-        <img src="images/suhidata.png" alt="Graph of SUHI values by neighborhood" class="medium-image">
-
-        <h3>NDVI</h3>
-        <img src="images/ndvi.png" alt="NDVI vegetation density map of Rockford neighborhoods" class="medium-image">
-
-        <h3>Land Use</h3>
-        <img src="images/landuse.png" alt="Map of land use zoning in Rockford neighborhoods" class="medium-image">
-    </section>
-
-    <!-- Mitigation -->
-    <section>
-        <h2>Mitigation Recommendations</h2>
-        <ul>
-            <li><b>Increase vegetation and green space:</b>
-                <ul>
-                    <li>Vegetation can reduce surface temperatures by 5–25&nbsp;&deg;C</li>
-                    <li>Plant street trees and add landscaped medians in parking lots</li>
-                    <li>Create new parks in underused or reclaimed lots</li>
-                    <li>Provide free trees/shrubs to residents</li>
-                </ul>
-            </li>
-            <li><b>Improve industrial and commercial practices:</b>
-                <ul>
-                    <li>Incentivize light-colored/reflective roofs and green roofs (increase reflectance up to 75%)</li>
-                    <li>Encourage efficiency upgrades to reduce waste heat</li>
-                </ul>
-            </li>
-            <li><b>Public outreach:</b>
-                <ul>
-                    <li>Educate residents about heat hazards through libraries, schools, local media, and mailers</li>
-                    <li>Create “cool spaces” (extended library hours, splash pads, cooling centers) and provide transport/access support</li>
-                </ul>
-            </li>
-        </ul>
-    </section>
+      <!-- Mitigation -->
+      <section>
+          <h2>Mitigation Recommendations</h2>
+          <ul>
+              <li><b>Expand vegetation:</b> Plant street trees, add shaded medians, reclaim vacant lots as parks, and provide free trees to residents.</li>
+              <li><b>Cooler infrastructure:</b> Incentivize reflective/light roofs and green roofs; improve industrial energy efficiency.</li>
+              <li><b>Community outreach:</b> Extend cooling center hours, partner with schools/libraries, and educate residents on heat safety.</li>
+          </ul>
+      </section>
+    </main>
 
     <footer>
         <p>&copy; 2025 Caitlin Roufa</p>
