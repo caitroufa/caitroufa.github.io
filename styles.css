@@ -326,7 +326,8 @@ main section h2 {
 
 /* Force the second bio photo to start on its own line */
 .bio-photo.second {
-    clear: left; /* pushes it below the first floated element */
+    clear: right; 
+    float: left;
 }
 
 /* Ensure main content has space for fixed footer */
@@ -337,9 +338,9 @@ body {
 /* Desktop: float images left with buffer */
 .bio-photo {
     max-width: 340px;
-    margin: 1rem 1.5rem 1rem 0; /* space on right & below */
-    float: left;
-    clear: left; /* forces them to align in a neat left column */
+    margin: 1rem 1.5rem; 
+    float: right;
+    clear: both;
     display: block;
 }
 
