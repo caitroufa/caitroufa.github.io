@@ -200,11 +200,11 @@ main section h2 {
 }
 
 /* Default: photos centered (for mobile-first design) */
-.bio-photo {
+/* .bio-photo {
     margin: 1.5rem auto;
     max-width: 340px;
     text-align: center;
-}
+} */
 
 .bio-photo img {
     width: 100%;
@@ -216,13 +216,13 @@ main section h2 {
 }
 
 /* On larger screens, float photos left with text wrapping */
-@media (min-width: 768px) {
+/* @media (min-width: 768px) {
     .bio-photo {
         float: left;
         margin: 0 1.5rem 1rem 0; /* space on right + below */
-        max-width: 280px;       /* keeps photo narrow enough for wrap */
-        text-align: left;
-    }
+/*         max-width: 280px;       /* keeps photo narrow enough for wrap */
+/*         text-align: left;
+    } */ */ */
 
     .bio-photo img {
         margin: 0; /* reset auto-centering */
@@ -315,16 +315,33 @@ main section h2 {
 }
 
 /* Photos floated left on larger screens */
-@media (min-width: 900px) {
+/* @media (min-width: 900px) {
     .bio-photo {
         float: left;
         margin: 0 1.5rem 1rem 0;
         max-width: 280px;
         text-align: left;
     }
-}
+} */
 
 /* Force the second bio photo to start on its own line */
 .bio-photo.second {
     clear: left; /* pushes it below the first floated element */
+}
+
+/* Desktop: float images left with buffer */
+.bio-photo {
+    max-width: 340px;
+    margin: 1rem 1.5rem 1rem 0;
+    float: left;
+    clear: left; /* keeps images stacked along left margin */
+}
+
+/* Mobile/smaller screens: stack images with padding */
+@media (max-width: 768px) {
+    .bio-photo {
+        float: none;
+        display: block;
+        margin: 1.5rem auto;  /* centers images with vertical buffer */
+    }
 }
