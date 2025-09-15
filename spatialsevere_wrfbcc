@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cait Roufa | Portfolio – Future Severe Convective Weather</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+  <header>
+    <h1>Cait Roufa</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">About Me</a></li>
+        <li><a href="cv.html">Experience</a></li>
+        <li><a href="portfolio.html" class="active">Portfolio</a></li>
+        <li><a href="dissertation.html">Dissertation</a></li>
+        <li><a href="publications.html">Publications</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Project Header -->
+    <section class="project-header">
+      <h1>Spatial Climatology of Severe Convective Weather Perils in the U.S.</h1>
+      <p><i>GIS Term Project • EAE 559 • Spring 2025</i></p>
+      <hr/>
+    </section>
+
+    <!-- Summary -->
+    <section class="project-summary">
+      <h2>Project Summary</h2>
+      <p>
+        This project investigates how <b>severe convective weather (SCW) perils</b>—
+        tornadoes, severe hail, and damaging winds—may shift spatially across the U.S.
+        under future climate scenarios. Using <b>WRF-BCC regional climate simulations</b>
+        and <b>ArcGIS Pro hotspot analysis</b>, I compared historical (1990–2005) and
+        late-21st-century (2085–2100, RCP8.5) epochs. The analysis highlights a projected
+        <b>eastward shift of SCW hotspots</b> away from the Great Plains and toward the
+        Midwest and South, raising important questions about exposure, resilience, and
+        community impacts.
+      </p>
+    </section>
+
+    <!-- Research Questions -->
+    <section>
+      <h2>Research Questions</h2>
+      <ul>
+        <li>How does the spatial distribution of SCW perils change under future climate conditions?</li>
+        <li>Which regions show emerging or declining hotspots of SCW activity?</li>
+        <li>What implications do these shifts have for population and infrastructure vulnerability?</li>
+      </ul>
+    </section>
+
+    <!-- Background -->
+    <section>
+      <h2>Background</h2>
+      <p>
+        Severe convective weather events already cause immense societal impacts, with
+        increasing losses over recent decades due to both climate and exposure
+        changes:contentReference[oaicite:1]{index=1}. Recent research shows a likely
+        <b>eastward shift of tornado and severe storm activity</b> by the end of the century
+        (e.g., Ashley et al. 2023; Hoogewind et al. 2017). This study contributes by
+        applying explicit convection-permitting model output to GIS-based hotspot and
+        spatiotemporal analysis.
+      </p>
+    </section>
+
+    <!-- Methods -->
+    <section>
+      <h2>Methods & Data</h2>
+      <p><b>Data Sources:</b> WRF-BCC simulations driven by CESM bias-corrected output
+      (Gensini et al. 2023), using proxies validated against SPC Storm Reports.</p>
+      <ul>
+        <li><b>Peril proxies:</b> Upward Vertical Velocity (UVV ≥ 25 m/s) and Reflectivity (≥ 40 dBZ).</li>
+        <li><b>Epochs:</b> HIST (1990–2005) vs END8.5 (2085–2100, RCP8.5).</li>
+        <li><b>Seasons:</b> Spring (MAM), Summer (JJA), Fall (SON), Winter (DJF).
+          <br>For this project: focus on MAM.</li>
+        <li>Hotspot analysis performed in <b>ArcGIS Pro</b> using Space-Time Cube and
+        Emerging Hotspot Analysis.</li>
+      </ul>
+      <figure>
+        <img src="images/Layout_MAM.jpg" alt="Workflow diagram" class="medium-image">
+        <figcaption>Spring SCW exposure.</figcaption>
+      </figure>
+    </section>
+
+    <!-- Results -->
+    <section>
+      <h2>Results</h2>
+      <p>
+        Analysis shows a <b>consistent hotspot over the Great Plains in the historical epoch</b>,
+        shifting <b>eastward into the South and Midwest</b> in the END8.5 scenario during spring.
+      </p>
+      <div class="results-gallery">
+        <figure>
+          <img src="images/cube_hist_mam.jpg" alt="Historical epoch space-time cube (MAM)" class="medium-image">
+          <figcaption>Historical epoch hotspot analysis (MAM).</figcaption>
+        </figure>
+        <figure>
+          <img src="images/cube_8p5END_mam.jpg" alt="End-of-century RCP8.5 cube (MAM)" class="medium-image">
+          <figcaption>End-of-century RCP8.5 hotspot analysis (MAM).</figcaption>
+        </figure>
+        <figure>
+          <img src="images/Layout_MAM_delta.jpg" alt="Hotspot delta" class="medium-image">
+          <figcaption>Delta map: END8.5 vs HIST hotspots (MAM).</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- Conclusions -->
+    <section>
+      <h2>Discussion & Conclusion</h2>
+      <ul>
+        <li><b>Shift:</b> SCW hotspots move eastward into the Midwest and South by the
+        end of the 21st century.</li>
+        <li><b>Risk:</b> Populated and infrastructure-dense regions face greater peril.</li>
+        <li><b>Limitations:</b> Only one emissions pathway (RCP8.5) and one season (MAM)
+        considered. SPC Storm Reports used for validation have known biases.</li>
+        <li><b>Future work:</b> Extend to other RCPs and seasons; incorporate exposure and
+        vulnerability overlays.</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Caitlin Roufa</p>
+  </footer>
+</body>
+</html>
