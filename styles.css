@@ -297,6 +297,14 @@ body {
     display: block;
 }
 
+.contact-photo {
+    max-width: 340px;
+    margin: 1rem 1.5rem; 
+    float: left;
+    clear: both;
+    display: block;
+}
+
 /* Stack vertically on smaller screens and mobile */
 @media (max-width: 768px) {
     .photo-row {
