@@ -1,10 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Cait Roufa | Portfolio – Rockford UHI Case Study</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css"/>
+
+    <!-- MathJax: render \( ... \) and \[ ... \] -->
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [['\\(', '\\)'], ['$', '$']],
+          displayMath: [['\\[', '\\]'], ['$$', '$$']]
+        },
+        options: {
+          skipHtmlTags: ['script','noscript','style','textarea','pre','code']
+        }
+      };
+    </script>
+    <script id="MathJax-script" async
+      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+    </script>
 </head>
 <body>
     <header>
@@ -22,8 +38,7 @@
     </header>
 
     <main>
-
-      <!-- Full Project Content -->
+      <!-- Project Header -->
       <section class="project-header">
           <h1>Case Study: Urban Heat Island Vulnerability in Rockford, IL</h1>
           <p><i>Remote Sensing Case Study • EAE 554 • December 2023</i></p>
@@ -78,11 +93,18 @@
 
       <!-- Methods -->
       <section>
-          <h2>Methods & Data</h2>
-          <p><b>Data Sources:</b> Landsat-8 Collection 2 (Bands 4, 5, 10, QA Pixel), CDC SVI/HVI datasets, HOLC 1940s redlining maps, WinGIS zoning data, U.S. Census Bureau demographics.</p>
+          <h2>Methods &amp; Data</h2>
+          <p>
+            <b>Data Sources:</b> Landsat-8 Collection 2 (Bands 4, 5, 10, QA Pixel), CDC SVI/HVI datasets, 
+            HOLC 1940s redlining maps, WinGIS zoning data, U.S. Census Bureau demographics.
+          </p>
           <ul>
-              <li><b>SUHI:</b> Calculated as $$ SUHI = \overline{LST}_{urban} - \overline{LST}_{rural} $$ </li>
-              <li><b>NDVI:</b> $$ NDVI = \frac{NIR - Red}{NIR + Red} $$ </li>
+              <li>
+                <b>SUHI:</b> Calculated as \( \text{mean LST}_{\text{urban}} - \text{mean LST}_{\text{rural}} \) (°C).
+              </li>
+              <li>
+                <b>NDVI:</b> \( NDVI = \frac{NIR - Red}{NIR + Red} \)
+              </li>
               <li>Neighborhood boundaries defined by ZIP codes for consistent socio-demographic analysis.</li>
               <li>Analysis performed in <b>Google Earth Engine (JavaScript)</b> and GIS tools.</li>
           </ul>
@@ -101,7 +123,7 @@
             area, with:
           </p>
           <ul>
-              <li>SUHI of <b>9.4°C</b></li>
+              <li>SUHI of <b>9.4&nbsp;°C</b></li>
               <li>HVI score of <b>24/26</b></li>
               <li>Lowest NDVI (0.267)</li>
               <li>Land use dominated by industrial/commercial corridors</li>
@@ -122,7 +144,7 @@
               </figure>
               <figure>
                   <img src="images/landuse.png" alt="Land use zoning" class="medium-image">
-                  <figcaption>Land Use Zoning – Industrial & Commercial Hotspots</figcaption>
+                  <figcaption>Land Use Zoning – Industrial &amp; Commercial Hotspots</figcaption>
               </figure>
           </div>
       </section>
