@@ -75,17 +75,20 @@ section {
 }
 
 .small-image {
-    width: 300px;
+    max-width: 300px;
+    width: 100%;
     height: auto; /* Keeps aspect ratio */
 }
 
 .medium-image {
-    width: 600px;
+    max-width: 600px;
+    width: 100%;
     height: auto;
 }
 
 .large-image {
-    width: 800px;
+    max-width: 800px;
+    width: 100%
     height:auto;
 }
 
