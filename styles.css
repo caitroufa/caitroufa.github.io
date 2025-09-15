@@ -351,3 +351,8 @@ body {
         display: block;
     }
 }
+
+.footer-spacer {
+    clear: both;            /* clears the floats */
+    height: 100px;          /* match or slightly exceed footer height */
+}
