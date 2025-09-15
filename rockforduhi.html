@@ -22,13 +22,33 @@
     </header>
 
     <main>
-      <!-- Project Header -->
+      <!-- Project Card -->
+      <section class="portfolio-item project-highlight">
+          <img src="images/suhi.png" alt="Urban Heat Island map of Rockford" class="thumb">
+          <div class="card-text">
+              <h2>Urban Heat Island Vulnerability in Rockford, IL</h2>
+              <p class="project-meta"><i>Remote Sensing Case Study • EAE 554 • December 2023</i></p>
+              <p>
+                  Investigated the severity and distribution of Rockford’s urban heat island (UHI) using 
+                  <b>Landsat-8, NDVI, CDC vulnerability metrics, and Google Earth Engine</b>. 
+                  Results showed disparities tied to redlining and land use, with ZIP 61104 
+                  most impacted (SUHI 9.4 °C, high HVI, lowest NDVI).
+              </p>
+              <p><b>Skills:</b> Remote sensing • GIS • Google Earth Engine (JavaScript) • Data visualization</p>
+              <p>
+                  <a href="pubs/Roufa_RockfordUHI_TermProject.pdf" target="_blank">📄 Full Report (PDF)</a> | 
+                  <a href="https://code.earthengine.google.com/d9090664c83e72782d0dd6e27ead6f30" target="_blank">🌍 View Code</a>
+              </p>
+          </div>
+      </section>
+
+      <!-- Full Project Content -->
       <section class="project-header">
-          <h1>Urban Heat Island Vulnerability in Rockford, IL</h1>
+          <h1>Case Study: Urban Heat Island Vulnerability in Rockford, IL</h1>
           <p><i>Remote Sensing Case Study • EAE 554 • December 2023</i></p>
-          <p>
+<!--           <p>
             <a href="pubs/Roufa_RockfordUHI_TermProject.pdf" target="_blank">[Download Full Report PDF]</a>
-          </p>
+          </p> -->
           <hr/>
       </section>
 
@@ -65,23 +85,23 @@
             Urban heat islands form when built environments store solar heat more 
             efficiently than vegetated or rural areas. Factors include 
             <b>impervious surfaces, reduced vegetation, anthropogenic waste heat, 
-            and local weather/geography</b>:contentReference[oaicite:1]{index=1}. Exposure to extreme heat is 
+            and local weather/geography</b>. Exposure to extreme heat is 
             a leading weather-related cause of mortality in the U.S., responsible for 
-            over 1,300 deaths annually:contentReference[oaicite:2]{index=2}. 
+            over 1,300 deaths annually. 
           </p>
           <p>
             Vulnerability is not evenly distributed. <b>Social Vulnerability Index (SVI)</b> 
             and its heat-focused sub-index (<b>HVI</b>) reveal inequities tied to race, income, 
             housing, and historic practices such as <b>redlining</b>. Rockford’s legacy of 
             redlined neighborhoods makes it an important case for assessing UHI and 
-            equity:contentReference[oaicite:3]{index=3}.
+            equity.
           </p>
       </section>
 
       <!-- Methods -->
       <section>
           <h2>Methods & Data</h2>
-          <p><b>Data Sources:</b> Landsat-8 Collection 2 (Bands 4, 5, 10, QA Pixel), CDC SVI/HVI datasets, HOLC 1940s redlining maps, WinGIS zoning data, U.S. Census Bureau demographics:contentReference[oaicite:4]{index=4}.</p>
+          <p><b>Data Sources:</b> Landsat-8 Collection 2 (Bands 4, 5, 10, QA Pixel), CDC SVI/HVI datasets, HOLC 1940s redlining maps, WinGIS zoning data, U.S. Census Bureau demographics.</p>
           <ul>
               <li><b>SUHI:</b> Calculated as mean LST<sub>urban</sub> – mean LST<sub>rural</sub> (°C).</li>
               <li><b>NDVI:</b> $$NDVI = \frac{NIR - Red}{NIR + Red}$$</li>
