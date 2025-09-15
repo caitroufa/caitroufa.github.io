@@ -81,12 +81,8 @@
           <h2>Methods & Data</h2>
           <p><b>Data Sources:</b> Landsat-8 Collection 2 (Bands 4, 5, 10, QA Pixel), CDC SVI/HVI datasets, HOLC 1940s redlining maps, WinGIS zoning data, U.S. Census Bureau demographics.</p>
           <ul>
-              <li><b>SUHI:</b> Calculated as 
-                  <span class="math">\( \text{mean LST}_{urban} - \text{mean LST}_{rural} \)</span> (°C).
-              </li>
-              <li><b>NDVI:</b> 
-                  <span class="math">\( NDVI = \frac{NIR - Red}{NIR + Red} \)</span>
-              </li>
+              <li><b>SUHI:</b> Calculated as $$ SUHI = \overline{LST}_{urban} - \overline{LST}_{rural} $$ </li>
+              <li><b>NDVI:</b> $$ NDVI = \frac{NIR - Red}{NIR + Red} $$ </li>
               <li>Neighborhood boundaries defined by ZIP codes for consistent socio-demographic analysis.</li>
               <li>Analysis performed in <b>Google Earth Engine (JavaScript)</b> and GIS tools.</li>
           </ul>
