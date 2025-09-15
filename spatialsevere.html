@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cait Roufa | Portfolio – Historical SCW Impacts</title>
   <link rel="stylesheet" href="styles.css">
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <body>
   <header>
@@ -24,8 +26,8 @@
   <main>
     <!-- Project Header -->
     <section class="project-header">
-      <h1>Historical Impacts of Severe Convective Weather (SCW)</h1>
-      <p><i>GIS Project • EAE 557 • December 2024</i></p>
+      <h1>Case Study: Historical Impacts of Hazardous Convective Weather on U.S. Housing</h1>
+      <p><i>GIS Term Project • EAE 557 • December 2024</i></p>
       <hr/>
     </section>
 
@@ -33,11 +35,7 @@
     <section class="project-summary">
       <h2>Project Summary</h2>
       <p>
-        This project examined historical <b>severe convective weather perils</b> (tornadoes, hail, and damaging wind) 
-        and their impacts on communities across the U.S. Using county-level counts, percent changes, and hotspot 
-        analysis in ArcGIS Pro, I connected changes in peril occurrence to housing exposure, population, and 
-        social vulnerability. The analysis highlights how hazard risk intersects with demographic and housing 
-        characteristics, informing resilience and planning decisions.
+        This project investigates how hazardous convective weather (HCW) — tornadoes, damaging wind, and large hail — has impacted U.S. housing across two 20-year climatological periods (1980–2000 and 2001–2021). Using county-level peril reports, housing data, and vulnerability indices, I analyzed spatial changes in HCW exposure and quantified the impacts on both total housing units and mobile/manufactured homes. Results highlight increasing exposure in the Great Plains, Midwest, South, and East Coast, with particular concern for vulnerable populations and mobile home residents:contentReference[oaicite:0]{index=0}.
       </p>
     </section>
 
@@ -45,96 +43,95 @@
     <section>
       <h2>Research Questions</h2>
       <ul>
-        <li>How have historical SCW perils changed between two climatological periods?</li>
-        <li>Where are the statistically significant hotspots of change located?</li>
-        <li>How do these changes overlap with housing unit distribution, population, and social vulnerability?</li>
+        <li>How has the spatial climatology of HCW perils changed between 1980–2000 and 2001–2021?</li>
+        <li>Which U.S. regions and counties show statistically significant increases or decreases in HCW exposure?</li>
+        <li>How are housing units, mobile homes, and socially vulnerable populations distributed across these hotspots?</li>
       </ul>
+    </section>
+
+    <!-- Background -->
+    <section>
+      <h2>Background</h2>
+      <p>
+        HCW events have caused over half a trillion dollars in damages and thousands of fatalities in the U.S. during the past 40 years:contentReference[oaicite:1]{index=1}. While the role of climate change and the expanding built environment in increasing exposure is well established, spatial shifts in housing and vulnerability exposure to HCW are less studied. Mobile homes, which comprise only 5.7% of total housing but account for over half of HCW-related fatalities, represent a critical focus for vulnerability analysis:contentReference[oaicite:2]{index=2}.
+      </p>
     </section>
 
     <!-- Methods -->
     <section>
       <h2>Methods & Data</h2>
-      <p><b>Data:</b> County-level counts of tornado, hail, and wind perils; U.S. Census housing and population data; CDC Social Vulnerability Index (SVI).</p>
+      <p><b>Data Sources:</b> NOAA SPC Severe Report GIS (tornado, wind, hail), American Community Survey housing data, CDC Social Vulnerability Index, HOLC redlining maps, U.S. Census TIGER boundaries:contentReference[oaicite:3]{index=3}.</p>
       <ul>
-        <li>Created county-level peril counts for two climatological periods (P1 and P2)</li>
-        <li>Calculated <b>deltas</b> (count and percent change) between periods</li>
-        <li>Performed <b>hotspot analysis</b> in ArcGIS Pro to identify statistically significant clusters</li>
-        <li>Compared peril changes with <b>housing units, population distribution, and SVI</b></li>
+        <li><b>Climatology:</b> Calculated counts of HCW perils for P1 (1980–2000) and P2 (2001–2021).</li>
+        <li><b>Delta Analysis:</b> Computed count differences and percent changes per county.</li>
+        <li><b>Exposure Assessment:</b> Linked housing units and mobile homes with counties showing increases.</li>
+        <li><b>Hot Spot Analysis:</b> Identified statistically significant clusters of increasing or decreasing peril counts.</li>
       </ul>
       <figure>
-        <img src="images/EAE557_GIS_FlowDiagram2.pdf" alt="Workflow diagram of historical SCW GIS analysis" class="large-image">
-        <figcaption>Workflow diagram for SCW historical impact analysis in ArcGIS Pro.</figcaption>
+        <img src="EAE557_GIS_FlowDiagram2.pdf" alt="GIS flow diagram" class="medium-image">
+        <figcaption>Project workflow diagram in ArcGIS Pro</figcaption>
       </figure>
     </section>
 
     <!-- Results -->
     <section>
       <h2>Results</h2>
+      <p>
+        HCW hotspots shifted from the Southern Plains (1980–2000) to the Central/Northern Plains, Midwest, South, and East Coast (2001–2021). Nearly 89% of housing units and mobile homes were located in counties with increasing HCW perils, and over 20% of the U.S. population resided in hotspot counties:contentReference[oaicite:4]{index=4}.
+      </p>
       <div class="results-gallery">
         <figure>
-          <img src="images/P1Count.jpg" alt="Period 1 peril counts" class="medium-image">
-          <figcaption>SCW peril counts – Period 1.</figcaption>
+          <img src="P1Count.jpg" alt="Peril counts for 1980–2000" class="medium-image">
+          <figcaption>HCW peril climatology (1980–2000)</figcaption>
         </figure>
         <figure>
-          <img src="images/P2Count.jpg" alt="Period 2 peril counts" class="medium-image">
-          <figcaption>SCW peril counts – Period 2.</figcaption>
+          <img src="P2Count.jpg" alt="Peril counts for 2001–2021" class="medium-image">
+          <figcaption>HCW peril climatology (2001–2021)</figcaption>
         </figure>
         <figure>
-          <img src="images/CountDelta.jpg" alt="Count deltas between periods" class="medium-image">
-          <figcaption>Change in peril counts (P2 – P1).</figcaption>
+          <img src="CountDelta.jpg" alt="Change in peril counts" class="medium-image">
+          <figcaption>Change in HCW peril counts (P2 – P1)</figcaption>
         </figure>
         <figure>
-          <img src="images/DeltaHotspots.jpg" alt="Hotspot analysis" class="medium-image">
-          <figcaption>Hotspot analysis of peril changes.</figcaption>
+          <img src="DeltaHotspots.jpg" alt="Hotspots of peril count changes" class="medium-image">
+          <figcaption>HCW peril hotspots and coldspots</figcaption>
         </figure>
         <figure>
-          <img src="images/HousingUnits.jpg" alt="Housing units distribution" class="medium-image">
-          <figcaption>Housing unit distribution across counties.</figcaption>
+          <img src="HousingUnits.jpg" alt="Housing unit distribution" class="medium-image">
+          <figcaption>Total housing units by county</figcaption>
         </figure>
         <figure>
-          <img src="images/Population.jpg" alt="Population distribution" class="medium-image">
-          <figcaption>Population distribution.</figcaption>
+          <img src="Population.jpg" alt="Population distribution" class="medium-image">
+          <figcaption>Total population by county</figcaption>
         </figure>
         <figure>
-          <img src="images/SVI.jpg" alt="Social Vulnerability Index" class="medium-image">
-          <figcaption>CDC Social Vulnerability Index (SVI).</figcaption>
+          <img src="SVI.jpg" alt="Social Vulnerability Index" class="medium-image">
+          <figcaption>CDC Social Vulnerability Index</figcaption>
         </figure>
         <figure>
-          <img src="images/PercentMH.jpg" alt="Percent manufactured housing" class="medium-image">
-          <figcaption>Percent manufactured housing.</figcaption>
+          <img src="HotHU.jpg" alt="Hotspot housing exposure" class="medium-image">
+          <figcaption>Housing units in HCW hotspots</figcaption>
         </figure>
         <figure>
-          <img src="images/HotHU.jpg" alt="Hotspot overlay with housing units" class="medium-image">
-          <figcaption>Hotspots overlaid with housing units.</figcaption>
+          <img src="HotMH.jpg" alt="Hotspot mobile home exposure" class="medium-image">
+          <figcaption>Mobile homes in HCW hotspots</figcaption>
         </figure>
         <figure>
-          <img src="images/HotMH.jpg" alt="Hotspot overlay with manufactured housing" class="medium-image">
-          <figcaption>Hotspots and manufactured housing.</figcaption>
-        </figure>
-        <figure>
-          <img src="images/HotSVI.jpg" alt="Hotspot overlay with SVI" class="medium-image">
-          <figcaption>Hotspots and Social Vulnerability Index (SVI).</figcaption>
+          <img src="HotSVI.jpg" alt="Hotspot SVI exposure" class="medium-image">
+          <figcaption>Vulnerable populations in HCW hotspots</figcaption>
         </figure>
       </div>
     </section>
 
-    <!-- Reflection -->
+    <!-- Conclusions -->
     <section>
-      <h2>Reflection & Learning Outcomes</h2>
-      <p>
-        Through this project, I became much more confident using <b>ArcGIS Pro</b> to analyze and solve spatial problems, 
-        particularly hotspot analysis. I also learned to critically evaluate remote sensing and gridded datasets, 
-        verifying that data is usable before committing to an approach. One key lesson was identifying potential 
-        data early in the brainstorming phase and testing it in ArcGIS before finalizing a project idea:contentReference[oaicite:0]{index=0}.
-      </p>
-      <p>
-        Challenges included <b>data quality issues</b>, such as unavailable or misaligned datasets. Overcoming these 
-        challenges reinforced the importance of flexibility and backup planning:contentReference[oaicite:1]{index=1}. 
-      </p>
-      <p>
-        For future projects, I would advise others to identify and test data early, communicate challenges with 
-        instructors, and remain adaptable when setbacks occur:contentReference[oaicite:2]{index=2}.
-      </p>
+      <h2>Conclusions</h2>
+      <ul>
+        <li>HCW exposure shifted eastward and intensified between the two study periods.</li>
+        <li>Nearly 90% of U.S. housing units and mobile homes are located in counties with increasing HCW peril counts.</li>
+        <li>Mobile home residents and socially vulnerable populations face disproportionate exposure in hotspot regions.</li>
+        <li>Future work should explore seasonal/diurnal variability and integrate projections of housing growth and climate change.</li>
+      </ul>
     </section>
   </main>
 
