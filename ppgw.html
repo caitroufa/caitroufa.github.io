@@ -1,12 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cait Roufa | Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Cait Roufa | Portfolio – Pseudo Pseudo Global Warming Case Study</title>
+    <link rel="stylesheet" href="styles.css"/>
+
+    <!-- MathJax -->
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [['\\(', '\\)'], ['$', '$']],
+          displayMath: [['\\[', '\\]'], ['$$','$$']]
+        },
+        options: {
+          skipHtmlTags: ['script','noscript','style','textarea','pre','code']
+        }
+      };
+    </script>
+    <script id="MathJax-script" async
+      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
 </head>
 <body>
     <header>
@@ -15,7 +28,7 @@
             <ul>
                 <li><a href="index.html">About Me</a></li>
                 <li><a href="cv.html">Experience</a></li>
-                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="portfolio.html" class="active">Portfolio</a></li>
                 <li><a href="dissertation.html">Dissertation</a></li>
                 <li><a href="publications.html">Publications</a></li>
                 <li><a href="contact.html">Contact</a></li>
@@ -23,103 +36,137 @@
         </nav>
     </header>
 
-    <!-- Project Title & Metadata -->
-    <section>
-        <h1>Case Study: Effect of a Warming Climate on a Tornado Outbreak Environment Using a Pseudo Pseudo Global Warming Approach</h1>
-        <p><i>Project developed for Numerical Weather Prediction Course – November 2023</i></p>
-        <hr/>
-    </section>
+    <main>
+      <!-- Project Header -->
+      <section class="project-header">
+          <h1>Case Study: Effect of a Warming Climate on a Tornado Outbreak Environment Using a Pseudo Pseudo Global Warming Approach</h1>
+          <p><i>Numerical Weather Prediction Case Study • November 2023</i></p>
+          <hr/>
+      </section>
 
-    <!-- Project Summary -->
-    <section class="project-summary">
-        <h2>Project Summary</h2>
-        <p>This project explores how a major tornado outbreak environment might change under slightly warmer or cooler climate conditions. Using a simplified “Pseudo Pseudo Global Warming” (PPGW) approach, I modified reanalysis inputs by ±2&nbsp;&deg;C and ran high-resolution WRF simulations. The goal was to assess how convective available potential energy (CAPE) and storm structure respond to these temperature perturbations as a first step toward more detailed PGW or dynamical downscaling experiments.</p>
-    </section>
+      <!-- Summary -->
+      <section class="project-summary">
+          <h2>Project Summary</h2>
+          <p>
+            This project explores how a major tornado outbreak environment might change under slightly warmer or cooler climate conditions. 
+            Using a simplified <b>Pseudo Pseudo Global Warming (PPGW)</b> approach, I modified reanalysis inputs by ±2&nbsp;°C and ran 
+            high-resolution WRF simulations. The goal was to assess how <b>CAPE and storm structure</b> respond to temperature perturbations 
+            as a first step toward more detailed PGW or dynamical downscaling experiments.
+          </p>
+      </section>
 
-    <!-- Research Questions -->
-    <section>
-        <h2>Research Questions</h2>
-        <ul>
-            <li>What would the March 31, 2023 tornado outbreak environment look like with less anthropogenic warming?</li>
-            <li>How might additional warming intensify or alter severe storm development during such an outbreak?</li>
-        </ul>
-    </section>
+      <!-- Research Questions -->
+      <section>
+          <h2>Research Questions</h2>
+          <ul>
+              <li>What would the March 31, 2023 tornado outbreak environment look like with less anthropogenic warming?</li>
+              <li>How might additional warming intensify or alter severe storm development during such an outbreak?</li>
+          </ul>
+      </section>
 
-    <!-- Background -->
-    <section>
-        <h2>Background</h2>
-        <p><b>Pseudo Global Warming (PGW):</b> A method where boundary conditions of a regional climate model (RCM) are modified to expected future climate anomalies. For example:</p>
-        <p>
-            $$ \Delta T = T(x, y, z)_{\text{future mean}} - T(x, y, z)_{\text{historical mean}} $$
-            <br>
-            $$ T'(x, y, z, t) = T(x, y, z, t) + \Delta T $$
-        </p>
-        <p><b>Pseudo Pseudo Global Warming (PPGW):</b> In this study, I applied a uniform ±2&nbsp;&deg;C perturbation to ERA5 reanalysis input data. This approach provides a quick initial test of sensitivity to warming/cooling before performing full PGW or downscaled experiments.</p>
-    </section>
+      <!-- Background -->
+      <section>
+          <h2>Background</h2>
+          <p>
+            <b>Pseudo Global Warming (PGW):</b> A method where boundary conditions of a regional climate model (RCM) are modified to expected 
+            future climate anomalies. For example:
+          </p>
+          <p>
+            \[
+              \Delta T = T(x, y, z)_{\text{future mean}} - T(x, y, z)_{\text{historical mean}}
+            \]
+            \[
+              T'(x, y, z, t) = T(x, y, z, t) + \Delta T
+            \]
+          </p>
+          <p>
+            <b>Pseudo Pseudo Global Warming (PPGW):</b> In this study, I applied a uniform ±2&nbsp;°C perturbation to ERA5 reanalysis input data. 
+            This approach provides a quick initial test of sensitivity to warming/cooling before performing full PGW or downscaled experiments.
+          </p>
+      </section>
 
-    <!-- Case -->
-    <section>
-        <h2>Case: March 31, 2023 Tornado Outbreak</h2>
-        <div class="case-container">
-            <div class="case-text">
-                <ul>
-                    <li>3rd largest U.S. tornado outbreak: 142 tornadoes, including 22 in the LOT region (tied for most in 24 hours)</li>
-                    <li>11 EF-3 tornadoes and 1 EF-4</li>
-                    <li>90 mph straight-line winds</li>
-                    <li>27 fatalities</li>
-                    <li>Severe environment: bulk shear 60–70 kts, MLCAPE &gt;1500 J/kg</li>
-                </ul>
-                <p><a href="https://www.weather.gov/lot/2023_03_31_SevereStorms">NWS LOT Severe Storm Summary</a></p>
-            </div>
-            <div class="case-image">
-                <img src="https://www.weather.gov/images/lot/pastevents/2023/03_31/watervapor-loop.gif" alt="March 31, 2023 tornado outbreak water vapor animation">
-            </div>
-        </div>
-    </section>
+      <!-- Case -->
+      <section>
+          <h2>Case: March 31, 2023 Tornado Outbreak</h2>
+          <ul>
+              <li>3rd largest U.S. tornado outbreak: 142 tornadoes (22 in the LOT region, tied for most in 24 hours)</li>
+              <li>11 EF-3 tornadoes and 1 EF-4</li>
+              <li>90 mph straight-line winds</li>
+              <li>27 fatalities</li>
+              <li>Severe environment: bulk shear 60–70 kts, MLCAPE &gt; 1500 J/kg</li>
+          </ul>
+          <p>
+            <a href="https://www.weather.gov/lot/2023_03_31_SevereStorms" target="_blank">NWS LOT Severe Storm Summary</a>
+          </p>
+          <figure>
+            <img src="https://www.weather.gov/images/lot/pastevents/2023/03_31/watervapor-loop.gif" alt="March 31, 2023 tornado outbreak water vapor animation" class="medium-image">
+            <figcaption>Water vapor loop of the March 31, 2023 tornado outbreak</figcaption>
+          </figure>
+      </section>
 
-    <!-- Methods -->
-    <section>
-        <h2>Methods</h2>
-        <p><b>Data:</b> ERA5 reanalysis (surface + pressure levels), 3/31 00Z – 4/1 21Z, 3-hourly data</p>
-        <p><b>Domain:</b> Centered on Illinois, 548 × 563 grid points, 3 km resolution</p>
-        <p><b>Model:</b> WRF v4.3.3 with default physics, 1-hourly output</p>
-        <ul>
-            <li><b>Control:</b> Unmodified ERA5</li>
-            <li><b>Minus Scenario:</b> Control – 2&nbsp;&deg;C</li>
-            <li><b>Plus Scenario:</b> Control + 2&nbsp;&deg;C</li>
-        </ul>
-        <p><b>Analysis:</b> Computed CAPE from WRF output; compared Plus–Control, Minus–Control, and Plus–Minus differences.</p>
-        <img src="images/domain.png" alt="WRF simulation domain centered on Illinois" class="medium-image">
-    </section>
+      <!-- Methods -->
+      <section>
+          <h2>Methods</h2>
+          <p><b>Data:</b> ERA5 reanalysis (surface + pressure levels), 3/31 00Z – 4/1 21Z, 3-hourly</p>
+          <p><b>Domain:</b> Centered on Illinois, 548 × 563 grid points, 3 km resolution</p>
+          <p><b>Model:</b> WRF v4.3.3 with default physics, 1-hourly output</p>
+          <ul>
+              <li><b>Control:</b> Unmodified ERA5</li>
+              <li><b>Minus Scenario:</b> Control – 2&nbsp;°C</li>
+              <li><b>Plus Scenario:</b> Control + 2&nbsp;°C</li>
+          </ul>
+          <p><b>Analysis:</b> Computed CAPE from WRF output; compared Plus–Control, Minus–Control, and Plus–Minus differences.</p>
+          <img src="images/domain.png" alt="WRF simulation domain centered on Illinois" class="medium-image">
+      </section>
 
-    <!-- Results -->
-    <section>
-        <h2>Results</h2>
-        <ul>
-            <li><b>CAPE:</b> Higher in Plus scenario, lower in Minus scenario</li>
-            <li><b>Storms:</b> Minus scenario produced fewer/weaker cells; Plus scenario produced stronger storms earlier, converging toward control by 00Z</li>
-            <li><b>Spatial shift:</b> Minus scenario suppressed southern-domain storms by 00Z, while Plus scenario enhanced northern-domain activity</li>
-            <li><b>Future work:</b> Add CIN, 0–6 km shear, updraft velocity, and helicity diagnostics; run full PGW experiment for comparison</li>
-        </ul>
-        <div class="results-gallery">
-            <img src="images/reflectivity18z.png" alt="Reflectivity at 18Z" class="medium-image">
-            <img src="images/reflectivity21z.png" alt="Reflectivity at 21Z" class="medium-image">
-            <img src="images/reflectivity0z.png" alt="Reflectivity at 00Z" class="medium-image">
-            <img src="images/capecontrol.png" alt="Control vs observed CAPE" class="medium-image">
-            <img src="images/capedelta.png" alt="CAPE deltas Plus–Control and Minus–Control" class="medium-image">
-            <img src="images/capedeltatotal.png" alt="CAPE deltas Plus–Minus" class="medium-image">
-        </div>
-    </section>
+      <!-- Results -->
+      <section>
+          <h2>Results</h2>
+          <ul>
+              <li><b>CAPE:</b> Higher in Plus scenario, lower in Minus scenario</li>
+              <li><b>Storms:</b> Minus scenario produced fewer/weaker cells; Plus scenario produced stronger storms earlier, converging toward control by 00Z</li>
+              <li><b>Spatial shift:</b> Minus scenario suppressed southern-domain storms; Plus scenario enhanced northern-domain activity</li>
+              <li><b>Future work:</b> Add CIN, shear, updraft velocity, and helicity diagnostics; run full PGW experiment</li>
+          </ul>
 
-    <!-- Recommendations / Conclusions -->
-    <section>
-        <h2>Conclusions</h2>
-        <ul>
-            <li>Even small uniform warming/cooling perturbations can alter CAPE and convective evolution in outbreak environments.</li>
-            <li>Warming increased storm intensity and speed of initiation; cooling reduced storm organization.</li>
-            <li>PPGW can provide a quick sensitivity test before committing resources to full PGW/dynamical downscaling.</li>
-        </ul>
-    </section>
+          <div class="results-gallery">
+              <figure>
+                  <img src="images/reflectivity18z.png" alt="Reflectivity at 18Z" class="medium-image">
+                  <figcaption>Reflectivity at 18Z</figcaption>
+              </figure>
+              <figure>
+                  <img src="images/reflectivity21z.png" alt="Reflectivity at 21Z" class="medium-image">
+                  <figcaption>Reflectivity at 21Z</figcaption>
+              </figure>
+              <figure>
+                  <img src="images/reflectivity0z.png" alt="Reflectivity at 00Z" class="medium-image">
+                  <figcaption>Reflectivity at 00Z</figcaption>
+              </figure>
+              <figure>
+                  <img src="images/capecontrol.png" alt="Control vs observed CAPE" class="medium-image">
+                  <figcaption>Control vs. observed CAPE</figcaption>
+              </figure>
+              <figure>
+                  <img src="images/capedelta.png" alt="CAPE deltas Plus–Control and Minus–Control" class="medium-image">
+                  <figcaption>CAPE deltas: Plus–Control and Minus–Control</figcaption>
+              </figure>
+              <figure>
+                  <img src="images/capedeltatotal.png" alt="CAPE deltas Plus–Minus" class="medium-image">
+                  <figcaption>CAPE deltas: Plus–Minus</figcaption>
+              </figure>
+          </div>
+      </section>
+
+      <!-- Conclusions -->
+      <section>
+          <h2>Conclusions</h2>
+          <ul>
+              <li>Even small uniform warming/cooling perturbations can alter CAPE and convective evolution in outbreak environments.</li>
+              <li>Warming increased storm intensity and speed of initiation; cooling reduced storm organization.</li>
+              <li>PPGW provides a quick sensitivity test before committing resources to full PGW or dynamical downscaling.</li>
+          </ul>
+      </section>
+    </main>
 
     <footer>
         <p>&copy; 2025 Caitlin Roufa</p>
