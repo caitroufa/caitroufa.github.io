@@ -24,7 +24,7 @@
     <main>
       <!-- Project Card -->
       <section class="portfolio-item project-highlight">
-          <img src="images/suhi.png" alt="Urban Heat Island map of Rockford" class="thumb">
+          <img src="images/suhi_thumb.png" alt="Urban Heat Island map of Rockford" class="thumb">
           <div class="card-text">
               <h2>Urban Heat Island Vulnerability in Rockford, IL</h2>
               <p class="project-meta"><i>Remote Sensing Case Study • EAE 554 • December 2023</i></p>
@@ -103,8 +103,12 @@
           <h2>Methods & Data</h2>
           <p><b>Data Sources:</b> Landsat-8 Collection 2 (Bands 4, 5, 10, QA Pixel), CDC SVI/HVI datasets, HOLC 1940s redlining maps, WinGIS zoning data, U.S. Census Bureau demographics.</p>
           <ul>
-              <li><b>SUHI:</b> Calculated as mean LST<sub>urban</sub> – mean LST<sub>rural</sub> (°C).</li>
-              <li><b>NDVI:</b> $$NDVI = \frac{NIR - Red}{NIR + Red}$$</li>
+              <li><b>SUHI:</b> Calculated as 
+                  <span class="math">\( \text{mean LST}_{urban} - \text{mean LST}_{rural} \)</span> (°C).
+              </li>
+              <li><b>NDVI:</b> 
+                  <span class="math">\( NDVI = \frac{NIR - Red}{NIR + Red} \)</span>
+              </li>
               <li>Neighborhood boundaries defined by ZIP codes for consistent socio-demographic analysis.</li>
               <li>Analysis performed in <b>Google Earth Engine (JavaScript)</b> and GIS tools.</li>
           </ul>
