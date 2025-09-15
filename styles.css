@@ -299,3 +299,27 @@ main section h2 {
 .intro-right h2 {
     margin: 0 0 0.5rem 0; /* keeps tight spacing above paragraph */
 }
+
+/* Contain floats inside Bio section */
+.bio-section::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Default mobile (photos centered) */
+.bio-photo {
+    margin: 1.5rem auto;
+    max-width: 340px;
+    text-align: center;
+}
+
+/* Photos floated left on larger screens */
+@media (min-width: 900px) {
+    .bio-photo {
+        float: left;
+        margin: 0 1.5rem 1rem 0;
+        max-width: 280px;
+        text-align: left;
+    }
+}
