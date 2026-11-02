@@ -1,0 +1,58 @@
+/* Northern Illinois climatology: scoped styles; existing site remains unchanged. */
+html { scroll-behavior: smooth; }
+body.climatology-page { color:#203044; background:#f8fafc; line-height:1.65; padding-bottom:0; }
+.climatology-page main { padding: 4px 0 50px; }
+.climatology-page main section { max-width:1120px; box-sizing:border-box; margin:28px auto; }
+.climatology-page main a { color:#075d91; }
+.climatology-page a:focus-visible, .climatology-page summary:focus-visible {outline:3px solid #d27b2e; outline-offset:3px;}
+.climo-intro h1 {font-size:clamp(1.9rem, 4vw, 2.9rem);line-height:1.16;color:#163d5e;margin:7px 0 12px;}
+.climo-lede {font-size:clamp(1.1rem,2.4vw,1.35rem);color:#36546a;max-width:790px;}
+.climo-kicker {font-size:.83rem;font-weight:700;text-transform:uppercase;letter-spacing:.095em;color:#946016;margin:0;}
+.climo-context {border-left:4px solid #d79c4a;background:#fff6e7;padding:14px 18px;margin:23px 0;border-radius:0 8px 8px 0;}
+.climo-jump {display:flex;gap:9px;flex-wrap:wrap;margin:18px 0;}
+.climo-jump a {display:inline-block;border:1px solid #bed5e3;border-radius:999px;padding:6px 13px;background:#fff;text-decoration:none;font-weight:600;font-size:.91rem;}
+.climo-mobile-tip {color:#526579;font-size:.87rem;margin:8px 0 0;}
+.climo-section {padding-top:28px;border-top:2px solid #d5e0ea;scroll-margin-top:20px;}
+.climo-section-heading h2 {font-size:clamp(1.5rem,3vw,2rem);margin:5px 0 15px;color:#163d5e;border-bottom:0;}
+.climo-reading {font-size:1.04rem;}
+.climo-reading h3, .climo-explain-grid h3 {font-size:1.07rem;margin:12px 0 5px;color:#123d5b;}
+.climo-reading p,.climo-explain-grid p {margin:4px 0 13px;}
+.climo-subtitle {color:#23445d;font-size:1.06rem;margin:21px 0 7px;}
+.climo-table-scroll {overflow-x:auto;max-width:100%;}
+.climo-table-scroll table {border-collapse:collapse;width:100%;background:white;font-variant-numeric:tabular-nums;font-size:.95rem;min-width:530px;}
+.climo-table-scroll th,.climo-table-scroll td {padding:9px 13px;border-bottom:1px solid #dae4eb;text-align:right;}
+.climo-table-scroll th:first-child,.climo-table-scroll td:first-child {text-align:left;}
+.climo-table-scroll thead th {background:#e8f1f8;color:#173e5d;}
+.climo-table-scroll tbody th {font-weight:600;}
+.climo-note {font-size:.87rem;color:#566678;margin:8px 0 20px;}
+.climo-map-grid {display:grid;grid-template-columns:1fr;gap:24px;}
+.climo-map {background:white;box-shadow:0 3px 16px rgba(34,58,82,.08);border:1px solid #e1e8ee;border-radius:10px;padding:14px 14px 10px;margin:0;overflow:hidden;}
+.climo-map h4 {font-size:1.1rem;margin:0 0 8px;color:#254b67;}
+.climo-image-scroll {overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch;border-radius:5px;scrollbar-color:#a5b9c9 #f1f4f6;}
+.climo-image-scroll a {display:block;width:max-content;max-width:100%;}
+.climo-image-scroll img {display:block;width:100%;height:auto;max-width:100%;background:#fff;}
+.climo-map figcaption {font-size:.86rem;color:#506175;margin-top:8px;}
+.climo-map figcaption a {margin-left:7px;white-space:nowrap;}
+.climo-explain-grid {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:26px;margin:23px 0 12px;}
+.climo-explain-grid>div {background:#edf4f8;border-radius:9px;padding:13px 17px;}
+.climo-sources {font-size:.89rem;line-height:1.85;padding:9px 0 13px;}
+.climo-sources a {white-space:normal;}
+.climo-extra {margin-top:18px;padding:10px 14px;border-radius:8px;background:#eef5f9;}
+.climo-extra summary {cursor:pointer;font-weight:600;color:#214861;}
+.climo-extra figure {margin-top:14px;}
+.climo-methods,.climo-end {background:#fff;border:1px solid #e2e9ef;border-radius:10px;padding:18px 25px!important;}
+.climo-methods h2,.climo-end h2 {margin-top:0!important;}
+.climatology-page footer {position:static;height:auto;width:auto;padding:12px;min-height:50px;box-sizing:border-box;}
+.climatology-page footer p {margin:0;}
+@media(max-width:760px) {
+ .climatology-page main section {margin:18px auto;padding:0 15px;}
+ .climo-explain-grid {grid-template-columns:1fr;gap:12px;}
+ .climo-map {padding:9px 9px 10px;}
+ /* Preserve readable detail in side-by-side maps on narrow screens: horizontal swipe. */
+ .climo-image-scroll a {width:850px;max-width:none;}
+ .climo-image-scroll img {width:850px;max-width:none;}
+ .climo-map figcaption {font-size:.82rem;}
+ .climo-methods,.climo-end {border-radius:0;}
+ .climatology-page header nav li {display:inline-block;margin:3px 8px 3px 0;}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto;}}
