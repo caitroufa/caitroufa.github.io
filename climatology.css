@@ -56,3 +56,4 @@ body.climatology-page { color:#203044; background:#f8fafc; line-height:1.65; pad
  .climatology-page header nav li {display:inline-block;margin:3px 8px 3px 0;}
 }
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto;}}
+
