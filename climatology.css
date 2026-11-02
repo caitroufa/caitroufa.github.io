@@ -1,59 +1,171 @@
-/* Northern Illinois climatology: scoped styles; existing site remains unchanged. */
-html { scroll-behavior: smooth; }
-body.climatology-page { color:#203044; background:#f8fafc; line-height:1.65; padding-bottom:0; }
-.climatology-page main { padding: 4px 0 50px; }
-.climatology-page main section { max-width:1120px; box-sizing:border-box; margin:28px auto; }
-.climatology-page main a { color:#075d91; }
-.climatology-page a:focus-visible, .climatology-page summary:focus-visible {outline:3px solid #d27b2e; outline-offset:3px;}
-.climo-intro h1 {font-size:clamp(1.9rem, 4vw, 2.9rem);line-height:1.16;color:#163d5e;margin:7px 0 12px;}
-.climo-lede {font-size:clamp(1.1rem,2.4vw,1.35rem);color:#36546a;max-width:790px;}
-.climo-kicker {font-size:.83rem;font-weight:700;text-transform:uppercase;letter-spacing:.095em;color:#946016;margin:0;}
-.climo-context {border-left:4px solid #d79c4a;background:#fff6e7;padding:14px 18px;margin:23px 0;border-radius:0 8px 8px 0;}
-.climo-jump {display:flex;gap:9px;flex-wrap:wrap;margin:18px 0;}
-.climo-jump a {display:inline-block;border:1px solid #bed5e3;border-radius:999px;padding:6px 13px;background:#fff;text-decoration:none;font-weight:600;font-size:.91rem;}
-.climo-mobile-tip {color:#526579;font-size:.87rem;margin:8px 0 0;}
-.climo-section {padding-top:28px;border-top:2px solid #d5e0ea;scroll-margin-top:20px;}
-.climo-section-heading h2 {font-size:clamp(1.5rem,3vw,2rem);margin:5px 0 15px;color:#163d5e;border-bottom:0;}
-.climo-reading {font-size:1.04rem;}
-.climo-reading h3, .climo-explain-grid h3 {font-size:1.07rem;margin:12px 0 5px;color:#123d5b;}
-.climo-reading p,.climo-explain-grid p {margin:4px 0 13px;}
-.climo-subtitle {color:#23445d;font-size:1.06rem;margin:21px 0 7px;}
-.climo-table-scroll {overflow-x:auto;max-width:100%;}
-.climo-table-scroll table {border-collapse:collapse;width:100%;background:white;font-variant-numeric:tabular-nums;font-size:.95rem;min-width:530px;}
-.climo-table-scroll th,.climo-table-scroll td {padding:9px 13px;border-bottom:1px solid #dae4eb;text-align:right;}
-.climo-table-scroll th:first-child,.climo-table-scroll td:first-child {text-align:left;}
-.climo-table-scroll thead th {background:#e8f1f8;color:#173e5d;}
-.climo-table-scroll tbody th {font-weight:600;}
-.climo-note {font-size:.87rem;color:#566678;margin:8px 0 20px;}
-.climo-map-grid {display:grid;grid-template-columns:1fr;gap:24px;}
-.climo-map {background:white;box-shadow:0 3px 16px rgba(34,58,82,.08);border:1px solid #e1e8ee;border-radius:10px;padding:14px 14px 10px;margin:0;overflow:hidden;}
-.climo-map h4 {font-size:1.1rem;margin:0 0 8px;color:#254b67;}
-.climo-image-scroll {overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch;border-radius:5px;scrollbar-color:#a5b9c9 #f1f4f6;}
-.climo-image-scroll a {display:block;width:max-content;max-width:100%;}
-.climo-image-scroll img {display:block;width:100%;height:auto;max-width:100%;background:#fff;}
-.climo-map figcaption {font-size:.86rem;color:#506175;margin-top:8px;}
-.climo-map figcaption a {margin-left:7px;white-space:nowrap;}
-.climo-explain-grid {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:26px;margin:23px 0 12px;}
-.climo-explain-grid>div {background:#edf4f8;border-radius:9px;padding:13px 17px;}
-.climo-sources {font-size:.89rem;line-height:1.85;padding:9px 0 13px;}
-.climo-sources a {white-space:normal;}
-.climo-extra {margin-top:18px;padding:10px 14px;border-radius:8px;background:#eef5f9;}
-.climo-extra summary {cursor:pointer;font-weight:600;color:#214861;}
-.climo-extra figure {margin-top:14px;}
-.climo-methods,.climo-end {background:#fff;border:1px solid #e2e9ef;border-radius:10px;padding:18px 25px!important;}
-.climo-methods h2,.climo-end h2 {margin-top:0!important;}
-.climatology-page footer {position:static;height:auto;width:auto;padding:12px;min-height:50px;box-sizing:border-box;}
-.climatology-page footer p {margin:0;}
-@media(max-width:760px) {
- .climatology-page main section {margin:18px auto;padding:0 15px;}
- .climo-explain-grid {grid-template-columns:1fr;gap:12px;}
- .climo-map {padding:9px 9px 10px;}
- /* Preserve readable detail in side-by-side maps on narrow screens: horizontal swipe. */
- .climo-image-scroll a {width:850px;max-width:none;}
- .climo-image-scroll img {width:850px;max-width:none;}
- .climo-map figcaption {font-size:.82rem;}
- .climo-methods,.climo-end {border-radius:0;}
- .climatology-page header nav li {display:inline-block;margin:3px 8px 3px 0;}
+/* Northern Illinois climatology — Scoped to this page. The global styles.css, site navigation, and header photo remain unchanged. */
+:root {
+  --climo-ink: #171717;
+  --climo-muted: #424747;
+  --climo-green: #245b43;
+  --climo-green-dark: #173e30;
+  --climo-rose: #813e57;
+  --climo-border: #d8ded9;
+  --climo-mint: #f1f7f2;
+  --climo-blush: #fbf1f5;
 }
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto;}}
+html { scroll-behavior: smooth; }
+body.climatology-page {
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--climo-ink);
+  background: #fff;
+  line-height: 1.63;
+  padding-bottom: 0;
+}
+.climatology-page main { padding: 10px 0 56px; }
+.climatology-page main section {
+  max-width: 1200px;
+  margin: 28px auto;
+  padding: 0 24px;
+  box-sizing: border-box;
+}
+.climatology-page main a { color: var(--climo-green); text-underline-offset: 3px; }
+.climatology-page main a:hover { color: var(--climo-rose); }
+.climatology-page a:focus-visible,
+.climatology-page summary:focus-visible { outline: 3px solid var(--climo-rose); outline-offset: 3px; }
 
+/* Page introduction: black headings, the same familiar typeface, quiet aurora accents. */
+.climo-intro h1 {
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  line-height: 1.16;
+  color: #111;
+  margin: 8px 0 12px;
+  letter-spacing: -.025em;
+}
+.climo-lede { font-size: clamp(1.1rem, 2.3vw, 1.35rem); color: #252525; max-width: 870px; }
+.climo-kicker {
+  font-size: .84rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .075em;
+  color: var(--climo-rose);
+  margin: 0;
+}
+.climo-context {
+  border-left: 4px solid var(--climo-green);
+  background: var(--climo-mint);
+  border-radius: 0 8px 8px 0;
+  padding: 14px 18px;
+  margin: 22px 0;
+  color: #252b27;
+}
+.climo-jump { display: flex; gap: 9px; flex-wrap: wrap; margin: 18px 0; }
+.climo-jump a {
+  display: inline-block;
+  border: 1px solid #b8cfc0;
+  border-radius: 100px;
+  padding: 6px 14px;
+  background: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: .91rem;
+  transition: background .18s ease, border-color .18s ease;
+}
+.climo-jump a:hover { background: var(--climo-blush); border-color: #cfadba; }
+.climo-mobile-tip, .climo-note { color: var(--climo-muted); font-size: .88rem; }
+.climo-mobile-tip { margin: 8px 0 0; }
+
+/* Section titles follow the black-heading / fine-rule pattern of existing portfolio pages. */
+.climo-section {
+  padding-top: 29px !important;
+  border-top: 2px solid var(--climo-border);
+  scroll-margin-top: 20px;
+}
+.climo-section-heading h2 {
+  color: #111;
+  font-size: clamp(1.55rem, 3vw, 2rem);
+  margin: 5px 0 16px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #d7d7d7;
+}
+.climo-reading { font-size: 1.03rem; }
+.climo-reading h3, .climo-explain-grid h3 {
+  font-size: 1.1rem;
+  margin: 12px 0 6px;
+  color: #171717;
+}
+.climo-reading p, .climo-explain-grid p { margin: 4px 0 13px; }
+.climo-subtitle { color: var(--climo-green-dark); font-size: 1.07rem; margin: 21px 0 9px; }
+
+/* Numbers remain crisp and accessible in high-contrast tables. */
+.climo-table-scroll { overflow-x: auto; max-width: 100%; border-radius: 7px; }
+.climo-table-scroll table {
+  border-collapse: collapse;
+  width: 100%;
+  min-width: 520px;
+  background: white;
+  font-size: .95rem;
+  font-variant-numeric: tabular-nums;
+}
+.climo-table-scroll th, .climo-table-scroll td {
+  padding: 10px 13px;
+  text-align: right;
+  border-bottom: 1px solid #e2e5e2;
+  color: #1b1b1b;
+}
+.climo-table-scroll th:first-child, .climo-table-scroll td:first-child { text-align: left; }
+.climo-table-scroll thead th { background: #e9f2eb; color: var(--climo-green-dark); }
+.climo-table-scroll tbody th { font-weight: 600; }
+.climo-table-scroll tbody tr:nth-child(even) { background: #fdf8fa; }
+.climo-note { margin: 9px 0 20px; }
+
+/* Figures are kept in their original color palettes; only page surrounds change. */
+.climo-map-grid { display: grid; grid-template-columns: 1fr; gap: 24px; }
+.climo-map {
+  background: white;
+  border: 1px solid #d9dfda;
+  border-radius: 10px;
+  padding: 15px 15px 10px;
+  margin: 0;
+  overflow: hidden;
+  box-shadow: 0 3px 14px rgba(27, 54, 39, .065);
+}
+.climo-map h4 { font-size: 1.1rem; margin: 0 0 9px; color: var(--climo-green-dark); }
+.climo-image-scroll {
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  border-radius: 5px;
+  scrollbar-color: #a1baa7 #f2f5f2;
+}
+.climo-image-scroll a { display: block; width: max-content; max-width: 100%; }
+.climo-image-scroll img { display: block; width: 100%; height: auto; max-width: 100%; background: #fff; }
+.climo-map figcaption { font-size: .86rem; color: var(--climo-muted); margin-top: 9px; }
+.climo-map figcaption a { margin-left: 7px; white-space: nowrap; }
+
+/* Paired scientific explanations reflect the green / magenta aurora, very lightly. */
+.climo-explain-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 19px; margin: 25px 0 14px; }
+.climo-explain-grid > div { background: var(--climo-mint); border: 1px solid #e0eae2; border-radius: 9px; padding: 15px 18px; }
+.climo-explain-grid > div:nth-child(2) { background: var(--climo-blush); border-color: #efdfe5; }
+.climo-explain-grid > div:first-child h3 { color: var(--climo-green-dark); }
+.climo-explain-grid > div:nth-child(2) h3 { color: var(--climo-rose); }
+.climo-sources { font-size: .91rem; line-height: 1.9; padding: 9px 0 15px; }
+.climo-sources a { white-space: normal; }
+.climo-extra { margin-top: 18px; padding: 11px 15px; border-radius: 8px; background: #f9f5f7; border: 1px solid #ebdfe5; }
+.climo-extra summary { cursor: pointer; font-weight: 600; color: var(--climo-rose); }
+.climo-extra figure { margin-top: 14px; }
+.climo-methods, .climo-end { background: #fff; border: 1px solid var(--climo-border); border-left: 4px solid var(--climo-green); border-radius: 9px; padding: 18px 25px !important; }
+.climo-end { border-left-color: var(--climo-rose); }
+.climo-methods h2, .climo-end h2 { color: #171717; margin-top: 0 !important; }
+
+/* Use exactly the same aurora footer background as the rest of the website. */
+.climatology-page footer { position: static; height: auto; width: auto; padding: 12px; min-height: 50px; box-sizing: border-box; }
+.climatology-page footer p { margin: 0; }
+@media (max-width: 760px) {
+  .climatology-page main section { margin: 18px auto; padding: 0 16px; }
+  .climo-section { padding-top: 25px !important; }
+  .climo-explain-grid { grid-template-columns: 1fr; gap: 12px; }
+  .climo-map { padding: 9px 9px 10px; }
+  /* Swipe to inspect both halves of wide maps without shrinking labels to illegibility. */
+  .climo-image-scroll a { width: 850px; max-width: none; }
+  .climo-image-scroll img { width: 850px; max-width: none; }
+  .climo-map figcaption { font-size: .82rem; }
+  .climo-methods, .climo-end { border-radius: 5px; padding: 15px 16px !important; }
+  .climatology-page header nav li { display: inline-block; margin: 3px 8px 3px 0; }
+}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .climo-jump a { transition: none; } }
