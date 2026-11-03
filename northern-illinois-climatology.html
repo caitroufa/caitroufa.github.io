@@ -7,6 +7,7 @@
   <title>Northern Illinois Weather &amp; Climate | Cait Roufa</title>
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="climatology.css">
+  
 </head>
 <body class="climatology-page">
 <header><h1>Cait Roufa</h1><nav aria-label="Main navigation"><ul>
@@ -19,9 +20,10 @@
  <p class="climo-lede">What have we experienced, how does the atmosphere influence severe weather, and what might the future bring?</p>
  <p>Historical observations of severe weather and climate for northern Illinois, southern Wisconsin, eastern Iowa, and northwestern Indiana. Prepared in connection with <strong>DeCarbon DeKalb’s “What’s Coming for Northern Illinois?”</strong> conversation, November 4, 2026.</p>
  <div class="climo-context"><strong>How to read these maps:</strong> Darker colors indicate larger values within each hazard. Each two panel map uses a shared color scale, so the periods are directly comparable. Different hazards use different periods based on available datasets.</div>
- <nav class="climo-jump" aria-label="Jump to a hazard"><a href="#severe">Severe storms</a><a href="#precip">Precipitation</a><a href="#flood">Flooding</a><a href="#drought">Drought</a><a href="#snow">Snowfall</a></nav>
+ <nav class="climo-jump" aria-label="Jump to a hazard"><a href="#severe">Severe storms</a><a href="#precip">Precipitation</a><a href="#flood">Flooding</a><a href="#drought">Drought</a><a href="#temperature">Temperature</a><a href="#snow">Snowfall</a></nav>
  <p class="climo-mobile-tip">On a phone, swipe horizontally across a map to examine both panels, or tap it to open the full resolution image.</p>
 </section>
+  
 <section class="climo-section" id="severe" aria-labelledby="severe-heading">
   <div class="climo-section-heading"><p class="climo-kicker">1986–2025 observations</p><h2 id="severe-heading">Severe thunderstorms, tornadoes, hail &amp; wind</h2></div>
   <div class="climo-reading"><h3>What our observations show</h3><p>DeKalb County had more <em>reported</em> severe weather days in the recent 20-year period (5.00 versus 3.85 days per year). Tornado, hail and damaging wind report days also increased.</p></div>
@@ -133,6 +135,85 @@
   <div class="climo-explain-grid"><div><h3>Why this happens</h3><p>Snowfall depends on available moisture, air temperature, storm tracks, and melting. A warmer climate can still produce snowy winters where conditions remain cold enough.</p></div><div><h3>What future projections suggest</h3><p>Illinois has no clear long-term statewide snowfall-total trend since 1902. NIU-led modeling projects reductions in several snowstorm characteristics and a shorter early/late snowstorm season across much of central and eastern North America; some northern areas may retain or gain extreme snowfall.</p></div></div>
   <div class="climo-sources"><strong>Explore the science:</strong> <a href="https://stateclimatologist.isws.illinois.edu/snowfall-trends/" target="_blank" rel="noopener">Illinois snowfall trends</a> · <a href="https://doi.org/10.1002/joc.8770" target="_blank" rel="noopener">Ashley et al. (2025), future snowstorms</a> · <a href="https://www.ncei.noaa.gov/pub/data/ghcn/daily/readme.txt" target="_blank" rel="noopener">NOAA GHCN-Daily</a></div>
 </section>
+
+<section class="climo-section" id="temperature" aria-labelledby="temperature-heading">
+  <div class="climo-section-heading">
+    <p class="climo-kicker">1986–2025 observations · NOAA GHCN-Daily</p>
+    <h2 id="temperature-heading">Summer &amp; winter temperatures</h2>
+  </div>
+
+  <div class="climo-reading">
+    <h3>What the regional maps show</h3>
+    <p><strong>Summer (June–August):</strong> Average highs changed modestly and unevenly across the region; nighttime lows also vary by county. The clearest widespread pattern is <strong>fewer unusually cool nights</strong> in 2006–2025.</p>
+    <p><strong>Winter (December–February):</strong> Average highs and lows show relatively small, geographically mixed changes. <strong>Unusually warm days appear more frequent in many counties</strong>, although the pattern is not uniform.</p>
+    <p>DeKalb offers one local example: its summer lows increased while highs decreased slightly; both winter averages decreased slightly. These period differences are descriptive—not evidence of statistical significance or attribution.</p>
+  </div>
+
+  <h3 class="climo-subtitle">DeKalb County at a glance</h3>
+  <div class="climo-table-scroll"><table>
+    <thead><tr><th scope="col">Metric</th><th scope="col">1986–2005</th><th scope="col">2006–2025</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">Summer mean daily high</th><td>81.87°F</td><td>81.25°F</td></tr>
+      <tr><th scope="row">Summer mean daily low</th><td>60.85°F</td><td>61.69°F</td></tr>
+      <tr><th scope="row">Summer unusually cool nights / season</th><td>13.54</td><td>7.67</td></tr>
+      <tr><th scope="row">Winter mean daily high</th><td>32.28°F</td><td>31.28°F</td></tr>
+      <tr><th scope="row">Winter mean daily low</th><td>16.79°F</td><td>16.04°F</td></tr>
+      <tr><th scope="row">Winter unusually warm days / season</th><td>9.29</td><td>9.26</td></tr>
+    </tbody>
+  </table></div>
+  <p class="climo-note">DeKalb values come from one qualifying station in the county; other county values may be estimated from nearby stations. Winter is DJF, labeled by its ending year.</p>
+
+  <h3 class="climo-subtitle">Summer maps: average highs, lows &amp; unusually cool nights</h3>
+  <div class="climo-map-grid">
+    <figure class="climo-map">
+      <h4>Summer mean daily high temperatures</h4>
+      <div class="climo-image-scroll"><a href="images/us_climos/temp_summer_mean_tmax_comparison.png" target="_blank" rel="noopener" aria-label="Open full-resolution summer mean daily high comparison"><img src="images/us_climos/temp_summer_mean_tmax_comparison.png" alt="Side-by-side county maps of mean summer daily high temperatures in northern Illinois and nearby states, comparing 1986–2005 with 2006–2025." loading="lazy" decoding="async"></a></div>
+      <figcaption>Average of daily maximum temperatures (°F) during June–August, not the season's single hottest day. <a href="images/us_climos/temp_summer_mean_tmax_comparison.png" target="_blank" rel="noopener">View full-size map</a></figcaption>
+    </figure>
+    <figure class="climo-map">
+      <h4>Summer mean daily low temperatures</h4>
+      <div class="climo-image-scroll"><a href="images/us_climos/temp_summer_mean_tmin_comparison.png" target="_blank" rel="noopener" aria-label="Open full-resolution summer mean daily low comparison"><img src="images/us_climos/temp_summer_mean_tmin_comparison.png" alt="Side-by-side county maps of mean summer overnight low temperatures, comparing 1986–2005 with 2006–2025." loading="lazy" decoding="async"></a></div>
+      <figcaption>Average of daily minimum temperatures (°F) during June–August. <a href="images/us_climos/temp_summer_mean_tmin_comparison.png" target="_blank" rel="noopener">View full-size map</a></figcaption>
+    </figure>
+    <figure class="climo-map">
+      <h4>Unusually cold summer nights</h4>
+      <div class="climo-image-scroll"><a href="images/us_climos/temp_summer_cold_nights_comparison.png" target="_blank" rel="noopener" aria-label="Open full-resolution summer unusually cold nights comparison"><img src="images/us_climos/temp_summer_cold_nights_comparison.png" alt="Side-by-side county maps showing fewer unusually cold summer nights across much of the region in 2006–2025 than in 1986–2005." loading="lazy" decoding="async"></a></div>
+      <figcaption>Average nights per summer with minimum temperature at or below the station-specific, calendar-month 10th percentile from the 1986–2025 reference period. <a href="images/us_climos/temp_summer_cold_nights_comparison.png" target="_blank" rel="noopener">View full-size map</a></figcaption>
+    </figure>
+  </div>
+
+  <h3 class="climo-subtitle">Winter maps: average highs, lows &amp; unusually warm days</h3>
+  <div class="climo-map-grid">
+    <figure class="climo-map">
+      <h4>Winter mean daily high temperatures</h4>
+      <div class="climo-image-scroll"><a href="images/us_climos/temp_winter_mean_tmax_comparison.png" target="_blank" rel="noopener" aria-label="Open full-resolution winter mean daily high comparison"><img src="images/us_climos/temp_winter_mean_tmax_comparison.png" alt="Side-by-side county maps of mean winter daily high temperatures, comparing winters ending in 1986–2005 and 2006–2025." loading="lazy" decoding="async"></a></div>
+      <figcaption>Average daily maximum temperatures (°F) during December–February, with each winter labeled by its ending year. <a href="images/us_climos/temp_winter_mean_tmax_comparison.png" target="_blank" rel="noopener">View full-size map</a></figcaption>
+    </figure>
+    <figure class="climo-map">
+      <h4>Winter mean daily low temperatures</h4>
+      <div class="climo-image-scroll"><a href="images/us_climos/temp_winter_mean_tmin_comparison.png" target="_blank" rel="noopener" aria-label="Open full-resolution winter mean daily low comparison"><img src="images/us_climos/temp_winter_mean_tmin_comparison.png" alt="Side-by-side county maps of mean winter overnight low temperatures, comparing winters ending in 1986–2005 and 2006–2025." loading="lazy" decoding="async"></a></div>
+      <figcaption>Average daily minimum temperatures (°F) during December–February. <a href="images/us_climos/temp_winter_mean_tmin_comparison.png" target="_blank" rel="noopener">View full-size map</a></figcaption>
+    </figure>
+    <figure class="climo-map">
+      <h4>Unusually warm winter days</h4>
+      <div class="climo-image-scroll"><a href="images/us_climos/temp_winter_warm_days_comparison.png" target="_blank" rel="noopener" aria-label="Open full-resolution winter unusually warm days comparison"><img src="images/us_climos/temp_winter_warm_days_comparison.png" alt="Side-by-side county maps comparing the average number of unusually warm winter days between winters ending in 1986–2005 and 2006–2025." loading="lazy" decoding="async"></a></div>
+      <figcaption>Average days per winter with maximum temperature at or above the station-specific, calendar-month 90th percentile from the 1986–2025 reference period. <a href="images/us_climos/temp_winter_warm_days_comparison.png" target="_blank" rel="noopener">View full-size map</a></figcaption>
+    </figure>
+  </div>
+
+  <div class="climo-explain-grid">
+    <div><h3>Why patterns vary</h3><p>Atmospheric circulation, clouds, land use, and Lake Michigan influence temperatures differently across seasons and locations.</p></div>
+    <div><h3>Looking ahead</h3><p>Long-term climate assessments project continued warming and greater heat extremes in the Midwest, even though individual 20-year county comparisons may differ.</p></div>
+  </div>
+  <p class="climo-note"><strong>Interpretation:</strong> These are two 20-year averages, not statistical trend or attribution tests. “Unusually” means above the monthly 90th or below the monthly 10th percentile at each station (1986–2025 reference). Source: NOAA GHCN-Daily; accepted station-seasons meet ≥90% daily completeness.</p>
+  <div class="climo-sources"><strong>Explore the science:</strong>
+    <a href="https://stateclimatologist.isws.illinois.edu/climate-change-in-illinois-2/" target="_blank" rel="noopener">Illinois State Climatologist: observed changes</a> ·
+    <a href="https://statesummaries.ncics.org/chapter/il/" target="_blank" rel="noopener">NOAA Illinois climate summary</a> ·
+    <a href="https://nca2023.globalchange.gov/chapter/24/" target="_blank" rel="noopener">Fifth National Climate Assessment: Midwest</a> ·
+    <a href="https://www.ncei.noaa.gov/pub/data/ghcn/daily/readme.txt" target="_blank" rel="noopener">GHCN-Daily station documentation</a>
+  </div>
+</section>
+  
 <section class="climo-methods" id="methods"><h2>Methods, limitations &amp; responsible interpretation</h2>
  <p><strong>Local values:</strong> Each DeKalb summary reports mean annual or seasonal values. Severe weather and flood event records count days with reports; they are not direct measurements of storm or flood intensity. Precipitation and snowfall station estimates are subject to coverage, measurement, and interpolation limitations.</p>
  <p><strong>Timeperiod comparisons:</strong> The maps are descriptive historical climatologies. Detection and documentation have changed, especially for severe weather reports. Statistical significance and climate attribution require additional tests.</p>
