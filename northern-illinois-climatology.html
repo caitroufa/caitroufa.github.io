@@ -3,11 +3,17 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Northern Illinois weather and climate: local severe storms, precipitation, flooding, drought and snowfall observations, comparisons, and climate research.">
+  <meta name="description" content="Northern Illinois weather and climate: local severe storms, precipitation, drought, temperature and snowfall observations, comparisons, and climate research.">
   <title>Northern Illinois Weather &amp; Climate | Cait Roufa</title>
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="climatology.css">
   
+  <style>
+    /* Small additions for the question-led page; all other styles remain in climatology.css. */
+    .climo-map-lead { font-size: 1rem; font-weight: 600; line-height: 1.55; color: #212c25; margin: 2px 0 12px; padding: 0 0 8px; border-bottom: 1px solid #e8eee8; }
+    .climo-reading h3 { font-size: 1.2rem; margin: 8px 0 8px; }
+    .climo-section-heading h2 { max-width: 950px; line-height: 1.22; }
+  </style>
 </head>
 <body class="climatology-page">
 <header><h1>Cait Roufa</h1><nav aria-label="Main navigation"><ul>
@@ -17,138 +23,131 @@
 <section class="climo-intro" aria-labelledby="page-heading">
  <p class="climo-kicker">Community climate resource · DeKalb and surrounding northern Illinois</p>
  <h1 id="page-heading">Northern Illinois Weather &amp; Climate</h1>
- <p class="climo-lede">What have we experienced, how does the atmosphere influence severe weather, and what might the future bring?</p>
- <p>Historical observations of severe weather and climate for northern Illinois, southern Wisconsin, eastern Iowa, and northwestern Indiana. Prepared in connection with <strong>DeCarbon DeKalb’s “What’s Coming for Northern Illinois?”</strong> conversation, November 4, 2026.</p>
- <div class="climo-context"><strong>How to read these maps:</strong> Darker colors indicate larger values within each hazard. Each two panel map uses a shared color scale, so the periods are directly comparable. Different hazards use different periods based on available datasets.</div>
- <nav class="climo-jump" aria-label="Jump to a hazard"><a href="#severe">Severe storms</a><a href="#precip">Precipitation</a><a href="#flood">Flooding</a><a href="#drought">Drought</a><a href="#temperature">Temperature</a><a href="#snow">Snowfall</a></nav>
- <p class="climo-mobile-tip">On a phone, swipe horizontally across a map to examine both panels, or tap it to open the full resolution image.</p>
+ <p class="climo-lede">What has our region experienced—and what might be changing?</p>
+ <p>Explore observations from northern Illinois, southern Wisconsin, eastern Iowa, and northwestern Indiana. Prepared for DeCarbon DeKalb’s <strong>“What’s Coming for Northern Illinois?”</strong> community conversation, November 4, 2026.</p>
+ <div class="climo-context"><strong>Reading the maps:</strong> Each map compares two periods using the same color scale. Darker colors generally represent larger values, not necessarily a bigger change. DeKalb County is outlined in orange. These maps describe past observations; they are not tests of statistical significance.</div>
+ <nav class="climo-jump" aria-label="Explore a question"><a href="#severe">Severe storms</a><a href="#precip">Rainfall</a><a href="#drought">Drought</a><a href="#temperature">Temperatures</a><a href="#snow">Snowfall</a></nav>
+ <p class="climo-mobile-tip">On a phone, swipe across a map to view both time periods, or tap the map to see the full-size image.</p>
 </section>
-  
 <section class="climo-section" id="severe" aria-labelledby="severe-heading">
-  <div class="climo-section-heading"><p class="climo-kicker">1986–2025 observations</p><h2 id="severe-heading">Severe thunderstorms, tornadoes, hail &amp; wind</h2></div>
-  <div class="climo-reading"><h3>What our observations show</h3><p>DeKalb County had more <em>reported</em> severe weather days in the recent 20-year period (5.00 versus 3.85 days per year). Tornado, hail and damaging wind report days also increased.</p></div>
+  <div class="climo-section-heading">
+    <p class="climo-kicker">Severe thunderstorms, tornadoes, hail and wind · 1986–2025</p>
+    <h2 id="severe-heading">How have severe thunderstorms changed in our region, and what might the future bring?</h2>
+  </div>
+  <div class="climo-reading">
+    <h3>Observations from the past</h3>
+    <p>The maps show more <strong>reported severe-storm days</strong> across much of northern Illinois and surrounding areas during 2006–2025. DeKalb also recorded more days with reports of tornadoes, large hail and damaging wind. These figures count <em>reports</em>, which have become easier to detect and document over time.</p>
+  </div>
   <h3 class="climo-subtitle">DeKalb County at a glance</h3>
   <div class="climo-table-scroll"><table><thead><tr><th scope="col">Reported days per year</th><th scope="col">1986–2025</th><th scope="col">1986–2005</th><th scope="col">2006–2025</th></tr></thead><tbody><tr><th scope="row">All severe storms</th><td>4.42</td><td>3.85</td><td>5.00</td></tr><tr><th scope="row">Tornado</th><td>0.45</td><td>0.30</td><td>0.60</td></tr><tr><th scope="row">Hail ≥1 in</th><td>0.82</td><td>0.65</td><td>1.00</td></tr><tr><th scope="row">Wind</th><td>3.65</td><td>3.15</td><td>4.15</td></tr></tbody></table></div>
-  <p class="climo-note">County report days count each date once per hazard, even when several storms were reported. A day may appear in more than one hazard category.</p>
-  <div class="climo-map-grid"><figure class="climo-map"><h4>All reported severe weather days</h4>
+  <p class="climo-note">Each value is an average number of days per year with at least one report in that county. One storm can affect several counties, and reporting practices have changed. These comparisons do not by themselves establish a climate-driven increase.</p>
+  <div class="climo-map-grid">
+  <figure class="climo-map">
+  <p class="climo-map-lead">Across much of the region, including DeKalb County, more days had at least one reported severe storm in 2006–2025.</p><h4>All reported severe weather days</h4>
   <div class="climo-image-scroll"><a href="images/us_climos/spc_scs_comparison.png" target="_blank" rel="noopener" aria-label="Open full resolution: All reported severe-weather days"><img src="images/us_climos/spc_scs_comparison_web.png" alt="All reported severe-weather days: side-by-side county maps comparing the older and recent study periods around DeKalb, Illinois." loading="lazy" decoding="async" width="2400"></a></div>
   <figcaption>County days with at least one SPC tornado, severe hail, or damaging wind report. <a href="images/us_climos/spc_scs_comparison.png" target="_blank" rel="noopener">View full size map</a></figcaption>
 </figure>
-<figure class="climo-map"><h4>Tornado days</h4>
+<figure class="climo-map">
+  <p class="climo-map-lead">Days with a reported tornado were more common in many counties in the recent period, although the pattern varies across the region.</p><h4>Tornado days</h4>
   <div class="climo-image-scroll"><a href="images/us_climos/spc_tornado_comparison.png" target="_blank" rel="noopener" aria-label="Open full resolution: Tornado days"><img src="images/us_climos/spc_tornado_comparison_web.png" alt="Tornado days: side-by-side county maps comparing the older and recent study periods around DeKalb, Illinois." loading="lazy" decoding="async" width="2400"></a></div>
   <figcaption>County days with at least one reported tornado, including tornado paths crossing county boundaries. <a href="images/us_climos/spc_tornado_comparison.png" target="_blank" rel="noopener">View full size map</a></figcaption>
 </figure>
-<figure class="climo-map"><h4>Severe hail days</h4>
+<figure class="climo-map">
+  <p class="climo-map-lead">Reports of hail at least one inch in diameter increased in several areas, including DeKalb, but not uniformly.</p><h4>Severe hail days</h4>
   <div class="climo-image-scroll"><a href="images/us_climos/spc_hail_comparison.png" target="_blank" rel="noopener" aria-label="Open full resolution: Severe hail days"><img src="images/us_climos/spc_hail_comparison_web.png" alt="Severe hail days: side-by-side county maps comparing the older and recent study periods around DeKalb, Illinois." loading="lazy" decoding="async" width="2400"></a></div>
   <figcaption>County days with reported hail at least 1 inch in diameter. <a href="images/us_climos/spc_hail_comparison.png" target="_blank" rel="noopener">View full size map</a></figcaption>
 </figure>
-<figure class="climo-map"><h4>Damaging wind days</h4>
+<figure class="climo-map">
+  <p class="climo-map-lead">Damaging-wind reports also occurred on more days across many counties, with some of the strongest changes toward the eastern part of our study area.</p><h4>Damaging wind days</h4>
   <div class="climo-image-scroll"><a href="images/us_climos/spc_wind_comparison.png" target="_blank" rel="noopener" aria-label="Open full resolution: Damaging-wind days"><img src="images/us_climos/spc_wind_comparison_web.png" alt="Damaging-wind days: side-by-side county maps comparing the older and recent study periods around DeKalb, Illinois." loading="lazy" decoding="async" width="2400"></a></div>
   <figcaption>County days with at least one reported damaging wind event. <a href="images/us_climos/spc_wind_comparison.png" target="_blank" rel="noopener">View full size map</a></figcaption>
-</figure></div>
-  
-  <div class="climo-explain-grid"><div><h3>Why this happens</h3><p>Warmer, moister air can support instability and heavy rainfall; storm organization also depends on vertical wind shear and lift. Detection, population, and reporting practices have changed, so report count trends include these changes.</p></div><div><h3>What future projections suggest</h3><p>In convection-permitting simulations, <a href="https://doi.org/10.1002/joc.70475" target="_blank" rel="noopener">Roufa et al. (2026)</a> project more synthetic severe-storm days, a longer severe-weather season, and regional shifts in storm activity, including springtime increases in the Midwest. These are modeled storm proxies, not forecasts of tornado counts for DeKalb County; exact changes in local tornado, hail, and damaging-wind frequency remain uncertain.</p></div></div>
-  <div class="climo-sources"><strong>Explore the science:</strong> <a href="https://doi.org/10.1002/joc.70475" title="Projected Mid- and Late-Century Changes in Severe Convective Storms Across the United States From Dynamically Downscaled Climate Simulations — International Journal of Climatology" target="_blank" rel="noopener"><strong>Roufa et al. (2026), future severe storms</strong></a> · <a href="https://www.ncei.noaa.gov/access/storm-events-database/" target="_blank" rel="noopener">NOAA Storm Events</a> · <a href="https://doi.org/10.1175/BAMS-D-22-0027.1" target="_blank" rel="noopener">Ashley et al. (2023), supercells</a> · <a href="https://doi.org/10.1038/s41612-024-00728-9" target="_blank" rel="noopener">Gensini et al. (2024), hail</a></div>
-</section><section class="climo-section" id="precip" aria-labelledby="precip-heading">
-  <div class="climo-section-heading"><p class="climo-kicker">1986–2025 observations</p><h2 id="precip-heading">Precipitation &amp; heavy rainfall</h2></div>
-  <div class="climo-reading"><h3>What our observations show</h3><p>Our DeKalb estimate increased from 34.83 to 38.26 inches of annual precipitation between the two periods, and ≥1-inch days increased. The ≥2-inch-day and annual-maximum metrics changed little or decreased slightly. The DeKalb values are estimated from three nearby stations, not stations within the county.</p></div>
+</figure>
+  </div>
+  <div class="climo-explain-grid">
+    <div><h3>What might explain these patterns?</h3><p>Severe storms draw energy from warm, moist air. Changing wind speeds and directions with height help some storms organize and become intense. Weather patterns vary from year to year, and improved radar, communication and storm reporting also affect how many events enter the record.</p></div>
+    <div><h3>What might we expect in the future?</h3><p>Several studies from Northern Illinois University suggest that the severe-storm season could become active earlier, with more storm-favorable days in the Midwest during spring and early summer. Other NIU research suggests that very large hail could become more common and some long-lasting windstorms could grow stronger or cover larger areas. <strong>That does not tell us exactly how many tornadoes or storms any one county will experience.</strong></p></div>
+  </div>
+  <div class="climo-sources"><strong>Explore the science:</strong> <a href="https://doi.org/10.1002/joc.70475" target="_blank" rel="noopener">Roufa et al. (2026): future severe storms</a> · <a href="https://doi.org/10.1175/BAMS-D-22-0027.1" target="_blank" rel="noopener">Ashley et al. (2023): future supercells</a> · <a href="https://doi.org/10.1038/s41612-024-00728-9" target="_blank" rel="noopener">Gensini et al. (2024): hail</a> · <a href="https://doi.org/10.1175/JCLI-D-23-0633.1" target="_blank" rel="noopener">Kaminski et al. (2025): derecho winds</a> · <a href="https://www.spc.noaa.gov/climo/reports/" target="_blank" rel="noopener">NOAA Storm Prediction Center reports</a></div>
+</section>
+<section class="climo-section" id="precip" aria-labelledby="precip-heading">
+  <div class="climo-section-heading">
+    <p class="climo-kicker">Rain and heavy precipitation · 1986–2025</p>
+    <h2 id="precip-heading">Are we getting more precipitation and heavier rainstorms?</h2>
+  </div>
+  <div class="climo-reading">
+    <h3>Observations from the past</h3>
+    <p>Across much of the region, stations recorded more annual precipitation and more days with at least one inch of rain or melted precipitation during 2006–2025. The DeKalb County estimate rose from <strong>34.83 to 38.26 inches per year</strong>, although its very heaviest-rain metrics changed little or decreased slightly. Different measures of heavy precipitation do not always move together.</p>
+  </div>
   <h3 class="climo-subtitle">DeKalb County at a glance</h3>
   <div class="climo-table-scroll"><table><thead><tr><th scope="col">Station-based estimate</th><th scope="col">1986–2025</th><th scope="col">1986–2005</th><th scope="col">2006–2025</th></tr></thead><tbody><tr><th scope="row">Annual precipitation (in)</th><td>36.55</td><td>34.83</td><td>38.26</td></tr><tr><th scope="row">Days ≥1 in / year</th><td>8.19</td><td>7.61</td><td>8.78</td></tr><tr><th scope="row">Days ≥2 in / year</th><td>1.64</td><td>1.67</td><td>1.61</td></tr><tr><th scope="row">Mean annual max 1-day (in)</th><td>2.99</td><td>3.15</td><td>2.83</td></tr></tbody></table></div>
-  <p class="climo-note">None of the selected quality-screened precipitation stations was within DeKalb County; its estimates use the three nearest stations. Other counties may also be interpolated.</p>
-  <div class="climo-map-grid"><figure class="climo-map"><h4>Average annual precipitation</h4>
+  <p class="climo-note">These are estimates from weather stations. No qualifying precipitation station was located within DeKalb County, so its values are based on three nearby stations. The maps compare two 20-year periods rather than testing long-term trends.</p>
+  <div class="climo-map-grid">
+  <figure class="climo-map">
+  <p class="climo-map-lead">The region generally received more precipitation each year in 2006–2025 than in 1986–2005.</p><h4>Average annual precipitation</h4>
   <div class="climo-image-scroll"><a href="images/us_climos/precip_annual_total_comparison.png" target="_blank" rel="noopener" aria-label="Open full resolution: Average annual precipitation"><img src="images/us_climos/precip_annual_total_comparison_web.png" alt="Average annual precipitation: side-by-side county maps comparing the older and recent study periods around DeKalb, Illinois." loading="lazy" decoding="async" width="2400"></a></div>
   <figcaption>Annual precipitation totals estimated from nearby quality-screened weather stations. <a href="images/us_climos/precip_annual_total_comparison.png" target="_blank" rel="noopener">View full-size map</a></figcaption>
 </figure>
-<figure class="climo-map"><h4>Days with at least 1 inch</h4>
+<figure class="climo-map">
+  <p class="climo-map-lead">Days with at least one inch of precipitation became more common across much of the study area.</p><h4>Days with at least 1 inch</h4>
   <div class="climo-image-scroll"><a href="images/us_climos/precip_days_ge1in_comparison.png" target="_blank" rel="noopener" aria-label="Open full resolution: Days with at least 1 inch"><img src="images/us_climos/precip_days_ge1in_comparison_web.png" alt="Days with at least 1 inch: side-by-side county maps comparing the older and recent study periods around DeKalb, Illinois." loading="lazy" decoding="async" width="2400"></a></div>
   <figcaption>Average annual number of station days with at least 1 inch of precipitation. <a href="images/us_climos/precip_days_ge1in_comparison.png" target="_blank" rel="noopener">View full-size map</a></figcaption>
 </figure>
-<figure class="climo-map"><h4>Days with at least 2 inches</h4>
+<figure class="climo-map">
+  <p class="climo-map-lead">Days with at least two inches of precipitation increased in some places, but the picture is less consistent across counties.</p><h4>Days with at least 2 inches</h4>
   <div class="climo-image-scroll"><a href="images/us_climos/precip_days_ge2in_comparison.png" target="_blank" rel="noopener" aria-label="Open full resolution: Days with at least 2 inches"><img src="images/us_climos/precip_days_ge2in_comparison_web.png" alt="Days with at least 2 inches: side-by-side county maps comparing the older and recent study periods around DeKalb, Illinois." loading="lazy" decoding="async" width="2400"></a></div>
   <figcaption>Average annual number of station days with at least 2 inches of precipitation. <a href="images/us_climos/precip_days_ge2in_comparison.png" target="_blank" rel="noopener">View full-size map</a></figcaption>
 </figure>
-<figure class="climo-map"><h4>Annual maximum 1-day precipitation</h4>
+<figure class="climo-map">
+  <p class="climo-map-lead">The heaviest single-day precipitation of the year changed unevenly across the region; increases in every county are not apparent.</p><h4>Annual maximum 1-day precipitation</h4>
   <div class="climo-image-scroll"><a href="images/us_climos/precip_max1day_comparison.png" target="_blank" rel="noopener" aria-label="Open full resolution: Annual maximum 1-day precipitation"><img src="images/us_climos/precip_max1day_comparison_web.png" alt="Annual maximum 1-day precipitation: side-by-side county maps comparing the older and recent study periods around DeKalb, Illinois." loading="lazy" decoding="async" width="2400"></a></div>
   <figcaption>Mean annual maximum daily precipitation at quality-screened stations. <a href="images/us_climos/precip_max1day_comparison.png" target="_blank" rel="noopener">View full-size map</a></figcaption>
-</figure></div>
-  
-  <div class="climo-explain-grid"><div><h3>Why this happens</h3><p>A warmer atmosphere can hold more water, so it can supply more moisture to storms. Organized thunderstorms, storm tracks, and weather system persistence also affect rainfall intensity and duration.</p></div><div><h3>What future projections suggest</h3><p>Illinois has experienced increases in heavy precipitation over the long record; NIU-led convection-permitting simulations project an increase in extreme daily precipitation in portions of the Midwest, especially during the cool season. County specific outcomes vary.</p></div></div>
-  <div class="climo-sources"><strong>Explore the science:</strong> <a href="https://stateclimatologist.isws.illinois.edu/climate-change-in-illinois/" target="_blank" rel="noopener">Illinois State Climatologist</a> · <a href="https://statesummaries.ncics.org/chapter/il/" target="_blank" rel="noopener">NOAA Illinois climate summary</a> · <a href="https://doi.org/10.1175/JAMC-D-23-0206.1" target="_blank" rel="noopener">Stinnett et al. (2024), extreme rain</a></div>
-<!-- </section><section class="climo-section" id="flood" aria-labelledby="flood-heading">
-  <div class="climo-section-heading"><p class="climo-kicker">1996–2025 observations</p><h2 id="flood-heading">Flooding &amp; flash flooding</h2></div>
-  <div class="climo-reading"><h3>What our observations show</h3><p>DeKalb had fewer days with documented flood-event starts in 2011–2025 than in 1996–2010. This is a record of reported event starts, <strong>not</strong> all days with flooding or a measure of inundated area.</p></div>
-  <h3 class="climo-subtitle">DeKalb County at a glance</h3>
-  <div class="climo-table-scroll"><table><thead><tr><th scope="col">Event-start days per year</th><th scope="col">1996–2025</th><th scope="col">1996–2010</th><th scope="col">2011–2025</th></tr></thead><tbody><tr><th scope="row">Flood or flash flood</th><td>1.13</td><td>1.47</td><td>0.80</td></tr><tr><th scope="row">Flood</th><td>0.63</td><td>0.87</td><td>0.40</td></tr><tr><th scope="row">Flash flood</th><td>0.70</td><td>0.93</td><td>0.47</td></tr></tbody></table></div>
-  <p class="climo-note">The reporting geography changed during this record; maps depict reported event starts, not floodwater footprints or physical flood-frequency changes.</p>
-  <div class="climo-map-grid"><figure class="climo-map"><h4>Reported flooding events</h4>
-  <div class="climo-image-scroll"><a href="images/us_climos/flood_all_comparison.png" target="_blank" rel="noopener" aria-label="Open full resolution: Reported flooding events"><img src="images/us_climos/flood_all_comparison_web.png" alt="Reported flooding events: side-by-side county maps comparing the older and recent study periods around DeKalb, Illinois." loading="lazy" decoding="async" width="2400"></a></div>
-  <figcaption>County days with at least one Flood or Flash Flood event starting. <a href="images/us_climos/flood_all_comparison.png" target="_blank" rel="noopener">View full-size map</a></figcaption>
 </figure>
-<figure class="climo-map"><h4>Flood event starts</h4>
-  <div class="climo-image-scroll"><a href="images/us_climos/flood_flood_comparison.png" target="_blank" rel="noopener" aria-label="Open full resolution: Flood event starts"><img src="images/us_climos/flood_flood_comparison_web.png" alt="Flood event starts: side-by-side county maps comparing the older and recent study periods around DeKalb, Illinois." loading="lazy" decoding="async" width="2400"></a></div>
-  <figcaption>Days with a documented Flood event beginning in a county. <a href="images/us_climos/flood_flood_comparison.png" target="_blank" rel="noopener">View full-size map</a></figcaption>
-</figure>
-<figure class="climo-map"><h4>Flash-flood event starts</h4>
-  <div class="climo-image-scroll"><a href="images/us_climos/flood_flash_flood_comparison.png" target="_blank" rel="noopener" aria-label="Open full resolution: Flash-flood event starts"><img src="images/us_climos/flood_flash_flood_comparison_web.png" alt="Flash-flood event starts: side-by-side county maps comparing the older and recent study periods around DeKalb, Illinois." loading="lazy" decoding="async" width="2400"></a></div>
-  <figcaption>Days with a documented Flash Flood event beginning in a county. <a href="images/us_climos/flood_flash_flood_comparison.png" target="_blank" rel="noopener">View full-size map</a></figcaption>
-</figure></div> -->
-  
-  <!-- <div class="climo-explain-grid"><div><h3>Why this happens</h3><p>Flooding depends on rainfall intensity, antecedent moisture, soil and drainage conditions, watersheds, land use, and infrastructure. Reporting practices and geographic record definitions also changed across the study period.</p></div><div><h3>What future projections suggest</h3><p>More intense rainfall creates challenges for drainage and flash-flood preparedness, but it does not give a direct county-specific flood-frequency projection. NIU research supports increases in some extreme daily precipitation metrics.</p></div></div>
-  <div class="climo-sources"><strong>Explore the science:</strong> <a href="https://www.ncei.noaa.gov/access/storm-events-database/" target="_blank" rel="noopener">NOAA Storm Events</a> · <a href="https://stateclimatologist.isws.illinois.edu/climate-change-in-illinois/" target="_blank" rel="noopener">Illinois State Climatologist</a> · <a href="https://doi.org/10.1175/JAMC-D-23-0206.1" target="_blank" rel="noopener">Stinnett et al. (2024)</a></div>
-</section><section class="climo-section" id="drought" aria-labelledby="drought-heading"> -->
-  <div class="climo-section-heading"><p class="climo-kicker">2000–2025 observations</p><h2 id="drought-heading">Drought &amp; dry spells</h2></div>
-  <div class="climo-reading"><h3>What our observations show</h3><p>Weeks with widespread moderate drought were nearly unchanged between the two comparison periods (18.58% versus 18.70%). Mean D1+ area coverage was somewhat lower in the more recent period. This is a short observational record.</p></div>
+  </div>
+  <div class="climo-explain-grid">
+    <div><h3>What might explain these patterns?</h3><p>Warmer air can carry more moisture, giving storms more water to release as rain. The paths storms take, how fast they move and whether thunderstorms form into larger groups also affect how much rain falls in one place.</p></div>
+    <div><h3>What might we expect in the future?</h3><p>The Midwest is expected to experience more intense heavy rain as the climate warms. NIU research also points toward increases in very heavy daily precipitation in parts of the Midwest. That could challenge storm drains, roads and farms, even though the amount of rain in any particular county remains variable.</p></div>
+  </div>
+  <div class="climo-sources"><strong>Explore the science:</strong> <a href="https://doi.org/10.1175/JAMC-D-23-0206.1" target="_blank" rel="noopener">Stinnett et al. (2024): extreme precipitation</a> · <a href="https://stateclimatologist.isws.illinois.edu/climate-change-in-illinois/" target="_blank" rel="noopener">Illinois State Climatologist</a> · <a href="https://statesummaries.ncics.org/chapter/il/" target="_blank" rel="noopener">NOAA Illinois climate summary</a> · <a href="https://www.ncei.noaa.gov/pub/data/ghcn/daily/readme.txt" target="_blank" rel="noopener">NOAA daily weather-station data</a></div>
+</section>
+<section class="climo-section" id="drought" aria-labelledby="drought-heading">
+  <div class="climo-section-heading">
+    <p class="climo-kicker">Drought and dry spells · 2000–2025</p>
+    <h2 id="drought-heading">Is drought becoming more common, even as rainfall increases?</h2>
+  </div>
+  <div class="climo-reading">
+    <h3>Observations from the past</h3>
+    <p>The drought maps tell a <strong>mixed regional story</strong>. Some western counties had more weeks with widespread moderate drought, while other areas changed less. In DeKalb, the share of weeks with widespread moderate drought was almost unchanged between 2000–2012 and 2013–2025, while the average portion of the county affected was somewhat smaller.</p>
+  </div>
   <h3 class="climo-subtitle">DeKalb County at a glance</h3>
   <div class="climo-table-scroll"><table><thead><tr><th scope="col">D1+ drought metric</th><th scope="col">2000–2025</th><th scope="col">2000–2012</th><th scope="col">2013–2025</th></tr></thead><tbody><tr><th scope="row">Weeks with ≥25% of county in D1+ (%)</th><td>18.64</td><td>18.58</td><td>18.70</td></tr><tr><th scope="row">Mean county area in D1+ (%)</th><td>15.02</td><td>17.14</td><td>12.90</td></tr></tbody></table></div>
-  <p class="climo-note">D1+ means moderate drought or worse. “Widespread” means at least 25% of the county affected in a weekly assessment.</p>
-  <div class="climo-map-grid"><figure class="climo-map"><h4>Widespread moderate drought frequency</h4>
+  <p class="climo-note">D1+ means moderate drought or worse. Here, “widespread” means at least 25% of the county was affected in a given week. These are two 13-year periods, and drought varies considerably from year to year.</p>
+  <div class="climo-map-grid">
+  <figure class="climo-map">
+  <p class="climo-map-lead">Weeks with widespread moderate drought became more frequent in some western counties, while DeKalb changed very little.</p><h4>Widespread moderate drought frequency</h4>
   <div class="climo-image-scroll"><a href="images/us_climos/drought_frequency_comparison.png" target="_blank" rel="noopener" aria-label="Open full resolution: Widespread moderate drought frequency"><img src="images/us_climos/drought_frequency_comparison_web.png" alt="Widespread moderate drought frequency: side-by-side county maps comparing the older and recent study periods around DeKalb, Illinois." loading="lazy" decoding="async" width="2400"></a></div>
   <figcaption>Share of weeks with at least 25% of county in D1 or greater drought. <a href="images/us_climos/drought_frequency_comparison.png" target="_blank" rel="noopener">View full-size map</a></figcaption>
 </figure>
-<figure class="climo-map"><h4>Average moderate drought coverage</h4>
+<figure class="climo-map">
+  <p class="climo-map-lead">The share of land affected by drought changed differently across the region, with lower average coverage in DeKalb County.</p><h4>Average moderate drought coverage</h4>
   <div class="climo-image-scroll"><a href="images/us_climos/drought_coverage_comparison.png" target="_blank" rel="noopener" aria-label="Open full resolution: Average moderate drought coverage"><img src="images/us_climos/drought_coverage_comparison_web.png" alt="Average moderate drought coverage: side-by-side county maps comparing the older and recent study periods around DeKalb, Illinois." loading="lazy" decoding="async" width="2400"></a></div>
   <figcaption>Mean percentage of county area classified D1 or greater. <a href="images/us_climos/drought_coverage_comparison.png" target="_blank" rel="noopener">View full-size map</a></figcaption>
-</figure></div>
-  
-  <div class="climo-explain-grid"><div><h3>Why this happens</h3><p>Drought results from a combination of rainfall deficits, moisture stored in soils and vegetation, atmospheric evaporative demand, and seasonal timing. Hotter conditions can intensify impacts even when annual rainfall increases.</p></div><div><h3>What future projections suggest</h3><p>Continued warming is well supported. Future changes in the occurrence and duration of local drought are less certain than warming itself; intense rainfall and damaging dry spells can coexist.</p></div></div>
-  <div class="climo-sources"><strong>Explore the science:</strong> <a href="https://droughtmonitor.unl.edu/" target="_blank" rel="noopener">U.S. Drought Monitor</a> · <a href="https://stateclimatologist.isws.illinois.edu/drought-in-illinois/drought-trends/" target="_blank" rel="noopener">Illinois drought trends</a> · <a href="https://nca2023.globalchange.gov/chapter/24/" target="_blank" rel="noopener">Fifth National Climate Assessment: Midwest</a></div>
-</section><section class="climo-section" id="snow" aria-labelledby="snow-heading">
-  <div class="climo-section-heading"><p class="climo-kicker">1986–2025 observations</p><h2 id="snow-heading">Snowfall &amp; winter season</h2></div>
-  <div class="climo-reading"><h3>What our observations show</h3><p>The DeKalb station-based estimate increased from 31.32 to 36.02 inches per season, with slightly more measurable snowfall days. The first-to-last measurable snowfall span was also longer, but is <strong>not</strong> the number of days with snow on the ground.</p></div>
-  <h3 class="climo-subtitle">DeKalb County at a glance</h3>
-  <div class="climo-table-scroll"><table><thead><tr><th scope="col">Station-based estimate</th><th scope="col">1986–2025</th><th scope="col">1986–2005</th><th scope="col">2006–2025</th></tr></thead><tbody><tr><th scope="row">Seasonal snowfall (in)</th><td>33.86</td><td>31.32</td><td>36.02</td></tr><tr><th scope="row">Snowfall days per season</th><td>22.89</td><td>22.06</td><td>23.60</td></tr><tr><th scope="row">First-to-last snow span (days)</th><td>129.78</td><td>126.41</td><td>132.65</td></tr></tbody></table></div>
-  <p class="climo-note">Snowfall totals are from one selected DeKalb County station. County values elsewhere may average in-county stations or use nearby stations. Timing and snow-day metrics are preliminary.</p>
-  <div class="climo-map-grid"><figure class="climo-map"><h4>Seasonal snowfall totals</h4>
-  <div class="climo-image-scroll"><a href="images/us_climos/snowfall_comparison_counties.png" target="_blank" rel="noopener" aria-label="Open full resolution: Seasonal snowfall totals"><img src="images/us_climos/snowfall_comparison_counties_web.png" alt="Seasonal snowfall totals: side-by-side county maps comparing the older and recent study periods around DeKalb, Illinois." loading="lazy" decoding="async" width="2400"></a></div>
-  <figcaption>County estimates of mean seasonal snowfall from GHCN-Daily station observations. <a href="images/us_climos/snowfall_comparison_counties.png" target="_blank" rel="noopener">View full-size map</a></figcaption>
 </figure>
-<figure class="climo-map"><h4>Measurable snowfall days</h4>
-  <div class="climo-image-scroll"><a href="images/us_climos/snow_days_comparison_counties.png" target="_blank" rel="noopener" aria-label="Open full resolution: Measurable snowfall days"><img src="images/us_climos/snow_days_comparison_counties_web.png" alt="Measurable snowfall days: side-by-side county maps comparing the older and recent study periods around DeKalb, Illinois." loading="lazy" decoding="async" width="2400"></a></div>
-  <figcaption>Estimated mean number of days with at least 0.1 inch of snowfall per season. <a href="images/us_climos/snow_days_comparison_counties.png" target="_blank" rel="noopener">View full-size map</a></figcaption>
-</figure>
-<figure class="climo-map"><h4>First-to-last measurable snowfall span</h4>
-  <div class="climo-image-scroll"><a href="images/us_climos/snow_duration_comparison_counties.png" target="_blank" rel="noopener" aria-label="Open full resolution: First-to-last measurable snowfall span"><img src="images/us_climos/snow_duration_comparison_counties_web.png" alt="First-to-last measurable snowfall span: side-by-side county maps comparing the older and recent study periods around DeKalb, Illinois." loading="lazy" decoding="async" width="2400"></a></div>
-  <figcaption>Mean number of days between first and last measurable snowfall, not days with snow cover. <a href="images/us_climos/snow_duration_comparison_counties.png" target="_blank" rel="noopener">View full-size map</a></figcaption>
-</figure></div>
-  <!-- <details class="climo-extra"><summary>Explore seasonal timing (optional additional figure)</summary> -->
-  <!-- <figure class="climo-map"><div class="climo-image-scroll"><a href="images/us_climos/snow_season_timing_regional.png" target="_blank" rel="noopener"><img src="images/us_climos/snow_season_timing_regional_web.png" loading="lazy" decoding="async" alt="Annual first and last measurable snowfall dates, 1986 through 2025" width="2400"></a></div><figcaption>Regional mean first and last measurable snowfall dates. Preliminary: shoulder-season station completeness needs further screening.</figcaption></figure></details> -->
-  <div class="climo-explain-grid"><div><h3>Why this happens</h3><p>Snowfall depends on available moisture, air temperature, storm tracks, and melting. A warmer climate can still produce snowy winters where conditions remain cold enough.</p></div><div><h3>What future projections suggest</h3><p>Illinois has no clear long-term statewide snowfall-total trend since 1902. NIU-led modeling projects reductions in several snowstorm characteristics and a shorter early/late snowstorm season across much of central and eastern North America; some northern areas may retain or gain extreme snowfall.</p></div></div>
-  <div class="climo-sources"><strong>Explore the science:</strong> <a href="https://stateclimatologist.isws.illinois.edu/snowfall-trends/" target="_blank" rel="noopener">Illinois snowfall trends</a> · <a href="https://doi.org/10.1002/joc.8770" target="_blank" rel="noopener">Ashley et al. (2025), future snowstorms</a> · <a href="https://www.ncei.noaa.gov/pub/data/ghcn/daily/readme.txt" target="_blank" rel="noopener">NOAA GHCN-Daily</a></div>
+  </div>
+  <div class="climo-explain-grid">
+    <div><h3>What might explain these patterns?</h3><p>Drought depends on when rain arrives—not just the annual total. Long stretches without rain, hot weather and the amount of moisture already in the soil all matter. A wetter year can still contain a serious dry spell.</p></div>
+    <div><h3>What might we expect in the future?</h3><p>Warmer conditions can dry soils faster during rain-free periods. Scientists are less certain about how often or how long droughts will occur in an individual county. Heavy downpours and damaging summer droughts can both be part of our future climate.</p></div>
+  </div>
+  <div class="climo-sources"><strong>Explore the science:</strong> <a href="https://droughtmonitor.unl.edu/" target="_blank" rel="noopener">U.S. Drought Monitor</a> · <a href="https://stateclimatologist.isws.illinois.edu/drought-in-illinois/drought-trends/" target="_blank" rel="noopener">Illinois drought history</a> · <a href="https://nca2023.globalchange.gov/chapter/24/" target="_blank" rel="noopener">National Climate Assessment: Midwest</a></div>
 </section>
-
 <section class="climo-section" id="temperature" aria-labelledby="temperature-heading">
   <div class="climo-section-heading">
-    <p class="climo-kicker">1986–2025 observations · NOAA GHCN-Daily</p>
-    <h2 id="temperature-heading">Summer &amp; winter temperatures</h2>
+    <p class="climo-kicker">Summer and winter temperatures · 1986–2025</p>
+    <h2 id="temperature-heading">Are our summers and winters getting warmer?</h2>
   </div>
-
   <div class="climo-reading">
-    <h3>What the regional maps show</h3>
-    <p><strong>Summer (June–August):</strong> Average highs changed modestly and unevenly across the region; nighttime lows also vary by county. The clearest widespread pattern is <strong>fewer unusually cool nights</strong> in 2006–2025.</p>
-    <p><strong>Winter (December–February):</strong> Average highs and lows show relatively small, geographically mixed changes. <strong>Unusually warm days appear more frequent in many counties</strong>, although the pattern is not uniform.</p>
-    <p>DeKalb offers one local example: its summer lows increased while highs decreased slightly; both winter averages decreased slightly. These period differences are descriptive—not evidence of statistical significance or attribution.</p>
+    <h3>Observations from the past</h3>
+    <p>Summer temperatures changed <strong>modestly and unevenly</strong> across the region, but unusually cool summer nights became less common in many counties. Winter average highs and lows also show mixed differences, while unusually warm winter days became more common in parts of the region. DeKalb’s recent summers had slightly warmer nights and slightly cooler days; its winters were slightly cooler on average. <strong>These small differences have not been tested for statistical significance.</strong></p>
   </div>
-
   <h3 class="climo-subtitle">DeKalb County at a glance</h3>
   <div class="climo-table-scroll"><table>
     <thead><tr><th scope="col">Metric</th><th scope="col">1986–2005</th><th scope="col">2006–2025</th></tr></thead>
@@ -161,66 +160,92 @@
       <tr><th scope="row">Winter unusually warm days / season</th><td>9.29</td><td>9.26</td></tr>
     </tbody>
   </table></div>
-  <p class="climo-note">DeKalb values come from one qualifying station in the county; other county values may be estimated from nearby stations. Winter is DJF, labeled by its ending year.</p>
-
-  <h3 class="climo-subtitle">Summer maps: average highs, lows &amp; unusually cool nights</h3>
+  <p class="climo-note">Summer means June–August; winter means December–February (labeled by the year it ends). “Unusually” means the warmest or coolest 10% of days for that calendar month at each station. DeKalb values come from one qualifying station within the county.</p>
   <div class="climo-map-grid">
-    <figure class="climo-map">
+  <figure class="climo-map">
+  <p class="climo-map-lead">Summer afternoon temperatures changed relatively little in many counties, with small increases and decreases depending on location.</p>
       <h4>Summer mean daily high temperatures</h4>
       <div class="climo-image-scroll"><a href="images/us_climos/temp_summer_mean_tmax_comparison.png" target="_blank" rel="noopener" aria-label="Open full-resolution summer mean daily high comparison"><img src="images/us_climos/temp_summer_mean_tmax_comparison.png" alt="Side-by-side county maps of mean summer daily high temperatures in northern Illinois and nearby states, comparing 1986–2005 with 2006–2025." loading="lazy" decoding="async"></a></div>
       <figcaption>Average of daily maximum temperatures (°F) during June–August, not the season's single hottest day. <a href="images/us_climos/temp_summer_mean_tmax_comparison.png" target="_blank" rel="noopener">View full-size map</a></figcaption>
     </figure>
-    <figure class="climo-map">
+<figure class="climo-map">
+  <p class="climo-map-lead">Summer overnight low temperatures show more variation across counties; DeKalb’s average summer low was slightly higher.</p>
       <h4>Summer mean daily low temperatures</h4>
       <div class="climo-image-scroll"><a href="images/us_climos/temp_summer_mean_tmin_comparison.png" target="_blank" rel="noopener" aria-label="Open full-resolution summer mean daily low comparison"><img src="images/us_climos/temp_summer_mean_tmin_comparison.png" alt="Side-by-side county maps of mean summer overnight low temperatures, comparing 1986–2005 with 2006–2025." loading="lazy" decoding="async"></a></div>
       <figcaption>Average of daily minimum temperatures (°F) during June–August. <a href="images/us_climos/temp_summer_mean_tmin_comparison.png" target="_blank" rel="noopener">View full-size map</a></figcaption>
     </figure>
-    <figure class="climo-map">
+<figure class="climo-map">
+  <p class="climo-map-lead">One of the clearest regional signals is that unusually cool summer nights became less common.</p>
       <h4>Unusually cold summer nights</h4>
       <div class="climo-image-scroll"><a href="images/us_climos/temp_summer_cold_nights_comparison.png" target="_blank" rel="noopener" aria-label="Open full-resolution summer unusually cold nights comparison"><img src="images/us_climos/temp_summer_cold_nights_comparison.png" alt="Side-by-side county maps showing fewer unusually cold summer nights across much of the region in 2006–2025 than in 1986–2005." loading="lazy" decoding="async"></a></div>
       <figcaption>Average nights per summer with minimum temperature at or below the station-specific, calendar-month 10th percentile from the 1986–2025 reference period. <a href="images/us_climos/temp_summer_cold_nights_comparison.png" target="_blank" rel="noopener">View full-size map</a></figcaption>
     </figure>
-  </div>
-
-  <h3 class="climo-subtitle">Winter maps: average highs, lows &amp; unusually warm days</h3>
-  <div class="climo-map-grid">
-    <figure class="climo-map">
+<figure class="climo-map">
+  <p class="climo-map-lead">Average winter daytime highs show a mixture of modest increases and decreases rather than a uniform change.</p>
       <h4>Winter mean daily high temperatures</h4>
       <div class="climo-image-scroll"><a href="images/us_climos/temp_winter_mean_tmax_comparison.png" target="_blank" rel="noopener" aria-label="Open full-resolution winter mean daily high comparison"><img src="images/us_climos/temp_winter_mean_tmax_comparison.png" alt="Side-by-side county maps of mean winter daily high temperatures, comparing winters ending in 1986–2005 and 2006–2025." loading="lazy" decoding="async"></a></div>
       <figcaption>Average daily maximum temperatures (°F) during December–February, with each winter labeled by its ending year. <a href="images/us_climos/temp_winter_mean_tmax_comparison.png" target="_blank" rel="noopener">View full-size map</a></figcaption>
     </figure>
-    <figure class="climo-map">
+<figure class="climo-map">
+  <p class="climo-map-lead">Average winter nighttime lows also vary geographically; DeKalb’s recent winters were slightly colder on average.</p>
       <h4>Winter mean daily low temperatures</h4>
       <div class="climo-image-scroll"><a href="images/us_climos/temp_winter_mean_tmin_comparison.png" target="_blank" rel="noopener" aria-label="Open full-resolution winter mean daily low comparison"><img src="images/us_climos/temp_winter_mean_tmin_comparison.png" alt="Side-by-side county maps of mean winter overnight low temperatures, comparing winters ending in 1986–2005 and 2006–2025." loading="lazy" decoding="async"></a></div>
       <figcaption>Average daily minimum temperatures (°F) during December–February. <a href="images/us_climos/temp_winter_mean_tmin_comparison.png" target="_blank" rel="noopener">View full-size map</a></figcaption>
     </figure>
-    <figure class="climo-map">
+<figure class="climo-map">
+  <p class="climo-map-lead">Unusually warm winter days became more common in portions of the region, but changes are not uniform and DeKalb was nearly unchanged.</p>
       <h4>Unusually warm winter days</h4>
       <div class="climo-image-scroll"><a href="images/us_climos/temp_winter_warm_days_comparison.png" target="_blank" rel="noopener" aria-label="Open full-resolution winter unusually warm days comparison"><img src="images/us_climos/temp_winter_warm_days_comparison.png" alt="Side-by-side county maps comparing the average number of unusually warm winter days between winters ending in 1986–2005 and 2006–2025." loading="lazy" decoding="async"></a></div>
       <figcaption>Average days per winter with maximum temperature at or above the station-specific, calendar-month 90th percentile from the 1986–2025 reference period. <a href="images/us_climos/temp_winter_warm_days_comparison.png" target="_blank" rel="noopener">View full-size map</a></figcaption>
     </figure>
   </div>
-
   <div class="climo-explain-grid">
-    <div><h3>Why patterns vary</h3><p>Atmospheric circulation, clouds, land use, and Lake Michigan influence temperatures differently across seasons and locations.</p></div>
-    <div><h3>Looking ahead</h3><p>Long-term climate assessments project continued warming and greater heat extremes in the Midwest, even though individual 20-year county comparisons may differ.</p></div>
+    <div><h3>What might explain these patterns?</h3><p>Seasons and places do not warm at the same rate. Clouds, soil moisture, nearby Lake Michigan, and changing weather patterns influence daytime and overnight temperatures. Natural ups and downs can be strong over a few decades.</p></div>
+    <div><h3>What might we expect in the future?</h3><p>Even where our two-period maps show little change—or slight local cooling—longer climate records and future projections point toward a warmer Midwest overall. Hot days and warm nights are expected to become more common, while extreme cold generally becomes less frequent. Individual cold outbreaks will still occur.</p></div>
   </div>
-  <p class="climo-note"><strong>Interpretation:</strong> These are two 20-year averages, not statistical trend or attribution tests. “Unusually” means above the monthly 90th or below the monthly 10th percentile at each station (1986–2025 reference). Source: NOAA GHCN-Daily; accepted station-seasons meet ≥90% daily completeness.</p>
-  <div class="climo-sources"><strong>Explore the science:</strong>
-    <a href="https://stateclimatologist.isws.illinois.edu/climate-change-in-illinois-2/" target="_blank" rel="noopener">Illinois State Climatologist: observed changes</a> ·
-    <a href="https://statesummaries.ncics.org/chapter/il/" target="_blank" rel="noopener">NOAA Illinois climate summary</a> ·
-    <a href="https://nca2023.globalchange.gov/chapter/24/" target="_blank" rel="noopener">Fifth National Climate Assessment: Midwest</a> ·
-    <a href="https://www.ncei.noaa.gov/pub/data/ghcn/daily/readme.txt" target="_blank" rel="noopener">GHCN-Daily station documentation</a>
+  <div class="climo-sources"><strong>Explore the science:</strong> <a href="https://stateclimatologist.isws.illinois.edu/climate-change-in-illinois/" target="_blank" rel="noopener">Illinois State Climatologist</a> · <a href="https://statesummaries.ncics.org/chapter/il/" target="_blank" rel="noopener">NOAA Illinois climate summary</a> · <a href="https://nca2023.globalchange.gov/chapter/24/" target="_blank" rel="noopener">National Climate Assessment: Midwest</a> · <a href="https://www.ncei.noaa.gov/pub/data/ghcn/daily/readme.txt" target="_blank" rel="noopener">NOAA daily temperature data</a></div>
+</section>
+<section class="climo-section" id="snow" aria-labelledby="snow-heading">
+  <div class="climo-section-heading">
+    <p class="climo-kicker">Snowfall and snow-season timing · 1986–2025</p>
+    <h2 id="snow-heading">Are our winters becoming less snowy, and what might change?</h2>
   </div>
+  <div class="climo-reading">
+    <h3>Observations from the past</h3>
+    <p>The snowfall maps show that <strong>seasonal totals were higher in many northern counties</strong> during 2006–2025, including DeKalb. Changes in the number of snowfall days and the time from the first to last snowfall were more uneven. More snow falling in a season does <em>not</em> necessarily mean snow stays on the ground longer.</p>
+  </div>
+  <h3 class="climo-subtitle">DeKalb County at a glance</h3>
+  <div class="climo-table-scroll"><table><thead><tr><th scope="col">Station-based estimate</th><th scope="col">1986–2025</th><th scope="col">1986–2005</th><th scope="col">2006–2025</th></tr></thead><tbody><tr><th scope="row">Seasonal snowfall (in)</th><td>33.86</td><td>31.32</td><td>36.02</td></tr><tr><th scope="row">Snowfall days per season</th><td>22.89</td><td>22.06</td><td>23.60</td></tr><tr><th scope="row">First-to-last snow span (days)</th><td>129.78</td><td>126.41</td><td>132.65</td></tr></tbody></table></div>
+  <p class="climo-note">Snowfall figures use weather-station observations and nearby-station estimates where needed. DeKalb snowfall totals are based on one qualifying in-county station. Snow-day and first/last snowfall measures are preliminary, especially where autumn and spring data may be incomplete. First-to-last snowfall is not continuous snow cover.</p>
+  <div class="climo-map-grid">
+  <figure class="climo-map">
+  <p class="climo-map-lead">Seasonal snowfall totals were higher in many counties during 2006–2025, particularly across parts of the northern region.</p><h4>Seasonal snowfall totals</h4>
+  <div class="climo-image-scroll"><a href="images/us_climos/snowfall_comparison_counties.png" target="_blank" rel="noopener" aria-label="Open full resolution: Seasonal snowfall totals"><img src="images/us_climos/snowfall_comparison_counties_web.png" alt="Seasonal snowfall totals: side-by-side county maps comparing the older and recent study periods around DeKalb, Illinois." loading="lazy" decoding="async" width="2400"></a></div>
+  <figcaption>County estimates of mean seasonal snowfall from GHCN-Daily station observations. <a href="images/us_climos/snowfall_comparison_counties.png" target="_blank" rel="noopener">View full-size map</a></figcaption>
+</figure>
+<figure class="climo-map">
+  <p class="climo-map-lead">Several counties recorded more days with measurable snowfall, although the changes are not the same everywhere.</p><h4>Measurable snowfall days</h4>
+  <div class="climo-image-scroll"><a href="images/us_climos/snow_days_comparison_counties.png" target="_blank" rel="noopener" aria-label="Open full resolution: Measurable snowfall days"><img src="images/us_climos/snow_days_comparison_counties_web.png" alt="Measurable snowfall days: side-by-side county maps comparing the older and recent study periods around DeKalb, Illinois." loading="lazy" decoding="async" width="2400"></a></div>
+  <figcaption>Estimated mean number of days with at least 0.1 inch of snowfall per season. <a href="images/us_climos/snow_days_comparison_counties.png" target="_blank" rel="noopener">View full-size map</a></figcaption>
+</figure>
+<figure class="climo-map">
+  <p class="climo-map-lead">The time between the first and last measurable snowfall changed modestly and unevenly; this does not measure how long snow remained on the ground.</p><h4>First-to-last measurable snowfall span</h4>
+  <div class="climo-image-scroll"><a href="images/us_climos/snow_duration_comparison_counties.png" target="_blank" rel="noopener" aria-label="Open full resolution: First-to-last measurable snowfall span"><img src="images/us_climos/snow_duration_comparison_counties_web.png" alt="First-to-last measurable snowfall span: side-by-side county maps comparing the older and recent study periods around DeKalb, Illinois." loading="lazy" decoding="async" width="2400"></a></div>
+  <figcaption>Mean number of days between first and last measurable snowfall, not days with snow cover. <a href="images/us_climos/snow_duration_comparison_counties.png" target="_blank" rel="noopener">View full-size map</a></figcaption>
+</figure>
+  </div>
+  <div class="climo-explain-grid">
+    <div><h3>What might explain these patterns?</h3><p>Snow needs both moisture and sufficiently cold air. A warmer atmosphere may bring more moisture to winter storms, but it also makes rain and melting more likely. Changes in storm paths can make one winter much snowier than the next.</p></div>
+    <div><h3>What might we expect in the future?</h3><p>NIU research suggests snowstorms will become less common across much of central and eastern North America, especially early and late in the cold season. Large snowstorms will still be possible, and some northern areas may see heavier extreme snowstorms. The length of time snow remains on the ground is a separate question.</p></div>
+  </div>
+  <div class="climo-sources"><strong>Explore the science:</strong> <a href="https://doi.org/10.1002/joc.8770" target="_blank" rel="noopener">Ashley et al. (2025): future snowstorms</a> · <a href="https://stateclimatologist.isws.illinois.edu/snowfall-trends/" target="_blank" rel="noopener">Illinois snowfall trends</a> · <a href="https://www.ncei.noaa.gov/pub/data/ghcn/daily/readme.txt" target="_blank" rel="noopener">NOAA snow observations</a></div>
 </section>
-  
-<section class="climo-methods" id="methods"><h2>Methods, limitations &amp; responsible interpretation</h2>
- <p><strong>Local values:</strong> Each DeKalb summary reports mean annual or seasonal values. Severe weather and flood event records count days with reports; they are not direct measurements of storm or flood intensity. Precipitation and snowfall station estimates are subject to coverage, measurement, and interpolation limitations.</p>
- <p><strong>Timeperiod comparisons:</strong> The maps are descriptive historical climatologies. Detection and documentation have changed, especially for severe weather reports. Statistical significance and climate attribution require additional tests.</p>
- <p><strong>Future projections:</strong> Climate simulations describe possible changes under specific warming scenarios, not deterministic local weather forecasts. Evidence is strongest for warming and increasing moisture related heavy rainfall potential, while local tornado frequency, flood occurrence, and drought duration remain less certain.</p>
- <p><strong>Data:</strong> NOAA Storm Prediction Center, NOAA/NCEI Storm Events, U.S. Drought Monitor, NOAA GHCN-Daily, and U.S. Census county boundaries. References to published NIU research and agency assessments appear in the respective hazard sections.</p>
+<section class="climo-methods" id="methods"><h2>How were these maps made?</h2>
+ <p>We compared two periods for each weather measure using publicly available observations: NOAA storm reports, weather-station records, and the U.S. Drought Monitor. Maps summarize county-level values; where qualifying stations were unavailable, nearby station data were used to estimate them.</p>
+ <p><strong>What the comparisons cannot tell us:</strong> A darker color or difference between the two periods does not necessarily mean a statistically significant trend or that climate change caused it. Severe storm reporting has improved over time, and station coverage varies. Future projections describe possibilities under different warming scenarios, not a forecast for an individual county.</p>
+ <p><strong>Data sources:</strong> NOAA Storm Prediction Center, NOAA GHCN-Daily, U.S. Drought Monitor and U.S. Census county boundaries. More detailed research links appear after each section.</p>
 </section>
-<section class="climo-end"><h2>For communities</h2><p>These observations can inform discussions about storm sheltering, drainage, road design, heat and drought preparedness, infrastructure, agriculture, and public communication. This is an educational resource rather than a property specific hazard assessment.</p><p><a href="portfolio.html">← Return to portfolio</a></p></section>
+<section class="climo-end"><h2>What does this mean for our communities?</h2><p>Understanding our changing weather can help inform decisions about storm safety, road drainage, agriculture, winter travel and community preparedness. The figures are intended for education and discussion, not property-specific risk assessments.</p><p><a href="portfolio.html">← Return to portfolio</a></p></section>
 </main>
 <footer><p>&copy; 2026 Caitlin Roufa</p></footer>
 </body></html>
