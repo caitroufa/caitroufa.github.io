@@ -333,4 +333,79 @@
 <section class="climo-end"><h2>What does this mean for our community?</h2><p>Understanding our changing weather can help inform decisions about storm safety, road drainage, agriculture, infrastructure, winter travel, recreation, and community preparedness. These figures are intended for education and discussion, not property specific risk assessments.</p><p><a href="portfolio.html">← Return to portfolio</a></p></section>
 </main>
 <footer><p>&copy; 2026 Caitlin Roufa</p></footer>
+
+
+<!-- Floating Back to Top Button -->
+<style>
+  .climo-back-to-top {
+    position: fixed;
+    bottom: calc(20px + env(safe-area-inset-bottom, 0px));
+    right: calc(20px + env(safe-area-inset-right, 0px));
+    z-index: 1000;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    padding: 12px 18px;
+    min-height: 48px;
+    box-sizing: border-box;
+
+    background: #245b43;
+    color: white !important;
+    border-radius: 30px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.22);
+
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none !important;
+
+    transition: background 0.2s ease, transform 0.2s ease;
+  }
+
+  .climo-back-to-top:hover {
+    background: #813e57;
+    transform: translateY(-3px);
+  }
+
+  .climo-back-to-top:focus-visible {
+    outline: 3px solid #813e57;
+    outline-offset: 4px;
+  }
+
+  .climo-back-to-top .arrow {
+    font-size: 20px;
+    line-height: 1;
+  }
+
+  /* Compact version for phones */
+  @media (max-width: 600px) {
+    .climo-back-to-top {
+      bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+      right: calc(16px + env(safe-area-inset-right, 0px));
+      width: 48px;
+      height: 48px;
+      padding: 0;
+      border-radius: 50%;
+    }
+
+    .climo-back-to-top .button-text {
+      display: none;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .climo-back-to-top {
+      transition: none;
+    }
+  }
+</style>
+
+<a href="#" class="climo-back-to-top" aria-label="Back to top">
+  <span class="arrow" aria-hidden="true">↑</span>
+  <span class="button-text">Back to Top</span>
+</a>
+
 </body></html>
