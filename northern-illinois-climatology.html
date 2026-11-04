@@ -408,4 +408,276 @@
   <span class="button-text">Back to Top</span>
 </a>
 
+  
+<!-- =====================================================
+     CLIMATOLOGY MAP LIGHTBOX
+     Automatically handles map image links only.
+     ===================================================== -->
+
+<style>
+  .climo-lightbox {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    height: 100dvh;
+    max-width: none;
+    max-height: none;
+    margin: 0;
+    padding: 24px;
+    box-sizing: border-box;
+    border: none;
+    background: rgba(9, 24, 19, 0.96);
+    color: white;
+    overflow: hidden;
+  }
+
+  .climo-lightbox[open] {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .climo-lightbox::backdrop {
+    background: rgba(0, 0, 0, 0.8);
+  }
+
+  .climo-lightbox-content {
+    width: 100%;
+    max-width: 1500px;
+    max-height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .climo-lightbox-title {
+    margin: 0;
+    color: white;
+    font-family: Arial, sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    text-align: center;
+  }
+
+  .climo-lightbox-viewport {
+    width: 100%;
+    max-height: calc(100dvh - 135px);
+    overflow: auto;
+    border-radius: 5px;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+  }
+
+  .climo-lightbox-image {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: calc(100dvh - 135px);
+    object-fit: contain;
+    background: white;
+  }
+
+  .climo-lightbox-close {
+    position: absolute;
+    top: calc(15px + env(safe-area-inset-top, 0px));
+    right: calc(15px + env(safe-area-inset-right, 0px));
+    z-index: 2;
+    width: 46px;
+    height: 46px;
+    border: 1px solid rgba(255,255,255,0.4);
+    border-radius: 50%;
+    background: #245b43;
+    color: white;
+    font-size: 27px;
+    line-height: 1;
+    cursor: pointer;
+  }
+
+  .climo-lightbox-close:hover {
+    background: #813e57;
+  }
+
+  .climo-lightbox-close:focus-visible {
+    outline: 3px solid white;
+    outline-offset: 3px;
+  }
+
+  .climo-lightbox-hint {
+    margin: 0;
+    color: #e3eee6;
+    font-size: 13px;
+    text-align: center;
+  }
+
+  /* Make wide two-panel maps scrollable on phones */
+  @media (max-width: 700px) {
+    .climo-lightbox {
+      padding: 70px 12px 18px;
+    }
+
+    .climo-lightbox-title {
+      font-size: 15px;
+    }
+
+    .climo-lightbox-image {
+      width: 900px;
+      max-width: none;
+      max-height: none;
+    }
+  }
+</style>
+
+<dialog
+  id="climo-lightbox"
+  class="climo-lightbox"
+  aria-labelledby="climo-lightbox-title"
+>
+  <button
+    type="button"
+    class="climo-lightbox-close"
+    aria-label="Close enlarged map"
+  >&times;</button>
+
+  <div class="climo-lightbox-content">
+    <h2
+      id="climo-lightbox-title"
+      class="climo-lightbox-title"
+    ></h2>
+
+    <div class="climo-lightbox-viewport">
+      <img
+        class="climo-lightbox-image"
+        alt=""
+      >
+    </div>
+
+    <p class="climo-lightbox-hint">
+      Click outside the map or press Esc to close.
+      On mobile, swipe to explore the full map.
+    </p>
+  </div>
+</dialog>
+
+<script>
+(function () {
+  const lightbox = document.getElementById("climo-lightbox");
+  const image = lightbox.querySelector(".climo-lightbox-image");
+  const title = lightbox.querySelector(".climo-lightbox-title");
+  const closeButton = lightbox.querySelector(".climo-lightbox-close");
+
+  let previousFocus = null;
+
+  // Automatically intercept links to map images.
+  document.addEventListener("click", function (event) {
+    const link = event.target.closest(
+      "figure.climo-map a[href]"
+    );
+
+    if (!link) return;
+
+    // Only handle image files, not research/external links.
+    const path = new URL(link.href).pathname;
+
+    if (!/\.(png|jpg|jpeg|webp|gif)$/i.test(path)) return;
+
+    // Preserve normal browser behavior for modified clicks.
+    if (
+      event.button !== 0 ||
+      event.ctrlKey ||
+      event.metaKey ||
+      event.shiftKey ||
+      event.altKey
+    ) return;
+
+    // Allow normal link opening if dialog is unsupported.
+    if (typeof lightbox.showModal !== "function") return;
+
+    event.preventDefault();
+
+    const figure = link.closest("figure.climo-map");
+    const heading = figure.querySelector("h4");
+    const thumbnail = figure.querySelector("img");
+
+    title.textContent = heading
+      ? heading.textContent.trim()
+      : "Climatology map";
+
+    image.src = link.href;
+    image.alt = thumbnail ? thumbnail.alt : title.textContent;
+
+    previousFocus = link;
+
+    lightbox.showModal();
+    closeButton.focus();
+  });
+
+  // Close button.
+  closeButton.addEventListener("click", function () {
+    lightbox.close();
+  });
+
+  // Clicking the dark area outside the image closes it.
+  lightbox.addEventListener("click", function (event) {
+    if (event.target === lightbox) {
+      lightbox.close();
+    }
+  });
+
+  // Escape is handled automatically by the dialog element.
+
+  // Clean up and return focus to the original link.
+  lightbox.addEventListener("close", function () {
+    image.removeAttribute("src");
+
+    if (previousFocus) {
+      previousFocus.focus({ preventScroll: true });
+    }
+  });
+})();
+</script>
+
+  
+<!-- Hide Back to Top button near the top of the page -->
+<style>
+  .climo-back-to-top {
+    transition:
+      background 0.2s ease,
+      opacity 0.25s ease,
+      transform 0.25s ease,
+      visibility 0.25s ease;
+  }
+
+  .climo-back-to-top.is-hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(12px);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .climo-back-to-top {
+      transition: none;
+    }
+  }
+</style>
+
+<script>
+(function () {
+  const button = document.querySelector(".climo-back-to-top");
+  if (!button) return;
+
+  function updateBackToTop() {
+    button.classList.toggle("is-hidden", window.scrollY < 250);
+  }
+
+  window.addEventListener("scroll", updateBackToTop, { passive: true });
+  window.addEventListener("pageshow", updateBackToTop);
+
+  // Set correct visibility when the page first loads
+  updateBackToTop();
+})();
+</script>
+
 </body></html>
