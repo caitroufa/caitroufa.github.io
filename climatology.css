@@ -15,7 +15,7 @@ body.climatology-page {
   color: var(--climo-ink);
   background: #fff;
   line-height: 1.63;
-  padding-bottom: 0;
+  padding-bottom: 90px;
 }
 .climatology-page main { padding: 10px 0 56px; }
 .climatology-page main section {
@@ -153,8 +153,20 @@ body.climatology-page {
 .climo-end { border-left-color: var(--climo-rose); }
 .climo-methods h2, .climo-end h2 { color: #171717; margin-top: 0 !important; }
 
-/* Use exactly the same aurora footer background as the rest of the website. */
-.climatology-page footer { position: static; height: auto; width: auto; padding: 12px; min-height: 50px; box-sizing: border-box; }
+/* Match the fixed aurora footer on the other pages. */
+.climatology-page footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 60px;
+  z-index: 40;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 16px;
+  box-sizing: border-box;
+}
 .climatology-page footer p { margin: 0; }
 @media (max-width: 760px) {
   .climatology-page main section { margin: 18px auto; padding: 0 16px; }
