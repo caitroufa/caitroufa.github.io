@@ -1,14 +1,222 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cait Roufa | Research – Snow Coverage in Illinois</title>
+    <meta name="description" content="A Landsat remote sensing case study of January and March snow cover in Illinois from 2014 through 2025, by Cait Roufa.">
+    <title>Illinois Snow Cover | Cait Roufa</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="site.js" defer></script>
+
+    <style>
+        .snowcase-page { padding-bottom: 36px; }
+        .snowcase-page section { max-width: 1150px; }
+
+        .snowcase-kicker {
+            margin: 0 0 6px;
+            color: var(--site-rose);
+            font-size: .83rem;
+            font-weight: 700;
+            letter-spacing: .07em;
+            text-transform: uppercase;
+        }
+
+        .snowcase-intro { padding-top: 13px !important; }
+
+        .snowcase-intro h1 {
+            font-size: clamp(1.9rem, 4vw, 2.65rem);
+            line-height: 1.2;
+            letter-spacing: -.02em;
+            margin: 7px 0 14px;
+            color: var(--site-green-dark);
+        }
+
+        .snowcase-lede {
+            font-size: 1.12rem;
+            line-height: 1.6;
+            max-width: 900px;
+        }
+
+        .snowcase-jump {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 22px;
+        }
+
+        .snowcase-jump a {
+            display: inline-block;
+            padding: 6px 13px;
+            border-radius: 99px;
+            border: 1px solid #b8cfc0;
+            background: #fff;
+            font-size: .91rem;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .snowcase-jump a:hover { background: var(--site-mint); }
+
+        .snowcase-section {
+            padding-top: 19px !important;
+            border-top: 2px solid var(--site-border);
+            scroll-margin-top: 20px;
+        }
+
+        .snowcase-page .snowcase-section h2 {
+            color: var(--site-green-dark);
+            font-size: clamp(1.48rem, 2.8vw, 1.88rem);
+            margin: 0 0 14px;
+            padding: 0 0 8px;
+            border-bottom: 1px solid var(--site-border);
+        }
+
+        .snowcase-stat-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 14px;
+            margin: 20px 0;
+        }
+
+        .snowcase-stat {
+            background: var(--site-mint);
+            border: 1px solid #dce8de;
+            border-radius: 9px;
+            padding: 15px 17px;
+        }
+
+        .snowcase-stat:nth-child(2) {
+            background: var(--site-blush);
+            border-color: #ecdce3;
+        }
+
+        .snowcase-stat strong {
+            display: block;
+            color: var(--site-green-dark);
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            line-height: 1.15;
+            margin-bottom: 7px;
+        }
+
+        .snowcase-stat:nth-child(2) strong {
+            color: var(--site-rose);
+        }
+
+        .snowcase-stat span {
+            display: block;
+            font-size: .93rem;
+            line-height: 1.48;
+        }
+
+        .snowcase-callout {
+            max-width: 980px;
+            background: var(--site-mint);
+            border-left: 4px solid var(--site-green);
+            border-radius: 0 9px 9px 0;
+            padding: 16px 19px;
+            margin: 20px 0;
+        }
+
+        .snowcase-callout--rose {
+            background: var(--site-blush);
+            border-left-color: var(--site-rose);
+        }
+
+        .snowcase-callout p { margin: 0 0 10px; }
+        .snowcase-callout p:last-child { margin-bottom: 0; }
+
+        .snowcase-note {
+            color: var(--site-muted);
+            font-size: .91rem;
+            line-height: 1.55;
+        }
+
+        .snowcase-gallery {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 18px;
+            margin: 20px 0;
+        }
+
+        body:not(.climatology-page) .snowcase-figure {
+            margin: 18px 0;
+            padding: 13px;
+            border: 1px solid var(--site-border);
+            border-radius: 9px;
+            box-shadow: 0 3px 12px rgba(23,62,48,.06);
+        }
+
+        .snowcase-gallery .snowcase-figure { margin: 0; }
+
+        .snowcase-figure img {
+            display: block;
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+
+        .snowcase-figure figcaption {
+            margin: 10px 2px 0;
+            color: var(--site-muted);
+            font-size: .89rem;
+            line-height: 1.5;
+        }
+
+        .snowcase-resource-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 18px;
+            margin-top: 18px;
+        }
+
+        .snowcase-resource-card {
+            padding: 17px 20px;
+            border: 1px solid #dce8de;
+            border-radius: 9px;
+            background: var(--site-mint);
+        }
+
+        .snowcase-resource-card:nth-child(2) {
+            background: var(--site-blush);
+            border-color: #ecdce3;
+        }
+
+        .snowcase-resource-card h3 {
+            margin: 0 0 11px;
+            color: var(--site-green-dark);
+            font-size: 1.16rem;
+        }
+
+        .snowcase-resource-card ul {
+            margin: 0;
+            padding-left: 19px;
+        }
+
+        .snowcase-resource-card li { margin-bottom: 12px; }
+
+        .snowcase-back {
+            margin-top: 22px;
+            font-weight: 700;
+        }
+
+        @media (max-width: 768px) {
+            .snowcase-stat-grid,
+            .snowcase-gallery,
+            .snowcase-resource-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .snowcase-stat-grid,
+            .snowcase-gallery { gap: 12px; }
+
+            .snowcase-figure { padding: 9px; }
+            .snowcase-jump a { padding: 7px 11px; }
+        }
+    </style>
 </head>
+
 <body>
     <header>
         <h1>Cait Roufa</h1>
@@ -16,7 +224,7 @@
             <ul>
                 <li><a href="/">About Me</a></li>
                 <li><a href="cv.html">Experience</a></li>
-                <li><a href="research.html" class="active">Research</a></li>
+                <li><a href="research.html" class="active" aria-current="page">Research</a></li>
                 <li><a href="publications.html">Publications</a></li>
                 <li><a href="teachingphilosophy.html">Teaching Philosophy</a></li>
                 <li><a href="contact.html">Contact</a></li>
@@ -24,116 +232,482 @@
         </nav>
     </header>
 
-    <main>
+    <main class="snowcase-page">
 
-      <!-- Project Header -->
-      <section class="project-header">
-          <h1>Changes in Snow Coverage Area in Illinois</h1>
-          <p><i>Remote Sensing of the Environment • EAE 560 • Spring 2025</i></p>
-          <hr/>
-      </section>
+        <!-- INTRODUCTION -->
+        <section class="snowcase-intro">
+            <p class="snowcase-kicker">
+                Remote sensing class case study · EAE 560 · Spring 2025
+            </p>
 
-      <!-- Project Summary -->
-      <section class="project-summary">
-          <h2>Project Summary</h2>
-          <p>
-            This study examined <b>snow coverage trends in Illinois</b> using Landsat-8 imagery 
-            (2014–2025). I calculated <b>Normalized Difference Snow Index (NDSI)</b> to detect 
-            snow cover in January (midwinter) and March (spring shoulder season). The results 
-            show increasing snow coverage in January but decreasing coverage in March, 
-            reflecting broader patterns of snow drought in the Midwest. Findings highlight the 
-            importance of regional snow monitoring for <b>agriculture, water resources, and 
-            climate feedbacks</b>.
-          </p>
-      </section>
+            <h1>Is Illinois losing its spring snow cover?</h1>
 
-      <!-- Research Questions -->
-      <section>
-          <h2>Research Questions</h2>
-          <ul>
-              <li>How has snow coverage area in Illinois changed between 2014–2025?</li>
-              <li>Are midwinter and spring trends consistent with broader North American studies?</li>
-              <li>How variable is snow coverage year to year?</li>
-          </ul>
-      </section>
+            <p class="snowcase-lede">
+                Snow cover is a familiar part of winter in Illinois,
+                but how much snow stays on the ground can vary
+                tremendously from one year to the next. Does that
+                variability hide any longer term changes? And might
+                those changes look different in the middle of winter
+                than they do as spring approaches?
+            </p>
 
-      <!-- Background -->
-      <section>
-          <h2>Background</h2>
-          <p>
-            Snow cover affects <b>water resources, agriculture, climate feedbacks, transportation, 
-            and ecosystems</b>. While North American snow extent has remained stable in midwinter, 
-            <b>spring snow cover has decreased</b>, shortening the snow season by two weeks. 
-            Studies show declining snow depth and snowpack mass across the Great Lakes and 
-            Midwest, contributing to <b>soil moisture deficits and drought risk</b>.
-          </p>
-          <p>
-            Climate projections suggest continued <b>reductions in snowpack mass and snowfall 
-            events</b>, particularly at lower latitudes, raising concerns for Midwest water and 
-            agricultural systems.
-          </p>
-      </section>
+            <p>
+                For my EAE 560 Remote Sensing of the Environment
+                term project, I used Landsat-8 satellite imagery
+                to examine snow coverage across Illinois during
+                January and March from 2014 through 2025.
+                I was interested in whether the two months showed
+                similar patterns and how much snow coverage
+                varied from year to year.
+            </p>
 
-      <!-- Methods -->
-      <section>
-          <h2>Methods & Data</h2>
-          <p><b>Data Sources:</b> Landsat-8 (2014–2025), QA Pixel for cloud masking, U.S. Census shapefiles for AOI (Illinois).</p>
-          <ul>
-              <li><b>NDSI:</b> Calculated with Bands 3 (green) and 6 (SWIR):  
-                  <span class="math">\( NDSI = \frac{Band_3 - Band_6}{Band_3 + Band_6} \)</span>
-              </li>
-              <li>Threshold of NDSI &gt; 0.4 applied to create binary snow masks.</li>
-              <li>Calculated statewide snow area (km² and % of Illinois area) for January and March.</li>
-              <li>Generated time series and percentile statistics to assess trends and extremes.</li>
-              <li>Attempted hotspot analysis using ArcGIS Pro (multidimensional rasters), though time formatting prevented completion.</li>
-          </ul>
-          <p>
-            GitHub repository with code:  
-            <a href="https://github.com/caitroufa/snow_extent" target="_blank">Snow Extent Project Repository</a>
-          </p>
-      </section>
+            <nav class="snowcase-jump" aria-label="Explore this case study">
+                <a href="#background">Why snow cover?</a>
+                <a href="#methods">Methods</a>
+                <a href="#results">January vs. March</a>
+                <a href="#interpretation">What can we conclude?</a>
+                <a href="#impacts">Why it matters</a>
+                <a href="#resources">Resources &amp; literature</a>
+            </nav>
+        </section>
 
-      <!-- Results -->
-      <section>
-          <h2>Results</h2>
-          <p><b>January:</b> Increasing trend in snow coverage, with several extreme years (2021, 2025).  
-             <b>March:</b> Decreasing trend, fewer extreme snowfall years.</p>
-          <p>Both months show <b>high year-to-year variability</b>, with northern Illinois typically holding 
-             the greatest snow coverage, though 2025 showed an unusual central shift.</p>
+        <!-- BACKGROUND -->
+        <section class="snowcase-section" id="background">
+            <p class="snowcase-kicker">The bigger picture</p>
+            <h2>Why study snow cover?</h2>
 
-          <div class="results-gallery">
-              <figure>
-                  <img src="images/snow_area_timeseries_january_trend_stddev.jpg" 
-                       alt="Time series of January snow area" class="medium-image">
-                  <figcaption>January Snow Area Trends (2014–2025)</figcaption>
-              </figure>
-              <figure>
-                  <img src="images/snow_area_timeseries_march_trend_stddev.jpg" 
-                       alt="Time series of March snow area" class="medium-image">
-                  <figcaption>March Snow Area Trends (2014–2025)</figcaption>
-              </figure>
-              <figure>
-                  <img src="images/ndsi_image_january.png" 
-                       alt="Sample NDSI January 2025 mosaic" class="medium-image">
-                  <figcaption>Sample NDSI Map – January 2025</figcaption>
-              </figure>
-          </div>
-      </section>
+            <p>
+                Snow on the ground affects much more than how a winter
+                landscape looks. Snow cover influences the amount of
+                sunlight reflected by the surface, the timing of
+                snowmelt and runoff, soil conditions, ecosystems,
+                transportation, agriculture, and winter recreation.
+            </p>
 
-      <!-- Conclusions -->
-      <section>
-          <h2>Conclusions</h2>
-          <ul>
-              <li><b>January snow area increased</b> during the study period, including more extreme events.</li>
-              <li><b>March snow area decreased</b>, aligning with larger-scale North American trends.</li>
-              <li>High variability limits significance given the short 11-year record.</li>
-              <li>Future work: add hotspot analysis, extend record with older Landsat products, and expand to regional comparisons.</li>
-          </ul>
-      </section>
+            <p>
+                Snow is very reflective, so it helps keep the
+                surface cool by sending a substantial portion of
+                incoming sunlight back toward space. When snow
+                disappears earlier in the season, darker land
+                surfaces absorb more solar energy.
+            </p>
+
+            <p>
+                Studies across North America have documented changes
+                in snow depth, snow mass, and spring snow coverage,
+                although the trends differ across regions and seasons.
+                The Great Lakes region is especially interesting
+                because temperatures, precipitation, and lake effects
+                can influence winter conditions in different ways.
+            </p>
+
+            <div class="snowcase-callout">
+                <p><strong>What I wanted to find out:</strong></p>
+                <ul>
+                    <li>How did snow coverage in Illinois vary between 2014 and 2025?</li>
+                    <li>Did January and March show similar or different patterns?</li>
+                    <li>How variable was the amount of snow from year to year?</li>
+                    <li>Were the patterns consistent with findings from larger North American studies?</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- METHODS -->
+        <section class="snowcase-section" id="methods">
+            <p class="snowcase-kicker">The approach</p>
+            <h2>How can we measure snow cover from space?</h2>
+
+            <p>
+                I used Landsat-8 imagery accessed through
+                Google Earth Engine, with analysis performed
+                in Google Colab. For each year from
+                <strong>2014 through 2025</strong>, I created
+                a mosaic of available January images and
+                another for March, clipped to the Illinois
+                state boundary.
+            </p>
+
+            <p>
+                I used the Landsat QA Pixel band to mask clouds,
+                then calculated the <strong>Normalized Difference
+                Snow Index (NDSI)</strong>. This index takes
+                advantage of the different ways snow reflects
+                visible green and shortwave infrared light.
+            </p>
+
+            <p>
+                <strong>NDSI = (Green − SWIR) / (Green + SWIR)</strong>
+            </p>
+
+            <p>
+                For Landsat-8, I used Band 3 (green) and Band 6
+                (shortwave infrared). Pixels with
+                <strong>NDSI greater than 0.4</strong> were
+                classified as snow. I then calculated the area
+                identified as snow in each monthly mosaic and
+                plotted the annual values for January and March.
+            </p>
+
+            <p>
+                I also explored the possibility of using ArcGIS Pro
+                to identify spatial snow cover hotspots, but a
+                problem with the time formatting of the
+                multidimensional raster data prevented that
+                part of the analysis from being completed.
+            </p>
+
+            <p>
+                <strong>Explore the code:</strong>
+                <a href="https://github.com/caitroufa/snow_extent"
+                   target="_blank" rel="noopener noreferrer">
+                    Illinois Snow Extent Project on GitHub
+                </a>
+            </p>
+
+            <p class="snowcase-note">
+                These are estimates from available cloud-masked
+                Landsat observations, not continuous measurements
+                of snow cover throughout each month. Cloud cover,
+                satellite sampling, and the way images are
+                combined can affect the amount of snow identified.
+            </p>
+        </section>
+
+        <!-- RESULTS -->
+        <section class="snowcase-section" id="results">
+            <p class="snowcase-kicker">The findings</p>
+            <h2>What happened in January and March?</h2>
+
+            <p>
+                The biggest result was how different the two
+                months looked. In this 12-year sample,
+                the fitted January snow area trend was positive,
+                while the fitted March trend was negative
+                Both months had considerable year to year
+                variability.
+            </p>
+
+            <div class="snowcase-stat-grid">
+                <div class="snowcase-stat">
+                    <strong>January ↑</strong>
+                    <span>
+                        The fitted trend in classified snow area
+                        increased during the study period.
+                    </span>
+                </div>
+
+                <div class="snowcase-stat">
+                    <strong>March ↓</strong>
+                    <span>
+                        The fitted trend in classified snow area
+                        decreased during the study period.
+                    </span>
+                </div>
+
+                <div class="snowcase-stat">
+                    <strong>12 years</strong>
+                    <span>
+                        January and March observations from
+                        2014 through 2025.
+                    </span>
+                </div>
+            </div>
+
+            <h3>January: More variation, with some especially snowy years</h3>
+
+            <p>
+                January showed large differences between years.
+                In the satellite sample, 2021, 2022, and 2025
+                were among the years with unusually high
+                classified snow area, while 2017, 2020,
+                and 2023 had very little identified snow.
+            </p>
+
+            <figure class="snowcase-figure">
+                <img src="images/snow_area_timeseries_january_trend_stddev.jpg"
+                     alt="Time series of January snow coverage area in Illinois from 2014 through 2025, showing large annual variability and an upward fitted trend."
+                     loading="lazy">
+                <figcaption>
+                    <strong>January snow area, 2014–2025.</strong>
+                    The fitted trend slopes upward, but annual
+                    variability is substantial.
+                </figcaption>
+            </figure>
+
+            <h3>March: A different pattern</h3>
+
+            <p>
+                March showed a downward fitted trend in
+                classified snow area. Some of the largest
+                March values occurred earlier in the record,
+                particularly in 2014 and 2017, while several
+                later years had relatively little identified snow.
+            </p>
+
+            <figure class="snowcase-figure">
+                <img src="images/snow_area_timeseries_march_trend_stddev.jpg"
+                     alt="Time series of March snow coverage area in Illinois from 2014 through 2025, showing large annual variability and a downward fitted trend."
+                     loading="lazy">
+                <figcaption>
+                    <strong>March snow area, 2014–2025.</strong>
+                    The fitted trend slopes downward during
+                    the study period.
+                </figcaption>
+            </figure>
+
+            <h3>What did the satellite actually see?</h3>
+
+            <p>
+                The NDSI maps show where the satellite
+                identified snow in the available imagery.
+                Across the sample, snow was often more
+                concentrated in northern Illinois, though
+                the geographic pattern varied between years.
+                January 2025 showed an unusual concentration
+                farther into central Illinois.
+            </p>
+
+            <figure class="snowcase-figure">
+                <img src="images/ndsi_image_january.png"
+                     alt="Landsat NDSI mosaic for Illinois in January 2025, showing the spatial distribution of classified snow cover."
+                     loading="lazy">
+                <figcaption>
+                    <strong>January 2025 NDSI mosaic.</strong>
+                    Landsat green and shortwave infrared
+                    observations were used to distinguish
+                    snow from other surfaces. Values above
+                    0.4 were classified as snow.
+                </figcaption>
+            </figure>
+
+            <p class="snowcase-note">
+                Click or tap any figure to enlarge it.
+                The area values represent snow identified
+                in the processed satellite mosaics and
+                should not be interpreted as a complete
+                daily or monthly snow cover record.
+            </p>
+        </section>
+
+        <!-- INTERPRETATION -->
+        <section class="snowcase-section" id="interpretation">
+            <p class="snowcase-kicker">Making sense of the results</p>
+            <h2>Does this mean Illinois is losing its spring snow cover?</h2>
+
+            <p>
+                Not necessarily. The downward March trend is
+                interesting, because it resembles
+                patterns reported in broader North American
+                studies. But twelve years is a short period
+                for evaluating climate trends, and the
+                large differences between individual years
+                make interpretation difficult. 
+                The limitations of satellite sampling also
+                impact these results. Landsat imagery cannot provide a
+                continuous view through clouds, and a
+                collection of images from one month does
+                not tell us exactly how many days snow
+                remained on the ground.
+            </p>
+
+            <div class="snowcase-callout snowcase-callout--rose">
+                <p><strong>An important distinction:</strong></p>
+
+                <p>
+                    <strong>Snow cover</strong> describes the
+                    area of land covered by snow.
+                    <strong>Snowfall</strong> describes how
+                    much snow falls. <strong>Snow depth</strong>
+                    measures how deep the snow is, and
+                    <strong>snow water equivalent</strong>
+                    describes how much water it contains. 
+                    These measurements are related, but they
+                    are not interchangeable. This project
+                    examined snow coverage area, not snowfall
+                    totals, snow depth, or how long an
+                    uninterrupted snowpack persisted.
+                </p>
+            </div>
+
+            <p>
+                The results provide an interesting starting
+                point, but a longer record and additional
+                observations are needed to establish whether
+                the regional patterns represent lasting
+                climate changes.
+            </p>
+        </section>
+
+        <!-- COMMUNITY IMPACT -->
+        <section class="snowcase-section" id="impacts">
+            <p class="snowcase-kicker">Why it matters</p>
+            <h2>Why should we care how long snow stays on the ground?</h2>
+
+            <p>
+                Changes in snow coverage can affect both
+                natural systems and everyday activities.
+                Snow insulates the soil, influences the
+                timing of runoff and soil moisture, and
+                provides habitat conditions for some
+                plants and animals.
+            </p>
+
+            <p>
+                Snow conditions also matter for transportation,
+                road maintenance, agriculture, outdoor work,
+                tourism, and winter recreation. A region
+                with occasional heavy snowstorms but little
+                persistent snow cover can experience winter
+                very differently from one where snow remains
+                on the ground for weeks.
+            </p>
+
+            <div class="snowcase-callout">
+                <p><strong>What would be useful to know next?</strong></p>
+
+                <p>
+                    Beyond measuring snow coverage on
+                    individual satellite observations,
+                    I'd like to better understand how
+                    continuous snow cover is changing:
+                    how often snow remains on the ground,
+                    how long it lasts, and how these
+                    patterns differ around the Great Lakes.
+                </p>
+
+                <p>
+                    Those questions could help connect
+                    changes in winter climate with
+                    ecological conditions, water resources,
+                    and activities that depend on
+                    sustained snow cover.
+                </p>
+            </div>
+        </section>
+
+        <!-- FUTURE WORK -->
+        <section class="snowcase-section" id="next">
+            <p class="snowcase-kicker">Looking ahead</p>
+            <h2>Where does this work go from here?</h2>
+
+            <p>
+                A longer analysis would help separate
+                year to year variability from changes
+                occurring over decades. Additional
+                satellite products and historical
+                observations could also provide more
+                complete spatial and temporal coverage.
+            </p>
+
+            <div class="snowcase-callout snowcase-callout--rose">
+                <p><strong>Coming soon: Great Lakes snow cover.</strong></p>
+                <p>
+                    I'm interested in expanding this work
+                    beyond Illinois to examine regional
+                    changes in snow cover and its persistence
+                    across the Great Lakes.
+                </p>
+            </div>
+        </section>
+
+        <!-- RESOURCES -->
+        <section class="snowcase-section" id="resources">
+            <p class="snowcase-kicker">Keep exploring</p>
+            <h2>Research and snow data resources</h2>
+
+            <div class="snowcase-resource-grid">
+                <div class="snowcase-resource-card">
+                    <h3>Related research</h3>
+                    <ul>
+                        <li>
+                            <a href="https://doi.org/10.1029/2006GL027258"
+                               target="_blank" rel="noopener noreferrer">
+                                Dyer and Mote (2006)
+                            </a>
+                            — Observed changes in snow depth
+                            across North America, including
+                            the Great Lakes region.
+                        </li>
+
+                        <li>
+                            <a href="https://doi.org/10.1038/s41586-020-2258-0"
+                               target="_blank" rel="noopener noreferrer">
+                                Pulliainen et al. (2020)
+                            </a>
+                            — Northern Hemisphere snow mass
+                            patterns and trends.
+                        </li>
+
+                        <li>
+                            <a href="https://glisa.umich.edu/resources-tools/climate-impacts/snow-in-the-great-lakes-past-present-and-the-future/"
+                               target="_blank" rel="noopener noreferrer">
+                                GLISA: Snow in the Great Lakes
+                            </a>
+                            — Regional snow patterns and
+                            climate context.
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="snowcase-resource-card">
+                    <h3>Explore the data</h3>
+                    <ul>
+                        <li>
+                            <a href="https://climate.rutgers.edu/snowcover/"
+                               target="_blank" rel="noopener noreferrer">
+                                Rutgers Global Snow Lab
+                            </a>
+                            — Historical and current snow
+                            cover extent maps and data.
+                        </li>
+
+                        <li>
+                            <a href="https://www.nohrsc.noaa.gov/nsa/index.html?region=Midwest"
+                               target="_blank" rel="noopener noreferrer">
+                                NOAA Midwest Snow Analysis
+                            </a>
+                            — Snow maps and operational
+                            snow analyses for the region.
+                        </li>
+
+                        <li>
+                            <a href="https://www.usgs.gov/landsat-missions/normalized-difference-snow-index"
+                               target="_blank" rel="noopener noreferrer">
+                                USGS: Normalized Difference Snow Index
+                            </a>
+                            — How Landsat measures snow
+                            using visible and infrared light.
+                        </li>
+
+                        <li>
+                            <a href="https://github.com/caitroufa/snow_extent"
+                               target="_blank" rel="noopener noreferrer">
+                                My Illinois snow cover code
+                            </a>
+                            — The analysis notebook for
+                            this class project.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <p class="snowcase-note">
+                This page presents findings from a Spring 2025
+                remote sensing class project. The short,
+                satellite sampled record provides an exploratory
+                comparison of January and March conditions,
+                not a definitive assessment of long term
+                climate trends in Illinois.
+            </p>
+
+            <p class="snowcase-back">
+                <a href="research.html">← Back to Research</a>
+            </p>
+        </section>
     </main>
 
     <footer>
-        <p>&copy; 2025 Caitlin Roufa</p>
+        <p>&copy; 2026 Caitlin Roufa</p>
     </footer>
 </body>
 </html>
