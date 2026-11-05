@@ -1,136 +1,661 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cait Roufa | Research – Future Severe Convective Weather</title>
-  <link rel="stylesheet" href="styles.css">
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A GIS case study of projected changes in U.S. severe storm hotspots using convection-permitting climate simulations, by Cait Roufa.">
+    <title>Future Severe Storm Hotspots | Cait Roufa</title>
+    <link rel="stylesheet" href="styles.css">
     <script src="site.js" defer></script>
+
+    <style>
+        .hotspot-page { padding-bottom: 36px; }
+        .hotspot-page section { max-width: 1150px; }
+
+        .hotspot-kicker {
+            margin: 0 0 6px;
+            color: var(--site-rose);
+            font-size: .83rem;
+            font-weight: 700;
+            letter-spacing: .07em;
+            text-transform: uppercase;
+        }
+
+        .hotspot-intro { padding-top: 13px !important; }
+
+        .hotspot-intro h1 {
+            font-size: clamp(1.9rem, 4vw, 2.65rem);
+            line-height: 1.2;
+            letter-spacing: -.02em;
+            margin: 7px 0 14px;
+            color: var(--site-green-dark);
+        }
+
+        .hotspot-lede {
+            font-size: 1.12rem;
+            line-height: 1.6;
+            max-width: 900px;
+        }
+
+        .hotspot-jump {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 22px;
+        }
+
+        .hotspot-jump a {
+            display: inline-block;
+            padding: 6px 13px;
+            border-radius: 99px;
+            border: 1px solid #b8cfc0;
+            background: #fff;
+            font-size: .91rem;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .hotspot-jump a:hover { background: var(--site-mint); }
+
+        .hotspot-section {
+            padding-top: 19px !important;
+            border-top: 2px solid var(--site-border);
+            scroll-margin-top: 20px;
+        }
+
+        .hotspot-page .hotspot-section h2 {
+            color: var(--site-green-dark);
+            font-size: clamp(1.48rem, 2.8vw, 1.88rem);
+            margin: 0 0 14px;
+            padding: 0 0 8px;
+            border-bottom: 1px solid var(--site-border);
+        }
+
+        .hotspot-facts {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 14px;
+            margin: 20px 0;
+        }
+
+        .hotspot-fact {
+            background: var(--site-mint);
+            border: 1px solid #dce8de;
+            border-radius: 9px;
+            padding: 15px 17px;
+        }
+
+        .hotspot-fact:nth-child(2) {
+            background: var(--site-blush);
+            border-color: #ecdce3;
+        }
+
+        .hotspot-fact strong {
+            display: block;
+            color: var(--site-green-dark);
+            font-size: 1.25rem;
+            line-height: 1.25;
+            margin-bottom: 7px;
+        }
+
+        .hotspot-fact:nth-child(2) strong {
+            color: var(--site-rose);
+        }
+
+        .hotspot-fact span {
+            display: block;
+            font-size: .93rem;
+            line-height: 1.48;
+        }
+
+        .hotspot-callout {
+            max-width: 980px;
+            background: var(--site-mint);
+            border-left: 4px solid var(--site-green);
+            border-radius: 0 9px 9px 0;
+            padding: 16px 19px;
+            margin: 20px 0;
+        }
+
+        .hotspot-callout--rose {
+            background: var(--site-blush);
+            border-left-color: var(--site-rose);
+        }
+
+        .hotspot-callout p { margin: 0 0 10px; }
+        .hotspot-callout p:last-child { margin-bottom: 0; }
+
+        .hotspot-note {
+            color: var(--site-muted);
+            font-size: .91rem;
+            line-height: 1.55;
+        }
+
+        .hotspot-gallery {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 18px;
+            margin: 20px 0;
+        }
+
+        body:not(.climatology-page) .hotspot-figure {
+            margin: 18px 0;
+            padding: 13px;
+            border: 1px solid var(--site-border);
+            border-radius: 9px;
+            box-shadow: 0 3px 12px rgba(23,62,48,.06);
+        }
+
+        .hotspot-gallery .hotspot-figure { margin: 0; }
+
+        .hotspot-figure img {
+            display: block;
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+
+        .hotspot-figure figcaption {
+            margin: 10px 2px 0;
+            color: var(--site-muted);
+            font-size: .89rem;
+            line-height: 1.5;
+        }
+
+        .hotspot-details {
+            margin: 22px 0;
+            border: 1px solid var(--site-border);
+            border-radius: 9px;
+            padding: 14px 18px;
+        }
+
+        .hotspot-details summary {
+            color: var(--site-green-dark);
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        .hotspot-resource-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 18px;
+            margin-top: 18px;
+        }
+
+        .hotspot-resource-card {
+            padding: 17px 20px;
+            border: 1px solid #dce8de;
+            border-radius: 9px;
+            background: var(--site-mint);
+        }
+
+        .hotspot-resource-card:nth-child(2) {
+            background: var(--site-blush);
+            border-color: #ecdce3;
+        }
+
+        .hotspot-resource-card h3 {
+            margin: 0 0 11px;
+            color: var(--site-green-dark);
+            font-size: 1.16rem;
+        }
+
+        .hotspot-resource-card ul {
+            margin: 0;
+            padding-left: 19px;
+        }
+
+        .hotspot-resource-card li { margin-bottom: 12px; }
+        .hotspot-back { margin-top: 22px; font-weight: 700; }
+
+        @media (max-width: 768px) {
+            .hotspot-facts,
+            .hotspot-gallery,
+            .hotspot-resource-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hotspot-facts,
+            .hotspot-gallery { gap: 12px; }
+
+            .hotspot-figure { padding: 9px; }
+            .hotspot-jump a { padding: 7px 11px; }
+        }
+    </style>
 </head>
+
 <body>
-  <header>
-    <h1>Cait Roufa</h1>
-    <nav>
-      <ul>
-        <li><a href="/">About Me</a></li>
-        <li><a href="cv.html">Experience</a></li>
-                <li><a href="research.html" class="active">Research</a></li>
-        <li><a href="publications.html">Publications</a></li>
-        <li><a href="teachingphilosophy.html">Teaching Philosophy</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
+    <header>
+        <h1>Cait Roufa</h1>
+        <nav>
+            <ul>
+                <li><a href="/">About Me</a></li>
+                <li><a href="cv.html">Experience</a></li>
+                <li><a href="research.html" class="active" aria-current="page">Research</a></li>
+                <li><a href="publications.html">Publications</a></li>
+                <li><a href="teachingphilosophy.html">Teaching Philosophy</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
 
-  <main>
-    <!-- Project Header -->
-    <section class="project-header">
-      <h1>Hotspot Analysis of Severe Convective Storms in the U.S.</h1>
-      <p><i>GIS Term Project • EAE 559 • Spring 2025</i></p>
-      <hr/>
-    </section>
+    <main class="hotspot-page">
 
-    <!-- Summary -->
-    <section class="project-summary">
-      <h2>Project Summary</h2>
-      <p>
-        This project investigates how <b>severe convective weather (SCW) perils</b>—
-        tornadoes, severe hail, and damaging winds—may shift spatially across the U.S.
-        under future climate scenarios. Using <b>WRF-BCC regional climate simulations</b>
-        and <b>ArcGIS Pro hotspot analysis</b>, I compared historical (1990–2005) and
-        late-21st-century (2085–2100, RCP8.5) epochs. The analysis highlights a projected
-        <b>eastward shift of SCW hotspots</b> away from the Great Plains and toward the
-        Midwest and South, raising important questions about exposure, resilience, and
-        community impacts.
-      </p>
-    </section>
+        <!-- INTRODUCTION -->
+        <section class="hotspot-intro">
+            <p class="hotspot-kicker">
+                GIS class case study · EAE 559 · Spring 2025
+            </p>
 
-    <!-- Research Questions -->
-    <section>
-      <h2>Research Questions</h2>
-      <ul>
-        <li>How does the spatial distribution of SCW perils change under future climate conditions?</li>
-        <li>Which regions show emerging or declining hotspots of SCW activity?</li>
-        <li>What implications do these shifts have for population and infrastructure vulnerability?</li>
-      </ul>
-    </section>
+            <h1>Where might severe storm hotspots shift in a warmer climate?</h1>
 
-    <!-- Background -->
-    <section>
-      <h2>Background</h2>
-      <p>
-        Severe convective weather events already cause immense societal impacts, with
-        increasing losses over recent decades due to both climate and exposure
-        changes. Recent research shows a likely
-        <b>eastward shift of tornado and severe storm activity</b> by the end of the century
-        (e.g., Ashley et al. 2023; Hoogewind et al. 2017). This study contributes by
-        applying explicit convection-permitting model output to GIS-based hotspot and
-        spatiotemporal analysis.
-      </p>
-    </section>
+            <p class="hotspot-lede">
+                Severe thunderstorms are part of life across much of the
+                United States, but the places that experience the most
+                severe storm activity may change as the climate warms.
+                What happens if the areas with the greatest concentration
+                of storms shift toward regions with more people,
+                homes, businesses, and infrastructure? 
+                For my EAE 559 Geographic Information Systems term project,
+                I used high resolution climate simulations and GIS tools
+                to explore changes in the geographic distribution of
+                severe convective storm activity. I focused on spring
+                (March, April, and May), comparing a historical simulation
+                with an end-of-century high emissions scenario.
+            </p>
 
-    <!-- Methods -->
-    <section>
-      <h2>Methods</h2>
-      <p>
-        This project used <b>WRF-BCC model output</b> to quantify changes in hazardous convective
-        weather (HCW) environments across historical and future epochs. Daily event identification 
-        was based on thresholded updraft velocity and reflectivity fields, aggregated into 
-        seasonal counts. Space-time cube and hotspot analyses were performed to identify shifts 
-        in spatial and temporal risk under RCP4.5 and RCP8.5 scenarios.
-      </p>
-      <figure>
-        <img src="images/scw_bcc_workflow.png" alt="Workflow diagram of SCW project analysis" class="large-image">
-        <figcaption>Workflow for SCW hotspot and delta analysis using WRF-BCC output.</figcaption>
-      </figure>
-    </section>
+            <nav class="hotspot-jump" aria-label="Explore this case study">
+                <a href="#background">Background</a>
+                <a href="#approach">Methods</a>
+                <a href="#results">What changed?</a>
+                <a href="#community">Community impact</a>
+                <a href="#next">What's next?</a>
+                <a href="#resources">Resources &amp; literature</a>
+            </nav>
+        </section>
 
-    <!-- Results -->
-    <section>
-      <h2>Results</h2>
-      <p>
-        Analysis shows a <b>consistent hotspot over the Great Plains in the historical epoch</b>,
-        shifting <b>eastward into the South and Midwest</b> in the END8.5 scenario during spring.
-      </p>
-      <div class="results-gallery">
-        <figure>
-          <img src="images/cube_hist_mam.jpg" alt="Historical epoch space-time cube (MAM)" class="medium-image">
-          <figcaption>Historical epoch hotspot analysis (MAM).</figcaption>
-        </figure>
-        <figure>
-          <img src="images/cube_8p5END_mam.jpg" alt="End-of-century RCP8.5 cube (MAM)" class="medium-image">
-          <figcaption>End-of-century RCP8.5 hotspot analysis (MAM).</figcaption>
-        </figure>
-        <figure>
-          <img src="images/Layout_MAM.jpg" alt="Hotspot comparison map (HIST vs END8.5)" class="medium-image">
-          <figcaption>Hotspot comparison map: historical vs. end-of-century (MAM).</figcaption>
-        </figure>
-        <figure>
-          <img src="images/Layout_MAM_delta.jpg" alt="Hotspot delta map" class="medium-image">
-          <figcaption>Delta map: END8.5 vs HIST hotspots (MAM).</figcaption>
-        </figure>
-      </div>
-    </section>
+        <!-- BACKGROUND -->
+        <section class="hotspot-section" id="background">
+            <p class="hotspot-kicker">The question</p>
+            <h2>Why look at where storms happen?</h2>
 
-    <!-- Conclusions -->
-    <section>
-      <h2>Discussion & Conclusion</h2>
-      <ul>
-        <li><b>Shift:</b> SCW hotspots move eastward into the Midwest and South by the
-        end of the 21st century.</li>
-        <li><b>Risk:</b> Populated and infrastructure-dense regions face greater peril.</li>
-        <li><b>Limitations:</b> Only one emissions pathway (RCP8.5) and one season (MAM)
-        considered. SPC Storm Reports used for validation have known biases.</li>
-        <li><b>Future work:</b> Extend to other RCPs and seasons; incorporate exposure and
-        vulnerability overlays.</li>
-      </ul>
-    </section>
-  </main>
+            <p>
+                Severe convective storms can produce tornadoes,
+                damaging winds, and large hail. These hazards affect
+                homes, agriculture, transportation, businesses, and
+                other infrastructure, often with substantial economic
+                and societal costs. Previous research has suggested that some types of
+                severe storm activity could shift eastward in a
+                warming climate, raising questions about how
+                the geographic distribution of storms might evolve,
+                and whether communities in more populated regions
+                could experience additional exposure.
+            </p>
 
-  <footer>
-    <p>&copy; 2025 Caitlin Roufa</p>
-  </footer>
+            <div class="hotspot-callout">
+                <p><strong>What I wanted to find out:</strong></p>
+                <ul>
+                    <li>How might the spatial distribution of severe convective storm activity change under future climate conditions?</li>
+                    <li>Which regions show persistent, emerging, or declining hotspots?</li>
+                    <li>What could these changes mean for the communities and infrastructure in those regions?</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- METHODS -->
+        <section class="hotspot-section" id="approach">
+            <p class="hotspot-kicker">The approach</p>
+            <h2>How can we study future storm hotspots?</h2>
+
+            <p>
+                I used the WRF-BCC convection-permitting climate
+                simulations developed by Gensini et al. 2023.
+                These simulations use the Weather Research and
+                Forecasting (WRF) model at 3.75-km
+                horizontal resolution, with boundary conditions
+                derived from a bias-corrected global climate model.
+            </p>
+
+            <p>
+                For this class project, I compared two simulations:
+                the historical period (<strong>HIST, 1990–2005</strong>)
+                and the end-of-century high emissions scenario
+                (<strong>END8.5, 2085–2100</strong>). The
+                larger simulation dataset includes other scenarios
+                and periods, but I focused on those two
+                epochs for the spring season.
+            </p>
+
+            <div class="hotspot-facts">
+                <div class="hotspot-fact">
+                    <strong>1990–2005</strong>
+                    <span>Historical climate simulation used as the reference period.</span>
+                </div>
+
+                <div class="hotspot-fact">
+                    <strong>2085–2100</strong>
+                    <span>End-of-century simulation under the RCP8.5 emissions pathway.</span>
+                </div>
+
+                <div class="hotspot-fact">
+                    <strong>March–May</strong>
+                    <span>Spring season (MAM), the focus of the GIS analysis.</span>
+                </div>
+            </div>
+
+            <p>
+                Because the model output does not directly identify
+                individual tornadoes, damaging wind events, or hailstorms,
+                I used a <strong>synthetic severe storm proxy</strong>.
+                For this class analysis, detections required upward
+                vertical velocity of at least <strong>25 m/s</strong>
+                and simulated radar reflectivity of at least
+                <strong>40 dBZ</strong>.
+            </p>
+
+            <p>
+                I imported the detections into ArcGIS Pro, organized
+                them by season and simulation period, and used
+                <strong>space time cubes</strong> to examine how
+                storm concentrations varied across space and time.
+                Emerging Hot Spot Analysis identified persistent
+                and more intermittent spatial clusters.
+            </p>
+
+            <p>
+                Finally, I compared the historical and future
+                hotspot maps to identify where the geographic
+                concentration of synthetic storm activity changed.
+            </p>
+
+            <figure class="hotspot-figure">
+                <img src="images/scw_bcc_workflow.png"
+                     alt="GIS workflow showing conversion of simulated severe storm detections into space time cubes, hotspot maps, and historical versus future comparisons."
+                     loading="lazy">
+                <figcaption>
+                    <strong>GIS workflow.</strong>
+                    WRF-BCC synthetic storm detections were processed
+                    in ArcGIS Pro to examine changes in springtime
+                    spatial hotspots.
+                </figcaption>
+            </figure>
+
+            <p class="hotspot-note">
+                The proxy identifies modeled storm activity, not
+                individual observed tornadoes, damaging winds, or hail
+                reports. The 25 m/s threshold was used in this earlier
+                class exercise, but my subsequent published research
+                includes additional proxy evaluation and refinement.
+            </p>
+        </section>
+
+        <!-- RESULTS -->
+        <section class="hotspot-section" id="results">
+            <p class="hotspot-kicker">The findings</p>
+            <h2>Where did the spring hotspots move?</h2>
+
+            <p>
+                In the historical simulation, the strongest and most
+                persistent springtime hotspot was centered over the
+                Great Plains, extending from Texas northward toward
+                the Dakotas. Other regions experienced less consistent
+                concentrations of synthetic storm activity. 
+                In the end-of-century RCP8.5 simulation, the
+                concentration of springtime storm activity extended
+                farther east and south. Persistent and intermittent
+                hotspots appeared across the South Central Plains,
+                southern Midwest, and parts of the South, with
+                more sporadic hotspots toward the Southeast.
+            </p>
+
+            <div class="hotspot-gallery">
+                <figure class="hotspot-figure">
+                    <img src="images/Layout_MAM.jpg"
+                         alt="Comparison of springtime severe storm hotspot classifications for historical and end-of-century RCP8.5 simulations."
+                         loading="lazy">
+                    <figcaption>
+                        <strong>Historical versus future spring hotspots.</strong>
+                        Emerging Hot Spot Analysis compares the
+                        concentration and persistence of modeled
+                        storm activity in each simulation.
+                    </figcaption>
+                </figure>
+
+                <figure class="hotspot-figure">
+                    <img src="images/Layout_MAM_delta.jpg"
+                         alt="GIS map showing spatial differences between historical and end-of-century spring severe storm hotspot classifications."
+                         loading="lazy">
+                    <figcaption>
+                        <strong>Changes in hotspot geography.</strong>
+                        Red indicates locations where future hotspot
+                        classifications dominate; blue indicates
+                        locations where historical classifications dominate.
+                    </figcaption>
+                </figure>
+            </div>
+
+            <p class="hotspot-note">
+                The hotspot difference map compares GIS classifications,
+                not a direct numerical change in tornadoes or other
+                individual hazards. Its color values indicate relative
+                spatial patterns rather than storm count differences.
+                Click or tap the figures to enlarge them.
+            </p>
+
+            <div class="hotspot-callout hotspot-callout--rose">
+                <p><strong>The main takeaway:</strong></p>
+                <p>
+                    The GIS analysis suggests an eastward and
+                    southward shift in the concentration of springtime
+                    synthetic severe storm activity under the
+                    end-of-century high emissions scenario.
+                    The shift could have important implications for
+                    regions with larger populations and more
+                    developed infrastructure.
+                </p>
+            </div>
+
+            <details class="hotspot-details">
+                <summary>Explore the space time cube visualizations</summary>
+
+                <p>
+                    These figures show the spatial and temporal
+                    organization of the simulated storm detections.
+                    They helped identify where hotspots were persistent
+                    from year to year and where they were more sporadic.
+                </p>
+
+                <div class="hotspot-gallery">
+                    <figure class="hotspot-figure">
+                        <img src="images/cube_hist_mam.jpg"
+                             alt="Historical springtime space time cube showing a persistent severe storm hotspot over the Great Plains."
+                             loading="lazy">
+                        <figcaption>
+                            <strong>HIST, spring.</strong>
+                            A persistent hotspot extends through
+                            the Great Plains.
+                        </figcaption>
+                    </figure>
+
+                    <figure class="hotspot-figure">
+                        <img src="images/cube_8p5END_mam.jpg"
+                             alt="End-of-century RCP8.5 springtime space time cube showing severe storm hotspots extending into the South and Midwest."
+                             loading="lazy">
+                        <figcaption>
+                            <strong>END8.5, spring.</strong>
+                            Hotspot concentrations extend farther
+                            into the South and Midwest.
+                        </figcaption>
+                    </figure>
+                </div>
+            </details>
+        </section>
+
+        <!-- COMMUNITY IMPACT -->
+        <section class="hotspot-section" id="community">
+            <p class="hotspot-kicker">Why it matters</p>
+            <h2>What might an eastward shift mean for communities?</h2>
+
+            <p>
+                Changes in the geographic distribution of severe
+                storms matter because the places they affect are
+                not all equally populated or prepared. The South
+                and Midwest contain extensive residential,
+                agricultural, commercial, and transportation
+                infrastructure, and many communities already
+                experience substantial severe storm impacts. 
+                If severe storm activity becomes more concentrated
+                in parts of these regions, future exposure could
+                change even without considering additional
+                population growth or development.
+            </p>
+
+            <div class="hotspot-callout">
+                <p><strong>Why does this matter for preparedness?</strong></p>
+
+                <p>
+                    Knowing where storm activity may increase can
+                    help inform discussions about building resilience,
+                    emergency management, shelter access, agricultural
+                    planning, and infrastructure design, but the impacts will also depend on where
+                    people live in the future, how communities
+                    develop, and what steps are taken to reduce vulnerability.
+                </p>
+            </div>
+
+            <p>
+                This class project examined the location of
+                synthetic storm hotspots. It did not directly
+                calculate future property damage, fatalities,
+                or changes in exposure. Those questions would
+                require additional housing, population, and
+                vulnerability data.
+            </p>
+        </section>
+
+        <!-- FUTURE WORK -->
+        <section class="hotspot-section" id="next">
+            <p class="hotspot-kicker">Next steps</p>
+            <h2>What else would help us understand these changes?</h2>
+
+            <p>
+                This was a focused springtime comparison using
+                one future emissions pathway. A more complete
+                assessment could examine:
+            </p>
+
+            <ul>
+                <li>Additional emissions scenarios, including RCP4.5.</li>
+                <li>Summer, fall, and winter changes in storm geography.</li>
+                <li>Differences in how often synthetic storm detections occur, beyond hotspot classifications.</li>
+                <li>Projected population, housing, and infrastructure exposure.</li>
+                <li>Uncertainties in storm proxy identification and historical storm reports.</li>
+            </ul>
+
+            <p>
+                I have since extended my research on severe
+                convective storms using the WRF-BCC simulations,
+                including a published study of projected changes
+                in storm frequency, seasonality, and geography.
+            </p>
+
+            <p>
+                <a href="syntheticsevere.html">
+                    Explore my published severe convective storm research
+                </a>
+            </p>
+        </section>
+
+        <!-- RESOURCES -->
+        <section class="hotspot-section" id="resources">
+            <p class="hotspot-kicker">Keep exploring</p>
+            <h2>Related research and resources</h2>
+
+            <div class="hotspot-resource-grid">
+                <div class="hotspot-resource-card">
+                    <h3>Related research</h3>
+                    <ul>
+                        <li>
+                            <a href="https://doi.org/10.1007/s00382-022-06306-0"
+                               target="_blank" rel="noopener noreferrer">
+                                Gensini et al. (2023)
+                            </a>
+                            — Description and evaluation of
+                            the WRF-BCC climate simulations.
+                        </li>
+
+                        <li>
+                            <a href="https://doi.org/10.1175/BAMS-D-22-0027.1"
+                               target="_blank" rel="noopener noreferrer">
+                                Ashley et al. (2023)
+                            </a>
+                            — Projected changes in the geography
+                            and frequency of U.S. supercells.
+                        </li>
+
+                        <li>
+                            <a href="https://doi.org/10.1002/joc.70475"
+                               target="_blank" rel="noopener noreferrer">
+                                Roufa et al. (2026)
+                            </a>
+                            — My published research on the future
+                            of severe convective storms in the
+                            United States.
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="hotspot-resource-card">
+                    <h3>Methods and preparedness</h3>
+                    <ul>
+                        <li>
+                            <a href="https://pro.arcgis.com/en/pro-app/3.4/tool-reference/space-time-pattern-mining/emerginghotspots.htm"
+                               target="_blank" rel="noopener noreferrer">
+                                ArcGIS Emerging Hot Spot Analysis
+                            </a>
+                            — How spatial and temporal hotspot
+                            patterns are identified.
+                        </li>
+
+                        <li>
+                            <a href="https://pro.arcgis.com/en/pro-app/3.4/tool-reference/space-time-pattern-mining/createcubefromdefinedlocations.htm"
+                               target="_blank" rel="noopener noreferrer">
+                                ArcGIS Space Time Cubes
+                            </a>
+                            — Organizing geographic observations
+                            across time.
+                        </li>
+
+                        <li>
+                            <a href="https://www.weather.gov/ilx/severe-prep2"
+                               target="_blank" rel="noopener noreferrer">
+                                National Weather Service Severe Weather Preparedness
+                            </a>
+                            — Planning, shelter, and safety resources
+                            for severe thunderstorms and tornadoes.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <p class="hotspot-note">
+                This page presents a Spring 2025 GIS class case study
+                using modeled synthetic storm detections. The results
+                represent one possible future climate scenario, not
+                a deterministic forecast of individual severe storms
+                or their impacts.
+            </p>
+
+            <p class="hotspot-back">
+                <a href="research.html">← Back to Research</a>
+            </p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Caitlin Roufa</p>
+    </footer>
 </body>
 </html>
