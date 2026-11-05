@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="A GIS case study of changing severe-weather reports and exposure of U.S. housing, manufactured homes, and vulnerable communities by Cait Roufa.">
+    <meta name="description" content="A GIS case study of changing severe weather reports and exposure of U.S. housing, manufactured homes, and vulnerable communities by Cait Roufa.">
     <title>U.S. Housing Exposure to Severe Weather | Cait Roufa</title>
     <link rel="stylesheet" href="styles.css">
     <script src="site.js" defer></script>
@@ -252,14 +252,14 @@
                 GIS class case study · EAE 557 · December 2024
             </p>
 
-            <h1>How has severe-weather exposure changed for U.S. homes?</h1>
+            <h1>How has severe weather exposure changed for U.S. homes?</h1>
 
             <p class="housing-lede">
                 Tornadoes, damaging winds, and large hail affect communities
-                across the United States. But the impact of severe weather
-                depends on more than the storms themselves. Where people
+                across the United States, but the impact of severe weather
+                depends on more than just the hazard. Where people
                 live, the types of homes they live in, and their access
-                to resources can make a tremendous difference.
+                to resources, influences the exposure to severe storms.
             </p>
 
             <p>
@@ -289,26 +289,18 @@
                 I used NOAA Storm Prediction Center reports of
                 <strong>tornadoes, damaging winds, and large hail</strong>
                 to build county-level climatologies for two periods:
-                1980–2000 and 2001–2021.
-            </p>
-
-            <p>
-                For each county, I calculated the change in reported
-                severe-weather counts between the periods. Using
-                ArcGIS Pro, I then identified statistically significant
-                spatial clusters of increasing and decreasing reports,
-                commonly called <strong>hotspots and coldspots</strong>.
+                1980–2000 and 2001–2021. For each county, I calculated the change in reported
+                severe weather counts between the periods. Using
+                ArcGIS Pro, and then identified statistically significant
+                spatial clusters of increasing and decreasing reports, 
+                called <strong>hotspots and coldspots</strong>.
             </p>
 
             <p>
                 To examine exposure, I combined those results with
                 American Community Survey housing data, including
                 manufactured/mobile homes, and the CDC Social
-                Vulnerability Index (SVI).
-            </p>
-
-            <p>
-                The analysis considered both counties with any increase
+                Vulnerability Index (SVI). I incorporated both counties with any increase
                 in reported severe weather and counties belonging to
                 statistically significant hotspot clusters. These are
                 different measures of exposure.
@@ -316,11 +308,11 @@
 
             <figure class="housing-figure">
                 <img src="images/EAE557_GIS_FlowDiagram2.png"
-                     alt="GIS workflow connecting severe-weather reports, county-level changes, hotspot analysis, housing, and social vulnerability data."
+                     alt="GIS workflow connecting severe weather reports, county level changes, hotspot analysis, housing, and social vulnerability data."
                      loading="lazy">
                 <figcaption>
                     <strong>GIS analysis workflow.</strong>
-                    Severe-weather reports were compared between periods,
+                    Severe weather reports were compared between periods,
                     mapped by county, and overlaid with housing and
                     vulnerability information.
                 </figcaption>
@@ -343,43 +335,39 @@
             <p>
                 The spatial distribution of reported hazardous convective
                 weather changed between the two periods. The earlier
-                climatology featured a strong concentration in the
-                Southern Great Plains. In the later period, hotspots
+                climatology featured a concentration in the
+                Southern Great Plains, but in the later period, hotspots
                 appeared across more of the Central and Northern Plains,
-                Midwest, South, and East Coast.
-            </p>
-
-            <p>
-                Some of the areas with increasing reports also contain
+                Midwest, South, and East Coast. Some of the areas with increasing reports also contain
                 large populations and substantial housing development.
                 That makes the intersection of weather and the built
-                environment especially important.
+                environment especially important to consider.
             </p>
 
             <div class="housing-gallery">
                 <figure class="housing-figure">
                     <img src="images/P1Count.jpg"
-                         alt="County-level severe-weather report counts during the 1980–2000 period."
+                         alt="County level severe weather report counts during the 1980–2000 period."
                          loading="lazy">
                     <figcaption>
                         <strong>1980–2000:</strong> Reported tornado,
-                        damaging-wind, and large-hail counts.
+                        damaging wind, and large hail counts.
                     </figcaption>
                 </figure>
 
                 <figure class="housing-figure">
                     <img src="images/P2Count.jpg"
-                         alt="County-level severe-weather report counts during the 2001–2021 period."
+                         alt="County level severe weather report counts during the 2001–2021 period."
                          loading="lazy">
                     <figcaption>
-                        <strong>2001–2021:</strong> Reported severe-weather
+                        <strong>2001–2021:</strong> Reported severe weather
                         counts in the later study period.
                     </figcaption>
                 </figure>
 
                 <figure class="housing-figure">
                     <img src="images/CountDelta.jpg"
-                         alt="Map showing county-level differences in severe-weather report counts between the two periods."
+                         alt="Map showing county level differences in severe weather report counts between the two periods."
                          loading="lazy">
                     <figcaption>
                         <strong>Changes in reported counts:</strong>
@@ -394,7 +382,7 @@
                     <figcaption>
                         <strong>Hotspot and coldspot analysis:</strong>
                         Spatial clusters of increasing and decreasing
-                        severe-weather reports.
+                        severe weather reports.
                     </figcaption>
                 </figure>
             </div>
@@ -413,10 +401,10 @@
             <h2>How many homes are in areas with increasing reports?</h2>
 
             <p>
-                A substantial share of U.S. housing was located in
-                counties where reported severe-weather counts increased
+                A large share of U.S. housing was located in
+                counties where reported severe weather counts increased
                 between the study periods. A smaller, but still important,
-                share was in counties identified as statistically
+                share of housing was in counties identified as statistically
                 significant hotspots.
             </p>
 
@@ -425,15 +413,15 @@
                     <strong>88.68%</strong>
                     <span>
                         Of U.S. housing units were in counties
-                        with increasing severe-weather report counts.
+                        with increasing severe weather report counts.
                     </span>
                 </div>
 
                 <div class="housing-stat">
                     <strong>21.41%</strong>
                     <span>
-                        Of U.S. housing units were in the study-defined
-                        severe-weather hotspot counties.
+                        Of U.S. housing units were in the study defined
+                        severe weather hotspot counties.
                     </span>
                 </div>
 
@@ -447,10 +435,10 @@
             </div>
 
             <p>
-                The analysis also found that <strong>89.01% of
+                We also found that <strong>89.01% of
                 manufactured/mobile homes</strong> and
                 <strong>90.60% of the U.S. population</strong>
-                were in counties with increasing severe-weather reports.
+                were in counties with increasing severe weather reports.
                 Approximately <strong>20.96% of the population</strong>
                 lived in hotspot counties.
             </p>
@@ -459,28 +447,28 @@
                 To look more closely at vulnerability, I mapped
                 hotspot counties with more than 10,000 housing units,
                 counties with mobile homes representing at least
-                6% of housing, and counties with above-median
+                6% of housing, and counties with above median
                 Social Vulnerability Index scores.
             </p>
 
             <div class="housing-gallery">
                 <figure class="housing-figure">
                     <img src="images/HotHU.jpg"
-                         alt="Map of counties with substantial housing concentrations located within severe-weather hotspots."
+                         alt="Map of counties with substantial housing concentrations located within severe weather hotspots."
                          loading="lazy">
                     <figcaption>
                         <strong>Housing exposure:</strong>
                         Counties with more than 10,000 housing units
-                        within reported severe-weather hotspots.
+                        within reported severe weather hotspots.
                     </figcaption>
                 </figure>
 
                 <figure class="housing-figure">
                     <img src="images/HotMH.jpg"
-                         alt="Map highlighting counties with higher shares of manufactured or mobile homes within severe-weather hotspots."
+                         alt="Map highlighting counties with higher shares of manufactured or mobile homes within severe weather hotspots."
                          loading="lazy">
                     <figcaption>
-                        <strong>Manufactured-home exposure:</strong>
+                        <strong>Manufactured home exposure:</strong>
                         Hotspot counties where mobile homes make up
                         at least 6% of housing units.
                     </figcaption>
@@ -488,11 +476,11 @@
 
                 <figure class="housing-figure">
                     <img src="images/HotSVI.jpg"
-                         alt="Map showing severe-weather hotspot counties overlapping with higher social vulnerability."
+                         alt="Map showing severe weather hotspot counties overlapping with higher social vulnerability."
                          loading="lazy">
                     <figcaption>
                         <strong>Social vulnerability:</strong>
-                        Hotspot counties with above-median SVI scores.
+                        Hotspot counties with above median SVI scores.
                     </figcaption>
                 </figure>
             </div>
@@ -538,7 +526,7 @@
 
             <p class="housing-note">
                 These percentages describe the geographic overlap
-                of housing and population with county-level report
+                of housing and population with county level report
                 patterns. They do not mean that the same percentage
                 of homes was directly struck by severe weather,
                 nor do they estimate individual future damage risk.
@@ -555,7 +543,7 @@
                 thunderstorms and tornadoes. Manufactured and mobile
                 homes are particularly vulnerable to strong winds,
                 and their residents may have fewer options for
-                accessing a sturdy shelter.
+                accessing a storm shelter.
             </p>
 
             <p>
@@ -570,24 +558,20 @@
                 <p><strong>What might these findings mean for communities?</strong></p>
 
                 <p>
-                    Knowing where changing severe-weather report
+                    Knowing where changing severe weather report
                     patterns overlap with vulnerable housing can
                     help emergency managers and communities think
                     about shelter access, warning communication,
-                    and long-term resilience planning.
-                </p>
-
-                <p>
-                    An important question is whether residents
-                    of manufactured-home communities have access
-                    to nearby, substantial shelter—and a practical
-                    plan for reaching it before dangerous weather
+                    and long-term resilience planning. An important question is whether residents
+                    of manufactured home communities have access
+                    to nearby, substantial shelter and a practical
+                    plan for reaching shelter before dangerous weather
                     arrives.
                 </p>
             </div>
 
             <p>
-                The results also illustrate why severe-weather
+                The results also illustrate why severe weather
                 impacts cannot be explained by atmospheric changes
                 alone. The number and location of homes, how they
                 are constructed, and the resources available to
@@ -606,9 +590,9 @@
                 </p>
 
                 <p>
-                    More detailed, neighborhood-scale information
-                    would also help move from county-level exposure
-                    toward a better understanding of actual risk.
+                    More detailed, neighborhood scale information
+                    would also help move from county level exposure
+                    toward a better understanding of risk.
                 </p>
             </div>
         </section>
@@ -701,8 +685,8 @@
             <p class="housing-note">
                 This page presents findings from a December 2024
                 GIS class project. It is an exploratory, historical
-                exposure assessment, not an operational severe-weather
-                forecast or a climate-change attribution study.
+                exposure assessment, not an operational severe weather
+                forecast or a climate change attribution study.
             </p>
 
             <p class="housing-back">
