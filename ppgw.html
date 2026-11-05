@@ -1,27 +1,345 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Cait Roufa | Research – Pseudo Pseudo Global Warming Case Study</title>
-    <link rel="stylesheet" href="styles.css"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- MathJax -->
-    <script>
-      window.MathJax = {
-        tex: {
-          inlineMath: [['\\(', '\\)'], ['$', '$']],
-          displayMath: [['\\[', '\\]'], ['$$','$$']]
-        },
-        options: {
-          skipHtmlTags: ['script','noscript','style','textarea','pre','code']
-        }
-      };
-    </script>
-    <script id="MathJax-script" async
-      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+    <title>Cait Roufa | Tornado Outbreak WRF Case Study</title>
+
+    <link rel="stylesheet" href="styles.css">
     <script src="site.js" defer></script>
+
+    <style>
+        /* Page-specific styling; shared site styles remain unchanged. */
+
+        .ppgw-page {
+            --green: var(--site-green, #245b43);
+            --dark-green: var(--site-green-dark, #173e30);
+            --rose: var(--site-rose, #813e57);
+            --mint: var(--site-mint, #f1f7f2);
+            --blush: var(--site-blush, #fbf1f5);
+            --border: var(--site-border, #d8ded9);
+
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-bottom: 45px;
+        }
+
+        .ppgw-page .ppgw-hero {
+            background: var(--mint);
+            border: 1px solid #dce9df;
+            border-left: 5px solid var(--rose);
+            border-radius: 12px;
+            padding: 27px 30px;
+            margin-top: 28px;
+        }
+
+        .ppgw-kicker {
+            margin: 0 0 10px;
+            font-size: 0.83rem;
+            font-weight: 700;
+            letter-spacing: 0.065em;
+            text-transform: uppercase;
+            color: var(--rose);
+        }
+
+        .ppgw-page .ppgw-hero h1 {
+            margin: 0 0 14px;
+            color: var(--dark-green);
+            font-size: clamp(1.85rem, 3.7vw, 2.6rem);
+            line-height: 1.19;
+        }
+
+        .ppgw-subtitle {
+            font-size: 0.97rem;
+            color: #48534c;
+            margin: 0 0 18px;
+        }
+
+        .ppgw-lead {
+            max-width: 950px;
+            font-size: 1.075rem;
+            line-height: 1.72;
+            margin-bottom: 17px;
+        }
+
+        .ppgw-jump-nav {
+            display: flex;
+            gap: 9px;
+            flex-wrap: wrap;
+            margin-top: 22px;
+        }
+
+        .ppgw-jump-nav a {
+            display: inline-block;
+            border: 1px solid #bdd2c3;
+            border-radius: 99px;
+            padding: 7px 14px;
+            background: white;
+            color: var(--dark-green);
+            text-decoration: none;
+            font-size: 0.91rem;
+            font-weight: 700;
+            transition: background-color 0.2s ease;
+        }
+
+        .ppgw-jump-nav a:hover,
+        .ppgw-jump-nav a:focus-visible {
+            background: var(--blush);
+            border-color: #daaaba;
+        }
+
+        .ppgw-page .ppgw-section {
+            padding-top: 14px;
+            margin-top: 38px;
+            scroll-margin-top: 20px;
+        }
+
+        .ppgw-page .ppgw-section > h2 {
+            color: var(--dark-green);
+            font-size: clamp(1.45rem, 2.6vw, 1.85rem);
+            border-bottom: 2px solid #dce7df;
+            padding-bottom: 9px;
+            margin-bottom: 18px;
+        }
+
+        .ppgw-page h3 {
+            color: var(--dark-green);
+            font-size: 1.17rem;
+            margin: 20px 0 10px;
+        }
+
+        .ppgw-page p {
+            line-height: 1.72;
+        }
+
+        .ppgw-question-box,
+        .ppgw-note,
+        .ppgw-limits {
+            border-radius: 11px;
+            padding: 19px 23px;
+            margin: 22px 0;
+        }
+
+        .ppgw-question-box {
+            background: var(--blush);
+            border: 1px solid #ead5de;
+            border-left: 5px solid var(--rose);
+        }
+
+        .ppgw-question-box h3,
+        .ppgw-note h3,
+        .ppgw-limits h3 {
+            margin-top: 0;
+        }
+
+        .ppgw-question-box ul {
+            margin-bottom: 0;
+            padding-left: 22px;
+        }
+
+        .ppgw-question-box li {
+            margin: 7px 0;
+        }
+
+        .ppgw-note {
+            background: var(--mint);
+            border: 1px solid #dce8df;
+            border-left: 5px solid var(--green);
+        }
+
+        .ppgw-limits {
+            background: var(--blush);
+            border: 1px solid #edd9e1;
+            border-left: 5px solid var(--rose);
+        }
+
+        .ppgw-facts {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 13px;
+            margin: 23px 0;
+        }
+
+        .ppgw-fact {
+            padding: 16px 18px;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            background: #f9fbf9;
+        }
+
+        .ppgw-fact:nth-child(2) {
+            background: var(--mint);
+        }
+
+        .ppgw-fact:nth-child(3) {
+            background: var(--blush);
+        }
+
+        .ppgw-fact strong {
+            display: block;
+            font-size: 1.25rem;
+            line-height: 1.3;
+            color: var(--dark-green);
+            margin-bottom: 6px;
+        }
+
+        .ppgw-fact span {
+            display: block;
+            color: #404b43;
+            font-size: 0.94rem;
+            line-height: 1.5;
+        }
+
+        .ppgw-gallery {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 19px;
+            margin: 22px 0;
+        }
+
+        .ppgw-page figure {
+            margin: 0;
+            padding: 13px;
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 11px;
+            box-shadow: 0 3px 13px rgba(27, 54, 39, 0.055);
+            min-width: 0;
+        }
+
+        .ppgw-page figure img {
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 6px;
+        }
+
+        .ppgw-page figcaption {
+            margin-top: 10px;
+            color: #445149;
+            font-size: 0.91rem;
+            line-height: 1.55;
+        }
+
+        .ppgw-figure-wide {
+            max-width: 930px;
+            margin: 23px auto !important;
+        }
+
+        .ppgw-gallery .ppgw-figure-last {
+            grid-column: 1 / -1;
+            max-width: 850px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        .ppgw-figure-hint {
+            font-size: 0.88rem;
+            color: #56645a;
+            font-style: italic;
+            margin: 4px 0 15px;
+        }
+
+        .ppgw-method-list {
+            padding-left: 24px;
+            margin-bottom: 20px;
+        }
+
+        .ppgw-method-list li {
+            margin-bottom: 9px;
+        }
+
+        .ppgw-results {
+            margin: 17px 0 22px;
+            padding-left: 24px;
+        }
+
+        .ppgw-results li {
+            margin-bottom: 12px;
+        }
+
+        .ppgw-resources {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 14px;
+            margin-top: 19px;
+        }
+
+        .ppgw-resource {
+            background: #f9fbf9;
+            border: 1px solid #dee8e0;
+            border-radius: 10px;
+            padding: 17px 19px;
+        }
+
+        .ppgw-resource:nth-child(even) {
+            background: var(--blush);
+            border-color: #eedde4;
+        }
+
+        .ppgw-resource h3 {
+            margin: 0 0 8px;
+            font-size: 1.07rem;
+        }
+
+        .ppgw-resource p {
+            margin: 0;
+            font-size: 0.94rem;
+        }
+
+        .ppgw-page a {
+            text-underline-offset: 3px;
+        }
+
+        @media (max-width: 700px) {
+            .ppgw-page .ppgw-hero {
+                margin: 20px 16px;
+                padding: 20px 17px;
+            }
+
+            .ppgw-page .ppgw-hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .ppgw-lead {
+                font-size: 1rem;
+            }
+
+            .ppgw-jump-nav {
+                gap: 7px;
+            }
+
+            .ppgw-jump-nav a {
+                font-size: 0.87rem;
+                padding: 7px 11px;
+            }
+
+            .ppgw-facts,
+            .ppgw-gallery,
+            .ppgw-resources {
+                grid-template-columns: 1fr;
+            }
+
+            .ppgw-gallery .ppgw-figure-last {
+                grid-column: auto;
+            }
+
+            .ppgw-question-box,
+            .ppgw-note,
+            .ppgw-limits {
+                padding: 16px;
+            }
+
+            .ppgw-page figure {
+                padding: 9px;
+            }
+        }
+    </style>
 </head>
+
 <body>
     <header>
         <h1>Cait Roufa</h1>
@@ -37,140 +355,549 @@
         </nav>
     </header>
 
-    <main>
-      <!-- Project Header -->
-      <section class="project-header">
-          <h1>Case Study: Effect of a Warming Climate on a Tornado Outbreak Environment Using a Pseudo Pseudo Global Warming Approach</h1>
-          <p><i>Numerical Weather Prediction Case Study • November 2023</i></p>
-          <hr/>
-      </section>
+    <main class="ppgw-page">
 
-      <!-- Summary -->
-      <section class="project-summary">
-          <h2>Project Summary</h2>
-          <p>
-            This project explores how a major tornado outbreak environment might change under slightly warmer or cooler climate conditions. 
-            Using a simplified <b>Pseudo Pseudo Global Warming (PPGW)</b> approach, I modified reanalysis inputs by ±2&nbsp;°C and ran 
-            high-resolution WRF simulations. The goal was to assess how <b>CAPE and storm structure</b> respond to temperature perturbations 
-            as a first step toward more detailed PGW or dynamical downscaling experiments.
-          </p>
-      </section>
+        <!-- Introduction -->
+        <section class="ppgw-hero">
+            <p class="ppgw-kicker">Numerical Weather Prediction Case Study</p>
 
-      <!-- Research Questions -->
-      <section>
-          <h2>Research Questions</h2>
-          <ul>
-              <li>What would the March 31, 2023 tornado outbreak environment look like with less anthropogenic warming?</li>
-              <li>How might additional warming intensify or alter severe storm development during such an outbreak?</li>
-          </ul>
-      </section>
+            <h1>
+                What if the March 31, 2023 tornado outbreak
+                occurred in a warmer or cooler atmosphere?
+            </h1>
 
-      <!-- Background -->
-      <section>
-          <h2>Background</h2>
-          <p>
-            <b>Pseudo Global Warming (PGW):</b> A method where boundary conditions of a regional climate model (RCM) are modified to expected 
-            future climate anomalies. For example:
-          </p>
-          <p>
-            \[
-              \Delta T = T(x, y, z)_{\text{future mean}} - T(x, y, z)_{\text{historical mean}}
-            \]
-            \[
-              T'(x, y, z, t) = T(x, y, z, t) + \Delta T
-            \]
-          </p>
-          <p>
-            <b>Pseudo Pseudo Global Warming (PPGW):</b> In this study, I applied a uniform ±2&nbsp;°C perturbation to ERA5 reanalysis input data. 
-            This approach provides a quick initial test of sensitivity to warming/cooling before performing full PGW or downscaled experiments.
-          </p>
-      </section>
+            <p class="ppgw-subtitle">
+                Numerical Weather Prediction • Fall 2023
+            </p>
 
-      <!-- Case -->
-      <section>
-          <h2>Case: March 31, 2023 Tornado Outbreak</h2>
-          <ul>
-              <li>3rd largest U.S. tornado outbreak: 142 tornadoes (22 in the LOT region, tied for most in 24 hours)</li>
-              <li>11 EF-3 tornadoes and 1 EF-4</li>
-              <li>90 mph straight-line winds</li>
-              <li>27 fatalities</li>
-              <li>Severe environment: bulk shear 60–70 kts, MLCAPE &gt; 1500 J/kg</li>
-          </ul>
-          <p>
-            <a href="https://www.weather.gov/lot/2023_03_31_SevereStorms" target="_blank">NWS LOT Severe Storm Summary</a>
-          </p>
-          <figure>
-            <img src="https://www.weather.gov/images/lot/pastevents/2023/03_31/watervapor-loop.gif" alt="March 31, 2023 tornado outbreak water vapor animation" class="medium-image">
-            <figcaption>Water vapor loop of the March 31, 2023 tornado outbreak</figcaption>
-          </figure>
-      </section>
+            <p class="ppgw-lead">
+                On March 31, 2023, a major tornado outbreak swept
+                across the central and eastern United States.
+                I wanted to explore how that storm environment
+                might respond to a change in temperature.
+                Would the storms behave differently if the
+                atmosphere were a little warmer or cooler?
+            </p>
 
-      <!-- Methods -->
-      <section>
-          <h2>Methods</h2>
-          <p><b>Data:</b> ERA5 reanalysis (surface + pressure levels), 3/31 00Z – 4/1 21Z, 3-hourly</p>
-          <p><b>Domain:</b> Centered on Illinois, 548 × 563 grid points, 3 km resolution</p>
-          <p><b>Model:</b> WRF v4.3.3 with default physics, 1-hourly output</p>
-          <ul>
-              <li><b>Control:</b> Unmodified ERA5</li>
-              <li><b>Minus Scenario:</b> Control – 2&nbsp;°C</li>
-              <li><b>Plus Scenario:</b> Control + 2&nbsp;°C</li>
-          </ul>
-          <p><b>Analysis:</b> Computed CAPE from WRF output; compared Plus–Control, Minus–Control, and Plus–Minus differences.</p>
-          <img src="images/domain.png" alt="WRF simulation domain centered on Illinois" class="medium-image">
-      </section>
+            <p>
+                For this class case study, I used the Weather
+                Research and Forecasting (WRF) model to simulate
+                the outbreak environment with the original
+                atmospheric conditions, then again with temperatures
+                increased and decreased by 2°C.
+                I compared the resulting instability and storm
+                development among the three simulations.
+            </p>
 
-      <!-- Results -->
-      <section>
-          <h2>Results</h2>
-          <ul>
-              <li><b>CAPE:</b> Higher in Plus scenario, lower in Minus scenario</li>
-              <li><b>Storms:</b> Minus scenario produced fewer/weaker cells; Plus scenario produced stronger storms earlier, converging toward control by 00Z</li>
-              <li><b>Spatial shift:</b> Minus scenario suppressed southern-domain storms; Plus scenario enhanced northern-domain activity</li>
-              <li><b>Future work:</b> Add CIN, shear, updraft velocity, and helicity diagnostics; run full PGW experiment</li>
-          </ul>
+            <nav class="ppgw-jump-nav" aria-label="Jump to project sections">
+                <a href="#event">The outbreak</a>
+                <a href="#methods">Approach</a>
+                <a href="#cape">Atmospheric instability</a>
+                <a href="#storms">Simulated storms</a>
+                <a href="#takeaways">Takeaways</a>
+                <a href="#resources">Resources</a>
+            </nav>
+        </section>
 
-          <div class="results-gallery">
-              <figure>
-                  <img src="images/reflectivity18z.png" alt="Reflectivity at 18Z" class="medium-image">
-                  <figcaption>Reflectivity at 18Z</figcaption>
-              </figure>
-              <figure>
-                  <img src="images/reflectivity21z.png" alt="Reflectivity at 21Z" class="medium-image">
-                  <figcaption>Reflectivity at 21Z</figcaption>
-              </figure>
-              <figure>
-                  <img src="images/reflectivity0z.png" alt="Reflectivity at 00Z" class="medium-image">
-                  <figcaption>Reflectivity at 00Z</figcaption>
-              </figure>
-              <figure>
-                  <img src="images/capecontrol.png" alt="Control vs observed CAPE" class="medium-image">
-                  <figcaption>Control vs. observed CAPE</figcaption>
-              </figure>
-              <figure>
-                  <img src="images/capedelta.png" alt="CAPE deltas Plus–Control and Minus–Control" class="medium-image">
-                  <figcaption>CAPE deltas: Plus–Control and Minus–Control</figcaption>
-              </figure>
-              <figure>
-                  <img src="images/capedeltatotal.png" alt="CAPE deltas Plus–Minus" class="medium-image">
-                  <figcaption>CAPE deltas: Plus–Minus</figcaption>
-              </figure>
-          </div>
-      </section>
+        <!-- Event -->
+        <section id="event" class="ppgw-section">
+            <h2>The March 31, 2023 tornado outbreak</h2>
 
-      <!-- Conclusions -->
-      <section>
-          <h2>Conclusions</h2>
-          <ul>
-              <li>Even small uniform warming/cooling perturbations can alter CAPE and convective evolution in outbreak environments.</li>
-              <li>Warming increased storm intensity and speed of initiation; cooling reduced storm organization.</li>
-              <li>PPGW provides a quick sensitivity test before committing resources to full PGW or dynamical downscaling.</li>
-          </ul>
-      </section>
+            <p>
+                The March 31–April 1, 2023 outbreak was one of the
+                largest tornado outbreaks on record in the United
+                States. A total of 146 tornadoes were confirmed
+                nationally, including 22 in the National Weather
+                Service Chicago forecast area.
+            </p>
+
+            <p>
+                The outbreak included 11 EF3 tornadoes and one
+                EF4 tornado, along with damaging straight-line winds
+                reaching approximately 90 mph. The storms caused
+                widespread damage and 27 fatalities.
+            </p>
+
+            <p>
+                The atmosphere was primed for severe storms.
+                Strong vertical wind shear, around 60–70 knots
+                through a deep layer of the atmosphere, was present
+                along with mixed-layer convective available
+                potential energy (CAPE) exceeding 1500 J/kg
+                across parts of the region.
+            </p>
+
+            <figure class="ppgw-figure-wide">
+                <img
+                    src="https://www.weather.gov/images/lot/pastevents/2023/03_31/watervapor-loop.gif"
+                    alt="Water vapor satellite animation of the March 31, 2023 severe storm outbreak"
+                    loading="lazy"
+                >
+                <figcaption>
+                    Water vapor satellite animation showing the
+                    large-scale weather system responsible for
+                    the March 31, 2023 outbreak.
+                    Source: National Weather Service Chicago.
+                </figcaption>
+            </figure>
+
+            <p>
+                The
+                <a
+                    href="https://www.weather.gov/lot/2023_03_31_SevereStorms"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >NWS Chicago event summary</a>
+                includes storm reports, tornado tracks, radar
+                imagery, photographs, and damage surveys.
+            </p>
+        </section>
+
+        <!-- Research questions -->
+        <section class="ppgw-section">
+            <div class="ppgw-question-box">
+                <h3>Questions behind the experiment</h3>
+                <ul>
+                    <li>
+                        How might this outbreak environment have
+                        behaved in a cooler atmosphere, such as
+                        one with less anthropogenic warming?
+                    </li>
+                    <li>
+                        How might additional warming affect
+                        atmospheric instability and the development
+                        of severe storms during a similar event?
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Methods -->
+        <section id="methods" class="ppgw-section">
+            <h2>How I approached the problem</h2>
+
+            <p>
+                One way researchers investigate how weather events
+                might change in a different climate is through
+                <strong>Pseudo Global Warming (PGW)</strong>
+                experiments. In a conventional PGW experiment,
+                researchers modify the atmospheric conditions
+                supplied to a regional weather model using
+                climate model projections. These changes can
+                include temperature, humidity, winds, pressure,
+                and land surface conditions.
+            </p>
+
+            <p>
+                My project was a deliberately simplified version
+                of this approach. I called it
+                <strong>Pseudo Pseudo Global Warming (PPGW)</strong>.
+                Instead of modifying several atmospheric variables
+                according to climate model projections, I adjusted
+                the temperature field uniformly by 2°C and
+                examined the response.
+            </p>
+
+            <div class="ppgw-facts">
+                <div class="ppgw-fact">
+                    <strong>−2°C</strong>
+                    <span>
+                        Minus simulation:
+                        a cooler version of the original
+                        atmospheric environment.
+                    </span>
+                </div>
+
+                <div class="ppgw-fact">
+                    <strong>Control</strong>
+                    <span>
+                        Original simulation:
+                        unmodified ERA5 atmospheric conditions.
+                    </span>
+                </div>
+
+                <div class="ppgw-fact">
+                    <strong>+2°C</strong>
+                    <span>
+                        Plus simulation:
+                        a warmer version of the original
+                        atmospheric environment.
+                    </span>
+                </div>
+            </div>
+
+            <h3>Model setup</h3>
+
+            <ul class="ppgw-method-list">
+                <li>
+                    <strong>Atmospheric data:</strong>
+                    ERA5 reanalysis, using surface and pressure
+                    level fields at three-hour intervals from
+                    March 31, 2023 at 00 UTC through
+                    April 1 at 21 UTC.
+                </li>
+
+                <li>
+                    <strong>Weather model:</strong>
+                    WRF version 4.3.3, using the default
+                    physics configuration for this experiment.
+                </li>
+
+                <li>
+                    <strong>Model domain:</strong>
+                    Centered on Illinois and covering the
+                    outbreak region, with 548 × 563 grid
+                    points at 3 km spacing.
+                </li>
+
+                <li>
+                    <strong>Output:</strong>
+                    Hourly simulations of atmospheric conditions
+                    and storm development.
+                </li>
+
+                <li>
+                    <strong>Analysis:</strong>
+                    Comparison of simulated radar reflectivity,
+                    CAPE, and atmospheric stability diagnostics
+                    among the control, plus, and minus runs.
+                </li>
+            </ul>
+
+            <figure class="ppgw-figure-wide">
+                <img
+                    src="images/domain.png"
+                    alt="WRF model domain centered over Illinois and the surrounding outbreak region"
+                    loading="lazy"
+                >
+                <figcaption>
+                    The WRF simulation domain, centered on
+                    Illinois, with 3 km grid spacing.
+                </figcaption>
+            </figure>
+
+            <div class="ppgw-note">
+                <h3>Why start with a simplified experiment?</h3>
+                <p>
+                    This was an exploratory class project.
+                    A simple temperature perturbation allowed
+                    me to see which parts of the storm environment
+                    were especially sensitive to warming or cooling.
+                    The idea was to identify promising questions
+                    before attempting a more complete PGW experiment,
+                    which would require additional climate variables
+                    and considerably more analysis.
+                </p>
+            </div>
+        </section>
+
+        <!-- CAPE -->
+        <section id="cape" class="ppgw-section">
+            <h2>How did atmospheric instability change?</h2>
+
+            <p>
+                One of the first things I examined was
+                <strong>convective available potential energy
+                (CAPE)</strong>. CAPE describes the energy available
+                to an air parcel that rises freely through the
+                atmosphere. It is an important ingredient for
+                thunderstorm development, although high CAPE
+                alone does not guarantee that severe storms
+                or tornadoes will form.
+            </p>
+
+            <p>
+                In the warmer simulation, CAPE generally increased
+                relative to the control, with differences of roughly
+                500 to more than 1500 J/kg in parts of the domain
+                at 18 UTC. In the cooler simulation, CAPE generally
+                decreased, with differences of approximately
+                500–1000 J/kg in some areas.
+            </p>
+
+            <p>
+                The important result was not simply that warming
+                increased CAPE. The changes were spatially variable,
+                and they influenced where and when the model
+                developed convection.
+            </p>
+
+            <p class="ppgw-figure-hint">
+                Click any figure to view it at a larger size.
+            </p>
+
+            <div class="ppgw-gallery">
+                <figure>
+                    <img
+                        src="images/capecontrol.png"
+                        alt="Comparison of simulated control CAPE with observed or analyzed CAPE"
+                        loading="lazy"
+                    >
+                    <figcaption>
+                        <strong>Control simulation.</strong>
+                        CAPE in the unmodified WRF run compared
+                        with the analyzed outbreak environment.
+                    </figcaption>
+                </figure>
+
+                <figure>
+                    <img
+                        src="images/capedelta.png"
+                        alt="CAPE differences between the plus and control simulations and between the minus and control simulations"
+                        loading="lazy"
+                    >
+                    <figcaption>
+                        <strong>Temperature sensitivity.</strong>
+                        CAPE differences for Plus–Control
+                        and Minus–Control.
+                    </figcaption>
+                </figure>
+
+                <figure class="ppgw-figure-last">
+                    <img
+                        src="images/capedeltatotal.png"
+                        alt="CAPE difference between the plus 2 degree and minus 2 degree simulations"
+                        loading="lazy"
+                    >
+                    <figcaption>
+                        <strong>Full perturbation comparison.</strong>
+                        CAPE differences between the +2°C
+                        and −2°C simulations.
+                    </figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <!-- Reflectivity -->
+        <section id="storms" class="ppgw-section">
+            <h2>What happened to the simulated storms?</h2>
+
+            <p>
+                I also compared the simulated radar reflectivity
+                fields to see how the precipitation structures
+                and convective cells evolved through the event.
+                The differences were visible even with this
+                relatively simple temperature change.
+            </p>
+
+            <ul class="ppgw-results">
+                <li>
+                    <strong>Cooler simulation:</strong>
+                    The minus run produced fewer and generally
+                    smaller convective cells than the control.
+                </li>
+
+                <li>
+                    <strong>Warmer simulation:</strong>
+                    The plus run developed larger convective
+                    cells earlier in the event.
+                </li>
+
+                <li>
+                    <strong>Later in the event:</strong>
+                    By around 00 UTC on April 1, the plus
+                    simulation became more similar to the
+                    control, suggesting that the timing of
+                    convective development was especially
+                    sensitive to the perturbation.
+                </li>
+            </ul>
+
+            <p>
+                There were also differences in the location
+                of convection. Activity in the southern part
+                of the domain was reduced in the cooler run,
+                while the warmer run showed enhanced activity
+                farther north during portions of the simulation.
+            </p>
+
+            <p class="ppgw-figure-hint">
+                Reflectivity comparisons at three times during the outbreak.
+            </p>
+
+            <div class="ppgw-gallery">
+                <figure>
+                    <img
+                        src="images/reflectivity18z.png"
+                        alt="WRF reflectivity comparisons at 18 UTC March 31, 2023"
+                        loading="lazy"
+                    >
+                    <figcaption>
+                        <strong>March 31, 18 UTC.</strong>
+                        Early differences in the simulated
+                        convective development.
+                    </figcaption>
+                </figure>
+
+                <figure>
+                    <img
+                        src="images/reflectivity21z.png"
+                        alt="WRF reflectivity comparisons at 21 UTC March 31, 2023"
+                        loading="lazy"
+                    >
+                    <figcaption>
+                        <strong>March 31, 21 UTC.</strong>
+                        Differences in convective coverage
+                        and storm structure become apparent.
+                    </figcaption>
+                </figure>
+
+                <figure class="ppgw-figure-last">
+                    <img
+                        src="images/reflectivity0z.png"
+                        alt="WRF reflectivity comparisons at 00 UTC April 1, 2023"
+                        loading="lazy"
+                    >
+                    <figcaption>
+                        <strong>April 1, 00 UTC.</strong>
+                        Later in the event, the warmer
+                        simulation more closely resembles
+                        the control in its overall convective evolution.
+                    </figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <!-- Takeaways -->
+        <section id="takeaways" class="ppgw-section">
+            <h2>What did I learn?</h2>
+
+            <p>
+                Even a relatively small temperature perturbation
+                changed the simulated storm environment.
+                The warmer atmosphere generally supported greater
+                CAPE and earlier development of larger convective
+                cells, while the cooler atmosphere supported
+                less CAPE and fewer, smaller cells.
+            </p>
+
+            <p>
+                This was a useful first look at how sensitive
+                a major severe storms environment can be
+                to changes in temperature. It also gave me
+                experience modifying model inputs, running WRF,
+                troubleshooting the simulation workflow, and
+                interpreting differences between experiments.
+            </p>
+
+            <div class="ppgw-limits">
+                <h3>What this experiment does—and does not—tell us</h3>
+
+                <p>
+                    These simulations do <strong>not</strong>
+                    tell us exactly how anthropogenic climate
+                    change affected the March 31, 2023 outbreak,
+                    nor do they predict how many tornadoes would
+                    occur in a future version of this event.
+                    I changed temperature without making the
+                    accompanying changes in humidity, winds,
+                    pressure, and other conditions that would
+                    occur in a physically consistent climate
+                    perturbation.
+                </p>
+
+                <p>
+                    The experiment is best understood as
+                    a <strong>temperature sensitivity test</strong>.
+                    A more complete analysis would compare these
+                    results with conventional PGW simulations,
+                    investigate additional environmental variables
+                    such as convective inhibition, vertical wind
+                    shear, updraft strength, and helicity, and
+                    repeat the experiment across multiple events.
+                </p>
+            </div>
+
+            <p>
+                That broader approach is especially interesting
+                because severe storms depend on several interacting
+                ingredients. A warmer atmosphere may provide
+                more instability, but changes in the winds,
+                moisture, or mechanisms that initiate convection
+                can alter the overall response.
+            </p>
+        </section>
+
+        <!-- Resources -->
+        <section id="resources" class="ppgw-section">
+            <h2>Related research and resources</h2>
+
+            <p>
+                These resources provide more background on
+                the March 31 outbreak, PGW experiments, and
+                how researchers investigate severe storms
+                in a changing climate.
+            </p>
+
+            <div class="ppgw-resources">
+                <div class="ppgw-resource">
+                    <h3>
+                        <a
+                            href="https://www.weather.gov/lot/2023_03_31_SevereStorms"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >NWS Chicago: March 31, 2023 outbreak</a>
+                    </h3>
+                    <p>
+                        Official event summary with radar imagery,
+                        storm reports, damage surveys, and
+                        tornado track information.
+                    </p>
+                </div>
+
+                <div class="ppgw-resource">
+                    <h3>
+                        <a
+                            href="https://doi.org/10.5194/gmd-16-907-2023"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >Brogli et al. (2023)</a>
+                    </h3>
+                    <p>
+                        A detailed explanation of the
+                        Pseudo Global Warming approach,
+                        including methodology and tools
+                        for ERA5-driven experiments.
+                    </p>
+                </div>
+
+                <div class="ppgw-resource">
+                    <h3>
+                        <a
+                            href="https://doi.org/10.1175/JCLI-D-15-0623.1"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >Trapp &amp; Hoogewind (2016)</a>
+                    </h3>
+                    <p>
+                        An investigation of how extreme
+                        tornadic storm environments and
+                        events might be realized under
+                        future anthropogenic climate change.
+                    </p>
+                </div>
+
+                <div class="ppgw-resource">
+                    <h3>
+                        <a
+                            href="https://doi.org/10.1175/BAMS-D-22-0173.1"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >Lasher-Trapp et al. (2023)</a>
+                    </h3>
+                    <p>
+                        A case study examining the
+                        possible behavior of a derecho
+                        in a future warmer climate.
+                    </p>
+                </div>
+            </div>
+        </section>
+
     </main>
 
     <footer>
-        <p>&copy; 2025 Caitlin Roufa</p>
+        <p>&copy; 2026 Caitlin Roufa</p>
     </footer>
 </body>
 </html>
