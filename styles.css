@@ -174,7 +174,7 @@ footer {
 .portfolio-item h3 {
     font-size: 1.25rem;
     margin: 0.75rem 0 0.5rem;
-    color: #003366; /* dark blue, adjust to match your palette */
+    color: var(--site-green-dark);
 }
 
 /* --- Description Text --- */
@@ -191,8 +191,9 @@ footer {
     color: inherit;
 }
 
-.portfolio-item a:hover h3 {
-    color: #0077cc; /* highlight on hover */
+.portfolio-item a:hover h3,
+.portfolio-item a:focus-visible h3 {
+    color: var(--site-green);
 }
 
 /* --- Section Headings --- */
@@ -470,6 +471,22 @@ body:not(.climatology-page) .project-header hr { border: 0; border-top: 1px soli
 .contact-photo { width: min(340px, 40%); }
 .bio-photo img { max-width: 100%; }
 .contact-photo { height: auto; border-radius: 8px; }
+.contact-email { margin: 18px 0 26px; }
+.contact-email button.contact-email-button {
+    background: var(--site-mint);
+    color: var(--site-green-dark);
+    border: 1px solid var(--site-green);
+    border-radius: 8px;
+    padding: 7px 12px;
+    font: inherit;
+    font-weight: 600;
+    cursor: pointer;
+    margin-right: 9px;
+}
+.contact-email button.contact-email-button:hover { background: #e1efe4; }
+.contact-email a { margin-right: 12px; font-weight: 600; }
+#email-details { margin-top: 10px; }
+#email-copy-status { color: var(--site-green-dark); }
 .intro-container { gap: 24px; }
 .intro-right { min-width: min(280px, 100%); }
 .intro-right h2 { font-size: clamp(1.5rem, 3vw, 1.9rem); }
@@ -478,7 +495,8 @@ body:not(.climatology-page) .project-header hr { border: 0; border-top: 1px soli
 /* Portfolio tiles retain their familiar proportions and hover behavior. */
 .portfolio-item { border: 1px solid #e1e7e2; }
 .portfolio-item h3 { color: var(--site-green-dark); }
-.portfolio-item a:hover h3 { color: var(--site-green); }
+.portfolio-item a:hover h3,
+.portfolio-item a:focus-visible h3 { color: var(--site-green); }
 .portfolio-item p { color: var(--site-muted); }
 .portfolio-type {
     display: inline-block;
