@@ -24,7 +24,7 @@
   // Make photos and project figures expand to nearly the full browser width.
   // The source image remains untouched; the dialog is only a viewing aid.
   const pictures = document.querySelectorAll(
-    ".bio-photo img, .contact-photo, .results-gallery img, " +
+    ".bio-photo img, .profile-picture, .contact-photo, .results-gallery img, " +
     "main figure img, .case-image img, .photo-row img, " +
     "img.small-image, img.medium-image, img.large-image"
   );
