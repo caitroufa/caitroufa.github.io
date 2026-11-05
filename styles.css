@@ -6,6 +6,649 @@ body {
     box-sizing: border-box;
 }
 
+:root {
+    /* Shared palette from the Northern Illinois climatology page. */
+    --site-ink: #171717;
+    --site-muted: #424747;
+    --site-green: #245b43;
+    --site-green-dark: #173e30;
+    --site-rose: #813e57;
+    --site-border: #d8ded9;
+    --site-mint: #f1f7f2;
+    --site-blush: #fbf1f5;
+}
+
+header {
+    background-image: url('images/auroraheader.jpg');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+.profile-container {
+    display: flex;
+    align-items: flex-start;
+    margin-top: 20px;
+}
+
+.profile-picture {
+    width: 120px;
+    height: 120px;
+    /* border: 2px solid #000; */
+    border-radius: 50%; /* makes circular */
+    margin-right: 20px;
+    /* object-fit: cover; */
+    max-width: 100%;
+}
+
+.about-text {
+    max-width: 600px;
+}
+
+section {
+    margin: 20px auto;
+    padding: 0 20px;
+    max-width: 1200px;
+}
+
+/* Flexbox for case section */
+.case-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-top: 20px;
+}
+
+.case-text {
+    flex: 1;
+    margin-right: 20px;
+}
+
+.case-image img {
+    max-width: 300px; /* Adjust image width */
+    height: auto;
+}
+
+.small-image {
+    max-width: 300px;
+    width: 100%;
+    height: auto; /* Keeps aspect ratio */
+}
+
+.medium-image {
+    max-width: 600px;
+    width: 100%;
+    height: auto;
+}
+
+.large-image {
+    max-width: 800px;
+    width: 100%;
+    height: auto;
+}
+
+footer {
+    background-image: url('/images/auroraheader.jpg');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 60px; /* define explicit height */
+}
+
+.citation {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+.photo-row {
+    display: flex;
+    justify-content: center;
+    gap: 20px;          /* space between images */
+    margin: 40px 0;     /* space above and below the row */
+}
+
+.photo-row img {
+    width: 30%;         /* 3 images per row on larger screens */
+    max-width: 300px;
+    border-radius: 10px; /* optional rounded corners */
+    object-fit: cover;
+}
+
+/* --- Portfolio Grid Layout --- */
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 1.5rem;
+}
+
+/* --- Individual Project Card --- */
+.portfolio-item {
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.portfolio-item:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+}
+
+/* --- Thumbnails --- */
+.portfolio-item img.thumb {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    display: block;
+}
+
+/* --- Titles --- */
+.portfolio-item h3 {
+    font-size: 1.25rem;
+    margin: 0.75rem 0 0.5rem;
+    color: #003366; /* dark blue, adjust to match your palette */
+}
+
+/* --- Description Text --- */
+.portfolio-item p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    padding: 0 1rem 1.25rem;
+    color: #444;
+}
+
+/* --- Links --- */
+.portfolio-item a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.portfolio-item a:hover h3 {
+    color: #0077cc; /* highlight on hover */
+}
+
+/* --- Section Headings --- */
+main section h2 {
+    font-size: 1.5rem;
+    margin-top: 2rem;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 0.25rem;
+}
+
+.bio-photo img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    display: block;
+    margin: 0 auto;
+}
+
+/* --- Hi I'm Cait section --- */
+.profile-container {
+    display: flex;
+    align-items: flex-start; /* aligns top edges of pic + text */
+    gap: 1.5rem;
+    margin-top: 1rem;
+    flex-wrap: wrap; /* stacks on smaller screens */
+}
+
+.profile-picture {
+    max-width: 180px; /* keeps profile image tidy */
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.about-text {
+    flex: 1; /* takes remaining space */
+    display: flex;
+    align-items: center; /* vertically centers text with image/title */
+}
+.about-text p {
+    margin: 0;
+}
+
+.intro-container {
+    display: flex;
+    align-items: center;  /* vertically center image+text */
+    gap: 1.5rem;
+    flex-wrap: wrap;      /* stack on smaller screens */
+    margin-top: 1rem;
+}
+
+.intro-left {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* centers h2 above img */
+}
+
+.intro-left h2 {
+    margin-bottom: 0.5rem;
+}
+
+.intro-right {
+    flex: 1;
+}
+
+/* --- Intro Layout --- */
+.intro-container {
+    display: flex;
+    align-items: center; /* vertically centers photo + text */
+    gap: 1.5rem;
+    flex-wrap: wrap;     /* stacks nicely on small screens */
+    margin-top: 1rem;
+}
+
+.intro-left img.profile-picture {
+    max-width: 180px;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.intro-right {
+    flex: 1;
+}
+
+.intro-right h2 {
+    margin: 0 0 0.5rem 0; /* keeps tight spacing above paragraph */
+}
+
+/* Contain floats inside Bio section */
+.bio-section::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.bio-photo.second {
+    clear: right; 
+    float: left;
+}
+
+/* Ensure main content has space for fixed footer */
+body {
+    padding-bottom: 80px; /* matches footer height */
+}
+
+/* Desktop: float images left with buffer */
+.bio-photo {
+    max-width: 340px;
+    margin: 1rem 1.5rem; 
+    float: right;
+    clear: both;
+    display: block;
+}
+
+.contact-photo {
+    max-width: 340px;
+    margin: 1rem 1.5rem; 
+    float: left;
+    clear: both;
+    display: block;
+}
+
+/* Stack vertically on smaller screens and mobile */
+@media (max-width: 768px) {
+    .photo-row {
+        flex-direction: column;
+        align-items: center;   /* center the stacked images */
+    }
+
+    .photo-row img {
+        width: 80%;            /* make them bigger when stacked */
+        max-width: 400px;
+    }
+}
+/* Mobile/smaller screens: center images with spacing */
+@media (max-width: 768px) {
+    .bio-photo {
+        float: none;
+        margin: 1.5rem auto;  /* centers image with vertical buffer */
+        display: block;
+    }
+    .bio-photo.second {
+        float: none;
+    }
+    .contact-photo {
+        float: none;
+        margin: 1.5rem auto;
+    }
+}
+
+.footer-spacer {
+    clear: both;            /* clears the floats */
+    height: 100px;          /* match or slightly exceed footer height */
+}
+
+/* --- Bibliography Styling --- */
+.csl-bib-body {
+    line-height: 1.5;
+    margin: 1.5rem 2rem;
+    font-size: 0.95rem;
+    color: #222;
+}
+
+.csl-entry {
+    margin-bottom: 1rem;
+    text-indent: -1.5em;   /* hanging indent */
+    margin-left: 1.5em;    /* aligns properly after indent */
+}
+
+.csl-entry i {
+    font-style: italic;
+    color: #333;
+}
+
+.csl-entry a {
+    color: #0066cc;
+    text-decoration: none;
+    margin-left: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.csl-entry a:hover {
+    text-decoration: underline;
+    color: #004999;
+}
+
+/* ---- Shared site refresh, November 2026 ---- */
+html { scroll-behavior: smooth; }
+*, *::before, *::after { box-sizing: border-box; }
+body {
+    color: var(--site-ink);
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1rem;
+    line-height: 1.62;
+    padding-bottom: 90px; /* The always-visible aurora footer is part of the design. */
+}
+
+header {
+    padding: 15px 16px 17px;
+}
+header h1 {
+    margin: 0 0 6px;
+    font-size: clamp(1.65rem, 3vw, 2rem);
+    line-height: 1.2;
+}
+header nav ul {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2px 6px;
+    margin: 6px 0 0;
+}
+header nav ul li { display: block; margin: 0; }
+header nav ul li a {
+    display: inline-block;
+    padding: 5px 9px;
+    border-radius: 6px;
+    line-height: 1.35;
+    transition: background-color .18s ease;
+}
+header nav ul li a:hover,
+header nav ul li a:focus-visible,
+header nav ul li a.active {
+    background: rgba(255, 255, 255, .16);
+}
+header nav ul li a.active { text-decoration: underline; text-decoration-color: #f1b7cc; text-underline-offset: 5px; }
+
+body:not(.climatology-page) section {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    padding: 0 24px;
+}
+body:not(.climatology-page) section > p,
+body:not(.climatology-page) section > ul,
+body:not(.climatology-page) section > ol,
+body:not(.climatology-page) section > .csl-bib-body {
+    max-width: 920px;
+}
+body:not(.climatology-page) section > h2,
+body:not(.climatology-page) main section > h2 {
+    font-size: clamp(1.45rem, 2.7vw, 1.85rem);
+    line-height: 1.25;
+    color: #171717;
+    margin: 0 0 16px;
+    padding: 0 0 8px;
+    border-bottom: 1px solid var(--site-border);
+}
+body:not(.climatology-page) h3 { line-height: 1.3; }
+body:not(.climatology-page) p,
+body:not(.climatology-page) li { overflow-wrap: break-word; }
+body:not(.climatology-page) a:not(header a):not(.portfolio-item a):not(.site-back-to-top) {
+    color: var(--site-green);
+    text-underline-offset: 3px;
+}
+body:not(.climatology-page) a:not(header a):not(.site-back-to-top):hover { color: var(--site-rose); }
+a:focus-visible, button:focus-visible, [role="button"]:focus-visible {
+    outline: 3px solid var(--site-rose);
+    outline-offset: 4px;
+}
+body:not(.climatology-page) .project-header h1 {
+    font-size: clamp(1.8rem, 3.8vw, 2.5rem);
+    line-height: 1.18;
+    letter-spacing: -.015em;
+    margin: 0 0 12px;
+}
+body:not(.climatology-page) .project-header p { color: var(--site-muted); }
+body:not(.climatology-page) .project-header hr { border: 0; border-top: 1px solid var(--site-border); }
+
+/* Preserve the original text-wrapping homepage and contact photographs. */
+.bio-photo,
+.contact-photo { width: min(340px, 40%); }
+.bio-photo img { max-width: 100%; }
+.contact-photo { height: auto; border-radius: 8px; }
+.intro-container { gap: 24px; }
+.intro-right { min-width: min(280px, 100%); }
+.intro-right h2 { font-size: clamp(1.5rem, 3vw, 1.9rem); }
+.intro-right p { max-width: 900px; margin: 0; }
+
+/* Portfolio tiles retain their familiar proportions and hover behavior. */
+.portfolio-item { border: 1px solid #e1e7e2; }
+.portfolio-item h3 { color: var(--site-green-dark); }
+.portfolio-item a:hover h3 { color: var(--site-rose); }
+.portfolio-item p { color: var(--site-muted); }
+.portfolio-type {
+    display: inline-block;
+    align-self: center;
+    color: var(--site-rose);
+    background: var(--site-blush);
+    border-radius: 99px;
+    font-size: .77rem;
+    font-weight: 700;
+    letter-spacing: .02em;
+    padding: 3px 10px;
+    margin: 0 0 6px;
+}
+main section h2 { border-bottom-color: var(--site-border); }
+
+/* Existing project figures now use more of the available page width. */
+body:not(.climatology-page) figure:not(.bio-photo) { max-width: min(100%, 980px); }
+body:not(.climatology-page) figure:not(.bio-photo) img {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+.results-gallery {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 22px;
+    max-width: 1000px;
+}
+.results-gallery figure {
+    margin: 0;
+    padding: 12px;
+    border: 1px solid var(--site-border);
+    border-radius: 10px;
+    box-shadow: 0 3px 14px rgba(27, 54, 39, .06);
+}
+figure figcaption { color: var(--site-muted); font-size: .9rem; margin-top: 9px; }
+.medium-image, .large-image { max-width: 100%; }
+img.site-zoomable { cursor: zoom-in; }
+
+/* The aurora footer remains fixed and visible on every older page. */
+footer {
+    height: 60px;
+    padding: 10px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 40;
+}
+footer p { margin: 0; }
+.footer-spacer { height: 16px; }
+
+/* Shared back-to-top control. */
+.site-back-to-top {
+    position: fixed;
+    right: 24px;
+    bottom: 76px;
+    z-index: 45;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 43px;
+    padding: 9px 16px;
+    border-radius: 99px;
+    background: var(--site-green);
+    color: #fff;
+    text-decoration: none;
+    font-size: .9rem;
+    font-weight: 700;
+    box-shadow: 0 3px 15px rgba(23, 62, 48, .22);
+    transition: opacity .2s ease, visibility .2s ease, transform .2s ease, background .2s ease;
+}
+.site-back-to-top:hover { background: var(--site-rose); color: #fff; }
+.site-back-to-top.is-hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(10px);
+}
+
+/* Reusable enlarged-photo/figure dialog; independent of page-specific layouts. */
+.site-lightbox {
+    width: min(96vw, 1500px);
+    max-width: 96vw;
+    max-height: 96vh;
+    padding: 14px;
+    border: 0;
+    border-radius: 12px;
+    background: #fff;
+    box-shadow: 0 20px 65px rgba(0, 0, 0, .35);
+    overflow: auto;
+}
+.site-lightbox::backdrop { background: rgba(10, 20, 14, .86); }
+.site-lightbox-header { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin: 0 0 10px; }
+.site-lightbox-title { font-weight: 700; font-size: 1rem; color: var(--site-green-dark); }
+.site-lightbox-close { flex: none; cursor: pointer; border: 1px solid var(--site-border); background: var(--site-mint); color: var(--site-green-dark); border-radius: 7px; font: inherit; padding: 4px 11px; }
+.site-lightbox-image { width: 100%; height: auto; display: block; }
+.site-lightbox-footer { display: flex; gap: 14px; flex-wrap: wrap; justify-content: space-between; align-items: center; margin-top: 10px; font-size: .88rem; }
+.site-lightbox-original { color: var(--site-green); }
+
+/* New compact homepage research/navigation section. */
+.home-featured {
+    background: #fff;
+    border-top: 2px solid var(--site-border);
+    border-bottom: 2px solid var(--site-border);
+    padding-top: 22px !important;
+    padding-bottom: 20px !important;
+}
+.home-kicker { color: var(--site-rose); text-transform: uppercase; letter-spacing: .07em; font-size: .81rem; font-weight: 700; margin: 0 0 10px; }
+.home-featured-heading { display: flex; align-items: end; flex-wrap: wrap; justify-content: space-between; gap: 14px 22px; }
+.home-featured-heading h2 { border: 0 !important; padding: 0 !important; margin: 0 !important; }
+.home-quick-nav { display: flex; gap: 8px; flex-wrap: wrap; }
+.home-quick-nav a {
+    display: inline-block;
+    padding: 7px 14px;
+    border: 1px solid #b8cfc0;
+    border-radius: 99px;
+    background: #fff;
+    text-decoration: none;
+    font-size: .9rem;
+    font-weight: 700;
+}
+.home-quick-nav a:hover { background: var(--site-blush); }
+.home-featured-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin-top: 18px; }
+.home-feature-card { border: 1px solid #e0eae2; background: var(--site-mint); border-radius: 10px; padding: 16px 19px; }
+.home-feature-card:nth-child(2) { background: var(--site-blush); border-color: #efdfe5; }
+.home-feature-card h3 { margin: 0 0 7px; color: var(--site-green-dark); font-size: 1.17rem; }
+.home-feature-card:nth-child(2) h3 { color: var(--site-rose); }
+.home-feature-card p { margin: 0 0 8px; color: #292d2a; }
+.home-feature-card a { font-weight: 700; }
+
+/* Public dissertation overview: later studies stay deliberately undescribed. */
+.dissertation-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.dissertation-card { padding: 18px 20px; border: 1px solid #e0eae2; border-radius: 10px; background: var(--site-mint); }
+.dissertation-card:first-child { grid-column: 1 / -1; }
+.dissertation-card--soon { background: var(--site-blush); border-color: #efdfe5; }
+.dissertation-status { margin: 0 0 7px; color: var(--site-rose); font-size: .83rem; font-weight: 700; text-transform: uppercase; letter-spacing: .045em; }
+.dissertation-card h3 { margin: 0 0 10px; color: var(--site-green-dark); font-size: 1.18rem; }
+.dissertation-card p:not(.dissertation-status) { max-width: 850px; }
+.dissertation-card a { font-weight: 700; }
+
+@media (max-width: 768px) {
+    body:not(.climatology-page) section { padding: 0 16px; margin-top: 22px; margin-bottom: 22px; }
+    header { padding: 12px 10px 13px; }
+    header nav ul { gap: 2px; }
+    header nav ul li a { padding: 5px 7px; font-size: .92rem; }
+    .bio-photo, .bio-photo.second { float: none; width: min(100%, 430px); margin: 20px auto; }
+    .contact-photo { float: none; display: block; width: min(100%, 340px); margin: 16px auto; }
+    .home-featured-grid { grid-template-columns: 1fr; gap: 12px; }
+    .dissertation-grid { grid-template-columns: 1fr; gap: 12px; }
+    .dissertation-card:first-child { grid-column: auto; }
+    .site-back-to-top { right: 13px; bottom: 70px; min-height: 40px; padding: 7px 13px; }
+    .site-lightbox { width: 98vw; max-width: 98vw; padding: 9px; }
+}
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    header nav ul li a, .site-back-to-top { transition: none; }
+}
+
+/* #### OLD ############################################################################### */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    padding-bottom: 100px;
+    box-sizing: border-box;
+}
+
 header {
     background-image: url('images/auroraheader.jpg');
     background-size: cover;
