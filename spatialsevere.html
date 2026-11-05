@@ -1,143 +1,718 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cait Roufa | Research – Historical SCW Impacts</title>
-  <link rel="stylesheet" href="styles.css">
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A GIS case study of changing severe-weather reports and exposure of U.S. housing, manufactured homes, and vulnerable communities by Cait Roufa.">
+    <title>U.S. Housing Exposure to Severe Weather | Cait Roufa</title>
+    <link rel="stylesheet" href="styles.css">
     <script src="site.js" defer></script>
+
+    <style>
+        .housing-page { padding-bottom: 36px; }
+        .housing-page section { max-width: 1150px; }
+
+        .housing-kicker {
+            color: var(--site-rose);
+            font-size: .83rem;
+            font-weight: 700;
+            letter-spacing: .07em;
+            text-transform: uppercase;
+            margin: 0 0 6px;
+        }
+
+        .housing-intro { padding-top: 13px !important; }
+
+        .housing-intro h1 {
+            color: var(--site-green-dark);
+            font-size: clamp(1.9rem, 4vw, 2.65rem);
+            line-height: 1.2;
+            letter-spacing: -.02em;
+            margin: 7px 0 14px;
+        }
+
+        .housing-lede {
+            font-size: 1.12rem;
+            line-height: 1.6;
+            max-width: 900px;
+        }
+
+        .housing-jump {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 22px;
+        }
+
+        .housing-jump a {
+            display: inline-block;
+            padding: 6px 13px;
+            border-radius: 99px;
+            border: 1px solid #b8cfc0;
+            background: #fff;
+            font-size: .91rem;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .housing-jump a:hover { background: var(--site-mint); }
+
+        .housing-section {
+            padding-top: 19px !important;
+            border-top: 2px solid var(--site-border);
+            scroll-margin-top: 20px;
+        }
+
+        .housing-page .housing-section h2 {
+            color: var(--site-green-dark);
+            font-size: clamp(1.48rem, 2.8vw, 1.88rem);
+            margin: 0 0 14px;
+            padding: 0 0 8px;
+            border-bottom: 1px solid var(--site-border);
+        }
+
+        .housing-stat-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 14px;
+            margin: 20px 0;
+        }
+
+        .housing-stat {
+            background: var(--site-mint);
+            border: 1px solid #dce8de;
+            border-radius: 9px;
+            padding: 15px 17px;
+        }
+
+        .housing-stat:nth-child(2) {
+            background: var(--site-blush);
+            border-color: #ecdce3;
+        }
+
+        .housing-stat strong {
+            display: block;
+            color: var(--site-green-dark);
+            font-size: clamp(1.65rem, 3vw, 2.15rem);
+            line-height: 1.12;
+            margin-bottom: 7px;
+        }
+
+        .housing-stat:nth-child(2) strong {
+            color: var(--site-rose);
+        }
+
+        .housing-stat span {
+            display: block;
+            font-size: .93rem;
+            line-height: 1.48;
+        }
+
+        .housing-callout {
+            max-width: 980px;
+            background: var(--site-mint);
+            border-left: 4px solid var(--site-green);
+            border-radius: 0 9px 9px 0;
+            padding: 16px 19px;
+            margin: 20px 0;
+        }
+
+        .housing-callout--rose {
+            background: var(--site-blush);
+            border-left-color: var(--site-rose);
+        }
+
+        .housing-callout p { margin: 0 0 10px; }
+        .housing-callout p:last-child { margin-bottom: 0; }
+
+        .housing-note {
+            color: var(--site-muted);
+            font-size: .91rem;
+            line-height: 1.55;
+        }
+
+        .housing-gallery {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 18px;
+            margin: 20px 0;
+        }
+
+        body:not(.climatology-page) .housing-figure {
+            margin: 0;
+            padding: 13px;
+            border: 1px solid var(--site-border);
+            border-radius: 9px;
+            box-shadow: 0 3px 12px rgba(23,62,48,.06);
+        }
+
+        .housing-figure img {
+            display: block;
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+
+        .housing-figure figcaption {
+            margin: 10px 2px 0;
+            color: var(--site-muted);
+            font-size: .89rem;
+            line-height: 1.5;
+        }
+
+        .housing-details {
+            margin: 22px 0;
+            border: 1px solid var(--site-border);
+            border-radius: 9px;
+            padding: 14px 18px;
+        }
+
+        .housing-details summary {
+            color: var(--site-green-dark);
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        .housing-resource-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 18px;
+            margin-top: 18px;
+        }
+
+        .housing-resource-card {
+            padding: 17px 20px;
+            border: 1px solid #dce8de;
+            border-radius: 9px;
+            background: var(--site-mint);
+        }
+
+        .housing-resource-card:nth-child(2) {
+            background: var(--site-blush);
+            border-color: #ecdce3;
+        }
+
+        .housing-resource-card h3 {
+            margin: 0 0 11px;
+            color: var(--site-green-dark);
+            font-size: 1.16rem;
+        }
+
+        .housing-resource-card ul {
+            margin: 0;
+            padding-left: 19px;
+        }
+
+        .housing-resource-card li {
+            margin-bottom: 12px;
+        }
+
+        .housing-back {
+            margin-top: 22px;
+            font-weight: 700;
+        }
+
+        @media (max-width: 768px) {
+            .housing-stat-grid,
+            .housing-gallery,
+            .housing-resource-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .housing-stat-grid,
+            .housing-gallery { gap: 12px; }
+            .housing-figure { padding: 9px; }
+            .housing-jump a { padding: 7px 11px; }
+        }
+    </style>
 </head>
+
 <body>
-  <header>
-    <h1>Cait Roufa</h1>
-    <nav>
-      <ul>
-        <li><a href="/">About Me</a></li>
-        <li><a href="cv.html">Experience</a></li>
-                <li><a href="research.html" class="active">Research</a></li>
-        <li><a href="publications.html">Publications</a></li>
-        <li><a href="teachingphilosophy.html">Teaching Philosophy</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
+    <header>
+        <h1>Cait Roufa</h1>
+        <nav>
+            <ul>
+                <li><a href="/">About Me</a></li>
+                <li><a href="cv.html">Experience</a></li>
+                <li><a href="research.html" class="active" aria-current="page">Research</a></li>
+                <li><a href="publications.html">Publications</a></li>
+                <li><a href="teachingphilosophy.html">Teaching Philosophy</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
 
-  <main>
-    <!-- Project Header -->
-    <section class="project-header">
-      <h1>Case Study: Exposure of U.S. Housing to Severe Convective Weather</h1>
-      <p><i>GIS Term Project • EAE 557 • December 2024</i></p>
-      <hr/>
-    </section>
+    <main class="housing-page">
 
-    <!-- Summary -->
-    <section class="project-summary">
-      <h2>Project Summary</h2>
-      <p>
-        This project investigates how hazardous convective weather (HCW) — tornadoes, damaging wind, and large hail — has impacted U.S. housing across two 20-year climatological periods (1980–2000 and 2001–2021). Using county-level peril reports, housing data, and vulnerability indices, I analyzed spatial changes in HCW exposure and quantified the impacts on both total housing units and mobile/manufactured homes. Results highlight increasing exposure in the Great Plains, Midwest, South, and East Coast, with particular concern for vulnerable populations and mobile home residents.
-      </p>
-    </section>
+        <!-- INTRODUCTION -->
+        <section class="housing-intro">
+            <p class="housing-kicker">
+                GIS class case study · EAE 557 · December 2024
+            </p>
 
-    <!-- Research Questions -->
-    <section>
-      <h2>Research Questions</h2>
-      <ul>
-        <li>How has the spatial climatology of HCW perils changed between 1980–2000 and 2001–2021?</li>
-        <li>Which U.S. regions and counties show statistically significant increases or decreases in HCW exposure?</li>
-        <li>How are housing units, mobile homes, and socially vulnerable populations distributed across these hotspots?</li>
-      </ul>
-    </section>
+            <h1>How has severe-weather exposure changed for U.S. homes?</h1>
 
-    <!-- Background -->
-    <section>
-      <h2>Background</h2>
-      <p>
-        HCW events have caused over half a trillion dollars in damages and thousands of fatalities in the U.S. during the past 40 years. While the role of climate change and the expanding built environment in increasing exposure is well established, spatial shifts in housing and vulnerability exposure to HCW are less studied. Mobile homes, which comprise only 5.7% of total housing but account for over half of HCW-related fatalities, represent a critical focus for vulnerability analysis.
-      </p>
-    </section>
+            <p class="housing-lede">
+                Tornadoes, damaging winds, and large hail affect communities
+                across the United States. But the impact of severe weather
+                depends on more than the storms themselves. Where people
+                live, the types of homes they live in, and their access
+                to resources can make a tremendous difference.
+            </p>
 
-    <!-- Methods -->
-    <section>
-      <h2>Methods & Data</h2>
-      <p><b>Data Sources:</b> NOAA SPC Severe Report GIS (tornado, wind, hail), American Community Survey housing data, CDC Social Vulnerability Index, HOLC redlining maps, U.S. Census TIGER boundaries.</p>
-      <ul>
-        <li><b>Climatology:</b> Calculated counts of HCW perils for P1 (1980–2000) and P2 (2001–2021).</li>
-        <li><b>Delta Analysis:</b> Computed count differences and percent changes per county.</li>
-        <li><b>Exposure Assessment:</b> Linked housing units and mobile homes with counties showing increases.</li>
-        <li><b>Hot Spot Analysis:</b> Identified statistically significant clusters of increasing or decreasing peril counts.</li>
-      </ul>
-      <figure>
-        <img src="images/EAE557_GIS_FlowDiagram2.png" alt="GIS flow diagram" class="medium-image">
-        <figcaption>Project workflow diagram in ArcGIS Pro</figcaption>
-      </figure>
-    </section>
+            <p>
+                For my EAE 557 GIS term project, I investigated how the
+                geographic distribution of reported severe convective
+                weather changed between two multi-decade periods:
+                1980–2000 and 2001–2021. I then compared those changes
+                with the locations of U.S. housing, manufactured homes,
+                and socially vulnerable populations.
+            </p>
 
-    <!-- Results -->
-    <section>
-      <h2>Results</h2>
-      <p>
-        HCW hotspots shifted from the Southern Plains (1980–2000) to the Central/Northern Plains, Midwest, South, and East Coast (2001–2021). Nearly 89% of housing units and mobile homes were located in counties with increasing HCW perils, and over 20% of the U.S. population resided in hotspot counties.
-      </p>
-      <div class="results-gallery">
-        <figure>
-          <img src="images/P1Count.jpg" alt="Peril counts for 1980–2000" class="medium-image">
-          <figcaption>HCW peril climatology (1980–2000)</figcaption>
-        </figure>
-        <figure>
-          <img src="images/P2Count.jpg" alt="Peril counts for 2001–2021" class="medium-image">
-          <figcaption>HCW peril climatology (2001–2021)</figcaption>
-        </figure>
-        <figure>
-          <img src="images/CountDelta.jpg" alt="Change in peril counts" class="medium-image">
-          <figcaption>Change in HCW peril counts (P2 – P1)</figcaption>
-        </figure>
-        <figure>
-          <img src="images/DeltaHotspots.jpg" alt="Hotspots of peril count changes" class="medium-image">
-          <figcaption>HCW peril hotspots and coldspots</figcaption>
-        </figure>
-        <figure>
-          <img src="images/HousingUnits.jpg" alt="Housing unit distribution" class="medium-image">
-          <figcaption>Total housing units by county</figcaption>
-        </figure>
-        <figure>
-          <img src="images/Population.jpg" alt="Population distribution" class="medium-image">
-          <figcaption>Total population by county</figcaption>
-        </figure>
-        <figure>
-          <img src="images/SVI.jpg" alt="Social Vulnerability Index" class="medium-image">
-          <figcaption>CDC Social Vulnerability Index</figcaption>
-        </figure>
-        <figure>
-          <img src="images/HotHU.jpg" alt="Hotspot housing exposure" class="medium-image">
-          <figcaption>Housing units in HCW hotspots</figcaption>
-        </figure>
-        <figure>
-          <img src="images/HotMH.jpg" alt="Hotspot mobile home exposure" class="medium-image">
-          <figcaption>Mobile homes in HCW hotspots</figcaption>
-        </figure>
-        <figure>
-          <img src="images/HotSVI.jpg" alt="Hotspot SVI exposure" class="medium-image">
-          <figcaption>Vulnerable populations in HCW hotspots</figcaption>
-        </figure>
-      </div>
-    </section>
+            <nav class="housing-jump" aria-label="Explore this case study">
+                <a href="#approach">The approach</a>
+                <a href="#patterns">Changing patterns</a>
+                <a href="#exposure">Housing exposure</a>
+                <a href="#community">Why it matters</a>
+                <a href="#resources">Resources &amp; literature</a>
+            </nav>
+        </section>
 
-    <!-- Conclusions -->
-    <section>
-      <h2>Conclusions</h2>
-      <ul>
-        <li>HCW exposure shifted eastward and intensified between the two study periods.</li>
-        <li>Nearly 90% of U.S. housing units and mobile homes are located in counties with increasing HCW peril counts.</li>
-        <li>Mobile home residents and socially vulnerable populations face disproportionate exposure in hotspot regions.</li>
-        <li>Future work should explore seasonal/diurnal variability and integrate projections of housing growth and climate change.</li>
-      </ul>
-    </section>
-  </main>
+        <!-- METHODS -->
+        <section class="housing-section" id="approach">
+            <p class="housing-kicker">The study</p>
+            <h2>How can we identify changing exposure?</h2>
 
-  <footer>
-    <p>&copy; 2025 Caitlin Roufa</p>
-  </footer>
+            <p>
+                I used NOAA Storm Prediction Center reports of
+                <strong>tornadoes, damaging winds, and large hail</strong>
+                to build county-level climatologies for two periods:
+                1980–2000 and 2001–2021.
+            </p>
+
+            <p>
+                For each county, I calculated the change in reported
+                severe-weather counts between the periods. Using
+                ArcGIS Pro, I then identified statistically significant
+                spatial clusters of increasing and decreasing reports,
+                commonly called <strong>hotspots and coldspots</strong>.
+            </p>
+
+            <p>
+                To examine exposure, I combined those results with
+                American Community Survey housing data, including
+                manufactured/mobile homes, and the CDC Social
+                Vulnerability Index (SVI).
+            </p>
+
+            <p>
+                The analysis considered both counties with any increase
+                in reported severe weather and counties belonging to
+                statistically significant hotspot clusters. These are
+                different measures of exposure.
+            </p>
+
+            <figure class="housing-figure">
+                <img src="images/EAE557_GIS_FlowDiagram2.png"
+                     alt="GIS workflow connecting severe-weather reports, county-level changes, hotspot analysis, housing, and social vulnerability data."
+                     loading="lazy">
+                <figcaption>
+                    <strong>GIS analysis workflow.</strong>
+                    Severe-weather reports were compared between periods,
+                    mapped by county, and overlaid with housing and
+                    vulnerability information.
+                </figcaption>
+            </figure>
+
+            <p class="housing-note">
+                This is an analysis of reported events. Reports can be
+                influenced by population density, observation practices,
+                and changes in reporting over time. The results should
+                not be interpreted as direct attribution of changes
+                to climate change.
+            </p>
+        </section>
+
+        <!-- SEVERE WEATHER PATTERNS -->
+        <section class="housing-section" id="patterns">
+            <p class="housing-kicker">The geography of severe weather</p>
+            <h2>Where have the reported hotspots changed?</h2>
+
+            <p>
+                The spatial distribution of reported hazardous convective
+                weather changed between the two periods. The earlier
+                climatology featured a strong concentration in the
+                Southern Great Plains. In the later period, hotspots
+                appeared across more of the Central and Northern Plains,
+                Midwest, South, and East Coast.
+            </p>
+
+            <p>
+                Some of the areas with increasing reports also contain
+                large populations and substantial housing development.
+                That makes the intersection of weather and the built
+                environment especially important.
+            </p>
+
+            <div class="housing-gallery">
+                <figure class="housing-figure">
+                    <img src="images/P1Count.jpg"
+                         alt="County-level severe-weather report counts during the 1980–2000 period."
+                         loading="lazy">
+                    <figcaption>
+                        <strong>1980–2000:</strong> Reported tornado,
+                        damaging-wind, and large-hail counts.
+                    </figcaption>
+                </figure>
+
+                <figure class="housing-figure">
+                    <img src="images/P2Count.jpg"
+                         alt="County-level severe-weather report counts during the 2001–2021 period."
+                         loading="lazy">
+                    <figcaption>
+                        <strong>2001–2021:</strong> Reported severe-weather
+                        counts in the later study period.
+                    </figcaption>
+                </figure>
+
+                <figure class="housing-figure">
+                    <img src="images/CountDelta.jpg"
+                         alt="Map showing county-level differences in severe-weather report counts between the two periods."
+                         loading="lazy">
+                    <figcaption>
+                        <strong>Changes in reported counts:</strong>
+                        Difference between the later and earlier periods.
+                    </figcaption>
+                </figure>
+
+                <figure class="housing-figure">
+                    <img src="images/DeltaHotspots.jpg"
+                         alt="GIS analysis identifying statistically significant clusters of increases and decreases in reported severe weather."
+                         loading="lazy">
+                    <figcaption>
+                        <strong>Hotspot and coldspot analysis:</strong>
+                        Spatial clusters of increasing and decreasing
+                        severe-weather reports.
+                    </figcaption>
+                </figure>
+            </div>
+
+            <p class="housing-note">
+                Click or tap any map to enlarge it.
+                A hotspot identifies a significant spatial cluster
+                in this dataset; it does not mean every home in that
+                county experienced storm damage.
+            </p>
+        </section>
+
+        <!-- HOUSING EXPOSURE -->
+        <section class="housing-section" id="exposure">
+            <p class="housing-kicker">Where people live</p>
+            <h2>How many homes are in areas with increasing reports?</h2>
+
+            <p>
+                A substantial share of U.S. housing was located in
+                counties where reported severe-weather counts increased
+                between the study periods. A smaller, but still important,
+                share was in counties identified as statistically
+                significant hotspots.
+            </p>
+
+            <div class="housing-stat-grid">
+                <div class="housing-stat">
+                    <strong>88.68%</strong>
+                    <span>
+                        Of U.S. housing units were in counties
+                        with increasing severe-weather report counts.
+                    </span>
+                </div>
+
+                <div class="housing-stat">
+                    <strong>21.41%</strong>
+                    <span>
+                        Of U.S. housing units were in the study-defined
+                        severe-weather hotspot counties.
+                    </span>
+                </div>
+
+                <div class="housing-stat">
+                    <strong>13.19%</strong>
+                    <span>
+                        Of U.S. manufactured/mobile homes were in
+                        the study-defined hotspot counties.
+                    </span>
+                </div>
+            </div>
+
+            <p>
+                The analysis also found that <strong>89.01% of
+                manufactured/mobile homes</strong> and
+                <strong>90.60% of the U.S. population</strong>
+                were in counties with increasing severe-weather reports.
+                Approximately <strong>20.96% of the population</strong>
+                lived in hotspot counties.
+            </p>
+
+            <p>
+                To look more closely at vulnerability, I mapped
+                hotspot counties with more than 10,000 housing units,
+                counties with mobile homes representing at least
+                6% of housing, and counties with above-median
+                Social Vulnerability Index scores.
+            </p>
+
+            <div class="housing-gallery">
+                <figure class="housing-figure">
+                    <img src="images/HotHU.jpg"
+                         alt="Map of counties with substantial housing concentrations located within severe-weather hotspots."
+                         loading="lazy">
+                    <figcaption>
+                        <strong>Housing exposure:</strong>
+                        Counties with more than 10,000 housing units
+                        within reported severe-weather hotspots.
+                    </figcaption>
+                </figure>
+
+                <figure class="housing-figure">
+                    <img src="images/HotMH.jpg"
+                         alt="Map highlighting counties with higher shares of manufactured or mobile homes within severe-weather hotspots."
+                         loading="lazy">
+                    <figcaption>
+                        <strong>Manufactured-home exposure:</strong>
+                        Hotspot counties where mobile homes make up
+                        at least 6% of housing units.
+                    </figcaption>
+                </figure>
+
+                <figure class="housing-figure">
+                    <img src="images/HotSVI.jpg"
+                         alt="Map showing severe-weather hotspot counties overlapping with higher social vulnerability."
+                         loading="lazy">
+                    <figcaption>
+                        <strong>Social vulnerability:</strong>
+                        Hotspot counties with above-median SVI scores.
+                    </figcaption>
+                </figure>
+            </div>
+
+            <details class="housing-details">
+                <summary>Explore supporting population and housing maps</summary>
+
+                <p>
+                    These maps show the broader distribution of
+                    housing, population, and social vulnerability
+                    used in the exposure analysis.
+                </p>
+
+                <div class="housing-gallery">
+                    <figure class="housing-figure">
+                        <img src="images/HousingUnits.jpg"
+                             alt="Total housing units by U.S. county."
+                             loading="lazy">
+                        <figcaption>
+                            Total housing units by county.
+                        </figcaption>
+                    </figure>
+
+                    <figure class="housing-figure">
+                        <img src="images/Population.jpg"
+                             alt="Population distribution by U.S. county."
+                             loading="lazy">
+                        <figcaption>
+                            Total population by county.
+                        </figcaption>
+                    </figure>
+
+                    <figure class="housing-figure">
+                        <img src="images/SVI.jpg"
+                             alt="CDC Social Vulnerability Index scores by U.S. county."
+                             loading="lazy">
+                        <figcaption>
+                            CDC Social Vulnerability Index.
+                        </figcaption>
+                    </figure>
+                </div>
+            </details>
+
+            <p class="housing-note">
+                These percentages describe the geographic overlap
+                of housing and population with county-level report
+                patterns. They do not mean that the same percentage
+                of homes was directly struck by severe weather,
+                nor do they estimate individual future damage risk.
+            </p>
+        </section>
+
+        <!-- COMMUNITY IMPACT -->
+        <section class="housing-section" id="community">
+            <p class="housing-kicker">Why it matters</p>
+            <h2>Why does the type of housing matter?</h2>
+
+            <p>
+                Not all homes offer the same protection from severe
+                thunderstorms and tornadoes. Manufactured and mobile
+                homes are particularly vulnerable to strong winds,
+                and their residents may have fewer options for
+                accessing a sturdy shelter.
+            </p>
+
+            <p>
+                Social vulnerability matters, too. Income, age,
+                disability, transportation, and access to resources
+                can affect how a household prepares for a storm,
+                receives warnings, reaches shelter, and recovers
+                afterward.
+            </p>
+
+            <div class="housing-callout housing-callout--rose">
+                <p><strong>What might these findings mean for communities?</strong></p>
+
+                <p>
+                    Knowing where changing severe-weather report
+                    patterns overlap with vulnerable housing can
+                    help emergency managers and communities think
+                    about shelter access, warning communication,
+                    and long-term resilience planning.
+                </p>
+
+                <p>
+                    An important question is whether residents
+                    of manufactured-home communities have access
+                    to nearby, substantial shelter—and a practical
+                    plan for reaching it before dangerous weather
+                    arrives.
+                </p>
+            </div>
+
+            <p>
+                The results also illustrate why severe-weather
+                impacts cannot be explained by atmospheric changes
+                alone. The number and location of homes, how they
+                are constructed, and the resources available to
+                their residents all influence vulnerability.
+            </p>
+
+            <div class="housing-callout">
+                <p><strong>What could we investigate next?</strong></p>
+
+                <p>
+                    A useful extension would examine the time of
+                    year and time of day when severe weather
+                    occurs, alongside changing housing development,
+                    local shelter availability, and future
+                    population patterns.
+                </p>
+
+                <p>
+                    More detailed, neighborhood-scale information
+                    would also help move from county-level exposure
+                    toward a better understanding of actual risk.
+                </p>
+            </div>
+        </section>
+
+        <!-- RESOURCES -->
+        <section class="housing-section" id="resources">
+            <p class="housing-kicker">Keep exploring</p>
+            <h2>Research and resources</h2>
+
+            <div class="housing-resource-grid">
+                <div class="housing-resource-card">
+                    <h3>Related research and data</h3>
+                    <ul>
+                        <li>
+                            <a href="https://doi.org/10.1175/WCAS-D-13-00047.1"
+                               target="_blank" rel="noopener noreferrer">
+                                Ashley et al. (2014)
+                            </a>
+                            — Tornado exposure and the expanding
+                            built environment.
+                        </li>
+
+                        <li>
+                            <a href="https://doi.org/10.1175/WCAS-D-18-0060.1"
+                               target="_blank" rel="noopener noreferrer">
+                                Strader and Ashley (2018)
+                            </a>
+                            — A fine-scale assessment of
+                            mobile-home tornado vulnerability.
+                        </li>
+
+                        <li>
+                            <a href="https://www.spc.noaa.gov/gis/svrgis/"
+                               target="_blank" rel="noopener noreferrer">
+                                NOAA Storm Prediction Center
+                            </a>
+                            — Severe-weather GIS report data.
+                        </li>
+
+                        <li>
+                            <a href="https://atsdr.cdc.gov/place-health/php/svi/svi-data-documentation-download.html"
+                               target="_blank" rel="noopener noreferrer">
+                                CDC/ATSDR Social Vulnerability Index
+                            </a>
+                            — Data and documentation.
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="housing-resource-card">
+                    <h3>Preparedness and community resilience</h3>
+                    <ul>
+                        <li>
+                            <a href="https://www.weather.gov/safety/tornado-during"
+                               target="_blank" rel="noopener noreferrer">
+                                National Weather Service: Tornado Safety
+                            </a>
+                            — How to prepare and find appropriate shelter.
+                        </li>
+
+                        <li>
+                            <a href="https://www.weather.gov/media/wrn/Mobile-Home-Safety-One-Pager-Final.pdf"
+                               target="_blank" rel="noopener noreferrer">
+                                NWS Manufactured-Home Safety Guide (PDF)
+                            </a>
+                            — Planning for severe weather when a
+                            manufactured home is not a safe shelter.
+                        </li>
+
+                        <li>
+                            <a href="https://www.fema.gov/sites/default/files/documents/fema_p-361_safe-rooms-for-tornadoes-and-hurricanes_122024.pdf"
+                               target="_blank" rel="noopener noreferrer">
+                                FEMA Safe-Room Guidance (PDF)
+                            </a>
+                            — Residential and community storm-shelter
+                            planning and construction guidance.
+                        </li>
+
+                        <li>
+                            <a href="syntheticsevere.html">
+                                My published severe-storm projections
+                            </a>
+                            — Related research on potential future
+                            changes in severe convective storms.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <p class="housing-note">
+                This page presents findings from a December 2024
+                GIS class project. It is an exploratory, historical
+                exposure assessment, not an operational severe-weather
+                forecast or a climate-change attribution study.
+            </p>
+
+            <p class="housing-back">
+                <a href="research.html">← Back to Research</a>
+            </p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Caitlin Roufa</p>
+    </footer>
 </body>
 </html>
