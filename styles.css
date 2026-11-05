@@ -478,7 +478,7 @@ body:not(.climatology-page) .project-header hr { border: 0; border-top: 1px soli
 /* Portfolio tiles retain their familiar proportions and hover behavior. */
 .portfolio-item { border: 1px solid #e1e7e2; }
 .portfolio-item h3 { color: var(--site-green-dark); }
-.portfolio-item a:hover h3 { color: var(--site-rose); }
+.portfolio-item a:hover h3 { color: var(--site-green); }
 .portfolio-item p { color: var(--site-muted); }
 .portfolio-type {
     display: inline-block;
