@@ -17,7 +17,7 @@
                 <li><a href="research.html">Research</a></li>
                 <li><a href="publications.html">Publications</a></li>
                 <li><a href="teachingphilosophy.html">Teaching Philosophy</a></li>
-                <li><a href="contact.html">Contact</a></li>
+                <li><a href="contact.html" class="active" aria-current="page">Contact</a></li>
             </ul>
         </nav>
     </header>
@@ -26,50 +26,50 @@
         <h2>Say, "Hi!"</h2>
         <p>Please get in touch if you would like to collaborate or have relevant career opportunities.</p>
         <p>Davis Hall <br>Northern Illinois University<br>218 Normal Rd<br>Dekalb, IL 60115</p>
-        <img src="images/contact.png" alt="contact email">
+        <div class="contact-email">
+            <button type="button" id="reveal-email" class="contact-email-button" aria-controls="email-details" aria-expanded="false">Show my email address</button>
+            <div id="email-details" hidden>
+                <a id="email-link" href="#"></a>
+                <button type="button" id="copy-email" class="contact-email-button">Copy email</button>
+                <span id="email-copy-status" role="status" aria-live="polite"></span>
+            </div>
+            <noscript><img src="images/contact.png" alt="Cait's email address"></noscript>
+        </div>
     </section>
 
     <footer>
         <p>&copy; 2025 Caitlin Roufa</p>
     </footer>
+    <script>
+    // Keep the address out of the initial HTML; reveal it on a deliberate click.
+    // This discourages basic scrapers, although no public email is scrape-proof.
+    (function () {
+        const reveal = document.getElementById("reveal-email");
+        const details = document.getElementById("email-details");
+        const link = document.getElementById("email-link");
+        const copy = document.getElementById("copy-email");
+        const status = document.getElementById("email-copy-status");
+        let email;
+
+        reveal.addEventListener("click", function () {
+            if (!email) email = ["cait", "penn"].join("") + String.fromCharCode(64) + ["gmail", "com"].join(".");
+            link.textContent = email;
+            link.href = "mailto:" + email;
+            details.hidden = false;
+            reveal.setAttribute("aria-expanded", "true");
+            reveal.hidden = true;
+            link.focus();
+        });
+
+        copy.addEventListener("click", async function () {
+            try {
+                await navigator.clipboard.writeText(email);
+                status.textContent = "Copied!";
+            } catch (error) {
+                status.textContent = "Select the address above to copy it.";
+            }
+        });
+    })();
+    </script>
 </body>
 </html>
-
-
-<!-- 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cait Roufa | Contact</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <header>
-        <h1>Cait Roufa</h1>
-        <nav>
-            <ul>
-                <li><a href="/">About Me</a></li>
-                <li><a href="cv.html">Experience</a></li>
-                <li><a href="portfolio.html">Portfolio</a></li>
-                <li><a href="dissertation.html">Dissertation</a></li>
-                <li><a href="publications.html">Publications</a></li>
-                <li><a href="teachingphilosophy.html">Teaching Philosophy</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-    <section>
-        <img src="images/cait_hi.jpg" alt="Cait Roufa teaching" class="contact-photo">
-        <h2>Say, "Hi!"</h2>
-        <p>Please get in touch if you would like to collaborate or have relevant career opportunities.</p>
-        <p>Davis Hall <br>Northern Illinois University<br>218 Normal Rd<br>Dekalb, IL 60115</p>
-        <img src="images/contact.png" alt="contact email">
-    </section>
-
-    <footer>
-        <p>&copy; 2025 Caitlin Roufa</p>
-    </footer>
-</body>
-</html> -->
