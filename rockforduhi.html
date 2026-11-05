@@ -1,28 +1,226 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Cait Roufa | Research – Rockford UHI Case Study</title>
-    <link rel="stylesheet" href="styles.css"/>
-
-    <!-- MathJax: render \( ... \) and \[ ... \] -->
-    <script>
-      window.MathJax = {
-        tex: {
-          inlineMath: [['\\(', '\\)'], ['$', '$']],
-          displayMath: [['\\[', '\\]'], ['$$', '$$']]
-        },
-        options: {
-          skipHtmlTags: ['script','noscript','style','textarea','pre','code']
-        }
-      };
-    </script>
-    <script id="MathJax-script" async
-      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
-    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A remote sensing case study of urban heat islands, vegetation, and heat vulnerability in Rockford, Illinois, by Cait Roufa.">
+    <title>Urban Heat Vulnerability in Rockford | Cait Roufa</title>
+    <link rel="stylesheet" href="styles.css">
     <script src="site.js" defer></script>
+
+    <style>
+        .uhi-page { padding-bottom: 36px; }
+        .uhi-page section { max-width: 1150px; }
+
+        .uhi-kicker {
+            margin: 0 0 6px;
+            color: var(--site-rose);
+            font-size: .83rem;
+            font-weight: 700;
+            letter-spacing: .07em;
+            text-transform: uppercase;
+        }
+
+        .uhi-intro { padding-top: 13px !important; }
+
+        .uhi-intro h1 {
+            color: var(--site-green-dark);
+            font-size: clamp(1.9rem, 4vw, 2.65rem);
+            line-height: 1.2;
+            letter-spacing: -.02em;
+            margin: 7px 0 14px;
+        }
+
+        .uhi-lede {
+            font-size: 1.12rem;
+            line-height: 1.6;
+            max-width: 900px;
+        }
+
+        .uhi-jump {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 22px;
+        }
+
+        .uhi-jump a {
+            display: inline-block;
+            padding: 6px 13px;
+            border-radius: 99px;
+            border: 1px solid #b8cfc0;
+            background: #fff;
+            color: var(--site-green-dark);
+            font-size: .91rem;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .uhi-jump a:hover { background: var(--site-mint); }
+
+        .uhi-section {
+            padding-top: 19px !important;
+            border-top: 2px solid var(--site-border);
+            scroll-margin-top: 20px;
+        }
+
+        .uhi-page .uhi-section h2 {
+            color: var(--site-green-dark);
+            font-size: clamp(1.48rem, 2.8vw, 1.88rem);
+            margin: 0 0 14px;
+            padding: 0 0 8px;
+            border-bottom: 1px solid var(--site-border);
+        }
+
+        .uhi-stat-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 14px;
+            margin: 20px 0;
+        }
+
+        .uhi-stat {
+            background: var(--site-mint);
+            border: 1px solid #dce8de;
+            border-radius: 9px;
+            padding: 15px 17px;
+        }
+
+        .uhi-stat:nth-child(2) {
+            background: var(--site-blush);
+            border-color: #ecdce3;
+        }
+
+        .uhi-stat strong {
+            display: block;
+            color: var(--site-green-dark);
+            font-size: clamp(1.65rem, 3vw, 2.2rem);
+            line-height: 1.12;
+            margin-bottom: 7px;
+        }
+
+        .uhi-stat:nth-child(2) strong {
+            color: var(--site-rose);
+        }
+
+        .uhi-stat span {
+            display: block;
+            font-size: .93rem;
+            line-height: 1.48;
+        }
+
+        .uhi-callout {
+            max-width: 980px;
+            background: var(--site-mint);
+            border-left: 4px solid var(--site-green);
+            border-radius: 0 9px 9px 0;
+            padding: 16px 19px;
+            margin: 20px 0;
+        }
+
+        .uhi-callout--rose {
+            background: var(--site-blush);
+            border-left-color: var(--site-rose);
+        }
+
+        .uhi-callout p { margin: 0 0 10px; }
+        .uhi-callout p:last-child { margin-bottom: 0; }
+
+        .uhi-note {
+            color: var(--site-muted);
+            font-size: .91rem;
+            line-height: 1.55;
+        }
+
+        .uhi-gallery {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 18px;
+            margin: 22px 0;
+        }
+
+        body:not(.climatology-page) .uhi-figure {
+            margin: 0;
+            padding: 13px;
+            border: 1px solid var(--site-border);
+            border-radius: 9px;
+            box-shadow: 0 3px 12px rgba(23,62,48,.06);
+        }
+
+        .uhi-figure img {
+            display: block;
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+
+        .uhi-figure figcaption {
+            margin: 10px 2px 0;
+            color: var(--site-muted);
+            font-size: .89rem;
+            line-height: 1.5;
+        }
+
+        .uhi-resource-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 18px;
+            margin-top: 18px;
+        }
+
+        .uhi-resource-card {
+            padding: 17px 20px;
+            border: 1px solid #dce8de;
+            border-radius: 9px;
+            background: var(--site-mint);
+        }
+
+        .uhi-resource-card:nth-child(2) {
+            background: var(--site-blush);
+            border-color: #ecdce3;
+        }
+
+        .uhi-resource-card h3 {
+            margin: 0 0 11px;
+            color: var(--site-green-dark);
+            font-size: 1.16rem;
+        }
+
+        .uhi-resource-card ul {
+            margin: 0;
+            padding-left: 19px;
+        }
+
+        .uhi-resource-card li {
+            margin-bottom: 12px;
+            line-height: 1.5;
+        }
+
+        .uhi-resource-card li:last-child { margin-bottom: 0; }
+
+        .uhi-back { margin-top: 22px; font-weight: 700; }
+
+        @media (max-width: 768px) {
+            .uhi-stat-grid,
+            .uhi-gallery,
+            .uhi-resource-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .uhi-stat-grid,
+            .uhi-gallery {
+                gap: 12px;
+            }
+
+            .uhi-figure { padding: 9px; }
+            .uhi-jump { gap: 7px; }
+            .uhi-jump a { padding: 7px 11px; }
+        }
+    </style>
 </head>
+
 <body>
     <header>
         <h1>Cait Roufa</h1>
@@ -30,7 +228,7 @@
             <ul>
                 <li><a href="/">About Me</a></li>
                 <li><a href="cv.html">Experience</a></li>
-                <li><a href="research.html" class="active">Research</a></li>
+                <li><a href="research.html" class="active" aria-current="page">Research</a></li>
                 <li><a href="publications.html">Publications</a></li>
                 <li><a href="teachingphilosophy.html">Teaching Philosophy</a></li>
                 <li><a href="contact.html">Contact</a></li>
@@ -38,131 +236,453 @@
         </nav>
     </header>
 
-    <main>
-      <!-- Project Header -->
-      <section class="project-header">
-          <h1>Case Study: Urban Heat Island Vulnerability in Rockford, IL</h1>
-          <p><i>Remote Sensing Case Study • EAE 554 • December 2023</i></p>
-          <hr/>
-      </section>
+    <main class="uhi-page">
 
-      <!-- Summary -->
-      <section class="project-summary">
-          <h2>Project Summary</h2>
-          <p>
-            This case study investigates how the urban heat island (UHI) effect interacts with 
-            social and environmental vulnerabilities in Rockford, Illinois. Using 
-            <b>Landsat-8 remote sensing data, vegetation indices (NDVI), and 
-            CDC/US Census vulnerability metrics</b>, I quantified neighborhood-level
-            UHI intensity and its overlap with social vulnerability (SVI/HVI) and 
-            historic redlining. The results show stark disparities in exposure, with 
-            certain neighborhoods facing higher heat burdens due to both 
-            environmental and socioeconomic factors.
-          </p>
-      </section>
+        <!-- INTRODUCTION -->
+        <section class="uhi-intro">
+            <p class="uhi-kicker">
+                Remote sensing class case study · EAE 554 · Fall 2023
+            </p>
 
-      <!-- Research Questions -->
-      <section>
-          <h2>Research Questions</h2>
-          <ul>
-              <li>How severe is the UHI effect in Rockford, IL?</li>
-              <li>Which neighborhoods are most impacted by elevated surface temperatures?</li>
-              <li>How do vegetation cover, land use, and historic redlining contribute?</li>
-              <li>What mitigation strategies could reduce heat risks for vulnerable communities?</li>
-          </ul>
-      </section>
+            <h1>Where is Rockford hottest—and who is most vulnerable?</h1>
 
-      <!-- Background -->
-      <section>
-          <h2>Background</h2>
-          <p>
-            Urban heat islands form when built environments store solar heat more 
-            efficiently than vegetated or rural areas. Factors include 
-            <b>impervious surfaces, reduced vegetation, anthropogenic waste heat, 
-            and local weather/geography</b>. Exposure to extreme heat is 
-            a leading weather-related cause of mortality in the U.S., responsible for 
-            over 1,300 deaths annually. 
-          </p>
-          <p>
-            Vulnerability is not evenly distributed. <b>Social Vulnerability Index (SVI)</b> 
-            and its heat-focused sub-index (<b>HVI</b>) reveal inequities tied to race, income, 
-            housing, and historic practices such as <b>redlining</b>. Rockford’s legacy of 
-            redlined neighborhoods makes it an important case for assessing UHI and 
-            equity.
-          </p>
-      </section>
+            <p class="uhi-lede">
+                Not every neighborhood experiences summer heat the same way.
+                Pavement, buildings, trees, and green spaces all influence
+                how much heat an area absorbs and retains. But there's another
+                important part of the story: who lives in the hottest areas,
+                and how prepared are those communities to cope with extreme heat?
+            </p>
 
-      <!-- Methods -->
-      <section>
-          <h2>Methods &amp; Data</h2>
-          <p>
-            <b>Data Sources:</b> Landsat-8 Collection 2 (Bands 4, 5, 10, QA Pixel), CDC SVI/HVI datasets, 
-            HOLC 1940s redlining maps, WinGIS zoning data, U.S. Census Bureau demographics.
-          </p>
-          <ul>
-              <li>
-                <b>SUHI:</b> Calculated as \( \text{mean LST}_{\text{urban}} - \text{mean LST}_{\text{rural}} \) (°C).
-              </li>
-              <li>
-                <b>NDVI:</b> \( NDVI = \frac{NIR - Red}{NIR + Red} \)
-              </li>
-              <li>Neighborhood boundaries defined by ZIP codes for consistent socio-demographic analysis.</li>
-              <li>Analysis performed in <b>Google Earth Engine (JavaScript)</b> and GIS tools.</li>
-          </ul>
-          <p>
-            <a href="https://code.earthengine.google.com/d9090664c83e72782d0dd6e27ead6f30" target="_blank">View NDVI Code</a> |
-            <a href="https://code.earthengine.google.com/b9695217326c1a33306686d02c8c14eb" target="_blank">View SUHI Code</a>
-          </p>
-      </section>
+            <p>
+                For my EAE 554 Remote Sensing term project, I investigated
+                the urban heat island effect in Rockford, Illinois. Using
+                satellite data, vegetation measurements, historical redlining
+                maps, and heat vulnerability data, I examined which
+                neighborhoods experience the greatest surface heating and
+                where that heating overlaps with social vulnerability.
+            </p>
 
-      <!-- Results -->
-      <section>
-          <h2>Results</h2>
-          <p>
-            Rockford’s average summer SUHI was <b>6.7°C</b> above rural surroundings. 
-            The most impacted neighborhood was <b>ZIP 61104</b>, a historically redlined 
-            area, with:
-          </p>
-          <ul>
-              <li>SUHI of <b>9.4°C</b></li>
-              <li>HVI score of <b>24/26</b></li>
-              <li>Lowest NDVI (0.267)</li>
-              <li>Land use dominated by industrial/commercial corridors</li>
-          </ul>
+            <nav class="uhi-jump" aria-label="Explore this case study">
+                <a href="#background">Background</a>
+                <a href="#methods">Methods</a>
+                <a href="#results">What I found</a>
+                <a href="#community">Community impact</a>
+                <a href="#mitigation">What can help?</a>
+                <a href="#resources">Resources &amp; literature</a>
+            </nav>
+        </section>
 
-          <div class="results-gallery">
-              <figure>
-                  <img src="images/hvidata.png" alt="HVI and redlining by neighborhood" class="medium-image">
-                  <figcaption>Heat Vulnerability Index (HVI) vs. Redlining</figcaption>
-              </figure>
-              <figure>
-                  <img src="images/suhi.png" alt="SUHI intensity map" class="medium-image">
-                  <figcaption>Surface Urban Heat Island Intensity (°C)</figcaption>
-              </figure>
-              <figure>
-                  <img src="images/ndvi.png" alt="NDVI vegetation density" class="medium-image">
-                  <figcaption>Normalized Difference Vegetation Index (NDVI)</figcaption>
-              </figure>
-              <figure>
-                  <img src="images/landuse.png" alt="Land use zoning" class="medium-image">
-                  <figcaption>Land Use Zoning – Industrial &amp; Commercial Hotspots</figcaption>
-              </figure>
-          </div>
-      </section>
+        <!-- BACKGROUND -->
+        <section class="uhi-section" id="background">
+            <p class="uhi-kicker">The problem</p>
+            <h2>Why do some neighborhoods get hotter than others?</h2>
 
-      <!-- Mitigation -->
-      <section>
-          <h2>Mitigation Recommendations</h2>
-          <ul>
-              <li><b>Expand vegetation:</b> Plant street trees, add shaded medians, reclaim vacant lots as parks, and provide free trees to residents.</li>
-              <li><b>Cooler infrastructure:</b> Incentivize reflective/light roofs and green roofs; improve industrial energy efficiency.</li>
-              <li><b>Community outreach:</b> Extend cooling center hours, partner with schools/libraries, and educate residents on heat safety.</li>
-          </ul>
-      </section>
+            <p>
+                Cities tend to be warmer than their rural surroundings,
+                a phenomenon known as the <strong>urban heat island (UHI)
+                effect</strong>. Roads, parking lots, rooftops, and other
+                built surfaces absorb and store solar energy. Meanwhile,
+                the removal of vegetation reduces shade and evaporative
+                cooling. Waste heat from vehicles, buildings, and industry
+                can contribute as well.
+            </p>
+
+            <p>
+                Heat is also a public health concern. Exposure to extreme
+                heat can contribute to heat exhaustion, heat stroke,
+                cardiovascular and respiratory complications, and death.
+                Vulnerability depends on more than outdoor temperature:
+                age, health, income, housing, access to air conditioning,
+                and transportation can all influence a person's ability
+                to stay safe.
+            </p>
+
+            <p>
+                Rockford is an interesting place to examine these issues.
+                Like many older industrial cities, it has a history of
+                <strong>redlining</strong>, the discriminatory practice
+                of assigning neighborhoods grades that affected access
+                to mortgage lending and investment. Research in other
+                U.S. cities has connected historical housing
+                discrimination with present-day differences in urban
+                temperatures.
+            </p>
+
+            <div class="uhi-callout">
+                <p><strong>What I wanted to find out:</strong></p>
+                <ul>
+                    <li>How severe is the urban heat island effect in Rockford?</li>
+                    <li>Which neighborhoods experience the greatest surface heating?</li>
+                    <li>How are temperature differences related to vegetation, land use, and historical redlining?</li>
+                    <li>What could help reduce heat risks for vulnerable communities?</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- METHODS -->
+        <section class="uhi-section" id="methods">
+            <p class="uhi-kicker">The approach</p>
+            <h2>How can we measure an urban heat island from space?</h2>
+
+            <p>
+                I used <strong>Landsat-8 satellite observations</strong>
+                from July and August of 2013–2022. Thermal infrared data
+                provided estimates of daytime land-surface temperature,
+                while visible and near-infrared observations were used
+                to measure vegetation.
+            </p>
+
+            <p>
+                The <strong>surface urban heat island index (SUHI)</strong>
+                was calculated by subtracting the mean rural land-surface
+                temperature from the mean urban land-surface temperature.
+                I calculated the difference for Rockford as a whole
+                and for individual ZIP codes.
+            </p>
+
+            <p>
+                I also calculated the <strong>Normalized Difference
+                Vegetation Index (NDVI)</strong>, which measures the
+                relative presence of green vegetation using red and
+                near-infrared reflectance.
+            </p>
+
+            <p>
+                Finally, I compared the satellite results with historical
+                Home Owners' Loan Corporation (HOLC) neighborhood grades,
+                heat vulnerability estimates, U.S. Census information,
+                and Winnebago County land-use zoning maps.
+                The analysis was completed using Google Earth Engine
+                and GIS tools.
+            </p>
+
+            <p>
+                <strong>Explore the analysis code:</strong>
+                <a href="https://code.earthengine.google.com/19e9812211934c8392ceafa80bdb1dce"
+                   target="_blank" rel="noopener noreferrer">NDVI calculations</a>
+                ·
+                <a href="https://code.earthengine.google.com/b9695217326c1a33306686d02c8c14eb"
+                   target="_blank" rel="noopener noreferrer">SUHI calculations</a>
+            </p>
+
+            <p class="uhi-note">
+                ZIP codes were used as neighborhood boundaries for this
+                class study. Two ZIP codes (61107 and 61114) did not
+                have available heat vulnerability scores in the source
+                dataset; those missing values do not mean zero vulnerability.
+            </p>
+        </section>
+
+        <!-- RESULTS -->
+        <section class="uhi-section" id="results">
+            <p class="uhi-kicker">The findings</p>
+            <h2>What did I find in Rockford?</h2>
+
+            <p>
+                Rockford's average summer daytime land-surface temperature
+                was approximately <strong>35.6°C (96°F)</strong>, compared
+                with <strong>28.9°C (84°F)</strong> in the surrounding
+                rural reference area. That gives Rockford an average
+                surface urban heat island intensity of about
+                <strong>6.7°C (12°F)</strong>.
+            </p>
+
+            <div class="uhi-stat-grid">
+                <div class="uhi-stat">
+                    <strong>6.7°C</strong>
+                    <span>Average difference between Rockford's land-surface temperature and the rural reference area.</span>
+                </div>
+
+                <div class="uhi-stat">
+                    <strong>9.4°C</strong>
+                    <span>Surface heat island intensity in ZIP 61104, the highest of the ZIP codes studied.</span>
+                </div>
+
+                <div class="uhi-stat">
+                    <strong>0.267</strong>
+                    <span>Mean NDVI in ZIP 61104, indicating the lowest vegetation index in the study area.</span>
+                </div>
+            </div>
+
+            <p>
+                <strong>ZIP code 61104 stood out.</strong> It had the
+                highest surface heat island intensity, the lowest
+                vegetation index, and a heat vulnerability score
+                of <strong>24 out of 26</strong>. This historically
+                redlined area includes residential neighborhoods
+                alongside substantial industrial and commercial land use.
+            </p>
+
+            <p>
+                ZIP 61103 had the second-highest surface heat island
+                intensity (about 7.5°C), and its industrial land use
+                was also apparent in the temperature maps. Across the
+                study area, the zoning and vegetation patterns help
+                explain why some parts of the city were hotter than others.
+            </p>
+
+            <div class="uhi-gallery">
+                <figure class="uhi-figure">
+                    <img src="images/hvidata.png"
+                         alt="Rockford neighborhood heat vulnerability scores compared with historical redlining classifications."
+                         loading="lazy">
+                    <figcaption>
+                        <strong>Heat vulnerability and historical redlining.</strong>
+                        Comparing neighborhood vulnerability scores with
+                        HOLC grades from the 1940 map.
+                    </figcaption>
+                </figure>
+
+                <figure class="uhi-figure">
+                    <img src="images/suhi.png"
+                         alt="Map of surface urban heat island intensity across Rockford, with hotter areas shown in red and cooler areas in blue."
+                         loading="lazy">
+                    <figcaption>
+                        <strong>Surface urban heat island intensity.</strong>
+                        Satellite-derived summer land-surface temperature
+                        differences across Rockford.
+                    </figcaption>
+                </figure>
+
+                <figure class="uhi-figure">
+                    <img src="images/ndvi.png"
+                         alt="Normalized Difference Vegetation Index map showing vegetation patterns across Rockford."
+                         loading="lazy">
+                    <figcaption>
+                        <strong>Vegetation cover (NDVI).</strong>
+                        Lower values indicate less green vegetation,
+                        while higher values indicate more.
+                    </figcaption>
+                </figure>
+
+                <figure class="uhi-figure">
+                    <img src="images/landuse.png"
+                         alt="Rockford zoning map identifying residential, commercial, industrial, and green-space land uses."
+                         loading="lazy">
+                    <figcaption>
+                        <strong>Land-use zoning.</strong>
+                        Comparing industrial and commercial areas with
+                        residential neighborhoods and green spaces.
+                    </figcaption>
+                </figure>
+            </div>
+
+            <p class="uhi-note">
+                Click or tap a figure to enlarge it. These results
+                describe satellite-derived land-surface temperatures,
+                not the air temperatures experienced by individual
+                residents. The maps identify spatial patterns and
+                overlaps; they do not establish that historical
+                redlining directly caused the measured temperatures
+                or demonstrate individual health outcomes.
+            </p>
+        </section>
+
+        <!-- COMMUNITY IMPACT -->
+        <section class="uhi-section" id="community">
+            <p class="uhi-kicker">Why it matters</p>
+            <h2>What does this mean for the people who live here?</h2>
+
+            <p>
+                We all experience the weather, but we don't all have
+                the same resources to cope with it. Someone who works
+                outdoors, waits for a bus without shade, lives in a
+                poorly insulated home, or cannot afford air conditioning
+                may have a harder time escaping dangerous heat.
+                Older adults, children, and people with certain health
+                conditions can be especially vulnerable.
+            </p>
+
+            <p>
+                That's why I wanted to look beyond the temperature maps.
+                In ZIP 61104, the overlap between hotter surfaces,
+                limited vegetation, and high heat vulnerability suggests
+                a neighborhood where heat mitigation and community
+                resources could be especially valuable.
+            </p>
+
+            <div class="uhi-callout uhi-callout--rose">
+                <p><strong>Why does the neighborhood pattern matter?</strong></p>
+                <p>
+                    Heat mitigation doesn't have to be spread uniformly
+                    across a city to be effective. Knowing where high
+                    surface temperatures overlap with social vulnerability
+                    can help communities think about where to prioritize
+                    tree planting, shaded public spaces, cooling resources,
+                    and other investments.
+                </p>
+                <p>
+                    The goal isn't simply to make a temperature map look
+                    cooler. It's to make neighborhoods healthier, safer,
+                    and more comfortable for the people who live there.
+                </p>
+            </div>
+
+            <p>
+                Larger studies have found similar inequities across
+                U.S. cities. That makes local case studies like this
+                useful starting points for conversations about how
+                urban design, historical investment, and public health
+                intersect.
+            </p>
+        </section>
+
+        <!-- MITIGATION -->
+        <section class="uhi-section" id="mitigation">
+            <p class="uhi-kicker">Possible solutions</p>
+            <h2>What could help make Rockford cooler?</h2>
+
+            <p>
+                The case study identified several potential ways to
+                reduce surface heating and help residents cope with
+                extreme heat. These strategies would benefit from
+                additional neighborhood-scale observations and
+                community input before implementation.
+            </p>
+
+            <ul>
+                <li>
+                    <strong>Expand vegetation:</strong>
+                    Plant street trees, add shaded medians, reclaim
+                    vacant lots as parks, and provide free trees
+                    to residents.
+                </li>
+                <li>
+                    <strong>Cooler infrastructure:</strong>
+                    Incentivize reflective or light-colored roofs
+                    and green roofs; improve industrial energy efficiency.
+                </li>
+                <li>
+                    <strong>Community outreach:</strong>
+                    Extend cooling center hours, partner with schools
+                    and libraries, and educate residents on heat safety.
+                </li>
+            </ul>
+
+            <p>
+                These approaches address different parts of the problem.
+                Trees and green spaces can reduce local surface heating
+                through shade and evapotranspiration. Cool roofs can
+                reduce solar heat absorption by buildings. Accessible
+                indoor cooling spaces and heat-safety information
+                help people during particularly hot weather.
+            </p>
+
+            <div class="uhi-callout">
+                <p><strong>A community-centered next step:</strong></p>
+                <p>
+                    A more detailed assessment could combine the satellite
+                    maps with neighborhood air-temperature observations,
+                    tree-canopy inventories, housing conditions, and
+                    input from residents. That would help determine
+                    which interventions are most useful in the places
+                    that need them.
+                </p>
+            </div>
+        </section>
+
+        <!-- READING AND RESOURCES -->
+        <section class="uhi-section" id="resources">
+            <p class="uhi-kicker">Keep exploring</p>
+            <h2>Research and resources</h2>
+
+            <p>
+                Interested in the science behind urban heat islands,
+                the connections with historical housing policies,
+                or ways to make neighborhoods more resilient?
+                Here are a few places to start.
+            </p>
+
+            <div class="uhi-resource-grid">
+                <div class="uhi-resource-card">
+                    <h3>Related research</h3>
+                    <ul>
+                        <li>
+                            <a href="https://doi.org/10.3390/cli8010012"
+                               target="_blank" rel="noopener noreferrer">
+                                Hoffman et al. (2020)
+                            </a>
+                            — Historical housing policies and urban
+                            heat in 108 U.S. cities.
+                        </li>
+
+                        <li>
+                            <a href="https://doi.org/10.1038/s41467-021-22799-5"
+                               target="_blank" rel="noopener noreferrer">
+                                Hsu et al. (2021)
+                            </a>
+                            — Unequal exposure to urban heat islands
+                            across major U.S. cities.
+                        </li>
+
+                        <li>
+                            <a href="https://doi.org/10.1029/2022GH000695"
+                               target="_blank" rel="noopener noreferrer">
+                                Manware et al. (2022)
+                            </a>
+                            — Residential and racial/ethnic disparities
+                            in heat vulnerability; a source used
+                            in this class project.
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="uhi-resource-card">
+                    <h3>Local and practical resources</h3>
+                    <ul>
+                        <li>
+                            <a href="https://rockfordil.gov/629/Tree-Replacement-Program"
+                               target="_blank" rel="noopener noreferrer">
+                                City of Rockford Tree Replacement Program
+                            </a>
+                            — Information about adding trees in Rockford.
+                        </li>
+
+                        <li>
+                            <a href="https://www.rockfordil.gov/291/Forestry"
+                               target="_blank" rel="noopener noreferrer">
+                                Rockford Forestry
+                            </a>
+                            — Urban trees, planting policies, and
+                            management of the city's public trees.
+                        </li>
+
+                        <li>
+                            <a href="https://www.epa.gov/heatislands/guide-reducing-heat-islands"
+                               target="_blank" rel="noopener noreferrer">
+                                EPA Guide to Reducing Heat Islands
+                            </a>
+                            — Trees, cool roofs, green infrastructure,
+                            and community-scale strategies.
+                        </li>
+
+                        <li>
+                            <a href="https://www.weather.gov/safety/heat"
+                               target="_blank" rel="noopener noreferrer">
+                                National Weather Service Heat Safety
+                            </a>
+                            — Guidance for recognizing heat danger
+                            and staying safe.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <p class="uhi-note">
+                This page presents findings from a Fall 2023 remote
+                sensing class project. It is a historical case study,
+                not a current operational heat-risk forecast.
+            </p>
+
+            <p class="uhi-back">
+                <a href="research.html">← Back to Research</a>
+            </p>
+        </section>
     </main>
 
     <footer>
-        <p>&copy; 2025 Caitlin Roufa</p>
+        <p>&copy; 2026 Caitlin Roufa</p>
     </footer>
 </body>
 </html>
