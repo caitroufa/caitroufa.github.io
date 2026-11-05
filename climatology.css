@@ -138,6 +138,19 @@ body.climatology-page {
 .climo-map figcaption { font-size: .86rem; color: var(--climo-muted); margin-top: 9px; }
 .climo-map figcaption a { margin-left: 7px; white-space: nowrap; }
 
+/* Community-impact graphic, seasonal outlooks, and record-hail photo. */
+.climo-feature-figure { margin: 22px 0; }
+.climo-feature-figure > a { display: block; cursor: zoom-in; }
+.climo-feature-figure > a img { display: block; width: 100%; height: auto; border-radius: 5px; }
+.climo-outlook-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; margin: 22px 0; }
+.climo-outlook-grid .climo-map { margin: 0; }
+.climo-hail-feature { background: var(--climo-blush); border-color: #efdfe5; border-left: 4px solid var(--climo-rose); }
+.climo-hail-layout { display: grid; grid-template-columns: minmax(220px, .9fr) minmax(0, 1.3fr); gap: 24px; align-items: center; }
+.climo-hail-layout a { display: block; cursor: zoom-in; }
+.climo-hail-layout img { display: block; width: 100%; height: auto; border-radius: 6px; }
+.climo-hail-copy p { margin: 0 0 14px; line-height: 1.65; }
+.climo-hail-copy p:last-child { margin-bottom: 0; }
+
 /* Paired scientific explanations reflect the green / magenta aurora, very lightly. */
 .climo-explain-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 19px; margin: 25px 0 14px; }
 .climo-explain-grid > div { background: var(--climo-mint); border: 1px solid #e0eae2; border-radius: 9px; padding: 15px 18px; }
@@ -172,6 +185,8 @@ body.climatology-page {
   .climatology-page main section { margin: 18px auto; padding: 0 16px; }
   .climo-section { padding-top: 25px !important; }
   .climo-explain-grid { grid-template-columns: 1fr; gap: 12px; }
+  .climo-outlook-grid { grid-template-columns: 1fr; gap: 14px; }
+  .climo-hail-layout { grid-template-columns: 1fr; gap: 15px; }
   .climo-map { padding: 9px 9px 10px; }
   /* Swipe to inspect both halves of wide maps without shrinking labels to illegibility. */
   .climo-image-scroll a { width: 850px; max-width: none; }
