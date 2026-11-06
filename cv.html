@@ -29,6 +29,52 @@
                 margin-bottom: 4px;
             }
         }
+        /* Compact academic CV identity and bibliography, with no extra cards. */
+        .experience-page .cv-affiliation,
+        .experience-page .cv-research-areas,
+        .experience-page .cv-contact-links,
+        .experience-page .cv-previous-name {
+            margin: 5px 0;
+            max-width: 1050px;
+        }
+        .experience-page .cv-affiliation {
+            font-weight: 600;
+            color: var(--site-green-dark);
+        }
+        .experience-page .cv-research-areas,
+        .experience-page .cv-previous-name {
+            color: var(--site-muted);
+            font-size: .95rem;
+        }
+        .experience-page .cv-contact-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px 14px;
+            font-size: .94rem;
+        }
+        .experience-page .cv-contact-links a {
+            font-weight: 600;
+            white-space: nowrap;
+        }
+        .experience-page .experience-section h3 {
+            font-size: 1.06rem;
+            color: var(--site-green-dark);
+            margin: 15px 0 7px;
+        }
+        .experience-page .cv-bibliography {
+            padding-left: 23px;
+        }
+        .experience-page .cv-bibliography > li {
+            margin-bottom: 8px;
+            line-height: 1.58;
+        }
+        .experience-page .cv-reference-note {
+            font-size: .92rem;
+            color: var(--site-muted);
+        }
+        .experience-page .cv-page-heading {
+            margin-bottom: 10px;
+        }
     </style>
 </head>
 <body>
@@ -49,106 +95,40 @@
     <main class="experience-page" id="main-content">
         <section class="cv-page-heading" aria-labelledby="cv-page-title">
             <h1 id="cv-page-title">Curriculum Vitae</h1>
+            <p class="cv-affiliation">Caitlin M. Roufa · Department of Earth, Atmosphere, and Environment · Northern Illinois University</p>
+            <p class="cv-research-areas">Atmospheric dynamics · Atmospheric angular momentum · Climate variability · Subseasonal predictability · Severe convective climatology</p>
+            <p class="cv-contact-links">
+                <a href="https://www.niu.edu/earth-atmosphere-environment/about/faculty-staff/graduate-assistants.shtml" target="_blank" rel="noopener noreferrer">NIU directory</a>
+                <a href="https://scholar.google.com/citations?user=FQx4c9wAAAAJ&amp;hl=en" target="_blank" rel="noopener noreferrer">Google Scholar</a>
+                <a href="https://orcid.org/0009-0005-9543-8236" target="_blank" rel="noopener noreferrer">ORCID</a>
+                <a href="contact.html">Contact</a>
+            </p>
+            <p class="cv-previous-name">Earlier publications appear under the name C. Pennington.</p>
         </section>
-
-    <section class="experience-section" id="education">
+<section class="experience-section" id="education">
         <h2>Education</h2>
         <ul>
-            <li><b>PhD – Earth, Atmosphere, and Environment</b>, Northern Illinois University, Dekalb, IL – expected Spring 2027</li>
+            <li><b>PhD – Earth, Atmosphere, and Environment</b>, Northern Illinois University, DeKalb, IL – expected Spring 2027</li>
             <li><b>MA – Secondary Education in Physics</b>, Western Governors University, Salt Lake City, UT – 2020</li>
-            <li><b>Educator Licensure Secondary Science</b>, Northern Illinois University, Dekalb, IL – 2015–2017</li>
+            <li><b>Educator Licensure Secondary Science</b>, Northern Illinois University, DeKalb, IL – 2015–2017</li>
             <li><b>Graduate Coursework – Nuclear Engineering</b>, University of Idaho, Idaho Falls, ID – 2009–2010</li>
             <li><b>BA – Physics: Astrophysics, Math Minor</b>, Carthage College, Kenosha, WI – 2005–2009</li>
         </ul>
     </section>
 
-    <section class="experience-section" id="certifications">
-        <h2>Certifications</h2>
-        <ul>
-            <li><b>Illinois Professional Educator’s License</b> – Issued May 2017
-                <ul>
-                    <li>Subject endorsements: 6–12 Science, Physics, Chemistry, Earth and Space Science</li>
-                </ul>
-            </li>
-            <li><b>Geographic Information Systems Analysis Certificate</b> – Northern Illinois University, Dekalb, IL – May 2025</li>
-            <li><b>Amateur Radio License: Technician Class</b> – Federal Communications Commission (FCC)</li>
-        </ul>
-    </section>
-
-    <section class="experience-section" id="skills">
-        <h2>Skills</h2>
-        <ul>
-            <li><b>Programming Languages:</b> Python, Bash, LaTeX, HTML, SQL</li>
-            <li><b>Software:</b> ArcGIS Pro, QGIS, ERDAS Imagine, Google Earth Engine, Vim, Jupyter, VScode</li>
-            <li><b>Education Skills:</b> Curriculum design, Classroom teaching</li>
-            <li><b>Research Skills:</b> Atmospheric dynamics, Climatology, GIS, Remote sensing, Data science, Modeling, Numerical weather prediction, Project management</li>
-        </ul>
-    </section>
-
-    <section class="experience-section" id="teaching">
-        <h2>Teaching Experience</h2>
-        <ul>
-            <li><b>Instructor of Record</b> - Northern Illinois University, Dekalb, IL - 2023-2026
-                <ul>
-                    <li>Courses taught: MET410/510/411/511 Weather DynamicsI&amp;II; EAE103 Planetary and Space Sciences</li>
-                </ul>
-            </li>
-            <li><b>Graduate Teaching Assistant</b> - Northern Illinois University - Dept of Earth, Atmosphere, and Environment - Dekalb, IL - 2022-2026
-                <ul>
-                    <li>Courses taught: MET 410/510/411/511 Weather Dynamics Lab I&amp;II; Met 421 Synoptic Meteorology Lab; EAE 102 Environmental Geography Lab</li>
-                    <li>Course curriculum design: MET 410/510/411/511 Weather Dynamics I&amp;II</li>
-                </ul>
-            </li>
-            <li><b>Science Teacher</b> - Harlem Consolidated School District 122, Machesney Park, IL - 2017-2022
-                <ul>
-                    <li>High School Subjects Taught: AP Physics, Earth Science: Astronomy, Oceanography, Meteorology, Climatology, Geology; 
-                        Honors Physics; STEAM Physics; Physical Science - Chemistry and Physics</li>
-                    <li>Content Leader - Physics and Earth and Space Sciences</li>
-                    <li>Developed new courses and curriculum: STEAM Physics, AP Physics, Earth and Space Science - AOM</li>
-                    <li>Organizations and Service: Key Club Advisor; E-team (Equity) Committee Member</li>
-                </ul>
-            </li>
-            <li><b>Instructional Designer and Content Expert GRA</b> - Northern Illinois University - Division of Outreach, Engagement, 
-                and Regional Development P-20 SmartSpace - Dekalb, IL - 2016-2017
-                <ul>
-                    <li>Developed science content for online games and created lesson plans for educators</li>
-                    <li>Led STEAM outreach workshops and events for students, teachers, and the public</li>
-                    <li>Assisted in securing project funding grants</li>
-                    <li>Designed lessons for and taught STEM and STEM skills through art projects to both US and International middle school students 
-                        at Laredo Taft Field Campus Summer Camps</li>
-                </ul>
-            </li>
-            <li><b>Student Teacher</b> - Rockford Public Schools 205 - Rockford, IL - 2016-2017
-                <ul>
-                    <li>Student taught 6th Grade Science at RESA MS - Chemistry, Climate, Environment</li>
-                    <li>Completed clinicals at Auburn High School - Physics</li>
-                </ul>
-            </li>
-            <li><b>Clinicals Student Teacher</b> - Kaneland School District 302 - Sugar Grove, IL - 2015-2016
-                <ul>
-                    <li>Clinicals student teacher, intervention teacher, and tutor at Kaneland High School and Kaneland Harter Middle School - Physics and 6-8 Science</li>
-                </ul>
-            </li>
-            <li><b>Substitute Teacher</b> - Mackay Joint School District 182, Mackay, ID - 2011-2012
-                <ul>
-                    <li>Substitute taught grades K-12, all subjects</li>
-                </ul>
-            </li>
-        </ul>
-    </section>
-
-    <section class="experience-section" id="research">
+<section class="experience-section" id="research">
         <h2>Research Experience</h2>
         <ul>
-            <li><b>PhD Candidate</b> - Weather, Climate, and Society Research Group, NIU, Dekalb, IL, 2022–Present
+            <li><b>Doctoral Researcher (PhD Candidate)</b> - Weather, Climate, and Society Research Group, NIU, DeKalb, IL, 2022–Present
                 <ul>
-                    <li>Lead researcher exploring the evolution of SCS outbreaks in the US - CIRCS Project</li>
-                    <li>Lead researcher nvestigating the future severe weather perils landscape in the US</li>
+                    <li>Leading research on Earth's atmospheric angular momentum, global torque budgets, and large-scale circulation variability using ERA5 reanalysis</li>
+                    <li>Investigating connections between atmospheric dynamics, climate variability, and subseasonal predictability</li>
                 </ul>
-            </li>            
-            <li><b>Research Assistant</b> - CIRCS - Northern Illinois University, Dekalb, IL, 2026-Present
+            </li>
+            <li><b>Research Assistant and Scientific Principal Investigator</b> - CIRCS, Northern Illinois University, DeKalb, IL, 2025–Present
                 <ul>
-                    <li>Project Lead for research exploring the evolution of high-impact severe convective storms and their perils in the U.S.</li>
+                    <li>Originated and independently pitched the funded research project investigating the evolution of high-loss severe convective storms and their perils in the U.S.</li>
+                    <li>Leading scientific research, project direction, execution, and the hiring and mentoring of student researchers</li>
                 </ul>
             </li>
             <li><b>Field Campaign Research Assistant</b> - Flexible Array of Radars and Mesonets, Boulder, CO, 2026
@@ -156,7 +136,7 @@
                     <li>Mobile mesonet and SWARMsonde operator for ICECHIP (hail) and BEST (tornado) campaigns</li>
                 </ul>
             </li>
-            <li><b>Research Assistant</b> - Northern Illinois University, ICECHIP Field Campaign, Dekalb, IL, 2025
+            <li><b>Research Assistant</b> - Northern Illinois University, ICECHIP Field Campaign, DeKalb, IL, 2025
                 <ul>
                     <li>Deployed and operated mobile mesonet vehicle and pods to measure surface conditions</li>
                     <li>Responsible for data QC, pod team communications and coordination, instrument calibration and maintenance, storm spotting, and instrument deployment</li>
@@ -166,7 +146,7 @@
             <li><b>Graduate Research Assistant</b> - University of Idaho, Idaho Falls, ID, 2009-2010
                 <ul>
                     <li>Investigated spent nuclear fuel recycling and storage techniques</li>
-                    <li>Studied nuclear and chemical engineering with a focus on ion exchange and pyroprocessing of nuclear waste</li>
+                    <li>Explored nuclear and chemical engineering with a focus on ion exchange and pyroprocessing of nuclear waste</li>
                 </ul>
             </li>
             <li><b>Nuclear Research Intern</b> - Idaho National Laboratory, Idaho Falls, ID, 2009
@@ -209,7 +189,151 @@
         </ul>
     </section>
 
-    <section class="experience-section" id="awards">
+    <section class="experience-section" id="publications">
+        <h2>Publications and Manuscripts</h2>
+        <h3>Peer-reviewed journal articles</h3>
+        <ul class="cv-bibliography">
+            <li class="cv-citation"><b>Roufa, C.M.</b>, W.S. Ashley, A.M. Haberlie, J.M. Corner, K.T. Hawthorne, L.K. Moeller, V.A. Gensini, A.C. Michaelis, 2026:
+                <i>Projected Mid- and Late-Century Changes in Severe Convective Storms across the United States from Dynamically Downscaled Climate Simulations.</i> 
+                 <i>International Journal of Climatology</i>. <a href="https://rmets.onlinelibrary.wiley.com/doi/10.1002/joc.70475" target="_blank" rel="noopener noreferrer">[Link]</a> 
+                <a href="pubs/joc70475_small.pdf" target="_blank" rel="noopener noreferrer">[PDF]</a></li>
+        </ul>
+        <h3>Manuscripts under review</h3>
+        <ul class="cv-bibliography">
+            <li class="cv-citation"><b>Roufa, C.M.</b>, V.A. Gensini:
+                <i>Atmospheric Angular Momentum: Climatology and Multiscale Budget Closure in ERA5.</i>
+                Manuscript under review at the <i>Journal of Climate</i>.</li>
+        </ul>
+        <h3>Book chapters and technical reports</h3>
+        <ul class="cv-bibliography">
+            <li class="cv-citation">Gensini, V. A., K. M. Weickmann, and <b>C. Roufa</b>, 2025: 
+                Chapter 12 – Global Wind Oscillation. 
+                <i>Atmospheric Oscillations</i>, B. Guan, Ed., Elsevier, 231–250. 
+                <a href="pubs/GWO_Chapter12.pdf" target="_blank" rel="noopener noreferrer">[PDF]</a></li>
+            <li class="cv-citation">Crosby, K. M., J. Agui, <b>C. Pennington</b>, E. Sorensen, E. Martin, I. Fritz, 
+                and B. Frye, 2009: 
+                <i>Measurements of the Collection Efficiency of an Air Cyclone in Lunar Gravity.</i> 
+                Wisconsin Space Grant Consortium.
+                <a href="pubs/Measurements_of_the_Collection_Efficienc.pdf" target="_blank" rel="noopener noreferrer">[PDF]</a></li>
+        </ul>
+        <p class="cv-reference-note">A full publication and presentation list is also available on my <a href="publications.html">Publications page</a>.</p>
+    </section>
+
+    <section class="experience-section" id="presentations">
+        <h2>Conference Presentations and Proceedings</h2>
+        <h3>Upcoming</h3>
+        <ul class="cv-bibliography">
+            <li class="cv-citation"><b>Roufa, C. M.</b>, V. A. Gensini, 2027: 
+                <i>Torque Contributions to Atmospheric Angular Momentum Tendency During the Madden-Julian Oscillation.</i> 
+                107th AMS Annual Meeting, AMS. 
+                <a href="https://ams.confex.com/ams/107ANNUAL/meetingapp.cgi/Paper/490771" target="_blank" rel="noopener noreferrer">[Conference Link]</a></li>
+        </ul>
+        <h3>Recent scientific conferences</h3>
+        <ul class="cv-bibliography">
+            <li class="cv-citation"><b>Roufa, C. M.</b>, V. A. Gensini, 2026: 
+                <i>Subseasonal-to-Seasonal Predictability of North American Weather Regimes Using Global Wind Oscillation Phase-Space Trajectories.</i> 
+                2026 AMS Madison Summit, AMS. 
+                <a href="https://ams.confex.com/ams/2026Summit/meetingapp.cgi/Paper/483343" target="_blank" rel="noopener noreferrer">[Conference Link]</a></li>
+            <li class="cv-citation"><b>Roufa, C. M.</b>, V. A. Gensini, 2026:
+                 <i>Atmospheric Angular Momentum: Budget Consistency and Influence of Multiscale Climate Modes</i>
+                 106th AMS Annual Meeting, AMS.
+                 <a href="https://ams.confex.com/ams/106ANNUAL/meetingapp.cgi/Paper/475123" target="_blank" rel="noopener noreferrer">[Conference Link]</a></li>
+            <li class="cv-citation"><b>Roufa, C. M.</b>, W. S. Ashley, A. Haberlie, J. M. Corner, K. Hawthorne, 
+                L. Moeller, V. A. Gensini, and A. C. Michaelis, 2025: 
+                <i>The Future of Hazardous Convective Weather in the United States.</i> 
+                105th AMS Annual Meeting, AMS. 
+                <a href="https://ams.confex.com/ams/105ANNUAL/meetingapp.cgi/Paper/453321" target="_blank" rel="noopener noreferrer">[Conference Link]</a></li>
+        </ul>
+        <h3>Earlier conference proceedings and abstracts</h3>
+        <ul class="cv-bibliography">
+            <li class="cv-citation">Crosby, K. M., I. Fritz, S. Kreppel, E. Martin, <b>C. Pennington</b>, B. Frye, 
+                and J. Agui, 2009: 
+                <i>Scaling Relations for Repose Angles of Lunar Mare Simulants.</i> 
+                Annual Meeting of the Lunar Exploration Analysis Group, 1515, 13.
+                <a href="pubs/ScalingRelations.pdf" target="_blank" rel="noopener noreferrer">[PDF]</a></li>
+            <li class="cv-citation">Crosby, K. M., J. Agui, <b>C. Pennington</b>, E. Sorensen, E. Martin, I. Fritz, 
+                and B. Frye, 2008: 
+                <i>Inertial Filtration of Lunar Dust in Reduced Gravity.</i> 
+                Joint Annual Meeting of LEAG-ICEUM-SRR, 1446, 43.
+                <a href="pubs/InertialFiltration.pdf" target="_blank" rel="noopener noreferrer">[PDF]</a></li>
+            <li class="cv-citation">Arion, D. N., E. O. Martin, <b>C. Pennington</b>, and S. Kuttruff, 2008: 
+                <i>Structural Analysis of NGC 2371/2 Using Deep Images in [O III].</i> 
+                American Astronomical Society Meeting Abstracts #212, 212, 13.01.
+                <a href="https://ui.adsabs.harvard.edu/abs/2008AAS...212.1301A/abstract" target="_blank" rel="noopener noreferrer">[Abstract Link]</a></li>
+            <li class="cv-citation"><b>Pennington, C.</b>, K. Blakeman, J. Hart, E. Hoffman, C. Jelinski, R. Wilson, 2007: 
+                <i>2007 Elijah Project Science Payload Team</i> 
+                Proceedings of the 17th annual Wisconsin Space Conference, WSGC.
+                </li>
+        </ul>
+    </section>
+
+<section class="experience-section" id="grants">
+        <h2>Grants</h2>
+        <ul>
+            <li><b>CIRCS Project Funding, 2025 - Evolution of High-Loss SCS in the U.S. ($117,000)</b> — Project originator and scientific PI; NIU institutional PI of record: Alex Haberlie.</li>
+            <li>NIU Research and Travel Grant - 2023, 2024, 2025, 2026 ($2000)</li>
+            <li>NIU Kouba Fund Grant - 2023, 2024, 2025, 2026 ($6000)</li>
+            <li>Illinois Retired Teachers Association Grant - 2019 ($1000)</li>
+            <li><b>Carthage Physics Fellowship 2007–2009</b> (Annual Stipend)</li>
+        </ul>
+    </section>
+
+<section class="experience-section" id="teaching">
+        <h2>Teaching Experience</h2>
+        <ul>
+            <li><b>Instructor of Record</b> - Northern Illinois University, DeKalb, IL - 2023-2026
+                <ul>
+                    <li>Courses taught: MET 410/510/411/511 Weather Dynamics I & II; EAE 103 Planetary and Space Sciences</li>
+                    <li>Led university level lecture instruction in atmospheric dynamics and planetary science, including undergraduate and graduate courses</li>
+                    <li>Developed lessons, labs, applied exercises, and assessments to support students learning atmospheric dynamics</li>
+                </ul>
+            </li>
+            <li><b>Graduate Teaching Assistant</b> - Northern Illinois University - Dept of Earth, Atmosphere, and Environment - DeKalb, IL - 2022-2026
+                <ul>
+                    <li>Courses taught: MET 410/510/411/511 Weather Dynamics Lab I & II; Met 421 Synoptic Meteorology Lab; EAE 102 Environmental Geography Lab</li>
+                    <li>Course curriculum design: MET 410/510/411/511 Weather Dynamics I & II</li>
+                    <li>Redesigned Weather Dynamics lecture and laboratory curricula, including in class and Python activities and assessments.</li>
+                </ul>
+            </li>
+            <li><b>Science Teacher</b> - Harlem Consolidated School District 122, Machesney Park, IL - 2017-2022
+                <ul>
+                    <li>High School Subjects Taught: AP Physics, Earth Science: Astronomy, Oceanography, Meteorology, Climatology, Geology; 
+                        Honors Physics; STEAM Physics; Physical Science - Chemistry and Physics</li>
+                    <li>Content Leader - Physics and Earth and Space Sciences</li>
+                    <li>Developed new courses and curriculum: STEAM Physics, AP Physics, Earth and Space Science - AOM</li>
+                    <li>Organizations and Service: Key Club Advisor; E-team (Equity) Committee Member</li>
+                </ul>
+            </li>
+            <li><b>Instructional Designer and Content Expert GRA</b> - Northern Illinois University - Division of Outreach, Engagement, 
+                and Regional Development P-20 SmartSpace - DeKalb, IL - 2016-2017
+                <ul>
+                    <li>Developed science content for online games and created lesson plans for educators</li>
+                    <li>Led STEAM outreach workshops and events for students, teachers, and the public</li>
+                    <li>Assisted in securing project funding grants</li>
+                    <li>Designed lessons for and taught STEM and STEM skills through art projects to both US and International middle school students 
+                        at Laredo Taft Field Campus Summer Camps</li>
+                </ul>
+            </li>
+            <li><b>Student Teacher</b> - Rockford Public Schools 205 - Rockford, IL - 2016-2017
+                <ul>
+                    <li>Student taught 6th Grade Science at RESA MS - Chemistry, Climate, Environment</li>
+                    <li>Completed clinicals at Auburn High School - Physics</li>
+                </ul>
+            </li>
+            <li><b>Clinicals Student Teacher</b> - Kaneland School District 302 - Sugar Grove, IL - 2015-2016
+                <ul>
+                    <li>Clinicals student teacher, intervention teacher, and tutor at Kaneland High School and Kaneland Harter Middle School - Physics and 6-8 Science</li>
+                </ul>
+            </li>
+            <li><b>Substitute Teacher</b> - Mackay Joint School District 182, Mackay, ID - 2011-2012
+                <ul>
+                    <li>Substitute teacher grades K-12, all subjects</li>
+                </ul>
+            </li>
+        </ul>
+    </section>
+
+<section class="experience-section" id="awards">
         <h2>Awards and Honors</h2>
         <ul>
             <li><b>Outstanding EAE Graduate Student Award 2026</b></li>
@@ -220,22 +344,60 @@
         </ul>
     </section>
 
-    <section class="experience-section" id="grants">
-        <h2>Grants</h2>
+    <section class="experience-section" id="mentoring">
+        <h2>Research Mentoring and Training</h2>
         <ul>
-            <li><b>CIRCS Project Funding, 2025 - Evolution of High-Loss SCS in the U.S. ($117,000)</b></li>
-            <li>NIU Research and Travel Grant - 2023, 2024, 2025, 2026 ($2000)</li>
-            <li>NIU Kouba Fund Grant - 2023, 2024, 2025, 2026 ($6000)</li>
-            <li>Illinois Retired Teachers Association Grant - 2019 ($1000)</li>
-            <li><b>Carthage Physics Fellowship 2007–2009</b> (Annual Stipend)</li>
+            <li><b>Undergraduate Research Mentor – CIRCS Project, NIU, Spring 2026</b>
+                <ul>
+                    <li>Employed and mentored three undergraduate researchers working on severe convective storms research</li>
+                </ul>
+            </li>
+            <li><b>Student Research Mentor – Severe Convective Storms Climate Study EAE 790, NIU, Spring 2024</b>
+                <ul>
+                    <li>Mentored two undergraduate students and one master's student on research contributing to a published climate projections study</li>
+                </ul>
+            </li>
+            <li><b>Field Team Leadership – ICECHIP, 2025</b>
+                <ul>
+                    <li>Collaborating with a colleague, trained and mentored a mobile instrumentation pod team of one master's student and three undergraduate students in field operations, instrument deployment, and data collection</li>
+                </ul>
+            </li>
+            <li><b>Peer Technical Mentoring – NIU, ongoing</b>
+                <ul>
+                    <li>Help undergraduate and graduate researchers with command-line navigation, WRF simulations, Python programming, scientific figures, posters, research ideas, and manuscript and thesis drafts</li>
+                    <li>Connect students with faculty and research opportunities aligned with their interests</li>
+                    <li>Write letters of recommendation for students and mentees</li>
+                </ul>
+            </li>
         </ul>
     </section>
 
-    <section class="experience-section" id="service">
+    <section class="experience-section" id="outreach">
+        <h2>Science Outreach</h2>
+        <ul>
+            <li class="cv-citation"><b>Panelist</b>:
+                  <i>DeCarbon DeKalb: What's coming for Northern Illinois?</i> Nov 4, 2026.
+                  DeKalb, IL</li>
+            <li>Developed a public-facing <a href="northern-illinois-climatology.html">Northern Illinois weather and climate resource</a> with regional climatology and accessible figures for the November 2026 DeCarbon DeKalb presentation.</li>
+            <li class="cv-citation"><b>Invited Talk and Panelist</b>:
+                 <i>Vox Atmosphaerae: Hearing the Hidden Rhythms of Earth's Atmosphere</i> May 8, 2026.
+                 Ars Pvblica, Vox Naturae, Rockford, IL.</li>
+            <li class="cv-citation"><b>Invited Talk</b>:
+                 <i>One Hail of a Storm! Revisiting the 4.18.2025 Event, Hail Safety, and the Future of Severe Weather in Southern Wisconsin</i> April 22, 2026.
+                 EarthDay, Evansville CSD, Evansville, WI.</li>
+            <li class="cv-citation"><b>Panelist</b>:
+                 <i>Hotter, Wetter, Wilder: The Future of Climate in Northern Illinois,</i> April 11, 2026.
+                 DeCarbon DeKalb 3rd Annual EarthFest.
+                 <a href="https://www.decarbondekalb.com/earth-fest" target="_blank" rel="noopener noreferrer">[Event Link]</a></li>
+            <li><b>STEM Outreach and Instructional Design</b> – NIU P–20 SmartSpace, 2016–2017: Developed science learning activities and led STEAM workshops for students, educators, and public audiences.</li>
+        </ul>
+    </section>
+
+<section class="experience-section" id="service">
         <h2>Professional Service and Organizations</h2>
         <ul>
             <li>NIU Women in STEM Ambassador - 2026</li>
-            <li>Reviewer Nature Climate Dynamics - Since 2025</li>
+            <li>Ad hoc reviewer, <i>Climate Dynamics</i> (Springer Nature) - Since 2025</li>
             <li>AMS NIU Chapter - Graduate Committee, Spring 2025</li>
             <li>American Meteorological Society (AMS) NIU Chapter - Member, 2022–present</li>
             <li>Equity Team Harlem HS - Advisory Committee Member, 2020–2022</li>
@@ -246,7 +408,31 @@
         </ul>
     </section>
 
-    <section class="experience-section" id="other-work">
+<section class="experience-section" id="skills">
+        <h2>Skills</h2>
+        <ul>
+            <li><b>Scientific Computing and Modeling:</b> WRF, ERA5, xarray/netCDF, Linux commandline navigation, high-performance computing</li>
+            <li><b>Programming Languages:</b> Python, Bash, LaTeX, HTML, SQL</li>
+            <li><b>Software:</b> ArcGIS Pro, QGIS, ERDAS Imagine, Google Earth Engine, Vim, Jupyter, VS Code</li>
+            <li><b>Education Skills:</b> Curriculum design, Classroom teaching</li>
+            <li><b>Research Skills:</b> Atmospheric dynamics, Climatology, GIS, Remote sensing, Data science, Modeling, Numerical weather prediction, Project management</li>
+        </ul>
+    </section>
+
+<section class="experience-section" id="certifications">
+        <h2>Certifications</h2>
+        <ul>
+            <li><b>Illinois Professional Educator’s License</b> – Issued May 2017
+                <ul>
+                    <li>Subject endorsements: 6–12 Science, Physics, Chemistry, Earth and Space Science</li>
+                </ul>
+            </li>
+            <li><b>Geographic Information Systems Analysis Certificate</b> – Northern Illinois University, DeKalb, IL – May 2025</li>
+            <li><b>Amateur Radio License: Technician Class</b> – Federal Communications Commission (FCC)</li>
+        </ul>
+    </section>
+
+<section class="experience-section" id="other-work">
         <h2>Other Work Experience</h2>
         <ul>
             <li>Custodian - Mackay Joint School District, Mackay, ID, 2011-2012</li>
@@ -258,17 +444,16 @@
         </ul>
     </section>
 
-    <section class="experience-section" id="media">
+<section class="experience-section" id="media">
         <h2>In the Media</h2>
         <ul>
             <li><a href="https://newsroom.niu.edu/on-the-highway-to-hail/#gsc.tab=0">Interview Highway to Hail</a></li>
             <li><a href="https://www.newscientist.com/article/mg26635500-300-meet-the-storm-chasers-on-the-hunt-for-extreme-hail/">ICECHIP In-Field Interview NewScientist</a></li>
             <li><a href="https://www.newschannel10.com/2025/06/12/chase-hail/">ICECHIP Short In-Field Interview KFDA CBS 10 Amarillo</a></li>
             <li><a href="https://www.fox32chicago.com/news/researchers-launch-multi-million-dollar-study-unlock-secrets-destructive-hail">ICECHIP Interview Fox 32 Chicago</a></li>
-            <li><a href="https://web.archive.org/web/20170629063007/https://www.nasa.gov/audience/foreducators/postsecondary/features/a-breath-of-fresh-air_prt.htm ">NASA Interview</a></li>
+            <li><a href="https://web.archive.org/web/20170629063007/https://www.nasa.gov/audience/foreducators/postsecondary/features/a-breath-of-fresh-air_prt.htm">NASA Interview</a></li>
         </ul>
     </section>
-
     </main>
 
     <footer>
