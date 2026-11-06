@@ -749,3 +749,15 @@ body:not(.climatology-page) main section h3,
 body:not(.climatology-page) > section > h2 {
     color: var(--site-green-dark);
 }
+
+/* Tighter spacing for CV lists */
+.experience-page .experience-section > ul > li {
+    margin-bottom: 5px;
+}
+.experience-page .experience-section > ul > li > ul {
+    margin-top: 4px;
+    margin-bottom: 5px;
+}
+.experience-page .experience-section > ul > li > ul > li {
+    margin-bottom: 2px;
+}
