@@ -76,6 +76,51 @@
         .experience-page .cv-page-heading {
             margin-bottom: 10px;
         }
+        /* CV profile icon buttons */
+        .experience-page .cv-profile-icons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            margin: 12px 0 20px;
+        }
+        
+        .experience-page .cv-profile-icons .cv-profile-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 64px;
+            height: 64px;
+            background: #ffffff;
+            border: 1px solid var(--site-border);
+            border-radius: 16px;
+            color: var(--site-green-dark);
+            text-decoration: none;
+            transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+        }
+        
+        .experience-page .cv-profile-icon img {
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
+        }
+        
+        .experience-page .cv-niu-mark {
+            font-size: 1.15rem;
+            font-weight: 800;
+            letter-spacing: -0.04em;
+            color: var(--site-green-dark);
+        }
+        
+        .experience-page .cv-profile-icon:hover {
+            transform: translateY(-3px);
+            border-color: var(--site-green);
+            box-shadow: 0 4px 12px rgba(36, 91, 67, 0.15);
+        }
+        
+        .experience-page .cv-profile-icon:focus-visible {
+            outline: 3px solid var(--site-green);
+            outline-offset: 3px;
+        }
     </style>
 </head>
 <body>
