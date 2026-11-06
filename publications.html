@@ -97,6 +97,42 @@
                 text-indent: 0;
             }
         }
+        /* Research profile logo buttons */
+        .publications-page .research-logo-links {
+            display: flex;
+            gap: 14px;
+            margin: 16px 0 28px;
+        }
+        
+        .publications-page .research-logo-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 64px;
+            height: 64px;
+            background: #ffffff;
+            border: 1px solid var(--site-border);
+            border-radius: 16px;
+            transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+        }
+        
+        .publications-page .research-logo-button img {
+            display: block;
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
+        }
+        
+        .publications-page .research-logo-button:hover {
+            transform: translateY(-3px);
+            border-color: var(--site-green);
+            box-shadow: 0 4px 12px rgba(36, 91, 67, 0.15);
+        }
+        
+        .publications-page .research-logo-button:focus-visible {
+            outline: 3px solid var(--site-green);
+            outline-offset: 3px;
+        }
     </style>
 </head>
 <body>
@@ -117,14 +153,39 @@
     <main class="publications-page">
         <h1>Publications &amp; Presentations</h1>
         <!-- <p class="pubs-subtitle">Research publications, scientific presentations, public talks, and media appearances.</p> -->
-        <p style="margin: 10px 0 22px;">
+        <!-- <p style="margin: 10px 0 22px;">
             <strong>Research Profiles:</strong>
             <a href="https://scholar.google.com/citations?user=FQx4c9wAAAAJ&hl=en"
                target="_blank" rel="noopener noreferrer">Google Scholar</a>
             &nbsp; | &nbsp;
             <a href="https://orcid.org/0009-0005-9543-8236"
                target="_blank" rel="noopener noreferrer">ORCID</a>
-        </p>
+        </p> -->
+        <div class="research-logo-links">
+            <a href="https://scholar.google.com/citations?user=FQx4c9wAAAAJ&hl=en"
+               target="_blank" rel="noopener noreferrer"
+               class="research-logo-button"
+               aria-label="Cait Roufa on Google Scholar"
+               title="Google Scholar">
+        
+                <img
+                    src="https://upload.wikimedia.org/wikipedia/commons/c/c7/Google_Scholar_logo.svg"
+                    alt=""
+                    width="40" height="40">
+            </a>
+        
+            <a href="https://orcid.org/0009-0005-9543-8236"
+               target="_blank" rel="noopener noreferrer"
+               class="research-logo-button"
+               aria-label="Cait Roufa's ORCID profile"
+               title="ORCID">
+        
+                <img
+                    src="https://orcid.org/assets/vectors/orcid.logo.icon.svg"
+                    alt=""
+                    width="40" height="40">
+            </a>
+        </div>
 
         <section aria-labelledby="publications-heading">
             <h2 id="publications-heading">Publications and Manuscripts</h2>
