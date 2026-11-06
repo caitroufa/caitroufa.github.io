@@ -741,3 +741,11 @@ footer p { margin: 0; }
     html { scroll-behavior: auto; }
     header nav ul li a, .site-back-to-top { transition: none; }
 }
+
+/* Consistent dark green headings throughout the site */
+body:not(.climatology-page) main h1,
+body:not(.climatology-page) main section > h2,
+body:not(.climatology-page) main section h3,
+body:not(.climatology-page) > section > h2 {
+    color: var(--site-green-dark);
+}
