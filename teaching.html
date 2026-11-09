@@ -3,88 +3,324 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Teaching experience, philosophy, student feedback, curriculum, and outreach projects of Cait Roufa, atmospheric scientist and educator.">
     <title>Cait Roufa | Teaching</title>
     <link rel="icon" type="image/png" href="images/favicon.png">
     <link rel="stylesheet" href="styles.css">
     <script src="site.js" defer></script>
+    <style>
+        /* Teaching portfolio: intentionally matches the plain headings,
+           whitespace, and dividers of the site's CV and Publications pages. */
+        .teaching-page { padding-bottom: 28px; }
+        .teaching-page .teaching-title { margin-top: 30px; margin-bottom: 12px; }
+        .teaching-page .teaching-title h1 {
+            margin: 0 0 10px;
+            font-size: clamp(1.8rem, 3.6vw, 2.35rem);
+            line-height: 1.2;
+            color: var(--site-green-dark);
+        }
+        .teaching-page .teaching-intro {
+            max-width: 920px;
+            margin: 0;
+            color: var(--site-muted);
+            font-size: 1.05rem;
+        }
+        .teaching-page .teaching-section { scroll-margin-top: 22px; }
+        .teaching-page .teaching-section h2 {
+            color: var(--site-green-dark);
+            margin-bottom: 17px;
+        }
+        .teaching-page .teaching-section h3 {
+            color: var(--site-green-dark);
+            margin: 18px 0 7px;
+            font-size: 1.13rem;
+        }
+        .teaching-page p { line-height: 1.68; }
+        .teaching-page .teaching-experience-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 18px 38px;
+            max-width: 1050px;
+        }
+        .teaching-page .teaching-experience-grid > div { min-width: 0; }
+        .teaching-page .teaching-experience-grid ul { padding-left: 22px; margin: 9px 0 0; }
+        .teaching-page .teaching-experience-grid li { margin-bottom: 5px; }
+        .teaching-page .teaching-detail { max-width: 920px; }
+        .teaching-page .teaching-detail p { margin-top: 9px; }
+        .teaching-page .teaching-philosophy { max-width: 920px; }
+        .teaching-page .teaching-philosophy p { margin: 0 0 17px; }
+        .teaching-page .teaching-philosophy p:first-of-type::first-letter {
+            /* No drop cap: this should read like a personal statement. */
+            font-weight: inherit;
+        }
+        .teaching-page .teaching-note {
+            color: var(--site-muted);
+            font-size: 0.9rem;
+            max-width: 920px;
+        }
+        .teaching-page .teaching-eval-summary {
+            max-width: 920px;
+            display: flex;
+            flex-wrap: wrap;
+            column-gap: 35px;
+            row-gap: 16px;
+            padding: 10px 0 17px;
+            margin: 8px 0 20px;
+            border-bottom: 1px solid var(--site-border);
+        }
+        .teaching-page .teaching-eval-summary > div { flex: 1 1 260px; }
+        .teaching-page .teaching-eval-number {
+            display: block;
+            font-size: 1.65rem;
+            font-weight: 750;
+            line-height: 1.3;
+            color: var(--site-green-dark);
+        }
+        .teaching-page .teaching-eval-label {
+            display: block;
+            font-size: 0.92rem;
+            color: var(--site-muted);
+        }
+        .teaching-page .teaching-quote-grid {
+            max-width: 1100px;
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 16px;
+            margin: 19px 0;
+        }
+        .teaching-page blockquote.teaching-quote {
+            margin: 0;
+            padding: 16px 19px;
+            background: var(--site-mint);
+            border: 1px solid #dce8df;
+            border-left: 4px solid var(--site-green);
+            border-radius: 0 9px 9px 0;
+            min-width: 0;
+        }
+        .teaching-page .teaching-quote:nth-child(2n) {
+            background: var(--site-blush);
+            border-color: #ecdce3;
+            border-left-color: var(--site-rose);
+        }
+        .teaching-page blockquote.teaching-quote p {
+            margin: 0 0 8px;
+            line-height: 1.64;
+            font-style: italic;
+        }
+        .teaching-page blockquote.teaching-quote cite {
+            display: block;
+            font-style: normal;
+            font-size: 0.84rem;
+            color: var(--site-muted);
+        }
+        .teaching-page blockquote.teaching-quote--wide { grid-column: 1 / -1; }
+        .teaching-page blockquote.teaching-quote--family {
+            background: var(--site-blush);
+            border-color: #ecdce3;
+            border-left-color: var(--site-rose);
+        }
+        .teaching-page .portfolio-grid { max-width: 1100px; }
+        .teaching-page .portfolio-item p { margin-top: 0; }
+        @media (max-width: 760px) {
+            .teaching-page .teaching-experience-grid,
+            .teaching-page .teaching-quote-grid { grid-template-columns: 1fr; }
+            .teaching-page blockquote.teaching-quote--wide { grid-column: auto; }
+            .teaching-page .teaching-title { margin-top: 22px; }
+            .teaching-page .teaching-eval-number { font-size: 1.5rem; }
+        }
+    </style>
 </head>
 <body>
     <header>
         <h1>Cait Roufa</h1>
-        <nav>
+        <nav aria-label="Main navigation">
             <ul>
                 <li><a href="/">About Me</a></li>
                 <li><a href="cv.html">Curriculum Vitae</a></li>
                 <li><a href="research.html">Research</a></li>
                 <li><a href="publications.html">Publications</a></li>
-                <li><a href="teachingphilosophy.html" class="active">Teaching</a></li>
+                <li><a href="teaching.html" class="active" aria-current="page">Teaching</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
         </nav>
     </header>
 
-    <main>
-        <section class="project-header">
-            <p><i>I have developed my teaching philosophy over a decade of experience as both a licensed high school teacher in the State of Illinois and a university instructor. 
-                My teaching philosophy is grounded in experiential, student-centered, inquiry-based learning.</i></p>
-            <hr/>
+    <main class="teaching-page" id="main-content">
+        <section class="teaching-title" aria-labelledby="teaching-page-title">
+            <h1 id="teaching-page-title">Teaching</h1>
+            <p class="teaching-intro">
+                Teaching is one of my greatest passions. I love working with students, helping them to uncover their own strengths as they grow into professionals. 
+                I've spent more than a decade teaching physics, Earth science, and meteorology and mentoring thousands of students at both the university and secondary level. 
+                I want my students to feel supported, challenged, and excited by what they are learning.
+            </p>
         </section>
 
-        <section>
+        <section class="teaching-section" id="experience">
             <h2>Teaching Experience</h2>
-            <p>
-                In the Harlem School District, I taught AP Physics, Honors Physics, Meteorology and Climatology, Astronomy, Oceanography, and STEAM Physics. 
-                At Northern Illinois University, I have served as a graduate teaching assistant and instructor for courses including Weather Dynamics Lecutre and Lab I&amp;II, 
-                Physical Geography Lab, Planetary and Space Science Lecture, and Synoptic Meteorology Lab. 
-                Across these roles, I designed and implemented curricula at the high school, undergraduate, and graduate levels, 
-                engaging students in scientific inquiry and real-world applications of Earth science and physics concepts.
-            </p>
+            <p>I have taught at the secondary, undergraduate, and graduate levels, from introductory Earth and space sciences to mathematically intensive atmospheric dynamics. 
+                I've designed and revised curricula, taught lecture and laboratory courses, engaged in community outreach, and mentored thousands of students both inside and outside the classroom.</p>
+            <div class="teaching-experience-grid">
+                <div>
+                    <h3>Northern Illinois University</h3>
+                    <p><strong>Instructor of Record</strong></p>
+                    <ul>
+                        <li>Weather Dynamics I (MET 410/510)</li>
+                        <li>Weather Dynamics II (MET 411/511)</li>
+                        <li>Planetary and Space Sciences (EAE 103)</li>
+                    </ul>
+                    <p><strong>Graduate Teaching Assistant</strong></p>
+                    <ul>
+                        <li>Weather Dynamics I and II laboratories</li>
+                        <li>Synoptic Meteorology laboratory</li>
+                        <li>Environmental Geography laboratory</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Secondary Education</h3>
+                    <p><strong>Illinois licensed educator</strong> — Harlem School District</p>
+                    <ul>
+                        <li>AP Physics, Honors Physics, and STEAM Physics</li>
+                        <li>Physical Science (Physics and Chemistry)</li>
+                        <li>Earth and Space Sciences</li>
+                        <li>Astronomy, Weather and Climate, and Oceanography</li>
+                    </ul>
+                    <p>At the secondary level, I developed courses and hands-on curriculum that invited students to investigate the physical world, connect 
+                        science to their daily lives, and consider careers in science.</p>
+                </div>
+            </div>
+            <p class="teaching-note">For appointments, years, and additional details, see my <a href="cv.html">Curriculum Vitae</a>.</p>
         </section>
 
-        <section>
-            <h2>Student Success - <b>Normalizing Failure to Build Growth</b></h2>
-            <p>
-                I believe that one of the most important things that we can do as educators is to normalize failure. The academic environment ought to be a safe 
-                place for students to "fail", that is, to be able to make mistakes, have that be OK, and to learn from these mistakes when the stakes are low. I like to give 
-                students opportunities 
-                for trying, failing, and trying again, so that they may develop persistence, and growth mindsets... the understanding that, they can work toward understanding, 
-                skill, and success.
-            </p>
-        </section>
-        
-        <section>
-            <h2>Student-Centered and Culturally Responsive Pedagogy</h2>
-            <p>
-                My approach is rooted in student-centered, culturally responsive education, where I leverage the backgrounds and cultural frames of reference 
-                of students. My goal is to make course content relevant to each student, connecting lessons to their lived experiences. I aim to foster a 
-                learning environment where students feel seen and empowered to succeed, so I believe that it is essential to be approachable, and to take time 
-                to develop positive relationships in the classroom.
-            </p>
+        <section class="teaching-section" id="philosophy">
+            <h2>Teaching Philosophy</h2>
+            <div class="teaching-philosophy">
+                <p>When I was an undergraduate, I received a competitive vocal scholarship for which there was a requirement to enroll in voice lessons. 
+                    In my small group, there was an older gentleman who admitted he was taking classes so that he would no longer embarrass his wife in church. 
+                    His wife's assessment of his singing was, unfortunately, accurate. I recall thinking at the time that people were either inherently good at 
+                    something or not. Well, by the end of the term, this man was confidently belting out showtunes in a beautiful tenor! That moment permanently 
+                    shaped my approach to learning and my philosophy as an educator, that anyone can learn anything if given time to practice and a patient, skillful teacher.</p>
+
+                <p>Atmospheric dynamics and physics can be intimidating. Many students view a course like Weather Dynamics with anxiety due to its mathematical rigor and reputation. 
+                    In my role as Instructor of Record for MET 410/510 and 411/511, I redesigned the course sequence to incorporate hands-on demonstrations, Python-based labs, 
+                    and applications with traditional hand computation and derivation of the governing equations. By explicitly connecting mathematical expressions to physical terms 
+                    and observable phenomena, students build critical thinking and confidence in the content and in themselves.</p>
+
+                <p>I believe that one of the most important things we can do as educators is normalize failure. The academic environment ought to be a safe place for students to make 
+                    mistakes, learn from those mistakes, and try again when the stakes are low. I use frequent formative assessments, structured problem solving in small groups, and 
+                    opportunities to work through difficult concepts before rigorous exams. I'm not interested in making hard subjects easy by removing the hard parts. I want students 
+                    to have the tools, support, and practice they need to work through them.</p>
+
+                <p>My classes balance lecture, small group discussion, demonstrations, and hands-on activities. I like to start with a question or a real phenomenon and work toward 
+                    the physical principles and mathematics that explain it. Modern Earth science is incredibly data rich, and students need opportunities to work with real observations 
+                    and models. In Weather Dynamics, that means using Python and atmospheric datasets alongside derivations, hand calculations, and interpretation of weather maps. 
+                    Every assignment should bring us back to what the mathematics means physically, and why we care.</p>
+
+                <p>Teaching is also inseparable from mentoring for me. As a first generation, nontraditional student who returned to graduate school after teaching high school physics, 
+                    I know that not all paths through education are the same. I want students to feel safe asking questions, whether in front of the class or quietly during office hours. 
+                    Sometimes all a student needs in order to succeed is someone who takes an interest, believes they can do it, and helps them find the next step.</p>
+
+                <p>Ultimately, my goal is to help students experience their own version of that vocal class, the point where something that was once intimidating becomes something that 
+                    they can do with confidence and perhaps even enjoy. Whether teaching introductory Earth science or upper level dynamics, I want students to leave with 
+                    enthusiasm for understanding the world around them.</p>
+            </div>
         </section>
 
-        <section>
-            <h2>Inquiry-Based Learning</h2>
-            <p>
-                I think it is important to bridge a solid content foundation with real-world application. So, I design lessons around current and relevant problems or 
-                questions that allow us to build our understanding of governing equations, forces, and problem solving approaches, while keeping the "why do we care?" question in mind. 
-                My classes balance lecture, small-group activities, and hands-on learning. 
-                Rather than being a “sage on the stage,” I see my role as a guide, helping students develop critical thinking and problem-solving skills.
-            </p>
+        <section class="teaching-section" id="practice">
+            <h2>Teaching in Practice</h2>
+            <p>My Weather Dynamics sequence is a good example of how I have put these ideas to work. I redesigned the lectures and labs to help students build physical intuition 
+                and quantitative skills together, while maintaining the rigor of a core meteorology course.</p>
+            <div class="teaching-detail">
+                <h3>Connecting mathematics to physical meaning</h3>
+                <p>We work from foundational principles toward applications, stopping along the way to talk about what each term represents. I use physical demonstrations, diagrams, 
+                    unit and scale analysis, and real atmospheric examples to connect the equations to things students can understand and observe.</p>
+
+                <h3>Learning by doing</h3>
+                <p>Students work through short problems together, investigate weather maps, and use Python to analyze atmospheric datasets. In a quasigeostrophic dynamics activity, 
+                    for example, students examine vorticity and vertical motion fields, work through the relevant equations, and discuss the weather patterns they expect to see.</p>
+
+                <h3>Rigor, practice, and feedback</h3>
+                <p>Frequent low stakes work and review sessions help students identify areas of confusion before exams. My assessments ask them not only to carry out calculations 
+                    but to explain the physics. I use a mix of mathematical derivations, applications, and conceptual questions, and I've incorporated oral assessments that give 
+                    students an opportunity to explain their thinking.</p>
+
+                <h3>Mentoring beyond the classroom</h3>
+                <p>I also enjoy helping students, including younger graduate studnets, develop as independent scientists... whether that means learning Python, working on their 
+                    first figure, building confidence with the command line, preparing a poster, or connecting with a research opportunity. Teaching doesn't stop at the classroom door.</p>
+            </div>
         </section>
 
-        <section>
-            <h2>Assessment</h2>
-            <p>
-                I use diverse assessments, including traditional exams and quizzes alongside projects and presentations that allow students to demonstrate 
-                learning in the context of problems that are important to them. This approach supports multiple learning styles and interests while maintaining 
-                rigor and course standards. My ultimate goal is to prepare students not only to master course content, but also to transfer their learning 
-                to real challenges and opportunities.
-            </p>
+        <section class="teaching-section" id="feedback">
+            <h2>Student Feedback</h2>
+            <!-- <p>Weather Dynamics has a reputation for being a difficult course. That's part of why these evaluations mean so much to me: students recognized both the challenge and the support they received while working through it.</p> -->
+
+            <div class="teaching-eval-summary" aria-label="Selected official course evaluation results">
+                <div>
+                    <span class="teaching-eval-number">5.00 / 5.00</span>
+                    <span class="teaching-eval-label">Overall instructor effectiveness · Weather Dynamics I (MET 410), Fall 2025 · 22 of 24 students responded (91.7%)</span>
+                </div>
+                <div>
+                    <span class="teaching-eval-number">4.88 / 5.00</span>
+                    <span class="teaching-eval-label">Overall instructor effectiveness · Weather Dynamics II (MET 411), Spring 2026 · 17 of 25 students responded (68%)</span>
+                </div>
+            </div>
+
+            <p class="teaching-note">The comments below are anonymous excerpts from official NIU end of course evaluations. Ellipses indicate omitted text. </p>
+
+            <div class="teaching-quote-grid">
+                <blockquote class="teaching-quote">
+                    <p>“This class used to have a horrible reputation, and I was originally dreading it, but I have enjoyed every second of this course.”</p>
+                    <cite>Student evaluation · Weather Dynamics I, Fall 2025</cite>
+                </blockquote>
+                <blockquote class="teaching-quote">
+                    <p>“I consistently enjoy and look forward to attending class as Cait makes class extremely engaging and a pleasure to be in.”</p>
+                    <cite>Student evaluation · Weather Dynamics I, Fall 2025</cite>
+                </blockquote>
+                <blockquote class="teaching-quote">
+                    <p>“Always was available for help and clarification on topics if I did not understand… She put the hardest concepts in meteorology into very friendly terms.”</p>
+                    <cite>Student evaluation · Weather Dynamics I, Fall 2025</cite>
+                </blockquote>
+                <blockquote class="teaching-quote teaching-quote--wide">
+                    <p>“Cait is an instructor of the highest level. She has an incredible depth of knowledge in both the applied and theoretical sections of dynamics, and does a phenomenal job linking dynamics concepts to real–world applications. The labs are well–designed and useful for gaining skills, her lectures are engaging and informative, and her exams are academically rigorous but reasonable. She's always willing to provide extra help outside of class, and I always feel safe asking questions publicly and privately.”</p>
+                    <cite>Student evaluation · Weather Dynamics I, Fall 2025</cite>
+                </blockquote>
+                <blockquote class="teaching-quote teaching-quote--wide teaching-quote--family">
+                    <p>“This course was very challenging especially this semester as Cait had even higher expectations for us as students. Those higher expectations helped me in doing my best in class. … Our class together felt like a family and we all tried our best!”</p>
+                    <cite>Student evaluation · Weather Dynamics II, Spring 2026</cite>
+                </blockquote>
+            </div>
+        </section>
+
+        <section class="teaching-section" id="projects">
+            <h2>Education and Outreach Projects</h2>
+            <!-- <p>These projects reflect the different places I teach and share science: university classrooms, high school STEM education, and the wider Northern Illinois community.</p> -->
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <a href="https://github.com/caitroufa/dynamicslabs" target="_blank" rel="noopener noreferrer">
+                        <img src="images/dynamics_thumb.png" alt="Python lab screenshot" class="thumb" loading="lazy">
+                        <h3>Atmospheric Dynamics Python Labs</h3>
+                    </a>
+                    <span class="portfolio-type">Teaching resource</span>
+                    <p>Interactive labs for teaching the application of atmospheric dynamics concepts in Python.</p>
+                </div>
+                <div class="portfolio-item">
+                    <a href="https://sites.google.com/view/steamcareers/home" target="_blank" rel="noopener noreferrer">
+                        <img src="images/steam_thumb.png" alt="STEAM careers curriculum website" class="thumb" loading="lazy">
+                        <h3>STEAM Careers Curriculum</h3>
+                    </a>
+                    <span class="portfolio-type">Curriculum &amp; outreach</span>
+                    <p>Curriculum bridging high school physics with STEM careers and role models.</p>
+                </div>
+                <div class="portfolio-item">
+                    <a href="northern-illinois-climatology.html">
+                        <img src="images/us_climos/spc_scs_comparison_web.png" alt="Comparison of Northern Illinois severe weather climatologies" class="thumb" loading="lazy">
+                        <h3>Northern Illinois Weather &amp; Climate</h3>
+                    </a>
+                    <span class="portfolio-type">Community climate resource</span>
+                    <p>Regional climate and severe storm analyses, accessible explanations, and practical resources developed for the DeCarbon DeKalb community event.</p>
+                </div>
+            </div>
         </section>
     </main>
-
-    <footer>
-        <p>&copy; 2026 Caitlin Roufa</p>
-    </footer>
+    <footer><p>&copy; 2025-2026 Caitlin Roufa</p></footer>
 </body>
 </html>
