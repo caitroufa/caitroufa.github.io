@@ -8,6 +8,18 @@
     <link rel="icon" type="image/png" href="images/favicon.png">
     <link rel="stylesheet" href="styles.css">
     <script src="site.js" defer></script>
+    
+    <style>
+        /* Keep biography text and floated photos together */
+        body:not(.climatology-page) section.home-bio {
+            max-width: 1120px;
+            display: flow-root;
+        }
+        body:not(.climatology-page) section.home-bio > p {
+            max-width: none;
+        }
+    </style>
+
 </head>
 <body>
     <header>
@@ -65,9 +77,7 @@
         </div>
     </section>
 
-    <section>
-        <h2>Bio</h2>
-
+        <section class="home-bio">
         <figure class="bio-photo">
             <img src="images/Cait_AP_CarolynKaster.JPG" alt="Cait Roufa ICECHIP Mobile Mesonet Pods - Photo by Carolyn Kaster, AP">
         </figure>
