@@ -3,18 +3,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Cait Roufa | Research – Microgravity Experiments</title>
+    <meta name="description" content="NASA reduced-gravity research on lunar regolith: cyclonic dust filtration, collection efficiency, and angles of repose, led by Cait Roufa.">
+    <title>Cait Roufa | NASA Microgravity Research</title>
     <link rel="icon" type="image/png" href="images/favicon.png">
     <link rel="stylesheet" href="styles.css">
     <script src="site.js" defer></script>
+    <style>
+        /* The site's existing palette and shared layout remain in styles.css. */
+        .microgravity-page .microgravity-heading h1 {
+            color: var(--site-green-dark);
+            font-size: clamp(1.85rem, 3.6vw, 2.4rem);
+            line-height: 1.2;
+            margin: 0 0 11px;
+        }
+        .microgravity-page .microgravity-lead { color: var(--site-muted); margin: 0; font-size: 1.06rem; }
+        .microgravity-page .microgravity-section h2 { color: var(--site-green-dark); }
+        .microgravity-page .microgravity-section h3 { color: var(--site-green-dark); margin: 20px 0 7px; }
+        .microgravity-page .microgravity-section p { max-width: 920px; }
+        .microgravity-page .microgravity-intro-grid {
+            display: grid; grid-template-columns: minmax(0,1.35fr) minmax(250px,0.9fr);
+            align-items: start; gap: 24px; max-width: 1150px;
+        }
+        .microgravity-page .microgravity-intro-grid p { margin-top: 0; }
+        .microgravity-page figure { margin: 6px 0 18px; }
+        .microgravity-page figure img {
+            display: block; max-width: 100%; width: 100%; height: auto;
+            border-radius: 9px;
+        }
+        .microgravity-page figcaption {
+            margin-top: 7px; font-size: .9rem; color: var(--site-muted); line-height: 1.5;
+        }
+        .microgravity-page .microgravity-figure-grid {
+            display: grid; grid-template-columns: repeat(2,minmax(0,1fr));
+            gap: 22px; max-width: 1050px; margin-top: 22px;
+        }
+        .microgravity-page .microgravity-figure-grid--training { max-width: 900px; }
+        .microgravity-page .microgravity-figure-grid figure {
+            border: 1px solid var(--site-border); border-radius: 10px;
+            padding: 10px; margin: 0; background: white;
+        }
+        .microgravity-page .microgravity-figure-grid figure img { max-height: 480px; object-fit: contain; }
+        .microgravity-page .microgravity-note {
+            padding: 13px 17px; max-width: 920px; margin: 18px 0;
+            background: var(--site-mint); border-left: 4px solid var(--site-green);
+            border-radius: 0 9px 9px 0;
+        }
+        .microgravity-page .microgravity-meme {
+            max-width: 330px; margin: 15px 0 18px auto;
+            padding: 11px 15px; background: var(--site-blush);
+            border-left: 4px solid var(--site-rose); border-radius: 0 9px 9px 0;
+        }
+        .microgravity-page .microgravity-meme summary { cursor: pointer; color: var(--site-green-dark); font-weight: 700; }
+        .microgravity-page .microgravity-meme p { margin: 8px 0 3px; font-size: .9rem; }
+        .microgravity-page .microgravity-meme .tenor-gif-embed { max-width: 290px; }
+        .microgravity-page .microgravity-bibliography { padding-left: 22px; max-width: 1000px; }
+        .microgravity-page .microgravity-bibliography li { margin-bottom: 13px; line-height: 1.55; }
+        .microgravity-page .microgravity-back { margin-top: 30px; padding-bottom: 30px; }
+        @media(max-width: 740px) {
+            .microgravity-page .microgravity-intro-grid,
+            .microgravity-page .microgravity-figure-grid { grid-template-columns: 1fr; }
+            .microgravity-page .microgravity-figure-grid { gap: 15px; }
+            .microgravity-page .microgravity-meme { margin-left: 0; }
+        }
+    </style>
 </head>
 <body>
     <header>
         <h1>Cait Roufa</h1>
-        <nav>
+        <nav aria-label="Main navigation">
             <ul>
-                <li><a href="index.html">About Me</a></li>
+                <li><a href="/">About Me</a></li>
                 <li><a href="cv.html">Curriculum Vitae</a></li>
                 <li><a href="research.html" class="active" aria-current="page">Research</a></li>
                 <li><a href="publications.html">Publications</a></li>
@@ -24,18 +82,124 @@
         </nav>
     </header>
 
-    <section>
-        <h2>Inertial Filtration in Lunar Gravity</h2>
-        <p>Coming soon!</p>
-    </section>
+    <main class="microgravity-page" id="main-content">
+        <section class="microgravity-heading" aria-labelledby="microgravity-title">
+            <h1 id="microgravity-title">NASA Microgravity Research</h1>
+        </section>
 
-    <section>
-        <h2>Angles of Repose of Lunar Regolith</h2>
-        <p>Coming soon!</p>
-    </section>
+        <section class="microgravity-section" id="how-it-started">
+            <h2>How did I end up on NASA's “Vomit Comet”?</h2>
+            <div class="microgravity-intro-grid">
+                <div>
+                    <p>I was presenting work from my Elijah balloon payload project at the Wisconsin Space Grant Consortium conference. After the presentation, 
+                        I was sitting in the audience next to my professor, Dr. Kevin Crosby, when a group presented their research aboard NASA's reduced gravity aircraft, affectionately 
+                        known by many as the “Vomit Comet” or as the prefered, less visceral name, the "Weightless Wonder." I remember feeling so amazed by their experience and work, and looked 
+                        at Dr. Crosby with a big grin and said, <strong>“I'm doing that!”</strong></p>
+                    <p>He agreed to advise the project, with one condition: “I'll be your advisor, but you're doing all the work!” So I recruited a 
+                        team and wrote a proposal for NASA's microgravity university research program. Our first proposal was not selected, because other researchers were already working
+                         on our proposed research problem, but NASA's microgravity program reached out to connect us with Dr. Juan Agui, who had a research problem involving filtering lunar dust. 
+                        That connection became the beginning of two years of experimental research aboard NASA's reduced gravity aircraft.</p>
+                </div>
+                <figure>
+                    <img src="images/microgravity/roufa_with_regolith_apparatus.jpg"
+                         alt="Cait standing beside the team's blue-framed lunar dust filtration apparatus"
+                         width="2048" height="1536">
+                    <figcaption>Me with our cyclonic filtration experiment before flight.</figcaption>
+                </figure>
+            </div>
+        </section>
 
-    <footer>
-        <p>&copy; 2024-2026 Caitlin Roufa</p>
-    </footer>
+        <section class="microgravity-section" id="cyclonic-filtration">
+            <h2>Project 1: Does cyclonic filtration work in lunar gravity?</h2>
+            <p>When the Apollo astronauts visited the Moon, they had issues with the lunar dust. It's kinda nasty, with fine particles, like baby powder, that cling to everything. 
+                The dust (called regolith) is also very abrasive due to lack of erosive processes on the Moon. Lunar regolith causes problems with equipment and, over the long term, 
+                could also cause severe lung and other conditions. So if we want to keep a longer human presence on the Moon, we need solutions for dealing with lunar regolith on future missions. 
+                One possible solution is <strong>cyclonic filtration</strong>. A cyclone uses swirling airflow to separate dust particles from the air through inertia (think about those 
+                fancy Dyson vacuum cleaners). It can reduce the need for bulky disposable filters, but we didn't know how well it would perform in very low gravity ("microgravity").</p>
+            <aside class="microgravity-meme" aria-label="Optional Star Wars sand joke">
+                <details>
+                    <summary>Even Anakin had a point about dust…</summary>
+                    <p>“It's coarse and rough and irritating, and it gets everywhere.”</p>
+                    <div class="tenor-gif-embed" data-postid="2743302484875254134" data-share-method="host" data-aspect-ratio="1.78" data-width="100%">
+                        <a href="https://tenor.com/view/i-hate-sand-gif-2743302484875254134" target="_blank" rel="noopener noreferrer">Anakin's “I don't like sand” GIF</a>
+                    </div>
+                    <p><small><a href="https://tenor.com/view/i-hate-sand-gif-2743302484875254134" target="_blank" rel="noopener noreferrer">Via Tenor</a> · <em>Star Wars: Episode II</em></small></p>
+                </details>
+            </aside>
+            <p>Working with Dr. Agui, our team designed and built an experiment to test <strong>whether cyclonic filtration worked under simulated lunar gravity and how efficiently it 
+                collected particles</strong>. We flew the apparatus aboard the Vomit Comet, where the aircraft's parabolic maneuvers provide brief periods of lunar 
+                gravity for our measurements.</p>
+            <div class="microgravity-figure-grid">
+                <figure>
+                    <img src="images/microgravity/cyclonic_filtration_concept.png"
+                         alt="Concept diagram showing multiple cyclone separators in series" loading="lazy">
+                    <figcaption>Conceptual diagram of multistage cyclone separation, from our original presentation.</figcaption>
+                </figure>
+                <figure>
+                    <img src="images/microgravity/regolith_apparatus_in_flight.jpg"
+                         alt="Student researchers collecting data beside the blue-framed filtration apparatus inside NASA's reduced gravity aircraft" loading="lazy">
+                    <figcaption>Collecting data with the apparatus aboard the “Vomit Comet.”</figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <section class="microgravity-section" id="repose">
+            <h2>Project 2: What is the angle of repose in lunar gravity?</h2>
+            <p>Our second project focused on a different problem: how does loose lunar material settle and pile up when gravity is only about one-sixth as strong as it is here on Earth? 
+                The <strong>angle of repose</strong> is the steepest slope that a pile of loose grains can maintain before the material begins to slide. It's useful when thinking about 
+                excavating lunar soil and building structures. We designed and built a rotating apparatus with sealed vacuum chambers containing lunar mare simulant. The chambers had 
+                windows, and cameras recorded the material as the containers turned during reduced gravity maneuvers. We used those recordings to measure the angles of repose in lunar gravity.</p>
+            <figure style="max-width: 850px;">
+                <img src="images/microgravity/regolith_apparatus_closeup.jpg"
+                     alt="Experiment with three rotating vacuum chambers and cameras arranged to measure angles of repose of lunar simulant" loading="lazy">
+                <figcaption>Our angle-of-repose apparatus, with rotating vacuum chambers and cameras for recording the simulant angle.</figcaption>
+            </figure>
+        </section>
+
+        <section class="microgravity-section" id="flight">
+            <h2>What does it take to fly an experiment on the “Vomit Comet”?</h2>
+            <p>Much more than just showing up and getting on an airplane! I led the team, coordinated the experiment design and construction, prepared the safety manual and Test 
+                Equipment Data Package, managed the budget and expenses, and organized freight shipping and team travel. And then we actually had to get our experiments approved 
+                to fly. Before flight we did medical evaluations, equipment and safety reviews, and training that included time in a hypobaric chamber. We learned how to deal with 
+                low oxygen conditions and what to expect during parabolic flight. They even taught us what to do if we got sick in zero-g! I am forever grateful that I got to fly 
+                with our experiment and collect data... hand writing measurements from gauges on a clipboard. Being weightless, leading that project, engineering solutions, and 
+                getting to meet the many incredible people who worked at NASA (crew, astronauts, etc.) was one of the more memorable experiences of my life.</p>
+            <div class="microgravity-figure-grid microgravity-figure-grid--training">
+                <figure>
+                    <img src="images/microgravity/microgravity_training_helmet.jpg"
+                         alt="Cait wearing training equipment during preflight hypobaric chamber training" loading="lazy">
+                    <figcaption>High altitude training in the hypobaric chamber.</figcaption>
+                </figure>
+                <figure>
+                    <img src="images/microgravity/hypobaric_chamber.jpg"
+                         alt="NASA hypobaric chamber used during flight crew training" loading="lazy">
+                    <figcaption>The hypobaric chamber used during our preflight training.</figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <section class="microgravity-section" id="importance">
+            <h2>Why does this research matter?</h2>
+            <p>People working and living on the Moon will have to deal with problems that we don't usually think much about here on Earth. How do we keep fine, abrasive dust out 
+                of the air? How do we keep excavated slopes stable? Our projects investigated two pieces of those problems: how well cyclone separators collect particles in lunar 
+                gravity, and how lunar soil simulant behaves when it piles up in reduced gravity. These measurements will help inform the design of future lunar systems and surface 
+                operations. I still love that all of this started with watching another group present their research at a conference and deciding, <em>“I'm doing that!”</em> and will 
+                be forever grateful to my mentors at Carthage, like Dr. Crosby, and at NASA, like Dr. Agui, who gave me to encouragement and space to explore.</p>
+        </section>
+
+        <section class="microgravity-section" id="reports">
+            <h2>Related publications and reports</h2>
+            <ul class="microgravity-bibliography">
+                <li>Crosby, K. M., J. Agui, C. Pennington, E. Sorensen, E. Martin, I. Fritz, and B. Frye, 2009: <em>Measurements of the Collection Efficiency of an Air Cyclone in Lunar Gravity.</em> Wisconsin Space Grant Consortium. <a href="pubs/Measurements_of_the_Collection_Efficienc.pdf" target="_blank" rel="noopener noreferrer">PDF</a></li>
+                <li>Crosby, K. M., J. Agui, C. Pennington, E. Sorensen, E. Martin, I. Fritz, and B. Frye, 2008: <em>Inertial Filtration of Lunar Dust in Reduced Gravity.</em> Joint Annual Meeting of LEAG–ICEUM–SRR. <a href="pubs/InertialFiltration.pdf" target="_blank" rel="noopener noreferrer">PDF</a></li>
+                <li>Crosby, K. M., I. Fritz, S. Kreppel, E. Martin, C. Pennington, B. Frye, and J. Agui, 2009: <em>Scaling Relations for Repose Angles of Lunar Mare Simulants.</em> Lunar Exploration Analysis Group. <a href="pubs/ScalingRelations.pdf" target="_blank" rel="noopener noreferrer">PDF</a></li>
+            </ul>
+            <p class="microgravity-note">My earlier research was published under the name C. Pennington. See my <a href="publications.html">Publications page</a> for the full citations and other work.</p>
+            <p class="microgravity-back"><a href="research.html">← Back to Research</a></p>
+        </section>
+    </main>
+    <footer><p>&copy; 2024–2026 Caitlin Roufa</p></footer>
+    <!-- Optional hosted Tenor GIF; remove this script and the microgravity-meme aside if not wanted. -->
+    <script src="https://tenor.com/embed.js" async></script>
 </body>
 </html>
