@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Using random forests to identify elevated mixed layers from ERA5 atmospheric profiles, a Spring 2025 geoscience data science project by Cait Roufa and collaborators.">
-    <title>Cait Roufa | Elevated Mixed Layers and Random Forests</title>
+    <meta name="description" content="Using random forests to identify the elevated mixed layer from ERA5 derived input, a Spring 2025 geoscience data science project by Cait Roufa and collaborators.">
+    <title>Cait Roufa | The Elevated Mixed Layer and Random Forests</title>
     <link rel="icon" type="image/png" href="images/favicon.png">
     <link rel="stylesheet" href="styles.css">
     <script src="site.js" defer></script>
@@ -101,20 +101,30 @@
 
     <main class="eml-page" id="main-content">
         <section class="eml-heading">
-            <h1>Identifying Elevated Mixed Layers with Machine Learning</h1>
-            <p class="eml-subtitle">Spring 2025 · EAE 598: Data Science in the Geosciences · With Margo Andrews and Mackenzie Garrett</p>
+            <h1>Identifying the Elevated Mixed Layer using Machine Learning Methods</h1>
+            <p class="eml-subtitle">Spring 2025 · EAE 598: Data Science in the Geosciences · With Margo Andrews (Co-Lead) and Mackenzie Garrett</p>
         </section>
 
         <section class="eml-section" aria-labelledby="eml-question">
             <h2 id="eml-question">Can a random forest recognize an elevated mixed layer?</h2>
-            <p>An <strong>elevated mixed layer (EML)</strong> is a layer of air with steep lapse rates, often transported eastward from the high terrain of the southwestern United States and northern Mexico. EMLs are important to severe weather in the Great Plains: their steep lapse rates can contribute to instability, while a capping inversion can delay storm initiation.</p>
-            <p>For our geoscience data science course, my teammates and I wanted to know whether a machine learning model could identify EMLs from the properties of atmospheric vertical profiles. Traditional identification algorithms use a series of physical thresholds. We explored a <strong>random forest classifier</strong> as an alternative, using meteorological predictors derived from ERA5 reanalysis.</p>
+            <p>An <strong>elevated mixed layer (EML)</strong> is a layer of air with steep lapse rates, often transported eastward from 
+                the high terrain of the southwestern United States and northern Mexico. EMLs are important to severe weather in the Great 
+                Plains: their steep lapse rates can contribute to instability, while a capping inversion can delay storm initiation.</p>
+            <p>For our geoscience data science course, my teammate and I wanted to know whether a machine learning model could identify 
+                EMLs from the properties of atmospheric vertical profiles. Traditional identification algorithms use a series of physical 
+                thresholds. We explored a <strong>random forest classifier</strong> as an alternative, using meteorological predictors 
+                derived from ERA5 reanalysis.</p>
         </section>
 
         <section class="eml-section" aria-labelledby="eml-methods">
             <h2 id="eml-methods">Our approach</h2>
-            <p>We used six-hourly ERA5 data for May of <strong>2012–2021</strong> over the central United States, with existing EML classifications from Andrews et al. (2024) as our labels. The model used <strong>49 meteorological features</strong>, including lapse rates, temperature, humidity, CAPE, CIN, and wind-related parameters.</p>
-            <p>To reduce the risk of closely related weather samples appearing in both training and testing, we divided the data <strong>by year</strong>: 2012–2018 for training, 2019 for validation and hyperparameter tuning, and 2020–2021 for testing. We compared several random forest configurations and evaluated their performance using precision, recall, F1 score, and a confusion matrix—not just overall accuracy.</p>
+            <p>We used six-hourly ERA5 data for May of <strong>2012–2021</strong> over the central United States, with existing EML 
+                classifications from Andrews et al. (2024) as our labels. The model used <strong>49 meteorological features</strong>, 
+                including lapse rates, temperature, humidity, CAPE, CIN, and wind related parameters.</p>
+            <p>To reduce the risk of closely related weather samples appearing in both training and testing, we divided the data 
+                <strong>by year</strong>: 2012–2018 for training, 2019 for validation and hyperparameter tuning, and 2020–2021 for 
+                testing. We compared several random forest configurations and evaluated their performance using precision, recall, F1 score, 
+                and a confusion matrix in addition to overall accuracy.</p>
             <div class="eml-figure-grid">
                 <figure>
                     <img src="https://raw.githubusercontent.com/caitroufa/eml_id_randomforest/main/images/figure_1_domain.png"
@@ -131,14 +141,21 @@
 
         <section class="eml-section" aria-labelledby="eml-results">
             <h2 id="eml-results">What did we find?</h2>
-            <p>The classifier identified many EMLs, but the experiment also showed why choosing the right evaluation metrics is so important for rare-event classification.</p>
+            <p>The classifier identified many EMLs, but the experiment also showed why choosing the right evaluation metrics is so 
+                important for rare event classification.</p>
             <div class="eml-metrics" aria-label="Classification performance on the test dataset">
                 <div class="eml-metric"><strong>98%</strong><span>Overall accuracy</span></div>
                 <div class="eml-metric"><strong>86%</strong><span>EML recall</span></div>
                 <div class="eml-metric"><strong>35%</strong><span>EML precision</span></div>
             </div>
-            <p>Although the overall accuracy was high, <strong>EMLs were much less common than non-EMLs</strong> in the dataset. The model correctly detected 86% of actual EML cases, but only 35% of the profiles it labeled as EMLs were true EMLs. In other words, it caught most EMLs but also produced many false alarms. Adjusting class weights alone did not resolve the imbalance, so the model was a useful proof of concept rather than a ready-to-use operational classifier.</p>
-            <p>The strongest predictors were physically sensible: <strong>2–5 km and 700–500 hPa lapse rates</strong>, followed by measures including most-unstable CIN, 700-hPa temperature, surface-based CIN, and most-unstable CAPE. This was encouraging, but it also reinforced the importance of interpreting machine learning results through atmospheric physics.</p>
+            <p>Although the overall accuracy was high, <strong>EMLs were much less common than non-EMLs</strong> in the dataset. 
+                The model correctly detected 86% of actual EML cases, but only 35% of the profiles it labeled as EMLs were true EMLs. 
+                In other words, the model caught most EMLs but also produced many false positives. Adjusting class weights alone did not resolve 
+                the imbalance, so the model was a useful proof of concept rather than a ready-to-use operational classifier.</p>
+            <p>The strongest predictors were physically reasonable: <strong>2–5 km and 700–500 hPa lapse rates</strong>, followed by 
+                measures including most-unstable CIN, 700-hPa temperature, surface-based CIN, and most-unstable CAPE. This was encouraging, 
+                but it also reinforced the importance of interpreting machine learning results through physical understanding of atmospheric 
+                physics.</p>
             <div class="eml-figure-grid">
                 <figure>
                     <img src="https://raw.githubusercontent.com/caitroufa/eml_id_randomforest/main/images/figure_7_confusion_matrix.png"
@@ -155,14 +172,17 @@
 
         <section class="eml-section" aria-labelledby="eml-skills">
             <h2 id="eml-skills">Methods and skills developed</h2>
-            <p>This project was completed in <strong>EAE 598: Data Science in the Geosciences</strong> in Spring 2025. I also took <strong>EAE 560: Advanced Remote Sensing</strong> that same semester. Together, the courses gave me opportunities to explore a broader set of data science and machine learning techniques than the random forest model used here.</p>
+            <p>This project was completed in <strong>EAE 598: Data Science in the Geosciences</strong> in Spring 2025. I also took 
+                <strong>EAE 560: Advanced Remote Sensing</strong> that same semester. Together, the courses gave me opportunities to 
+                explore a broader set of data science and machine learning techniques than the random forest model used here, including:</p>
             <ul class="eml-skill-list">
                 <li><strong>Machine learning:</strong> random forests, convolutional neural networks, and self-organizing maps.</li>
-                <li><strong>Classification:</strong> supervised and unsupervised image classification, including applications in advanced remote sensing.</li>
+                <li><strong>Classification:</strong> supervised and unsupervised image classification, including land-use, cloud cover, veggetation, and other applications in advanced remote sensing, and storm mode in radar reflectivity.</li>
                 <li><strong>Model development and evaluation:</strong> training/validation/test design, hyperparameter tuning, class imbalance, precision, recall, F1 scores, and confusion matrices.</li>
                 <li><strong>Data analysis and software development:</strong> statistical modeling, Python scientific computing, reproducible notebooks, and software engineering principles.</li>
             </ul>
-            <p>One of my biggest takeaways was that a model's headline performance metric isn't always the most meaningful one—and that physical understanding remains essential when interpreting a machine learning result.</p>
+            <p>One of my biggest takeaways was that a model's headline performance metric isn't always the most meaningful one, 
+                and that physical understanding remains essential when interpreting model results.</p>
         </section>
 
         <section class="eml-section" aria-labelledby="eml-code">
