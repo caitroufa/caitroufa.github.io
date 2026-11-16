@@ -3,15 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Curriculum vitae of Caitlin M. Roufa, atmospheric dynamicist and science educator at Northern Illinois University.">
     <title>Cait Roufa | Curriculum Vitae</title>
     <link rel="icon" type="image/png" href="images/favicon.png">
     <link rel="stylesheet" href="styles.css">
     <script src="site.js" defer></script>
     <style>
-        /* Simple heading matching the site's other main pages. */
+        /* Existing CV header and profile buttons, retained from the previous page. */
         .experience-page .cv-page-heading {
             margin-top: 30px;
-            margin-bottom: 4px;
+            margin-bottom: 10px;
         }
         .experience-page .cv-page-heading h1 {
             margin: 0;
@@ -19,22 +20,9 @@
             font-size: clamp(1.8rem, 3.6vw, 2.35rem);
             line-height: 1.2;
         }
-        .experience-page #education {
-            border-top: 0;
-            padding-top: 0;
-            margin-top: 12px;
-        }
-        @media (max-width: 768px) {
-            .experience-page .cv-page-heading {
-                margin-top: 22px;
-                margin-bottom: 4px;
-            }
-        }
-        /* Compact academic CV identity and bibliography, with no extra cards. */
         .experience-page .cv-affiliation,
         .experience-page .cv-research-areas,
-        .experience-page .cv-contact-links,
-        .experience-page .cv-previous-name {
+        .experience-page .cv-contact-links {
             margin: 5px 0;
             max-width: 1050px;
         }
@@ -42,8 +30,7 @@
             font-weight: 600;
             color: var(--site-green-dark);
         }
-        .experience-page .cv-research-areas,
-        .experience-page .cv-previous-name {
+        .experience-page .cv-research-areas {
             color: var(--site-muted);
             font-size: .95rem;
         }
@@ -57,33 +44,12 @@
             font-weight: 600;
             white-space: nowrap;
         }
-        .experience-page .experience-section h3 {
-            font-size: 1.06rem;
-            color: var(--site-green-dark);
-            margin: 15px 0 7px;
-        }
-        .experience-page .cv-bibliography {
-            padding-left: 23px;
-        }
-        .experience-page .cv-bibliography > li {
-            margin-bottom: 8px;
-            line-height: 1.58;
-        }
-        .experience-page .cv-reference-note {
-            font-size: .92rem;
-            color: var(--site-muted);
-        }
-        .experience-page .cv-page-heading {
-            margin-bottom: 10px;
-        }
-        /* CV profile icon buttons */
         .experience-page .cv-profile-icons {
             display: flex;
             flex-wrap: wrap;
             gap: 14px;
             margin: 12px 0 20px;
         }
-        
         .experience-page .cv-profile-icons .cv-profile-icon {
             display: inline-flex;
             align-items: center;
@@ -97,41 +63,122 @@
             text-decoration: none;
             transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
         }
-        
         .experience-page .cv-profile-icon img {
             width: 40px;
             height: 40px;
             object-fit: contain;
         }
-        
         .experience-page .cv-niu-mark {
             font-size: 1.15rem;
             font-weight: 800;
             letter-spacing: -0.04em;
             color: var(--site-green-dark);
         }
-        
         .experience-page .cv-profile-icon:hover {
             transform: translateY(-3px);
             border-color: var(--site-green);
             box-shadow: 0 4px 12px rgba(36, 91, 67, 0.15);
         }
-        
-        .experience-page .cv-profile-icon:focus-visible {
+        .experience-page .cv-profile-icon:focus-visible,
+        .experience-page .cv-pdf-action:focus-visible {
             outline: 3px solid var(--site-green);
             outline-offset: 3px;
         }
-        /* NIU profile button */
         .experience-page .cv-profile-icons .cv-niu-icon {
             background: #BA0C2F;
             border-color: #BA0C2F;
         }
-        
         .experience-page .cv-niu-icon .cv-niu-mark {
             color: #ffffff;
             font-size: 1.25rem;
             font-weight: 800;
             letter-spacing: -0.04em;
+        }
+
+        /* New PDF display: no extra HTML CV to keep updated. */
+        .experience-page .cv-pdf-section {
+            max-width: 1080px;
+            margin-top: 8px;
+            padding-bottom: 35px;
+        }
+        .experience-page .cv-pdf-toolbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12px 20px;
+            margin-bottom: 14px;
+        }
+        .experience-page .cv-pdf-toolbar p {
+            margin: 0;
+            color: var(--site-muted);
+            font-size: .97rem;
+        }
+        .experience-page .cv-pdf-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .experience-page .cv-pdf-action {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 10px 17px;
+            border-radius: 8px;
+            border: 1px solid var(--site-green);
+            background: var(--site-green);
+            color: #ffffff !important;
+            font-weight: 700;
+            text-decoration: none;
+            line-height: 1.25;
+            transition: background .15s ease, border-color .15s ease;
+        }
+        .experience-page .cv-pdf-action:hover {
+            background: var(--site-green-dark);
+            border-color: var(--site-green-dark);
+            color: #ffffff !important;
+        }
+        .experience-page .cv-pdf-action--outline {
+            background: #ffffff;
+            color: var(--site-green-dark) !important;
+        }
+        .experience-page .cv-pdf-action--outline:hover {
+            background: var(--site-mint);
+            color: var(--site-green-dark) !important;
+        }
+        .experience-page .cv-pdf-frame {
+            border: 1px solid var(--site-border);
+            border-radius: 10px;
+            background: #ffffff;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, .06);
+        }
+        .experience-page .cv-pdf-frame iframe {
+            display: block;
+            width: 100%;
+            height: min(1100px, 88vh);
+            min-height: 700px;
+            border: 0;
+            background: #ffffff;
+        }
+        .experience-page .cv-pdf-mobile-note { display: none; }
+        @media (max-width: 768px) {
+            .experience-page .cv-page-heading { margin-top: 22px; margin-bottom: 4px; }
+            .experience-page .cv-pdf-section { margin-top: 18px; }
+            .experience-page .cv-pdf-frame { display: none; }
+            .experience-page .cv-pdf-mobile-note {
+                display: block;
+                padding: 18px;
+                background: var(--site-mint);
+                border: 1px solid var(--site-border);
+                border-radius: 10px;
+                color: var(--site-muted);
+                line-height: 1.55;
+            }
+            .experience-page .cv-pdf-mobile-note p { margin: 0; }
+            .experience-page .cv-pdf-actions { width: 100%; }
+            .experience-page .cv-pdf-action { flex: 1; text-align: center; }
         }
     </style>
 </head>
@@ -155,460 +202,99 @@
             <h1 id="cv-page-title">Curriculum Vitae</h1>
             <p class="cv-affiliation">Caitlin M. Roufa · Department of Earth, Atmosphere, and Environment · Northern Illinois University</p>
             <p class="cv-research-areas">Atmospheric dynamics · Climate variability · Subseasonal-to-seasonal predictability · Severe convective climatology · Education and Community Engagement</p>
-            <!-- <p class="cv-contact-links">
-                <a href="https://www.niu.edu/earth-atmosphere-environment/about/faculty-staff/graduate-assistants.shtml" target="_blank" rel="noopener noreferrer">NIU directory</a>
-                <a href="https://scholar.google.com/citations?user=FQx4c9wAAAAJ&amp;hl=en" target="_blank" rel="noopener noreferrer">Google Scholar</a>
-                <a href="https://orcid.org/0009-0005-9543-8236" target="_blank" rel="noopener noreferrer">ORCID</a>
-                <a href="contact.html">Contact</a>
-            </p> -->
             <div class="cv-contact-links cv-profile-icons">
-        
-            <!-- NIU Directory -->
-            <a href="https://wcs.niu.edu/"
-               class="cv-profile-icon cv-niu-icon"
-               target="_blank" rel="noopener noreferrer"
-               aria-label="NIU Weather, Climate, and Society Research Group"
-               title="NIU Directory">
-                <span class="cv-niu-mark" aria-hidden="true">NIU</span>
-            </a>
-        
-            <!-- Google Scholar -->
-            <a href="https://scholar.google.com/citations?user=FQx4c9wAAAAJ&amp;hl=en"
-               class="cv-profile-icon"
-               target="_blank" rel="noopener noreferrer"
-               aria-label="Google Scholar Profile"
-               title="Google Scholar">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c7/Google_Scholar_logo.svg"
-                     alt="">
-            </a>
-        
-            <!-- ORCID -->
-            <a href="https://orcid.org/0009-0005-9543-8236"
-               class="cv-profile-icon"
-               target="_blank" rel="noopener noreferrer"
-               aria-label="ORCID Profile"
-               title="ORCID">
-                <img src="https://orcid.org/assets/vectors/orcid.logo.icon.svg"
-                     alt="">
-            </a>
+                <!-- NIU Weather, Climate, and Society -->
+                <a href="https://wcs.niu.edu/"
+                   class="cv-profile-icon cv-niu-icon"
+                   target="_blank" rel="noopener noreferrer"
+                   aria-label="NIU Weather, Climate, and Society Research Group"
+                   title="NIU Directory">
+                    <span class="cv-niu-mark" aria-hidden="true">NIU</span>
+                </a>
 
-            <!-- LinkedIn -->
-            <a href="https://www.linkedin.com/in/caitpenn/"
-               class="cv-profile-icon"
-               target="_blank" rel="noopener noreferrer"
-               aria-label="LinkedIn Profile"
-               title="LinkedIn">
-                <svg viewBox="0 0 24 24"
-                     width="40" height="40"
-                     fill="#0A66C2"
-                     aria-hidden="true">
-                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.35V9h3.414v1.561h.049c.476-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 1 1 0-4.124 2.062 2.062 0 0 1 0 4.124zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"/>
-                </svg>
-            </a>
-        
-            <!-- Contact -->
-            <a href="contact.html"
-               class="cv-profile-icon"
-               aria-label="Contact Cait"
-               title="Contact">
-                <svg viewBox="0 0 24 24"
-                     width="36" height="36"
-                     fill="none" stroke="currentColor"
-                     stroke-width="1.7"
-                     stroke-linecap="round"
-                     stroke-linejoin="round"
-                     aria-hidden="true">
-                    <rect x="3" y="5" width="18" height="14" rx="2"/>
-                    <path d="M3 7l9 7 9-7"/>
-                </svg>
-            </a>
-        
-        </div>
+                <!-- Google Scholar -->
+                <a href="https://scholar.google.com/citations?user=FQx4c9wAAAAJ&amp;hl=en"
+                   class="cv-profile-icon"
+                   target="_blank" rel="noopener noreferrer"
+                   aria-label="Google Scholar Profile"
+                   title="Google Scholar">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c7/Google_Scholar_logo.svg" alt="">
+                </a>
+
+                <!-- ORCID -->
+                <a href="https://orcid.org/0009-0005-9543-8236"
+                   class="cv-profile-icon"
+                   target="_blank" rel="noopener noreferrer"
+                   aria-label="ORCID Profile"
+                   title="ORCID">
+                    <img src="https://orcid.org/assets/vectors/orcid.logo.icon.svg" alt="">
+                </a>
+
+                <!-- LinkedIn -->
+                <a href="https://www.linkedin.com/in/caitpenn/"
+                   class="cv-profile-icon"
+                   target="_blank" rel="noopener noreferrer"
+                   aria-label="LinkedIn Profile"
+                   title="LinkedIn">
+                    <svg viewBox="0 0 24 24"
+                         width="40" height="40"
+                         fill="#0A66C2"
+                         aria-hidden="true">
+                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.35V9h3.414v1.561h.049c.476-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 1 1 0-4.124 2.062 2.062 0 0 1 0 4.124zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"/>
+                    </svg>
+                </a>
+
+                <!-- Contact -->
+                <a href="contact.html"
+                   class="cv-profile-icon"
+                   aria-label="Contact Cait"
+                   title="Contact">
+                    <svg viewBox="0 0 24 24"
+                         width="36" height="36"
+                         fill="none" stroke="currentColor"
+                         stroke-width="1.7"
+                         stroke-linecap="round"
+                         stroke-linejoin="round"
+                         aria-hidden="true">
+                        <rect x="3" y="5" width="18" height="14" rx="2"/>
+                        <path d="M3 7l9 7 9-7"/>
+                    </svg>
+                </a>
+            </div>
         </section>
-<section class="experience-section" id="education">
-        <h2>Education</h2>
-        <ul>
-            <li><b>PhD – Earth, Atmosphere, and Environment</b>, Northern Illinois University, DeKalb, IL – expected Spring 2027</li>
-            <li><b>MA – Secondary Education in Physics</b>, Western Governors University, Salt Lake City, UT – 2020</li>
-            <li><b>Educator Licensure Secondary Science</b>, Northern Illinois University, DeKalb, IL – 2015–2017</li>
-            <li><b>Graduate Coursework – Nuclear Engineering</b>, University of Idaho, Idaho Falls, ID – 2009–2010</li>
-            <li><b>BA – Physics: Astrophysics, Math Minor</b>, Carthage College, Kenosha, WI – 2005–2009</li>
-        </ul>
-    </section>
 
-<section class="experience-section" id="research">
-        <h2>Research Experience</h2>
-        <ul>
-            <li><b>Doctoral Researcher (PhD Candidate)</b> - Weather, Climate, and Society Research Group, NIU, DeKalb, IL, 2022–Present
-                <ul>
-                    <li>Leading research on Earth's atmospheric angular momentum, global torque budgets, and large-scale circulation variability using ERA5 reanalysis</li>
-                    <li>Investigating connections between atmospheric dynamics, climate variability, and subseasonal predictability</li>
-                </ul>
-            </li>
-            <li><b>Research Assistant and Scientific Principal Investigator</b> - CIRCS, Northern Illinois University, DeKalb, IL, 2025–Present
-                <ul>
-                    <li>Originated and independently pitched funded research project investigating the evolution of high-loss severe convective storms and their perils in the U.S.</li>
-                    <li>Leading scientific research, project direction, execution, and the hiring and mentoring of student researchers</li>
-                </ul>
-            </li>
-            <li><b>Field Campaign Research Assistant</b> - Flexible Array of Radars and Mesonets, Boulder, CO, 2026
-                <ul>
-                    <li>Mobile mesonet and SWARMsonde operator for ICECHIP (hail) and BEST (tornado) campaigns</li>
-                </ul>
-            </li>
-            <li><b>Research Assistant</b> - Northern Illinois University, ICECHIP Field Campaign, DeKalb, IL, 2025
-                <ul>
-                    <li>Deployed and operated mobile mesonet vehicle and pods to measure surface conditions</li>
-                    <li>Responsible for data QC, pod team communications and coordination, instrument calibration and maintenance, storm spotting, and instrument deployment</li>
-                    <li>Collected, measured, massed, and crushed hailstones for analysis</li>
-                </ul>
-            </li>
-            <li><b>Graduate Research Assistant</b> - University of Idaho, Idaho Falls, ID, 2009-2010
-                <ul>
-                    <li>Investigated spent nuclear fuel recycling and storage techniques</li>
-                    <li>Explored nuclear and chemical engineering with a focus on ion exchange and pyroprocessing of nuclear waste</li>
-                </ul>
-            </li>
-            <li><b>Nuclear Research Intern</b> - Idaho National Laboratory, Idaho Falls, ID, 2009
-                <ul>
-                    <li>Explored pyroprocessing and ion exchange techniques for recycling spent nuclear fuel</li>
-                </ul>
-            </li>
-            <li><b>Physics Fellow</b> - Carthage College, Kenosha, WI, 2007-2009
-                <ul>
-                    <li>Conducted high resolution spectrometry and astrophysics research</li>
-                    <li>Assisted faculty with research and physics and astronomy lab course related tasks</li>
-                    <li>Maintained physics and astronomy lab and class spaces, lab equipment, and computers</li>
-                    <li>Ran weekly physics study sessions and tutored students</li>
-                </ul>
-            </li>
-            <li><b>Project Manager and Scientist</b> - NASA and Carthage College, Houston, TX and Kenosha, WI, 2007-2009
-                <ul>
-                    <li>Developed Microgravity University Systems program partnership between NASA and Carthage College</li>
-                    <li>Put together a team to conduct research on NASA's Weightless Wonder / Vomit Comet</li>
-                    <li>Worked with NASA advisor to complete development of an inertial particulate filtration device, a Mission Critical 
-                        project for future Moon exploration → outcome: proof of concept, successful cyclonic filtration in microgravity</li>
-                    <li>Designed and built experiment to assess angles of repose of lunar regolith in a lunar gravity environment</li>
-                    <li>Managed administrative, public outreach, scientific and engineering team</li>
-                </ul>
-            </li>
-            <li><b>Science and Engineering Intern</b> - Wisconsin Space Grant Consortium, Green Bay and Milwaukee, WI, 2007-2009
-                <ul>
-                    <li>Instrument Development Program - Created a near-space, multispectral atmospheric imager and launched on a high altitude weather balloon</li>
-                    <li>Designed, built, and launched additional science payload to determine vertical aerosol distribution in southern Wisconsin</li>
-                    <li>Responsible for developing scientific parameters, analyzing data for the instrument, and writing and presenting final reports at conferences</li>
-                </ul>
-            </li>
-            <li><b>Student Researcher: Astronomer</b> - Carthage College, Kenosha, WI, Yerkes Observatory, Williams Bay, WI, and Steward Observatory, Tucson, AZ, 2006-2009
-                <ul>
-                    <li>Research in observational astronomy using the 61" Kuiper Telescope and the 41" Yerkes Reflector</li>
-                    <li>Projects: Development of a high resolution spectrograph for resolving the Zeeman effect; Methods in Earthbound imaging of Saturn using 
-                        video techniques; Dynamics of planetary nebula</li>
-                </ul>
-            </li>
-        </ul>
-    </section>
+        <section class="cv-pdf-section" aria-label="Academic curriculum vitae PDF">
+            <div class="cv-pdf-toolbar">
+                <p>Current academic CV · PDF</p>
+                <div class="cv-pdf-actions">
+                    <a class="cv-pdf-action" href="CV_Roufa.pdf" target="_blank" rel="noopener noreferrer">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="M14 3h7v7"/><path d="M10 14 21 3"/><path d="M21 13v7a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h7"/>
+                        </svg>
+                        View full PDF
+                    </a>
+                    <a class="cv-pdf-action cv-pdf-action--outline" href="CV_Roufa.pdf" download="CV_Roufa.pdf">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 17v4h14v-4"/>
+                        </svg>
+                        Download CV
+                    </a>
+                </div>
+            </div>
 
-    <section class="experience-section" id="publications">
-        <h2>Publications and Manuscripts</h2>
-        <h3>Peer-reviewed journal articles</h3>
-        <ul class="cv-bibliography">
-            <li class="cv-citation">
-                <b>Roufa, C. M.</b>, W. S. Ashley, A. M. Haberlie,
-                J. M. Corner, K. T. Hawthorne, L. K. Moeller,
-                V. A. Gensini, and A. C. Michaelis, 2026:
-                Projected Mid- and Late-Century Changes in Severe
-                Convective Storms Across the United States From
-                Dynamically Downscaled Climate Simulations.
-                <i>International Journal of Climatology</i>,
-                <b>46</b>(11).
-                <a href="https://doi.org/10.1002/joc.70475"
-                   target="_blank" rel="noopener noreferrer">https://doi.org/10.1002/joc.70475</a>.
-            
-                <a href="https://rmets.onlinelibrary.wiley.com/doi/10.1002/joc.70475"
-                   target="_blank" rel="noopener noreferrer">[Journal Link]</a>
-            
-                <a href="pubs/joc70475_small.pdf"
-                   target="_blank" rel="noopener noreferrer">[PDF]</a>
-            </li>
-        </ul>
-        <h3>Manuscripts under review</h3>
-        <ul class="cv-bibliography">
-            <li class="cv-citation"><b>Roufa, C.M.</b>, V.A. Gensini:
-                <i>Atmospheric Angular Momentum: Climatology and Multiscale Budget Closure in ERA5.</i>
-                Manuscript under review at the <i>Journal of Climate</i>.</li>
-        </ul>
-        <h3>Manuscripts in Preparation</h3>
-        <ul class="cv-bibliography">
-            <li class="cv-citation">
-                Pittman, K. D., V. A. Gensini, <b>C. M. Roufa</b>, E. C. Jilek, and M. S. Andrews,
-                in preparation: A Wind Resistant Mobile Weather Balloon Launching Enclosure.
-                Target journal: <i>Journal of Atmospheric and Oceanic Technology</i>.
-            </li>
-            <li class="cv-citation">
-                <b>Roufa, C. M.</b>, and V. A. Gensini,
-                in preparation: Climate Mode Superposition in Earth's Atmospheric Angular Momentum. 
-                Target journal: <i>Climate Dynamics</i>
-            </li>
-        </ul>
-        <h3>Book chapters and technical reports</h3>
-        <ul class="cv-bibliography">
-            <li class="cv-citation">
-                Gensini, V. A., K. M. Weickmann, and <b>C. Roufa</b>,
-                2025: Chapter 12 – Global Wind Oscillation.
-                <i>Atmospheric Oscillations</i>,
-                B. Guan, Ed., Elsevier, 231–250.
-            
-                <a href="https://doi.org/10.1016/B978-0-443-15638-0.00012-5"
-                   target="_blank" rel="noopener noreferrer">https://doi.org/10.1016/B978-0-443-15638-0.00012-5</a>.
-            
-                <a href="pubs/GWO_Chapter12.pdf"
-                   target="_blank" rel="noopener noreferrer">[PDF]</a>
-            </li>
-            <li class="cv-citation">Crosby, K. M., J. Agui, <b>C. Pennington</b>, E. Sorensen, E. Martin, I. Fritz, 
-                and B. Frye, 2009: 
-                <i>Measurements of the Collection Efficiency of an Air Cyclone in Lunar Gravity.</i> 
-                Wisconsin Space Grant Consortium.
-                <a href="pubs/Measurements_of_the_Collection_Efficienc.pdf" target="_blank" rel="noopener noreferrer">[PDF]</a></li>
-        </ul>
-        <p class="cv-reference-note">A full publication and presentation list is also available on my <a href="publications.html">Publications page</a>.</p>
-    </section>
-
-    <section class="experience-section" id="presentations">
-        <h2>Conference Presentations and Proceedings</h2>
-        <h3>Upcoming</h3>
-        <ul class="cv-bibliography">
-            <li class="cv-citation"><b>Roufa, C. M.</b>, V. A. Gensini, 2027: 
-                <i>Torque Contributions to Atmospheric Angular Momentum Tendency During the Madden-Julian Oscillation.</i> 
-                107th AMS Annual Meeting, AMS. 
-                <a href="https://ams.confex.com/ams/107ANNUAL/meetingapp.cgi/Paper/490771" target="_blank" rel="noopener noreferrer">[Conference Link]</a></li>
-        </ul>
-        <h3>Recent scientific conferences</h3>
-        <ul class="cv-bibliography">
-            <li class="cv-citation"><b>Roufa, C. M.</b>, V. A. Gensini, 2026: 
-                <i>Subseasonal-to-Seasonal Predictability of North American Weather Regimes Using Global Wind Oscillation Phase-Space Trajectories.</i> 
-                2026 AMS Madison Summit, AMS. 
-                <a href="https://ams.confex.com/ams/2026Summit/meetingapp.cgi/Paper/483343" target="_blank" rel="noopener noreferrer">[Conference Link]</a></li>
-            <li class="cv-citation"><b>Roufa, C. M.</b>, V. A. Gensini, 2026:
-                 <i>Atmospheric Angular Momentum: Budget Consistency and Influence of Multiscale Climate Modes</i>
-                 106th AMS Annual Meeting, AMS.
-                 <a href="https://ams.confex.com/ams/106ANNUAL/meetingapp.cgi/Paper/475123" target="_blank" rel="noopener noreferrer">[Conference Link]</a></li>
-            <li class="cv-citation"><b>Roufa, C. M.</b>, W. S. Ashley, A. Haberlie, J. M. Corner, K. Hawthorne, 
-                L. Moeller, V. A. Gensini, and A. C. Michaelis, 2025: 
-                <i>The Future of Hazardous Convective Weather in the United States.</i> 
-                105th AMS Annual Meeting, AMS. 
-                <a href="https://ams.confex.com/ams/105ANNUAL/meetingapp.cgi/Paper/453321" target="_blank" rel="noopener noreferrer">[Conference Link]</a></li>
-        </ul>
-        <h3>Earlier conference proceedings and abstracts</h3>
-        <p class="cv-previous-name">Earlier publications appear under the name C. Pennington.</p>
-        <ul class="cv-bibliography">
-            <li class="cv-citation">Crosby, K. M., I. Fritz, S. Kreppel, E. Martin, <b>C. Pennington</b>, B. Frye, 
-                and J. Agui, 2009: 
-                <i>Scaling Relations for Repose Angles of Lunar Mare Simulants.</i> 
-                Annual Meeting of the Lunar Exploration Analysis Group, 1515, 13.
-                <a href="pubs/ScalingRelations.pdf" target="_blank" rel="noopener noreferrer">[PDF]</a></li>
-            <li class="cv-citation">Crosby, K. M., J. Agui, <b>C. Pennington</b>, E. Sorensen, E. Martin, I. Fritz, 
-                and B. Frye, 2008: 
-                <i>Inertial Filtration of Lunar Dust in Reduced Gravity.</i> 
-                Joint Annual Meeting of LEAG-ICEUM-SRR, 1446, 43.
-                <a href="pubs/InertialFiltration.pdf" target="_blank" rel="noopener noreferrer">[PDF]</a></li>
-            <li class="cv-citation">Arion, D. N., E. O. Martin, <b>C. Pennington</b>, and S. Kuttruff, 2008: 
-                <i>Structural Analysis of NGC 2371/2 Using Deep Images in [O III].</i> 
-                American Astronomical Society Meeting Abstracts #212, 212, 13.01.
-                <a href="https://ui.adsabs.harvard.edu/abs/2008AAS...212.1301A/abstract" target="_blank" rel="noopener noreferrer">[Abstract Link]</a></li>
-            <li class="cv-citation"><b>Pennington, C.</b>, K. Blakeman, J. Hart, E. Hoffman, C. Jelinski, R. Wilson, 2007: 
-                <i>2007 Elijah Project Science Payload Team</i> 
-                Proceedings of the 17th annual Wisconsin Space Conference, WSGC.
-                </li>
-        </ul>
-    </section>
-
-<section class="experience-section" id="grants">
-        <h2>Grants</h2>
-        <ul>
-            <li><b>CIRCS Project Funding, 2025 - Evolution of High-Loss SCS in the U.S. ($117,000)</b> — Project originator and scientific PI; NIU institutional PI of record: Alex Haberlie.</li>
-            <li>NIU Research and Travel Grant - 2023, 2024, 2025, 2026 ($2000)</li>
-            <li>NIU Kouba Fund Grant - 2023, 2024, 2025, 2026 ($6000)</li>
-            <li>Illinois Retired Teachers Association Grant - 2019 ($1000)</li>
-            <li><b>Carthage Physics Fellowship 2007–2009</b> (Annual Stipend)</li>
-        </ul>
-    </section>
-
-<section class="experience-section" id="teaching">
-        <h2>Teaching Experience</h2>
-        <ul>
-            <li><b>Instructor of Record</b> - Northern Illinois University, DeKalb, IL - 2023-2026
-                <ul>
-                    <li>Courses taught: MET 410/510/411/511 Weather Dynamics I & II; EAE 103 Planetary and Space Sciences</li>
-                    <li>Led university level lecture instruction in atmospheric dynamics and planetary science, including undergraduate and graduate courses</li>
-                    <li>Developed lessons, labs, applied exercises, and assessments to support students learning atmospheric dynamics</li>
-                </ul>
-            </li>
-            <li><b>Graduate Teaching Assistant</b> - Northern Illinois University - Dept of Earth, Atmosphere, and Environment - DeKalb, IL - 2022-2026
-                <ul>
-                    <li>Courses taught: MET 410/510/411/511 Weather Dynamics Lab I & II; Met 421 Synoptic Meteorology Lab; EAE 102 Environmental Geography Lab</li>
-                    <li>Course curriculum design: MET 410/510/411/511 Weather Dynamics I & II</li>
-                    <li>Redesigned Weather Dynamics lecture and laboratory curricula, including in class and Python activities and assessments.</li>
-                </ul>
-            </li>
-            <li><b>Science Teacher</b> - Harlem Consolidated School District 122, Machesney Park, IL - 2017-2022
-                <ul>
-                    <li>High School Subjects Taught: AP Physics, Earth Science: Astronomy, Oceanography, Meteorology, Climatology, Geology; 
-                        Honors Physics; STEAM Physics; Physical Science - Chemistry and Physics</li>
-                    <li>Content Leader - Physics and Earth and Space Sciences</li>
-                    <li>Developed new courses and curriculum: STEAM Physics, AP Physics, Earth and Space Science - AOM</li>
-                    <li>Organizations and Service: Key Club Advisor; E-team (Equity) Committee Member</li>
-                </ul>
-            </li>
-            <li><b>Instructional Designer and Content Expert GRA</b> - Northern Illinois University - Division of Outreach, Engagement, 
-                and Regional Development P-20 SmartSpace - DeKalb, IL - 2016-2017
-                <ul>
-                    <li>Developed science content for online games and created lesson plans for educators</li>
-                    <li>Led STEAM outreach workshops and events for students, teachers, and the public</li>
-                    <li>Assisted in securing project funding grants</li>
-                    <li>Designed lessons for and taught STEM and STEM skills through art projects to both US and International middle school students 
-                        at Laredo Taft Field Campus Summer Camps</li>
-                </ul>
-            </li>
-            <li><b>Student Teacher</b> - Rockford Public Schools 205 - Rockford, IL - 2016-2017
-                <ul>
-                    <li>Student taught 6th Grade Science at RESA MS - Chemistry, Climate, Environment</li>
-                    <li>Completed clinicals at Auburn High School - Physics</li>
-                </ul>
-            </li>
-            <li><b>Clinicals Student Teacher</b> - Kaneland School District 302 - Sugar Grove, IL - 2015-2016
-                <ul>
-                    <li>Clinicals student teacher, intervention teacher, and tutor at Kaneland High School and Kaneland Harter Middle School - Physics and 6-8 Science</li>
-                </ul>
-            </li>
-            <li><b>Substitute Teacher</b> - Mackay Joint School District 182, Mackay, ID - 2011-2012
-                <ul>
-                    <li>Substitute teacher grades K-12, all subjects</li>
-                </ul>
-            </li>
-        </ul>
-    </section>
-
-<section class="experience-section" id="awards">
-        <h2>Awards and Honors</h2>
-        <ul>
-            <li><b>Outstanding EAE Graduate Student Award 2026</b></li>
-            <li><b>NIU Outstanding Graduate Student Award 2024</b></li>
-            <li>WGU Excellence Award in Physics - Waves 2019</li>
-            <li>WGU Excellence Award in Physics - Optics 2019</li>
-            <li><b>Most Outstanding Physics Student of the Year 2008</b></li>
-        </ul>
-    </section>
-
-    <section class="experience-section" id="mentoring">
-        <h2>Research Mentoring and Training</h2>
-        <ul>
-            <li><b>Undergraduate Research Mentor – CIRCS Project, NIU, Spring 2026</b>
-                <ul>
-                    <li>Employed and mentored three undergraduate researchers working on severe convective storms research</li>
-                </ul>
-            </li>
-            <li><b>Student Research Mentor – Severe Convective Storms Climate Study EAE 790, NIU, Spring 2024</b>
-                <ul>
-                    <li>Mentored two undergraduate students and one master's student on research contributing to a published climate projections study</li>
-                </ul>
-            </li>
-            <li><b>Field Team Leadership – ICECHIP, 2025</b>
-                <ul>
-                    <li>Collaborating with a colleague, trained and mentored a mobile instrumentation pod team consisting of master's and undergraduate students in field operations, instrument deployment, and data collection</li>
-                </ul>
-            </li>
-            <li><b>Peer Technical Mentoring – NIU, ongoing</b>
-                <ul>
-                    <li>Help undergraduate and graduate researchers with commandline navigation, WRF simulations, Python programming, scientific figures, posters, research ideas, and manuscript and thesis drafts</li>
-                    <li>Connect students with faculty and research opportunities aligned with their interests</li>
-                    <li>Write letters of recommendation for students and mentees</li>
-                </ul>
-            </li>
-        </ul>
-    </section>
-
-    <section class="experience-section" id="outreach">
-        <h2>Outreach</h2>
-        <ul>
-            <li class="cv-citation"><b>Panelist</b>:
-                  <i>DeCarbon DeKalb: What's coming for Northern Illinois?</i> Nov 4, 2026.
-                  DeKalb, IL</li>
-            <li>Developed a public-facing <a href="northern-illinois-climatology.html">Northern Illinois weather and climate resource</a> with regional climatology and accessible figures for the November 2026 DeCarbon DeKalb presentation.</li>
-            <li class="cv-citation"><b>Invited Talk and Panelist</b>:
-                 <i>Vox Atmosphaerae: Hearing the Hidden Rhythms of Earth's Atmosphere</i> May 8, 2026.
-                 Ars Pvblica, Vox Naturae, Rockford, IL.</li>
-            <li class="cv-citation"><b>Invited Talk</b>:
-                 <i>One Hail of a Storm! Revisiting the 4.18.2025 Event, Hail Safety, and the Future of Severe Weather in Southern Wisconsin</i> April 22, 2026.
-                 EarthDay, Evansville CSD, Evansville, WI.</li>
-            <li class="cv-citation"><b>Panelist</b>:
-                 <i>Hotter, Wetter, Wilder: The Future of Climate in Northern Illinois,</i> April 11, 2026.
-                 DeCarbon DeKalb 3rd Annual EarthFest.</li>
-            <li><b>STEM Outreach and Instructional Design</b> – NIU P–20 SmartSpace, 2016–2017: Developed science learning activities and led STEAM workshops for students, educators, and public audiences.</li>
-        </ul>
-    </section>
-
-<section class="experience-section" id="service">
-        <h2>Professional Service and Organizations</h2>
-        <ul>
-            <li>NIU Women in STEM Ambassador - 2026</li>
-            <li>Ad hoc reviewer, <i>Climate Dynamics</i> (Springer Nature) - Since 2025</li>
-            <li>AMS NIU Chapter - Graduate Committee, Spring 2025</li>
-            <li>American Meteorological Society (AMS) NIU Chapter - Member, 2022–present</li>
-            <li>Equity Team Harlem HS - Advisory Committee Member, 2020–2022</li>
-            <li>STEPUP Physics - Ambassador, 2021</li>
-            <li>Key Club Harlem HS Chapter - Faculty Advisor, 2018–2021</li>
-            <li>Character Quest Leadership - Mentor, 2006–2009</li>
-            <li>Society of Physics Students - Committee Member, 2006–2009</li>
-        </ul>
-    </section>
-
-<section class="experience-section" id="skills">
-        <h2>Skills</h2>
-        <ul>
-            <li><b>Scientific Computing and Modeling:</b> WRF, ERA5, xarray/netCDF, Linux commandline navigation, high-performance computing, statistical modeling, machine learning (random forest, gradient boosted trees, neural networks, supervised and unsupervised image classification)</li>
-            <li><b>Programming Languages:</b> Python, Bash, LaTeX, HTML, SQL</li>
-            <li><b>Software:</b> ArcGIS Pro, QGIS, ERDAS Imagine, Google Earth Engine, Vim, Jupyter, VS Code</li>
-            <li><b>Education Skills:</b> Curriculum design, Classroom teaching</li>
-            <li><b>Research Skills:</b> Atmospheric dynamics, Climatology, GIS, Remote sensing, Data science, Modeling, Numerical weather prediction, Project management, Machine learning techniques</li>
-        </ul>
-    </section>
-
-<section class="experience-section" id="certifications">
-        <h2>Certifications</h2>
-        <ul>
-            <li><b>Illinois Professional Educator’s License</b> – Issued May 2017
-                <ul>
-                    <li>Subject endorsements: 6–12 Science, Physics, Chemistry, Earth and Space Science</li>
-                </ul>
-            </li>
-            <li><b>Geographic Information Systems Analysis Certificate</b> – Northern Illinois University, DeKalb, IL – May 2025</li>
-            <li><b>Amateur Radio License: Technician Class</b> – Federal Communications Commission (FCC)</li>
-        </ul>
-    </section>
-
-<section class="experience-section" id="other-work">
-        <h2>Other Work Experience</h2>
-        <ul>
-            <li>Custodian - Mackay Joint School District, Mackay, ID, 2011-2012</li>
-            <li>Dance Instructor - Eastern Idaho Technical College and Independent, Idaho Falls, ID, 2010-2012</li>
-            <li>Retail Associate - Hallmark, Idaho Falls, ID, 2010-2011</li>
-            <li>Office Assistant - Carthage College, Kenosha, WI, 2006-2009</li>
-            <li>File Clerk - Rockford Health System, Rockford, IL, 2006-2008</li>
-            <li>Conservation Worker - Illinois Department of Natural Resources, Rock Cut State Park, Loves Park, IL, 2005-2006</li>
-        </ul>
-    </section>
-
-<section class="experience-section" id="media">
-        <h2>In the Media</h2>
-        <ul>
-            <li><a href="https://newsroom.niu.edu/on-the-highway-to-hail/#gsc.tab=0">Interview Highway to Hail</a></li>
-            <li><a href="https://www.newscientist.com/article/mg26635500-300-meet-the-storm-chasers-on-the-hunt-for-extreme-hail/">ICECHIP In-Field Interview NewScientist</a></li>
-            <li><a href="https://www.newschannel10.com/2025/06/12/chase-hail/">ICECHIP Short In-Field Interview KFDA CBS 10 Amarillo</a></li>
-            <li><a href="https://www.fox32chicago.com/news/researchers-launch-multi-million-dollar-study-unlock-secrets-destructive-hail">ICECHIP Interview Fox 32 Chicago</a></li>
-            <li><a href="https://web.archive.org/web/20170629063007/https://www.nasa.gov/audience/foreducators/postsecondary/features/a-breath-of-fresh-air_prt.htm">NASA Interview</a></li>
-        </ul>
-    </section>
+            <!-- Desktop/tablet embedded PDF. Mobile browsers use the links above instead. -->
+            <div class="cv-pdf-frame">
+                <iframe src="CV_Roufa.pdf#view=FitH"
+                        title="Caitlin M. Roufa curriculum vitae PDF"
+                        loading="lazy">
+                    <p>Your browser does not support embedded PDF viewing.
+                       <a href="CV_Roufa.pdf" target="_blank" rel="noopener noreferrer">Open the CV PDF</a>.</p>
+                </iframe>
+            </div>
+            <div class="cv-pdf-mobile-note">
+                <p>For easier reading on your phone, use <strong>View full PDF</strong> above to open the CV in your device's PDF viewer, or download a copy.</p>
+            </div>
+        </section>
     </main>
 
     <footer>
