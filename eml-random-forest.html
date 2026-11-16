@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Using random forests to identify elevated mixed layers from ERA5 atmospheric profiles, a Spring 2025 geoscience data science project by Cait Roufa and collaborators.">
+    <title>Cait Roufa | Elevated Mixed Layers and Random Forests</title>
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="stylesheet" href="styles.css">
+    <script src="site.js" defer></script>
+    <style>
+        /* Local styles: no changes to the site's shared stylesheet needed. */
+        .eml-page .eml-heading h1 {
+            margin: 0 0 8px;
+            color: var(--site-green-dark);
+            font-size: clamp(1.85rem, 3.6vw, 2.4rem);
+            line-height: 1.2;
+        }
+        .eml-page .eml-subtitle {
+            color: var(--site-muted);
+            font-size: .97rem;
+            margin: 4px 0 0;
+        }
+        .eml-page .eml-section h2 { color: var(--site-green-dark); }
+        .eml-page .eml-section p { max-width: 940px; line-height: 1.65; }
+        .eml-page .eml-section h3 { color: var(--site-green-dark); margin: 20px 0 8px; }
+        .eml-page .eml-figure-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 20px;
+            max-width: 1080px;
+            margin: 22px 0;
+        }
+        .eml-page .eml-figure-grid figure {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 12px;
+            border: 1px solid var(--site-border);
+            border-radius: 10px;
+            background: #fff;
+        }
+        .eml-page .eml-figure-grid figure img {
+            display: block;
+            width: 100%;
+            height: 300px;
+            object-fit: contain;
+            border-radius: 5px;
+        }
+        .eml-page figcaption {
+            margin-top: 9px;
+            color: var(--site-muted);
+            font-size: .9rem;
+            line-height: 1.5;
+        }
+        .eml-page .eml-metrics {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px 35px;
+            margin: 17px 0 8px;
+        }
+        .eml-page .eml-metric { min-width: 120px; }
+        .eml-page .eml-metric strong {
+            display: block;
+            font-size: 1.7rem;
+            color: var(--site-green-dark);
+            line-height: 1.15;
+        }
+        .eml-page .eml-metric span { font-size: .9rem; color: var(--site-muted); }
+        .eml-page .eml-skill-list { max-width: 930px; padding-left: 24px; line-height: 1.65; }
+        .eml-page .eml-skill-list li { margin-bottom: 8px; }
+        .eml-page .eml-project-links { margin: 22px 0 28px; }
+        .eml-page .eml-project-links a {
+            display: inline-block;
+            padding: 9px 15px;
+            border: 1px solid var(--site-green);
+            border-radius: 8px;
+            font-weight: 700;
+            text-decoration: none;
+        }
+        .eml-page .eml-back { margin: 28px 0 44px; }
+        @media (max-width: 740px) {
+            .eml-page .eml-figure-grid { grid-template-columns: 1fr; gap: 16px; }
+            .eml-page .eml-figure-grid figure img { height: auto; max-height: 420px; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Cait Roufa</h1>
+        <nav>
+            <ul>
+                <li><a href="/">About Me</a></li>
+                <li><a href="cv.html">Curriculum Vitae</a></li>
+                <li><a href="research.html" class="active" aria-current="page">Research</a></li>
+                <li><a href="publications.html">Publications</a></li>
+                <li><a href="teaching.html">Teaching</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="eml-page" id="main-content">
+        <section class="eml-heading">
+            <h1>Identifying Elevated Mixed Layers with Machine Learning</h1>
+            <p class="eml-subtitle">Spring 2025 · EAE 598: Data Science in the Geosciences · With Margo Andrews and Mackenzie Garrett</p>
+        </section>
+
+        <section class="eml-section" aria-labelledby="eml-question">
+            <h2 id="eml-question">Can a random forest recognize an elevated mixed layer?</h2>
+            <p>An <strong>elevated mixed layer (EML)</strong> is a layer of air with steep lapse rates, often transported eastward from the high terrain of the southwestern United States and northern Mexico. EMLs are important to severe weather in the Great Plains: their steep lapse rates can contribute to instability, while a capping inversion can delay storm initiation.</p>
+            <p>For our geoscience data science course, my teammates and I wanted to know whether a machine learning model could identify EMLs from the properties of atmospheric vertical profiles. Traditional identification algorithms use a series of physical thresholds. We explored a <strong>random forest classifier</strong> as an alternative, using meteorological predictors derived from ERA5 reanalysis.</p>
+        </section>
+
+        <section class="eml-section" aria-labelledby="eml-methods">
+            <h2 id="eml-methods">Our approach</h2>
+            <p>We used six-hourly ERA5 data for May of <strong>2012–2021</strong> over the central United States, with existing EML classifications from Andrews et al. (2024) as our labels. The model used <strong>49 meteorological features</strong>, including lapse rates, temperature, humidity, CAPE, CIN, and wind-related parameters.</p>
+            <p>To reduce the risk of closely related weather samples appearing in both training and testing, we divided the data <strong>by year</strong>: 2012–2018 for training, 2019 for validation and hyperparameter tuning, and 2020–2021 for testing. We compared several random forest configurations and evaluated their performance using precision, recall, F1 score, and a confusion matrix—not just overall accuracy.</p>
+            <div class="eml-figure-grid">
+                <figure>
+                    <img src="https://raw.githubusercontent.com/caitroufa/eml_id_randomforest/main/images/figure_1_domain.png"
+                         alt="Map outlining the central United States study domain" loading="lazy">
+                    <figcaption>The central U.S. domain used to train and test the classifier.</figcaption>
+                </figure>
+                <figure>
+                    <img src="https://raw.githubusercontent.com/caitroufa/eml_id_randomforest/main/images/figure_5_attributes.png"
+                         alt="Box plots comparing selected environmental attributes for EML and non-EML profiles" loading="lazy">
+                    <figcaption>Comparing atmospheric predictors between profiles with and without EMLs.</figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <section class="eml-section" aria-labelledby="eml-results">
+            <h2 id="eml-results">What did we find?</h2>
+            <p>The classifier identified many EMLs, but the experiment also showed why choosing the right evaluation metrics is so important for rare-event classification.</p>
+            <div class="eml-metrics" aria-label="Classification performance on the test dataset">
+                <div class="eml-metric"><strong>98%</strong><span>Overall accuracy</span></div>
+                <div class="eml-metric"><strong>86%</strong><span>EML recall</span></div>
+                <div class="eml-metric"><strong>35%</strong><span>EML precision</span></div>
+            </div>
+            <p>Although the overall accuracy was high, <strong>EMLs were much less common than non-EMLs</strong> in the dataset. The model correctly detected 86% of actual EML cases, but only 35% of the profiles it labeled as EMLs were true EMLs. In other words, it caught most EMLs but also produced many false alarms. Adjusting class weights alone did not resolve the imbalance, so the model was a useful proof of concept rather than a ready-to-use operational classifier.</p>
+            <p>The strongest predictors were physically sensible: <strong>2–5 km and 700–500 hPa lapse rates</strong>, followed by measures including most-unstable CIN, 700-hPa temperature, surface-based CIN, and most-unstable CAPE. This was encouraging, but it also reinforced the importance of interpreting machine learning results through atmospheric physics.</p>
+            <div class="eml-figure-grid">
+                <figure>
+                    <img src="https://raw.githubusercontent.com/caitroufa/eml_id_randomforest/main/images/figure_7_confusion_matrix.png"
+                         alt="Confusion matrix comparing predicted and observed EML classification labels" loading="lazy">
+                    <figcaption>The confusion matrix reveals the false alarms hidden by the high overall accuracy.</figcaption>
+                </figure>
+                <figure>
+                    <img src="https://raw.githubusercontent.com/caitroufa/eml_id_randomforest/main/images/figure_8_feature_importance.png"
+                         alt="Random forest feature-importance ranking with midlevel lapse rates among the leading predictors" loading="lazy">
+                    <figcaption>Midlevel lapse rates were the most important predictors in the random forest.</figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <section class="eml-section" aria-labelledby="eml-skills">
+            <h2 id="eml-skills">Methods and skills developed</h2>
+            <p>This project was completed in <strong>EAE 598: Data Science in the Geosciences</strong> in Spring 2025. I also took <strong>EAE 560: Advanced Remote Sensing</strong> that same semester. Together, the courses gave me opportunities to explore a broader set of data science and machine learning techniques than the random forest model used here.</p>
+            <ul class="eml-skill-list">
+                <li><strong>Machine learning:</strong> random forests, convolutional neural networks, and self-organizing maps.</li>
+                <li><strong>Classification:</strong> supervised and unsupervised image classification, including applications in advanced remote sensing.</li>
+                <li><strong>Model development and evaluation:</strong> training/validation/test design, hyperparameter tuning, class imbalance, precision, recall, F1 scores, and confusion matrices.</li>
+                <li><strong>Data analysis and software development:</strong> statistical modeling, Python scientific computing, reproducible notebooks, and software engineering principles.</li>
+            </ul>
+            <p>One of my biggest takeaways was that a model's headline performance metric isn't always the most meaningful one—and that physical understanding remains essential when interpreting a machine learning result.</p>
+        </section>
+
+        <section class="eml-section" aria-labelledby="eml-code">
+            <h2 id="eml-code">Project repository</h2>
+            <p>Our GitHub repository contains the project writeup, figures, and Jupyter notebooks used for the analysis.</p>
+            <p class="eml-project-links"><a href="https://github.com/caitroufa/eml_id_randomforest" target="_blank" rel="noopener noreferrer">View project on GitHub</a></p>
+            <p class="eml-back"><a href="research.html">← Back to Research</a></p>
+        </section>
+    </main>
+    <footer><p>&copy; 2024–2026 Caitlin Roufa</p></footer>
+</body>
+</html>
